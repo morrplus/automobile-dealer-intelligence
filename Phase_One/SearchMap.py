@@ -21,9 +21,10 @@ import time
 # pyrefly: ignore [missing-import]
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 from converting import geocode
 
-load_dotenv()
+load_dotenv(Path(__file__).parent.parent / ".env")
 SERPAPI_KEY = os.getenv("SERPAPI_KEY")
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────────
@@ -174,13 +175,13 @@ def display_dealers(dealers: list):
 
 # ─── SAVE FUNCTION ─────────────────────────────────────────────────────────────
 
-def save_to_json(dealers: list, city: str, pincode: str):
-    """Save results to a JSON file named after the city+pincode."""
-
+def save_to_json(dealers: list, city: str, pincode: str) -> Path:
     filename = f"dealers_{city.replace(' ', '_')}_{pincode}.json"
-    with open(filename, "w", encoding="utf-8") as f:
+    filepath = Path(__file__).parent / filename
+    with open(filepath, "w", encoding="utf-8") as f:
         json.dump(dealers, f, indent=2, ensure_ascii=False)
     print(f"\n  ✓ Saved to {filename}")
+    return filepath
 
 
 # ─── MAIN ──────────────────────────────────────────────────────────────────────
@@ -220,8 +221,18 @@ if __name__ == "__main__":
     # Step 5: Display
     display_dealers(dealers)
 
-    # Step 6: Save to JSON
+    # Step 6: Save to JSON and trigger Phase 2
     if dealers:
         save = input("\nSave results to JSON? (y/n) : ").strip().lower()
         if save == "y":
-            save_to_json(dealers, city, pincode)
+            json_path = save_to_json(dealers, city, pincode)
+
+            # Automatically trigger Phase 2
+            run_phase2 = input("\nRun Phase 2 enrichment now? (y/n) : ").strip().lower()
+            if run_phase2 == "y":
+                print("\nHanding off to JinaWeb...\n")
+                import sys
+                sys.path.append(str(Path(__file__).parent.parent / "Phase_two"))
+                from JinaWeb import run
+                run(json_path)
+    

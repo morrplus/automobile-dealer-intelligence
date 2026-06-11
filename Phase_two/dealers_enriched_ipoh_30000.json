@@ -1,0 +1,665 @@
+[
+  {
+    "name": "Soon Foong Auto Enterprise",
+    "address": "Lot 3050S, Persiaran Kampar, Taman Chateau, 30250 Ipoh, Perak, Malaysia",
+    "phone": "+60 12-501 8921",
+    "website": "https://m.facebook.com/SoonFoongAutoEnterprise",
+    "rating": 4.4,
+    "place_id": "ChIJp10-V27syjERUSjMj_lO-X4",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-business/IP0203170V/SOON-FOONG-AUTO-ENTERPRISE",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/soon-foong-auto-enterprise",
+        "confidence": null
+      },
+      "carlist": {
+        "url": null,
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/p/Soon-Foong-Auto-Enterprise-Used-Car-Dealer-Ipoh-SFAE-61557389361751/",
+        "confidence": "low"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "JB Auto World ( Ipoh )",
+    "address": "Lot 29892, Jalan Silibin, Kampung Thye Lee, 30100 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-826 3897",
+    "website": "https://www.jbautoworld.com.my/",
+    "rating": 4.9,
+    "place_id": "ChIJ481RV2rryjERb6K0hT7kjKc",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.jbautoworld.com.my/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": null,
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/jbautoworld",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/JBAutoWorldSdnBhd/",
+        "confidence": "high"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": "https://www.tiktok.com/@jbautoworld",
+        "confidence": "high"
+      }
+    }
+  },
+  {
+    "name": "Yihson Auto Trading Used Car Dealer",
+    "address": "114&116, Jalan Leong Boon Swee, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 17-527 2428",
+    "website": "https://www.facebook.com/yihson/",
+    "rating": 5,
+    "place_id": "ChIJkcOfl3nsyjER98zMAQB2hl0",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.caricarz.com/dealer/ksyihson/cars-for-sale?srsltid=AfmBOoqW1HNVSOiFH3MaOF9z7d-ZjAD44D-gTUR6ujWWNMgS6IPclWhh",
+        "confidence": null
+      },
+      "mudah": {
+        "url": null,
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/ymauto",
+        "confidence": null
+      },
+      "autocari": {
+        "url": "https://autocari.com/index.php?r=dealer/used",
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/yihson/",
+        "confidence": "mid"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "Chee Keong Used Cars Dealer",
+    "address": "49A, Lot 113445, Jalan Pasir Puteh, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 12-512 6106",
+    "website": "https://m.facebook.com/cheekeongusedcarsdealer/?ref=bookmarks",
+    "rating": 4.1,
+    "place_id": "ChIJaa156G_syjER_JKSwLTCtWo",
+    "type": "Car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.caricarz.com/dealer/andylaw/about_us?srsltid=AfmBOopIdVj7q24N5ADUOJmDOOUmc6Ek-T2fOfQVYDQbCKUTm_MsqLVu",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/chee-keong-used-car-dealer-car-dealer",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/cheekeong",
+        "confidence": null
+      },
+      "autocari": {
+        "url": "https://www.autocari.com/index.php?r=dealer/new",
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "PRIMA AUTOWORLD SDN BHD",
+    "address": "LOT 7169S, Jalan Leong Boon Swee, Taman Taiping, 30000 Ipoh, Perak, Malaysia",
+    "phone": "+60 12-946 3382",
+    "website": "https://www.primaautoworld.com.my/",
+    "rating": 4.6,
+    "place_id": "ChIJ04lYUnfsyjERjnCVxDmAJRo",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.primaautoworld.com.my/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/primaautoworld",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/primamotorent",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/primamotor88/photos/",
+        "confidence": "mid"
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/prima_autoworld/",
+        "confidence": "high"
+      },
+      "tiktok": {
+        "url": "https://www.tiktok.com/@publicautoworldsdnbhd",
+        "confidence": "high"
+      }
+    }
+  },
+  {
+    "name": "Cars Palace Sdn Bhd | Used Car Sales & Service",
+    "address": "Esso, 31350 Ipoh, Perak, Malaysia",
+    "phone": "+60 5-241 0729",
+    "website": "https://www.facebook.com/Cars-Palace-Auto-Enterprise-124316791513849/",
+    "rating": 4.7,
+    "place_id": "ChIJDfzmSk_tyjERgl7du8Qm98c",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.cmautohaus.com.my/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": null,
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/carspalace",
+        "confidence": null
+      },
+      "autocari": {
+        "url": "https://autocari.com/index.php?r=dealer/used",
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/carspalaceipoh/",
+        "confidence": "high"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": "https://www.tiktok.com/@carspalace_team",
+        "confidence": "high"
+      }
+    }
+  },
+  {
+    "name": "TNT used car Ipoh 怡保二手车",
+    "address": "78, Jalan Ng Weng Hup, Taman Pertama, 30100 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-566 9063",
+    "website": "https://m.facebook.com/tntauto78/",
+    "rating": 4.9,
+    "place_id": "ChIJEwH1FXjryjERgN4sw0Vo-ms",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://by.maptons.com/p/9870302169",
+        "confidence": null
+      },
+      "mudah": {
+        "url": null,
+        "confidence": null
+      },
+      "carlist": {
+        "url": null,
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "Asas Timur Enterprise - Ipoh Used Car Dealer",
+    "address": "Lot 29793, Jalan Bendahara, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 12-505 6100",
+    "website": null,
+    "rating": 4.3,
+    "place_id": "ChIJo_J0RXDsyjERBxT1OScxyM8",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.caricarz.com/dealer/asastimur/cars-for-sale?srsltid=AfmBOopK4psWY8vMHDeyPmOebu0KCVmwMg-Z3nPBj_K5aCX-yuseLJ6r",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/robert-lee-asas-timur-enterprise-non",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/asastimurent",
+        "confidence": null
+      },
+      "autocari": {
+        "url": "https://autocari.com/index.php?r=dealer/used",
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/100064112886638/videos/test-drive-hilux-double-cab-25/137765708178321/",
+        "confidence": "low"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "Onn Fatt 4x4 Ipoh",
+    "address": "Lot 29822, Jalan Pasir Puteh, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-257 3972",
+    "website": "https://www.onnfatt.com.my/",
+    "rating": 5,
+    "place_id": "ChIJLRD5M87tyjERMByA53CEnTk",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.onnfatt.com.my/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/onnfatt",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/cars-for-sale/body-Pickup/malaysia_perak_ipoh?keyword=4x4&transmission=automatic&page_size=25",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/onnfattcredit/",
+        "confidence": "mid"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "MK Car Auto Enterprise ( Used Car Dealer )",
+    "address": "Lot 13248s, Jalan Raja Permaisuri Bainun, Persiaran Kampar, 30250 Ipoh, Perak, Malaysia",
+    "phone": "+60 18-955 3990",
+    "website": null,
+    "rating": 5,
+    "place_id": "ChIJSzY-p1btyjERQ7LOX2Hv-EA",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.cars.com/dealers/6061071/mk-motors/inventory/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/nelson-lau-mk-car-auto-enterprise-ipoh",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/senhen19792",
+        "confidence": null
+      },
+      "autocari": {
+        "url": "https://autocari.com/index.php?r=dealer/used",
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/explore/locations/102956064469598/mk-car-auto-enterprise/",
+        "confidence": "low"
+      },
+      "tiktok": {
+        "url": "https://www.tiktok.com/@aizatcardealer",
+        "confidence": "mid"
+      }
+    }
+  },
+  {
+    "name": "LT Auto Haus • De Garden",
+    "address": "PT 162012, Jalan Sultan Azlan Shah Utara, Taman Ipoh, 31400 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-228 8110",
+    "website": "https://m.facebook.com/LTautohaus/",
+    "rating": 4.6,
+    "place_id": "ChIJg2cpAQntyjERMK78hj9hJ1g",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": null,
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/ket-loh-lt-auto-house-ipoh",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/64fc29cc-5ff7-464c-935c-c0e4f8076767",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/LTAutoHausIpoh/mentions/",
+        "confidence": "high"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": "https://www.tiktok.com/@ltautohaus",
+        "confidence": "high"
+      }
+    }
+  },
+  {
+    "name": "WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer",
+    "address": "Lot 12551S-12556S, Jalan Leong Boon Swee, Taman Taiping, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-558 0888",
+    "website": "http://www.worldclassmotor.com.my/",
+    "rating": 4.3,
+    "place_id": "ChIJ9dHByXDsyjERfjfW9UpIXqg",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "http://www.worldclassmotor.com.my/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": null,
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/worldclassmoto",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/totalworldclass/",
+        "confidence": "high"
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "iMotor Auto Sdn. Bhd",
+    "address": "Lot 12628S, Jalan Leong Boon Swee, Taman Taiping, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 12-516 2322",
+    "website": null,
+    "rating": 4.9,
+    "place_id": "ChIJmyMrdI3tyjERpY63T6LVYow",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-company/1476176M/IMOTOR-AUTO-SDN-BHD-",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/imotor-auto-sdn-bhd-1476176-m",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/bd571266-2fd3-430c-8afb-a9f9be3129e9",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "P&D AutoWorld Sdn Bhd",
+    "address": "117, Jalan Raja Permaisuri Bainun, Taman Hoover, 30250 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-882 2168",
+    "website": "http://pdautoworld.com/",
+    "rating": 5,
+    "place_id": "ChIJEXPCDzvtyjEREv_rH_KeJco",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.primaautoworld.com.my/ourproducts/",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/pdautoworld",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/e641b22e-0050-4fd5-9907-7b2115e01757",
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": "https://www.tiktok.com/@pdautoworldsdnbhd",
+        "confidence": "high"
+      }
+    }
+  },
+  {
+    "name": "Tai Tung Used Car",
+    "address": "LOT 32225, Jalan Leong Boon Swee, Taman Taiping, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-531 0426",
+    "website": null,
+    "rating": 3.9,
+    "place_id": "ChIJ7eeuVnfsyjEROrTxwE-0dAI",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://www.caricarz.com/dealer/taitung9663/about_us?srsltid=AfmBOorUIjlZl57UgJE9PbtdxHSFJ0xo4QK-jLbGgvZwBBSfVqqA_gIr",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/perak/cars-for-sale",
+        "confidence": null
+      },
+      "carlist": {
+        "url": "https://www.carlist.my/dealer/worldclassmoto",
+        "confidence": null
+      },
+      "autocari": {
+        "url": "https://autocari.com/index.php?r=dealer/used",
+        "confidence": null
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/tntauto78/videos/our-current-in-stock-unit/1238171757752838/",
+        "confidence": "low"
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/taunisgarage/",
+        "confidence": "mid"
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "RS AUTO & SP AUTO ENTERPRISE",
+    "address": "LOT 6489S, Jalan Leong Boon Swee, 31650 Ipoh, Perak, Malaysia",
+    "phone": "+60 17-575 7979",
+    "website": null,
+    "rating": 4.8,
+    "place_id": "ChIJW6kdjwTtyjERS5jJMg4nNW0",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": "https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-business/IP0443727P/RS-AUTO-ENTERPRISE",
+        "confidence": null
+      },
+      "mudah": {
+        "url": "https://www.mudah.my/rs-auto-enterprise",
+        "confidence": null
+      },
+      "carlist": {
+        "url": null,
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  },
+  {
+    "name": "NKH Used Cars",
+    "address": "Jalan Voon Thean Soo, 30250 Ipoh, Perak, Malaysia",
+    "phone": "+60 16-567 6190",
+    "website": null,
+    "rating": 4.7,
+    "place_id": "ChIJA5tkxKztyjERiLS-kxZB9Hc",
+    "type": "Used car dealer",
+    "links": {
+      "website": {
+        "url": null,
+        "confidence": null
+      },
+      "mudah": {
+        "url": null,
+        "confidence": null
+      },
+      "carlist": {
+        "url": null,
+        "confidence": null
+      },
+      "autocari": {
+        "url": null,
+        "confidence": null
+      },
+      "facebook": {
+        "url": null,
+        "confidence": null
+      },
+      "instagram": {
+        "url": null,
+        "confidence": null
+      },
+      "tiktok": {
+        "url": null,
+        "confidence": null
+      }
+    }
+  }
+]

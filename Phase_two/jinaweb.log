@@ -1,0 +1,1630 @@
+2026-06-11 02:09:26,702  INFO      Loaded 16 businesses from dealers_bangsar_59100.json
+2026-06-11 02:09:26,702  INFO      [1/16] ─────────────────────────────────────────
+2026-06-11 02:09:26,702  INFO      Processing: Sime Darby Auto Selection Kuala Lumpur
+2026-06-11 02:09:27,010  INFO          Existing website [https://sdas.my/] → dead
+2026-06-11 02:09:42,427  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:09:42,428  INFO          Final URLs kept: []
+2026-06-11 02:09:42,435  INFO          Saved to dealers_enriched.json
+2026-06-11 02:09:44,436  INFO   s   [2/16] ─────────────────────────────────────────
+2026-06-11 02:09:44,437  INFO      Processing: Dimensi (PJ Jalan Templer)
+2026-06-11 02:09:46,237  INFO          Existing website [https://dimensi.my/] → verified
+2026-06-11 02:10:03,775  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:10:03,776  INFO          Final URLs kept: ['https://dimensi.my/']
+2026-06-11 02:10:03,779  INFO          Saved to dealers_enriched.json
+2026-06-11 02:10:05,781  INFO      [3/16] ─────────────────────────────────────────
+2026-06-11 02:10:05,782  INFO      Processing: Infinity World Group Sdn Bhd
+2026-06-11 02:10:05,782  INFO          Existing website [None] → none
+2026-06-11 02:10:21,176  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:10:21,176  INFO          Final URLs kept: []
+2026-06-11 02:10:21,178  INFO          Saved to dealers_enriched.json
+2026-06-11 02:10:23,179  INFO      [4/16] ─────────────────────────────────────────
+2026-06-11 02:10:23,179  INFO      Processing: Sincere Automotive Sdn Bhd
+2026-06-11 02:10:26,185  INFO          Existing website [http://malaysiabusiness.info/?page_id=105&listing-w2dc=sincereauto] → dead
+2026-06-11 02:10:41,549  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:10:41,549  INFO          Final URLs kept: []
+2026-06-11 02:10:41,551  INFO          Saved to dealers_enriched.json
+2026-06-11 02:10:43,552  INFO      [5/16] ─────────────────────────────────────────
+2026-06-11 02:10:43,552  INFO      Processing: Yui Hui Auto- Car Dealer
+2026-06-11 02:10:45,133  INFO          Existing website [http://yuihuiauto.my/] → dead
+2026-06-11 02:11:00,572  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:11:00,572  INFO          Final URLs kept: []
+2026-06-11 02:11:00,574  INFO          Saved to dealers_enriched.json
+2026-06-11 02:11:02,575  INFO      [6/16] ─────────────────────────────────────────
+2026-06-11 02:11:02,575  INFO      Processing: Motor Trader
+2026-06-11 02:11:03,366  INFO          Existing website [https://www.motortrader.com.my/] → dead
+2026-06-11 02:11:18,835  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:11:18,836  INFO          Final URLs kept: []
+2026-06-11 02:11:18,838  INFO          Saved to dealers_enriched.json
+2026-06-11 02:11:20,839  INFO      [7/16] ─────────────────────────────────────────
+2026-06-11 02:11:20,839  INFO      Processing: CarStation
+2026-06-11 02:11:21,511  INFO          Existing website [https://www.facebook.com/Carstation88] → verified
+2026-06-11 02:11:36,888  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:11:36,889  INFO          Final URLs kept: ['https://www.facebook.com/Carstation88']
+2026-06-11 02:11:36,892  INFO          Saved to dealers_enriched.json
+2026-06-11 02:11:38,893  INFO      [8/16] ─────────────────────────────────────────
+2026-06-11 02:11:38,893  INFO      Processing: TH GLOBAL MOTORS SDN BHD
+2026-06-11 02:11:38,893  INFO          Existing website [None] → none
+2026-06-11 02:11:54,284  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:11:54,285  INFO          Final URLs kept: []
+2026-06-11 02:11:54,286  INFO          Saved to dealers_enriched.json
+2026-06-11 02:11:56,287  INFO      [9/16] ─────────────────────────────────────────
+2026-06-11 02:11:56,287  INFO      Processing: LS Motor
+2026-06-11 02:11:56,396  INFO          Existing website [http://lsgroup.com.my/] → dead
+2026-06-11 02:12:11,767  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:12:11,767  INFO          Final URLs kept: []
+2026-06-11 02:12:11,768  INFO          Saved to dealers_enriched.json
+2026-06-11 02:12:13,769  INFO      [10/16] ─────────────────────────────────────────
+2026-06-11 02:12:13,769  INFO      Processing: MATEEN AUTO CAR DEALER
+2026-06-11 02:12:13,769  INFO          Existing website [None] → none
+2026-06-11 02:12:29,203  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:12:29,203  INFO          Final URLs kept: []
+2026-06-11 02:12:29,204  INFO          Saved to dealers_enriched.json
+2026-06-11 02:12:31,206  INFO      [11/16] ─────────────────────────────────────────
+2026-06-11 02:12:31,206  INFO      Processing: Smart Power Auto Sdn Bhd
+2026-06-11 02:12:31,585  INFO          Existing website [https://smartpowerautomotive.com/] → dead
+2026-06-11 02:12:47,810  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:12:47,811  INFO          Final URLs kept: []
+2026-06-11 02:12:47,812  INFO          Saved to dealers_enriched.json
+2026-06-11 02:12:49,813  INFO      [12/16] ─────────────────────────────────────────
+2026-06-11 02:12:49,813  INFO      Processing: Keang Chuan Auto Enterprise
+2026-06-11 02:12:49,813  INFO          Existing website [None] → none
+2026-06-11 02:13:05,204  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:13:05,205  INFO          Final URLs kept: []
+2026-06-11 02:13:05,207  INFO          Saved to dealers_enriched.json
+2026-06-11 02:13:07,208  INFO      [13/16] ─────────────────────────────────────────
+2026-06-11 02:13:07,208  INFO      Processing: Sime Darby Auto Selection Chan Sow Lin
+2026-06-11 02:13:08,873  INFO          Existing website [https://simedarbyautoselection.com.my/] → dead
+2026-06-11 02:13:24,216  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:13:24,217  INFO          Final URLs kept: []
+2026-06-11 02:13:24,219  INFO          Saved to dealers_enriched.json
+2026-06-11 02:13:26,220  INFO      [14/16] ─────────────────────────────────────────
+2026-06-11 02:13:26,220  INFO      Processing: Keong Heng Auto Sdn. Bhd.
+2026-06-11 02:13:26,220  INFO          Existing website [None] → none
+2026-06-11 02:13:41,635  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:13:41,636  INFO          Final URLs kept: []
+2026-06-11 02:13:41,637  INFO          Saved to dealers_enriched.json
+2026-06-11 02:13:43,638  INFO      [15/16] ─────────────────────────────────────────
+2026-06-11 02:13:43,638  INFO      Processing: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales
+2026-06-11 02:13:44,728  INFO          Existing website [https://carmasterimports.com/] → verified
+2026-06-11 02:14:00,115  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:14:00,116  INFO          Final URLs kept: ['https://carmasterimports.com/']
+2026-06-11 02:14:00,117  INFO          Saved to dealers_enriched.json
+2026-06-11 02:14:02,117  INFO      [16/16] ─────────────────────────────────────────
+2026-06-11 02:14:02,117  INFO      Processing: Mantap Auto (M) Sdn Bhd
+2026-06-11 02:14:03,130  INFO          Existing website [https://www.facebook.com/profile.php?id=100077170918009] → verified
+2026-06-11 02:14:18,495  WARNING       Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:14:18,495  INFO          Final URLs kept: ['https://www.facebook.com/profile.php?id=100077170918009']
+2026-06-11 02:14:18,497  INFO          Saved to dealers_enriched.json
+2026-06-11 02:14:18,497  INFO      
+Done. 16 businesses written to C:\Users\jainp\OneDrive\Desktop\Findit\Phase_Two\dealers_enriched.json
+2026-06-11 02:41:34,657  INFO      Loaded 16 businesses from dealers_bangsar_59100.json
+2026-06-11 02:41:34,659  INFO      
+[1/16] ══════════════════════════════════════════
+2026-06-11 02:41:34,659  INFO        Processing: Sime Darby Auto Selection Kuala Lumpur
+2026-06-11 02:41:34,660  INFO          [website] Checking existing: https://sdas.my/
+2026-06-11 02:41:35,195  INFO          [website] ✗ Dead — will search for replacement
+2026-06-11 02:41:35,196  INFO          [website] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia used car dealer
+2026-06-11 02:41:43,480  INFO              Jina returned 10 results
+2026-06-11 02:41:43,481  INFO          [website] ✓ Found: https://autoselection.simemotors.com.my/
+2026-06-11 02:41:45,484  INFO          [mudah] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia mudah
+2026-06-11 02:42:00,878  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:42:00,879  INFO          [mudah] ✗ Not found
+2026-06-11 02:42:02,880  INFO          [carlist] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia carlist
+2026-06-11 02:42:18,270  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:42:18,271  INFO          [carlist] ✗ Not found
+2026-06-11 02:42:20,273  INFO          [autocari] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia autocari
+2026-06-11 02:42:30,429  INFO              Jina returned 10 results
+2026-06-11 02:42:30,431  INFO          [autocari] ✗ Not found
+2026-06-11 02:42:32,432  INFO          [facebook] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia facebook
+2026-06-11 02:42:47,815  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:42:47,816  INFO          [facebook] ✗ Not found
+2026-06-11 02:42:49,816  INFO          [instagram] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia instagram
+2026-06-11 02:43:04,212  INFO              Jina returned 10 results
+2026-06-11 02:43:04,213  INFO          [instagram] ✓ Found: https://www.instagram.com/p/C7SwY0kJW1r/
+2026-06-11 02:43:06,213  INFO          [tiktok] Searching: Sime Darby Auto Selection Kuala Lumpur Wilayah Persekutuan Kuala Lumpur Malaysia tiktok
+2026-06-11 02:43:21,856  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:43:21,858  INFO          [tiktok] ✗ Not found
+2026-06-11 02:43:23,866  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:43:23,866  INFO      
+[2/16] ══════════════════════════════════════════
+2026-06-11 02:43:23,867  INFO        Processing: Dimensi (PJ Jalan Templer)
+2026-06-11 02:43:23,867  INFO          [website] Checking existing: https://dimensi.my/
+2026-06-11 02:43:26,516  INFO          [website] ✓ Verified existing
+2026-06-11 02:43:28,518  INFO          [mudah] Searching: Dimensi (PJ Jalan Templer) Selangor Malaysia mudah
+2026-06-11 02:43:43,906  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:43:43,906  INFO          [mudah] ✗ Not found
+2026-06-11 02:43:45,908  INFO          [carlist] Searching: Dimensi (PJ Jalan Templer) Selangor Malaysia carlist
+2026-06-11 02:44:01,297  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:44:01,298  INFO          [carlist] ✗ Not found
+2026-06-11 02:44:03,299  INFO          [autocari] Searching: Dimensi (PJ Jalan Templer) Selangor Malaysia autocari
+2026-06-11 02:44:18,735  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:44:18,736  INFO          [autocari] ✗ Not found
+2026-06-11 02:44:20,737  INFO          [facebook] Searching: Dimensi (PJ Jalan Templer) Selangor Malaysia facebook
+2026-06-11 02:44:36,154  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:44:36,155  INFO          [facebook] ✗ Not found
+2026-06-11 02:44:38,157  INFO          [instagram] Searching: Dimensi (PJ Jalan Templer) Selangor Malaysia instagram
+2026-06-11 02:44:49,743  INFO              Jina returned 10 results
+2026-06-11 02:44:49,749  INFO          [instagram] ✓ Found: https://www.instagram.com/reel/DXojn2DCSYd/
+2026-06-11 02:44:51,750  INFO          [tiktok] Searching: Dimensi (PJ Jalan Templer) Selangor Malaysia tiktok
+2026-06-11 02:45:05,632  INFO              Jina returned 5 results
+2026-06-11 02:45:05,635  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@dimensi.my/video/7647120227141979410
+2026-06-11 02:45:07,638  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:45:07,639  INFO      
+[3/16] ══════════════════════════════════════════
+2026-06-11 02:45:07,640  INFO        Processing: Infinity World Group Sdn Bhd
+2026-06-11 02:45:07,641  INFO          [website] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia used car dealer
+2026-06-11 02:45:23,056  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:45:23,057  INFO          [website] ✗ Not found
+2026-06-11 02:45:25,058  INFO          [mudah] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia mudah
+2026-06-11 02:45:40,444  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:45:40,445  INFO          [mudah] ✗ Not found
+2026-06-11 02:45:42,446  INFO          [carlist] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia carlist
+2026-06-11 02:45:57,846  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:45:57,847  INFO          [carlist] ✗ Not found
+2026-06-11 02:45:59,848  INFO          [autocari] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia autocari
+2026-06-11 02:46:15,197  INFO              Jina returned 10 results
+2026-06-11 02:46:15,198  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=car/used&state=Selangor&Car_page=34
+2026-06-11 02:46:17,199  INFO          [facebook] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia facebook
+2026-06-11 02:46:32,565  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:46:32,565  INFO          [facebook] ✗ Not found
+2026-06-11 02:46:34,566  INFO          [instagram] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia instagram
+2026-06-11 02:46:49,988  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:46:49,989  INFO          [instagram] ✗ Not found
+2026-06-11 02:46:51,990  INFO          [tiktok] Searching: Infinity World Group Sdn Bhd Wilayah Persekutuan Kuala Lumpur Malaysia tiktok
+2026-06-11 02:47:07,452  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:47:07,453  INFO          [tiktok] ✗ Not found
+2026-06-11 02:47:09,456  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:47:09,456  INFO      
+[4/16] ══════════════════════════════════════════
+2026-06-11 02:47:09,456  INFO        Processing: Sincere Automotive Sdn Bhd
+2026-06-11 02:47:09,456  INFO          [website] Checking existing: http://malaysiabusiness.info/?page_id=105&listing-w2dc=sincereauto
+2026-06-11 02:47:11,904  INFO          [website] ✗ Dead — will search for replacement
+2026-06-11 02:47:11,905  INFO          [website] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia used car dealer
+2026-06-11 02:47:27,862  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:47:27,863  INFO          [website] ✗ Not found
+2026-06-11 02:47:29,865  INFO          [mudah] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia mudah
+2026-06-11 02:47:45,268  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:47:45,268  INFO          [mudah] ✗ Not found
+2026-06-11 02:47:47,269  INFO          [carlist] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia carlist
+2026-06-11 02:47:58,760  INFO              Jina returned 10 results
+2026-06-11 02:47:58,762  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/ericleong7773?body_type=SUV
+2026-06-11 02:48:00,763  INFO          [autocari] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia autocari
+2026-06-11 02:48:16,154  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:48:16,155  INFO          [autocari] ✗ Not found
+2026-06-11 02:48:18,157  INFO          [facebook] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia facebook
+2026-06-11 02:48:33,578  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:48:33,579  INFO          [facebook] ✗ Not found
+2026-06-11 02:48:35,581  INFO          [instagram] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia instagram
+2026-06-11 02:48:46,944  INFO              Jina returned 10 results
+2026-06-11 02:48:46,945  INFO          [instagram] ✓ Found: https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fsincere_auto%2Freels%2F&is_from_rle
+2026-06-11 02:48:48,946  INFO          [tiktok] Searching: Sincere Automotive Sdn Bhd Selangor Malaysia tiktok
+2026-06-11 02:49:04,327  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:49:04,327  INFO          [tiktok] ✗ Not found
+2026-06-11 02:49:06,331  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:49:06,332  INFO      
+[5/16] ══════════════════════════════════════════
+2026-06-11 02:49:06,332  INFO        Processing: Yui Hui Auto- Car Dealer
+2026-06-11 02:49:06,333  INFO          [website] Checking existing: http://yuihuiauto.my/
+2026-06-11 02:49:08,024  INFO          [website] ✗ Dead — will search for replacement
+2026-06-11 02:49:08,025  INFO          [website] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia used car dealer
+2026-06-11 02:49:23,435  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:49:23,436  INFO          [website] ✗ Not found
+2026-06-11 02:49:25,437  INFO          [mudah] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia mudah
+2026-06-11 02:49:40,859  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:49:40,860  INFO          [mudah] ✗ Not found
+2026-06-11 02:49:42,861  INFO          [carlist] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia carlist
+2026-06-11 02:49:52,091  INFO              Jina returned 10 results
+2026-06-11 02:49:52,093  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/yuihuiauto
+2026-06-11 02:49:54,095  INFO          [autocari] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia autocari
+2026-06-11 02:50:06,999  INFO              Jina returned 10 results
+2026-06-11 02:50:07,000  INFO          [autocari] ✗ Not found
+2026-06-11 02:50:09,002  INFO          [facebook] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia facebook
+2026-06-11 02:50:22,041  INFO              Jina returned 5 results
+2026-06-11 02:50:22,042  INFO          [facebook] ✓ Found: https://www.facebook.com/p/Yui-Hui-Sdn-Bhd-100070556799007/
+2026-06-11 02:50:24,043  INFO          [instagram] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia instagram
+2026-06-11 02:50:38,376  INFO              Jina returned 10 results
+2026-06-11 02:50:38,378  INFO          [instagram] ✓ Found: https://www.instagram.com/p/DZSKeR-EQgm/?img_index=8&hl=am-et
+2026-06-11 02:50:40,379  INFO          [tiktok] Searching: Yui Hui Auto- Car Dealer Wilayah Persekutuan Kuala Lumpur Malaysia tiktok
+2026-06-11 02:50:55,723  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:50:55,724  INFO          [tiktok] ✗ Not found
+2026-06-11 02:50:57,731  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:50:57,732  INFO      
+[6/16] ══════════════════════════════════════════
+2026-06-11 02:50:57,732  INFO        Processing: Motor Trader
+2026-06-11 02:50:57,733  INFO          [website] Checking existing: https://www.motortrader.com.my/
+2026-06-11 02:50:58,119  INFO          [website] ✗ Dead — will search for replacement
+2026-06-11 02:50:58,120  INFO          [website] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia used car dealer
+2026-06-11 02:51:13,006  INFO              Jina returned 10 results
+2026-06-11 02:51:13,009  INFO          [website] ✓ Found: https://www.yelp.com/search?cflt=car_dealers&find_near=group-one-motor-dan-credit-kuala-lumpur
+2026-06-11 02:51:15,010  INFO          [mudah] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia mudah
+2026-06-11 02:51:30,431  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:51:30,431  INFO          [mudah] ✗ Not found
+2026-06-11 02:51:32,432  INFO          [carlist] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia carlist
+2026-06-11 02:51:47,828  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:51:47,828  INFO          [carlist] ✗ Not found
+2026-06-11 02:51:49,829  INFO          [autocari] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia autocari
+2026-06-11 02:52:00,721  INFO              Jina returned 10 results
+2026-06-11 02:52:00,722  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 02:52:02,723  INFO          [facebook] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia facebook
+2026-06-11 02:52:18,118  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:52:18,119  INFO          [facebook] ✗ Not found
+2026-06-11 02:52:20,120  INFO          [instagram] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia instagram
+2026-06-11 02:52:29,799  INFO              Jina returned 10 results
+2026-06-11 02:52:29,801  INFO          [instagram] ✓ Found: https://www.instagram.com/p/DZSKeR-EQgm/?img_index=14&hl=am-et
+2026-06-11 02:52:31,802  INFO          [tiktok] Searching: Motor Trader Wilayah Persekutuan Kuala Lumpur Malaysia tiktok
+2026-06-11 02:52:47,233  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:52:47,234  INFO          [tiktok] ✗ Not found
+2026-06-11 02:52:49,243  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:52:49,244  INFO      
+[7/16] ══════════════════════════════════════════
+2026-06-11 02:52:49,244  INFO        Processing: CarStation
+2026-06-11 02:52:49,245  INFO          [website] Checking existing: https://www.facebook.com/Carstation88
+2026-06-11 02:52:49,759  INFO          [website] ✓ Verified existing
+2026-06-11 02:52:51,760  INFO          [mudah] Searching: CarStation Selangor Malaysia mudah
+2026-06-11 02:53:07,182  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:53:07,183  INFO          [mudah] ✗ Not found
+2026-06-11 02:53:09,184  INFO          [carlist] Searching: CarStation Selangor Malaysia carlist
+2026-06-11 02:53:24,983  INFO              Jina returned 10 results
+2026-06-11 02:53:24,984  INFO          [carlist] ✓ Found: https://www.carlist.my/
+2026-06-11 02:53:26,985  INFO          [autocari] Searching: CarStation Selangor Malaysia autocari
+2026-06-11 02:53:38,239  INFO              Jina returned 10 results
+2026-06-11 02:53:38,241  INFO          [autocari] ✓ Found: https://autocari.com/
+2026-06-11 02:53:40,243  INFO          [facebook] Searching: CarStation Selangor Malaysia facebook
+2026-06-11 02:53:55,634  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:53:55,635  INFO          [facebook] ✗ Not found
+2026-06-11 02:53:57,636  INFO          [instagram] Searching: CarStation Selangor Malaysia instagram
+2026-06-11 02:54:13,039  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:54:13,040  INFO          [instagram] ✗ Not found
+2026-06-11 02:54:15,042  INFO          [tiktok] Searching: CarStation Selangor Malaysia tiktok
+2026-06-11 02:54:30,421  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:54:30,422  INFO          [tiktok] ✗ Not found
+2026-06-11 02:54:32,424  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:54:32,425  INFO      
+[8/16] ══════════════════════════════════════════
+2026-06-11 02:54:32,425  INFO        Processing: TH GLOBAL MOTORS SDN BHD
+2026-06-11 02:54:32,425  INFO          [website] Searching: TH GLOBAL MOTORS SDN BHD Selangor Malaysia used car dealer
+2026-06-11 02:54:41,875  INFO              Jina returned 10 results
+2026-06-11 02:54:41,877  INFO          [website] ✓ Found: https://autoselection.simemotors.com.my/
+2026-06-11 02:54:43,878  INFO          [mudah] Searching: TH GLOBAL MOTORS SDN BHD Selangor Malaysia mudah
+2026-06-11 02:54:59,292  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:54:59,293  INFO          [mudah] ✗ Not found
+2026-06-11 02:55:01,294  INFO          [carlist] Searching: TH GLOBAL MOTORS SDN BHD Selangor Malaysia carlist
+2026-06-11 02:55:16,729  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:55:16,730  INFO          [carlist] ✗ Not found
+2026-06-11 02:55:18,731  INFO          [autocari] Searching: TH GLOBAL MOTORS SDN BHD Selangor Malaysia autocari
+2026-06-11 02:55:34,123  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=15)
+2026-06-11 02:55:34,124  INFO          [autocari] ✗ Not found
+2026-06-11 02:55:36,125  INFO          [facebook] Searching: TH GLOBAL MOTORS SDN BHD Selangor Malaysia facebook
+2026-06-11 02:55:44,833  INFO              Jina returned 10 results
+2026-06-11 02:55:44,834  INFO          [facebook] ✓ Found: https://www.facebook.com/globalmotorsalesltd/?locale=en_GB
+2026-06-11 02:55:46,835  INFO          [instagram] Searching: TH GLOBAL MOTORS SDN BHD Selangor Malaysia instagram
+2026-06-11 02:56:56,970  INFO      Loaded 16 businesses from dealers_bangsar_59100.json
+2026-06-11 02:56:56,972  INFO      Resuming — 7 already done, skipping them
+2026-06-11 02:56:56,972  INFO      [1/16] Skipping: Sime Darby Auto Selection Kuala Lumpur
+2026-06-11 02:56:56,972  INFO      [2/16] Skipping: Dimensi (PJ Jalan Templer)
+2026-06-11 02:56:56,973  INFO      [3/16] Skipping: Infinity World Group Sdn Bhd
+2026-06-11 02:56:56,973  INFO      [4/16] Skipping: Sincere Automotive Sdn Bhd
+2026-06-11 02:56:56,974  INFO      [5/16] Skipping: Yui Hui Auto- Car Dealer
+2026-06-11 02:56:56,974  INFO      [6/16] Skipping: Motor Trader
+2026-06-11 02:56:56,975  INFO      [7/16] Skipping: CarStation
+2026-06-11 02:56:56,975  INFO      
+[8/16] ══════════════════════════════════════════
+2026-06-11 02:56:56,975  INFO        Business : TH GLOBAL MOTORS SDN BHD
+2026-06-11 02:56:56,976  INFO        City     : Ampang
+2026-06-11 02:56:56,976  INFO          [website] Searching: TH GLOBAL MOTORS SDN BHD Ampang Malaysia
+2026-06-11 02:57:22,446  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 02:57:22,447  INFO          [website] ✗ Not found
+2026-06-11 02:57:24,448  INFO          [mudah] Searching: TH GLOBAL MOTORS SDN BHD Ampang mudah
+2026-06-11 02:57:37,517  INFO              Jina returned 10 results
+2026-06-11 02:57:37,518  INFO          [mudah] ✓ Found: https://www.mudah.my/th-global-motors-sdn-bhd
+2026-06-11 02:57:39,519  INFO          [carlist] Searching: TH GLOBAL MOTORS SDN BHD Ampang carlist
+2026-06-11 02:57:52,812  INFO              Jina returned 10 results
+2026-06-11 02:57:52,813  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/thglobalmotors
+2026-06-11 02:57:54,815  INFO          [autocari] Searching: TH GLOBAL MOTORS SDN BHD Ampang autocari
+2026-06-11 02:58:20,258  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 02:58:20,259  INFO          [autocari] ✗ Not found
+2026-06-11 02:58:22,260  INFO          [facebook] Searching: TH GLOBAL MOTORS SDN BHD Ampang facebook profile
+2026-06-11 02:58:35,856  INFO              Jina returned 5 results
+2026-06-11 02:58:35,857  INFO          [facebook] ✓ Found: https://www.facebook.com/hondaampang3s/videos/attention-all-proud-honda-owners-the-long-awaited-new-honda-city-hatchback-has-a/1794545724305077/
+2026-06-11 02:58:37,858  INFO          [instagram] Searching: TH GLOBAL MOTORS SDN BHD Ampang instagram profile
+2026-06-11 02:58:47,838  INFO              Jina returned 5 results
+2026-06-11 02:58:47,839  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DHH94dMp9GM/
+2026-06-11 02:58:47,840  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DYraPDLjwrP/?img_index=3
+2026-06-11 02:58:47,840  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DK4MTWuya3k/
+2026-06-11 02:58:47,841  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DXtPOubjtCi/?img_index=8
+2026-06-11 02:58:47,842  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DY9J6jUh2ph/
+2026-06-11 02:58:47,842  INFO          [instagram] ✗ Not found
+2026-06-11 02:58:49,843  INFO          [tiktok] Searching: TH GLOBAL MOTORS SDN BHD Ampang tiktok profile
+2026-06-11 02:59:13,045  INFO              Jina returned 5 results
+2026-06-11 02:59:13,046  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@global_motors_
+2026-06-11 02:59:15,058  INFO        Saved progress → dealers_enriched.json
+2026-06-11 02:59:15,059  INFO      
+[9/16] ══════════════════════════════════════════
+2026-06-11 02:59:15,060  INFO        Business : LS Motor
+2026-06-11 02:59:15,060  INFO        City     : Petaling Jaya
+2026-06-11 02:59:15,061  INFO          [website] Checking existing: http://lsgroup.com.my/
+2026-06-11 02:59:15,231  INFO          [website] ✗ Dead — searching for replacement
+2026-06-11 02:59:15,232  INFO          [website] Searching: LS Motor Petaling Jaya Malaysia
+2026-06-11 02:59:33,787  INFO              Jina returned 10 results
+2026-06-11 02:59:33,788  INFO          [website] ✓ Found: https://www.caricarz.com/dealer/lsmotor/about_us?srsltid=AfmBOorh01qrQjgxc9RZLDgdi6Re_o6eMpYtF4y62LrCg7ObeTFyOvXO
+2026-06-11 02:59:35,790  INFO          [mudah] Searching: LS Motor Petaling Jaya mudah
+2026-06-11 02:59:55,285  INFO              Jina returned 10 results
+2026-06-11 02:59:55,287  INFO          [mudah] ✓ Found: https://www.mudah.my/ls-autoworld-pj
+2026-06-11 02:59:57,289  INFO          [carlist] Searching: LS Motor Petaling Jaya carlist
+2026-06-11 03:00:21,099  INFO              Jina returned 10 results
+2026-06-11 03:00:21,101  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/c2b707dd-7e0d-4fe9-9d76-b96a929b0cd4
+2026-06-11 03:00:23,102  INFO          [autocari] Searching: LS Motor Petaling Jaya autocari
+2026-06-11 03:00:30,535  INFO              Jina returned 5 results
+2026-06-11 03:00:30,536  INFO          [autocari] ✗ Not found
+2026-06-11 03:00:32,538  INFO          [facebook] Searching: LS Motor Petaling Jaya facebook profile
+2026-06-11 03:00:45,233  INFO              Jina returned 10 results
+2026-06-11 03:00:45,235  INFO          [facebook] ✓ Found: https://www.facebook.com/p/LS-Motor-100090127274743/
+2026-06-11 03:00:47,237  INFO          [instagram] Searching: LS Motor Petaling Jaya instagram profile
+2026-06-11 03:00:57,812  INFO              Jina returned 10 results
+2026-06-11 03:00:57,814  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DGdk51Rvxli/
+2026-06-11 03:00:57,815  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DFjkHQiS6JC/
+2026-06-11 03:00:57,815  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DZHw0K9itbC/
+2026-06-11 03:00:57,815  INFO          [instagram] ✓ Found: https://www.instagram.com/ls_ricky/?hl=en
+2026-06-11 03:00:59,817  INFO          [tiktok] Searching: LS Motor Petaling Jaya tiktok profile
+2026-06-11 03:01:19,568  INFO              Jina returned 5 results
+2026-06-11 03:01:19,569  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@that_miata/video/7649478870957116686
+2026-06-11 03:01:19,570  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@lsautoworld168
+2026-06-11 03:01:21,572  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:01:21,572  INFO      
+[10/16] ══════════════════════════════════════════
+2026-06-11 03:01:21,572  INFO        Business : MATEEN AUTO CAR DEALER
+2026-06-11 03:01:21,572  INFO        City     : Kuala Lumpur
+2026-06-11 03:01:21,572  INFO          [website] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur Malaysia
+2026-06-11 03:01:33,956  INFO              Jina returned 5 results
+2026-06-11 03:01:33,957  INFO          [website] ✗ Not found
+2026-06-11 03:01:35,959  INFO          [mudah] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur mudah
+2026-06-11 03:01:57,482  INFO              Jina returned 10 results
+2026-06-11 03:01:57,484  INFO          [mudah] ✓ Found: https://www.mudah.my/malaysia/cars-for-sale
+2026-06-11 03:01:59,485  INFO          [carlist] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur carlist
+2026-06-11 03:02:24,929  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 03:02:24,929  INFO          [carlist] ✗ Not found
+2026-06-11 03:02:26,931  INFO          [autocari] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur autocari
+2026-06-11 03:02:46,067  INFO              Jina returned 5 results
+2026-06-11 03:02:46,069  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 03:02:48,071  INFO          [facebook] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur facebook profile
+2026-06-11 03:02:58,348  INFO              Jina returned 5 results
+2026-06-11 03:02:58,349  INFO          [facebook] ✓ Found: https://www.facebook.com/Yourtrustedcardealer/
+2026-06-11 03:03:00,350  INFO          [instagram] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur instagram profile
+2026-06-11 03:03:18,539  INFO              Jina returned 5 results
+2026-06-11 03:03:18,540  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DWTwosWD00f/
+2026-06-11 03:03:18,540  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DZAFX7-Pqz1/
+2026-06-11 03:03:18,541  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DXysm8jP4r1/
+2026-06-11 03:03:18,541  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DWSAq1diLTZ/?img_index=2&hl=om-et
+2026-06-11 03:03:18,541  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DZXO3kEvzMt/
+2026-06-11 03:03:18,542  INFO          [instagram] ✗ Not found
+2026-06-11 03:03:20,543  INFO          [tiktok] Searching: MATEEN AUTO CAR DEALER Kuala Lumpur tiktok profile
+2026-06-11 03:03:31,342  INFO              Jina returned 5 results
+2026-06-11 03:03:31,343  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@mateenauto.com/video/7520617061891050760
+2026-06-11 03:03:31,344  INFO          [tiktok] ✓ Found: https://www.tiktok.com/discover/mateen-auto
+2026-06-11 03:03:33,347  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:03:33,347  INFO      
+[11/16] ══════════════════════════════════════════
+2026-06-11 03:03:33,348  INFO        Business : Smart Power Auto Sdn Bhd
+2026-06-11 03:03:33,348  INFO        City     : Kuala Lumpur
+2026-06-11 03:03:33,348  INFO          [website] Checking existing: https://smartpowerautomotive.com/
+2026-06-11 03:03:33,539  INFO          [website] ✗ Dead — searching for replacement
+2026-06-11 03:03:33,539  INFO          [website] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur Malaysia
+2026-06-11 03:03:47,769  INFO              Jina returned 10 results
+2026-06-11 03:03:47,770  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-company/0662541K/SMART-POWER-AUTO-SDN-BHD-
+2026-06-11 03:03:49,771  INFO          [mudah] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur mudah
+2026-06-11 03:04:09,794  INFO              Jina returned 10 results
+2026-06-11 03:04:09,795  INFO          [mudah] ✓ Found: https://www.mudah.my/steven-phoon
+2026-06-11 03:04:11,796  INFO          [carlist] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur carlist
+2026-06-11 03:04:21,776  INFO              Jina returned 10 results
+2026-06-11 03:04:21,778  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/smartpowerlandbc?transmission=automatic&page_number=3
+2026-06-11 03:04:23,779  INFO          [autocari] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur autocari
+2026-06-11 03:04:36,356  INFO              Jina returned 10 results
+2026-06-11 03:04:36,358  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/details&id=627
+2026-06-11 03:04:38,360  INFO          [facebook] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur facebook profile
+2026-06-11 03:04:47,761  INFO              Jina returned 10 results
+2026-06-11 03:04:47,762  INFO          [facebook] ✓ Found: https://www.facebook.com/smartpowerauto/
+2026-06-11 03:04:49,764  INFO          [instagram] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur instagram profile
+2026-06-11 03:04:58,835  INFO              Jina returned 5 results
+2026-06-11 03:04:58,836  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DYocnHwCQbX/
+2026-06-11 03:04:58,837  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DPGLWNiAgNL/
+2026-06-11 03:04:58,838  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DRTtgGrFYzV/
+2026-06-11 03:04:58,839  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DTsQTH-Donr/
+2026-06-11 03:04:58,839  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DUAcjXfiMUe/
+2026-06-11 03:04:58,840  INFO          [instagram] ✗ Not found
+2026-06-11 03:05:00,841  INFO          [tiktok] Searching: Smart Power Auto Sdn Bhd Kuala Lumpur tiktok profile
+2026-06-11 03:05:16,920  INFO              Jina returned 5 results
+2026-06-11 03:05:16,923  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@smartpowerauto
+2026-06-11 03:05:18,930  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:05:18,931  INFO      
+[12/16] ══════════════════════════════════════════
+2026-06-11 03:05:18,932  INFO        Business : Keang Chuan Auto Enterprise
+2026-06-11 03:05:18,933  INFO        City     : Petaling Jaya
+2026-06-11 03:05:18,934  INFO          [website] Searching: Keang Chuan Auto Enterprise Petaling Jaya Malaysia
+2026-06-11 03:05:38,164  INFO              Jina returned 10 results
+2026-06-11 03:05:38,165  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-business/001361587K/KEANG-CHUAN-AUTO-ENTERPRISE
+2026-06-11 03:05:40,167  INFO          [mudah] Searching: Keang Chuan Auto Enterprise Petaling Jaya mudah
+2026-06-11 03:05:58,472  INFO              Jina returned 10 results
+2026-06-11 03:05:58,474  INFO          [mudah] ✓ Found: https://www.mudah.my/keang-chuan-auto-enterprise
+2026-06-11 03:06:00,474  INFO          [carlist] Searching: Keang Chuan Auto Enterprise Petaling Jaya carlist
+2026-06-11 03:06:15,556  INFO              Jina returned 10 results
+2026-06-11 03:06:15,557  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/dd309cb5-c111-41ab-a7a7-03206aca6bb1
+2026-06-11 03:06:17,558  INFO          [autocari] Searching: Keang Chuan Auto Enterprise Petaling Jaya autocari
+2026-06-11 03:06:23,901  INFO              Jina returned 10 results
+2026-06-11 03:06:23,902  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 03:06:25,903  INFO          [facebook] Searching: Keang Chuan Auto Enterprise Petaling Jaya facebook profile
+2026-06-11 03:06:51,252  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 03:06:51,253  INFO          [facebook] ✗ Not found
+2026-06-11 03:06:53,254  INFO          [instagram] Searching: Keang Chuan Auto Enterprise Petaling Jaya instagram profile
+2026-06-11 03:07:00,138  INFO              Jina returned 5 results
+2026-06-11 03:07:00,140  INFO          [instagram] ✓ Found: https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDZSKeR-EQgm%2F%3Fimg_index%3D6%26hl%3Dam-et&is_from_rle
+2026-06-11 03:07:02,141  INFO          [tiktok] Searching: Keang Chuan Auto Enterprise Petaling Jaya tiktok profile
+2026-06-11 03:07:23,124  INFO              Jina returned 5 results
+2026-06-11 03:07:23,125  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@kl.foodie/video/7637452690678762773
+2026-06-11 03:07:23,126  INFO          [tiktok] ✓ Found: https://www.tiktok.com/discover/gt-auto-enterprise-klang
+2026-06-11 03:07:25,130  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:07:25,133  INFO      
+[13/16] ══════════════════════════════════════════
+2026-06-11 03:07:25,133  INFO        Business : Sime Darby Auto Selection Chan Sow Lin
+2026-06-11 03:07:25,134  INFO        City     : Kuala Lumpur
+2026-06-11 03:07:25,134  INFO          [website] Checking existing: https://simedarbyautoselection.com.my/
+2026-06-11 03:07:25,426  INFO          [website] ✗ Dead — searching for replacement
+2026-06-11 03:07:25,427  INFO          [website] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur Malaysia
+2026-06-11 03:07:47,662  INFO              Jina returned 10 results
+2026-06-11 03:07:47,663  INFO          [website] ✓ Found: https://autoselection.simemotors.com.my/
+2026-06-11 03:07:49,665  INFO          [mudah] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur mudah
+2026-06-11 03:08:03,944  INFO              Jina returned 10 results
+2026-06-11 03:08:03,945  INFO          [mudah] ✓ Found: https://www.mudah.my/sime-darby-auto-selection-chan-sow-lin-kl
+2026-06-11 03:08:05,947  INFO          [carlist] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur carlist
+2026-06-11 03:08:17,735  INFO              Jina returned 10 results
+2026-06-11 03:08:17,736  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/a0f825fb-dd7d-e711-94c7-06e4185eac05
+2026-06-11 03:08:19,738  INFO          [autocari] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur autocari
+2026-06-11 03:08:30,668  INFO              Jina returned 10 results
+2026-06-11 03:08:30,669  INFO          [autocari] ✗ Not found
+2026-06-11 03:08:32,671  INFO          [facebook] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur facebook profile
+2026-06-11 03:08:46,630  INFO              Jina returned 10 results
+2026-06-11 03:08:46,632  INFO          [facebook] ✓ Found: https://www.facebook.com/ASKLVivian/
+2026-06-11 03:08:48,634  INFO          [instagram] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur instagram profile
+2026-06-11 03:09:06,240  INFO              Jina returned 10 results
+2026-06-11 03:09:06,242  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/C6FiHOavMB8/
+2026-06-11 03:09:06,242  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DYtM7qjzvYJ/
+2026-06-11 03:09:06,242  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/C7DQ7gKLxjy/
+2026-06-11 03:09:06,242  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DTkM4xhkzF1/
+2026-06-11 03:09:06,243  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/C_9arBbps_W/
+2026-06-11 03:09:06,243  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/CtSvXnIM38G/
+2026-06-11 03:09:06,243  INFO          [instagram] ✗ Not found
+2026-06-11 03:09:08,244  INFO          [tiktok] Searching: Sime Darby Auto Selection Chan Sow Lin Kuala Lumpur tiktok profile
+2026-06-11 03:09:18,755  INFO              Jina returned 10 results
+2026-06-11 03:09:18,757  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@surinpurba/video/7596933828984212743
+2026-06-11 03:09:18,757  INFO          [tiktok] ✗ Not found
+2026-06-11 03:09:20,761  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:09:20,761  INFO      
+[14/16] ══════════════════════════════════════════
+2026-06-11 03:09:20,762  INFO        Business : Keong Heng Auto Sdn. Bhd.
+2026-06-11 03:09:20,762  INFO        City     : Kuala Lumpur
+2026-06-11 03:09:20,762  INFO          [website] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur Malaysia
+2026-06-11 03:09:37,129  INFO              Jina returned 10 results
+2026-06-11 03:09:37,130  INFO          [website] ✓ Found: https://keonghengauto.com/
+2026-06-11 03:09:39,131  INFO          [mudah] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur mudah
+2026-06-11 03:09:58,243  INFO              Jina returned 10 results
+2026-06-11 03:09:58,244  INFO          [mudah] ✓ Found: https://www.mudah.my/lewis-liew-keong-heng-auto-sdn-bhd
+2026-06-11 03:10:00,245  INFO          [carlist] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur carlist
+2026-06-11 03:10:17,946  INFO              Jina returned 10 results
+2026-06-11 03:10:17,947  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/c2ca002d-4eeb-e311-94af-0261ba99cd9c
+2026-06-11 03:10:19,949  INFO          [autocari] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur autocari
+2026-06-11 03:10:36,236  INFO              Jina returned 10 results
+2026-06-11 03:10:36,238  INFO          [autocari] ✓ Found: https://www.autocari.com/index.php?r=dealer/details&id=339
+2026-06-11 03:10:38,239  INFO          [facebook] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur facebook profile
+2026-06-11 03:10:58,068  INFO              Jina returned 10 results
+2026-06-11 03:10:58,069  INFO          [facebook] ✓ Found: https://www.facebook.com/keonghengonline/
+2026-06-11 03:11:00,070  INFO          [instagram] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur instagram profile
+2026-06-11 03:11:25,497  INFO              Jina returned 10 results
+2026-06-11 03:11:25,499  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/p/DMiBdi8BAdi/
+2026-06-11 03:11:25,500  INFO          [instagram] ✓ Found: https://www.instagram.com/minghengmotor/
+2026-06-11 03:11:27,501  INFO          [tiktok] Searching: Keong Heng Auto Sdn. Bhd. Kuala Lumpur tiktok profile
+2026-06-11 03:11:48,133  INFO              Jina returned 10 results
+2026-06-11 03:11:48,135  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@nhpauto/video/7281583512069819656
+2026-06-11 03:11:48,135  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@onghengautotrading
+2026-06-11 03:11:50,139  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:11:50,140  INFO      
+[15/16] ══════════════════════════════════════════
+2026-06-11 03:11:50,140  INFO        Business : Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales
+2026-06-11 03:11:50,141  INFO        City     : Kuala Lumpur
+2026-06-11 03:11:50,141  INFO          [website] Checking existing: https://carmasterimports.com/
+2026-06-11 03:11:51,138  INFO          [website] ✓ Verified existing
+2026-06-11 03:11:53,139  INFO          [mudah] Searching: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales Kuala Lumpur mudah
+2026-06-11 03:12:18,541  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 03:12:18,542  INFO          [mudah] ✗ Not found
+2026-06-11 03:12:20,543  INFO          [carlist] Searching: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales Kuala Lumpur carlist
+2026-06-11 03:12:41,170  INFO              Jina returned 10 results
+2026-06-11 03:12:41,171  INFO          [carlist] ✓ Found: https://www.carlist.my/
+2026-06-11 03:12:43,172  INFO          [autocari] Searching: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales Kuala Lumpur autocari
+2026-06-11 03:12:53,606  INFO              Jina returned 10 results
+2026-06-11 03:12:53,607  INFO          [autocari] ✓ Found: https://www.autocari.com/index.php?r=dealer/recond&state=Kuala+Lumpur&Dealer_page=2
+2026-06-11 03:12:55,608  INFO          [facebook] Searching: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales Kuala Lumpur facebook profile
+2026-06-11 03:13:09,519  INFO              Jina returned 10 results
+2026-06-11 03:13:09,520  INFO          [facebook] ✓ Found: https://www.facebook.com/groups/klexpats/posts/2406320899536248/
+2026-06-11 03:13:11,521  INFO          [instagram] Searching: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales Kuala Lumpur instagram profile
+2026-06-11 03:13:20,088  INFO              Jina returned 10 results
+2026-06-11 03:13:20,089  INFO          [instagram] ✓ Found: https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fautoselectionmalaysia%2F&is_from_rle
+2026-06-11 03:13:22,090  INFO          [tiktok] Searching: Kuala Lumpur Used Car Trade In, KL Used Car Buy Sales Kuala Lumpur tiktok profile
+2026-06-11 03:13:39,292  INFO              Jina returned 5 results
+2026-06-11 03:13:39,293  INFO          [tiktok] ✓ Found: https://www.tiktok.com/discover/best-car-salesman-in-malaysia
+2026-06-11 03:13:41,296  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:13:41,297  INFO      
+[16/16] ══════════════════════════════════════════
+2026-06-11 03:13:41,297  INFO        Business : Mantap Auto (M) Sdn Bhd
+2026-06-11 03:13:41,297  INFO        City     : Kuala Lumpur
+2026-06-11 03:13:41,297  INFO          [website] Checking existing: https://www.facebook.com/profile.php?id=100077170918009
+2026-06-11 03:13:42,150  INFO          [website] ✓ Verified existing
+2026-06-11 03:13:44,152  INFO          [mudah] Searching: Mantap Auto (M) Sdn Bhd Kuala Lumpur mudah
+2026-06-11 03:14:05,104  INFO              Jina returned 10 results
+2026-06-11 03:14:05,106  INFO          [mudah] ✓ Found: https://www.mudah.my/topcarz
+2026-06-11 03:14:07,107  INFO          [carlist] Searching: Mantap Auto (M) Sdn Bhd Kuala Lumpur carlist
+2026-06-11 03:14:16,562  INFO              Jina returned 10 results
+2026-06-11 03:14:16,563  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/4fbf6801-a5d9-4204-8cf4-1a1f6d07315d
+2026-06-11 03:14:18,565  INFO          [autocari] Searching: Mantap Auto (M) Sdn Bhd Kuala Lumpur autocari
+2026-06-11 03:14:30,118  INFO              Jina returned 10 results
+2026-06-11 03:14:30,120  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 03:14:32,122  INFO          [facebook] Searching: Mantap Auto (M) Sdn Bhd Kuala Lumpur facebook profile
+2026-06-11 03:14:46,960  INFO              Jina returned 10 results
+2026-06-11 03:14:46,961  INFO          [facebook] ✓ Found: https://www.facebook.com/groups/560409057492638/posts/3314006485466201/
+2026-06-11 03:14:48,962  INFO          [instagram] Searching: Mantap Auto (M) Sdn Bhd Kuala Lumpur instagram profile
+2026-06-11 03:15:06,611  INFO              Jina returned 5 results
+2026-06-11 03:15:06,613  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DUqRfEpkaBf/?hl=en
+2026-06-11 03:15:06,613  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DYPdy_IB683/
+2026-06-11 03:15:06,614  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/DXrZO3kCY42/
+2026-06-11 03:15:06,614  INFO          [instagram] Skipping post/video URL: https://www.instagram.com/reel/C7ZJ64qBU2r/
+2026-06-11 03:15:06,614  INFO          [instagram] ✓ Found: https://www.instagram.com/thomasyapofficial/?hl=en
+2026-06-11 03:15:08,615  INFO          [tiktok] Searching: Mantap Auto (M) Sdn Bhd Kuala Lumpur tiktok profile
+2026-06-11 03:15:27,805  INFO              Jina returned 5 results
+2026-06-11 03:15:27,806  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@filixmalaysia/video/7642128285467495698
+2026-06-11 03:15:27,806  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@purecargasm/video/7544655276721343751
+2026-06-11 03:15:27,806  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@filixmalaysia/video/7643612592258272519
+2026-06-11 03:15:27,807  INFO          [tiktok] Skipping post/video URL: https://www.tiktok.com/@koocesterautos.my/video/7598957898311535884
+2026-06-11 03:15:27,807  INFO          [tiktok] ✗ Not found
+2026-06-11 03:15:29,814  INFO        Saved progress → dealers_enriched.json
+2026-06-11 03:15:29,815  INFO      
+✓ Done. 16 businesses written to C:\Users\jainp\OneDrive\Desktop\Findit\Phase_Two\dealers_enriched.json
+2026-06-11 13:16:42,091  INFO      Input  : C:\Users\jainp\OneDrive\Desktop\Findit\Phase_One\dealers_ipoh_30000.json
+2026-06-11 13:16:42,095  INFO      Output : C:\Users\jainp\OneDrive\Desktop\Findit\Phase_two\dealers_enriched_ipoh_30000.json
+2026-06-11 13:16:42,097  INFO      Loaded 17 businesses from dealers_ipoh_30000.json
+2026-06-11 13:16:42,099  INFO      
+[1/17] ══════════════════════════════════════════
+2026-06-11 13:16:42,099  INFO        Business : Soon Foong Auto Enterprise
+2026-06-11 13:16:42,100  INFO        City     : Ipoh
+2026-06-11 13:16:42,101  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 13:16:42,102  INFO          [website] Searching: Soon Foong Auto Enterprise Ipoh Malaysia
+2026-06-11 13:17:02,469  INFO              Jina returned 10 results
+2026-06-11 13:17:02,471  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-business/IP0203170V/SOON-FOONG-AUTO-ENTERPRISE
+2026-06-11 13:17:04,473  INFO          [mudah] Searching: Soon Foong Auto Enterprise Ipoh mudah
+2026-06-11 13:17:24,134  INFO              Jina returned 10 results
+2026-06-11 13:17:24,137  INFO          [mudah] ✓ Found: https://www.mudah.my/soon-foong-auto-enterprise
+2026-06-11 13:17:26,139  INFO          [carlist] Searching: Soon Foong Auto Enterprise Ipoh carlist
+2026-06-11 13:17:51,183  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:17:51,184  INFO          [carlist] ✗ Not found
+2026-06-11 13:17:53,186  INFO          [autocari] Searching: Soon Foong Auto Enterprise Ipoh autocari
+2026-06-11 13:18:01,443  INFO              Jina returned 10 results
+2026-06-11 13:18:01,445  INFO          [autocari] ✗ Not found
+2026-06-11 13:18:03,447  INFO          [facebook] Searching: Soon Foong Auto Enterprise Ipoh facebook profile
+2026-06-11 13:18:13,320  INFO              Jina returned 10 results
+2026-06-11 13:18:13,323  INFO          [facebook] ✓ Found: https://www.facebook.com/p/Soon-Foong-Auto-Enterprise-Used-Car-Dealer-Ipoh-SFAE-61557389361751/ [low confidence]
+2026-06-11 13:18:15,325  INFO          [instagram] Searching: Soon Foong Auto Enterprise Ipoh instagram profile
+2026-06-11 13:18:25,492  INFO              Jina returned 10 results
+2026-06-11 13:18:25,494  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fsoonfoongautoenterprise%2F%3Fhl%3Den&is_from_rle
+2026-06-11 13:18:25,496  INFO              Rejected (structural): https://www.instagram.com/p/DX8ii-nzC_0/
+2026-06-11 13:18:25,497  INFO              Rejected (structural): https://www.instagram.com/p/DW0x_AtkmXf/
+2026-06-11 13:18:25,498  INFO              Rejected (structural): https://www.instagram.com/p/CpW39i1Ad_s/?img_index=soonfoongautoenterprise
+2026-06-11 13:18:25,498  INFO          [instagram] ✗ Not found
+2026-06-11 13:18:27,503  INFO          [tiktok] Searching: Soon Foong Auto Enterprise Ipoh tiktok profile
+2026-06-11 13:18:33,498  INFO              Jina returned 10 results
+2026-06-11 13:18:33,500  INFO          [tiktok] ✗ Not found
+2026-06-11 13:18:35,504  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:18:35,505  INFO      
+[2/17] ══════════════════════════════════════════
+2026-06-11 13:18:35,507  INFO        Business : JB Auto World ( Ipoh )
+2026-06-11 13:18:35,507  INFO        City     : Ipoh
+2026-06-11 13:18:35,508  INFO          [website] Checking existing: https://www.jbautoworld.com.my/
+2026-06-11 13:18:36,726  INFO          [website] ✓ Verified existing
+2026-06-11 13:18:38,729  INFO          [mudah] Searching: JB Auto World ( Ipoh ) Ipoh mudah
+2026-06-11 13:19:03,771  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:19:03,771  INFO          [mudah] ✗ Not found
+2026-06-11 13:19:05,772  INFO          [carlist] Searching: JB Auto World ( Ipoh ) Ipoh carlist
+2026-06-11 13:19:23,688  INFO              Jina returned 10 results
+2026-06-11 13:19:23,690  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/jbautoworld
+2026-06-11 13:19:25,692  INFO          [autocari] Searching: JB Auto World ( Ipoh ) Ipoh autocari
+2026-06-11 13:19:45,488  INFO              Jina returned 10 results
+2026-06-11 13:19:45,489  INFO          [autocari] ✗ Not found
+2026-06-11 13:19:47,490  INFO          [facebook] Searching: JB Auto World ( Ipoh ) Ipoh facebook profile
+2026-06-11 13:20:03,720  INFO              Jina returned 10 results
+2026-06-11 13:20:03,722  INFO              Rejected (structural): https://www.facebook.com/groups/341871730272007/posts/1525688905223611/
+2026-06-11 13:20:03,722  INFO              Slug match: 'jbautoworldsdnbhd' vs 'jb auto world ( ipoh )' → 0.62
+2026-06-11 13:20:03,722  INFO              Word matches: ['auto', 'world']
+2026-06-11 13:20:03,722  INFO          [facebook] ✓ Found: https://www.facebook.com/JBAutoWorldSdnBhd/ [high confidence]
+2026-06-11 13:20:05,725  INFO          [instagram] Searching: JB Auto World ( Ipoh ) Ipoh instagram profile
+2026-06-11 13:20:21,469  INFO              Jina returned 10 results
+2026-06-11 13:20:21,472  INFO              Rejected (structural): https://www.instagram.com/p/DY6ud2Bk5U9/
+2026-06-11 13:20:21,474  INFO              Rejected (structural): https://www.instagram.com/p/DWlYYJ7D159/
+2026-06-11 13:20:21,475  INFO              Rejected (structural): https://www.instagram.com/reel/DWWhcT7FMcp/
+2026-06-11 13:20:21,477  INFO              Rejected (structural): https://www.instagram.com/p/DW8LqVziCcv/
+2026-06-11 13:20:21,479  INFO          [instagram] ✗ Not found
+2026-06-11 13:20:23,483  INFO          [tiktok] Searching: JB Auto World ( Ipoh ) Ipoh tiktok profile
+2026-06-11 13:20:43,649  INFO              Jina returned 10 results
+2026-06-11 13:20:43,652  INFO              Rejected (structural): https://www.tiktok.com/@jbautoworld/video/7626598048650628372
+2026-06-11 13:20:43,655  INFO              Rejected (structural): https://www.tiktok.com/@jbautoworld/video/7509727485349645575
+2026-06-11 13:20:43,656  INFO              Rejected (structural): https://www.tiktok.com/@jbautoworld/video/6909755810956512513
+2026-06-11 13:20:43,660  INFO              Slug match: 'jbautoworld' vs 'jb auto world ( ipoh )' → 0.67
+2026-06-11 13:20:43,662  INFO              Word matches: ['auto', 'world']
+2026-06-11 13:20:43,663  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@jbautoworld [high confidence]
+2026-06-11 13:20:45,667  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:20:45,668  INFO      
+[3/17] ══════════════════════════════════════════
+2026-06-11 13:20:45,668  INFO        Business : Yihson Auto Trading Used Car Dealer
+2026-06-11 13:20:45,669  INFO        City     : Ipoh
+2026-06-11 13:20:45,669  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 13:20:45,669  INFO          [website] Searching: Yihson Auto Trading Used Car Dealer Ipoh Malaysia
+2026-06-11 13:21:04,585  INFO              Jina returned 10 results
+2026-06-11 13:21:04,588  INFO          [website] ✓ Found: https://www.caricarz.com/dealer/ksyihson/cars-for-sale?srsltid=AfmBOoqW1HNVSOiFH3MaOF9z7d-ZjAD44D-gTUR6ujWWNMgS6IPclWhh
+2026-06-11 13:21:06,591  INFO          [mudah] Searching: Yihson Auto Trading Used Car Dealer Ipoh mudah
+2026-06-11 13:21:31,854  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:21:31,860  INFO          [mudah] ✗ Not found
+2026-06-11 13:21:33,863  INFO          [carlist] Searching: Yihson Auto Trading Used Car Dealer Ipoh carlist
+2026-06-11 13:21:48,717  INFO              Jina returned 10 results
+2026-06-11 13:21:48,719  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/ymauto
+2026-06-11 13:21:50,723  INFO          [autocari] Searching: Yihson Auto Trading Used Car Dealer Ipoh autocari
+2026-06-11 13:21:57,799  INFO              Jina returned 10 results
+2026-06-11 13:21:57,800  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 13:21:59,802  INFO          [facebook] Searching: Yihson Auto Trading Used Car Dealer Ipoh facebook profile
+2026-06-11 13:22:10,794  INFO              Jina returned 10 results
+2026-06-11 13:22:10,797  INFO              Slug match: 'yihson' vs 'yihson auto trading used car dealer' → 0.29
+2026-06-11 13:22:10,798  INFO              Word matches: ['yihson']
+2026-06-11 13:22:10,799  INFO          [facebook] ✓ Found: https://www.facebook.com/yihson/ [mid confidence]
+2026-06-11 13:22:12,800  INFO          [instagram] Searching: Yihson Auto Trading Used Car Dealer Ipoh instagram profile
+2026-06-11 13:22:20,815  INFO              Jina returned 10 results
+2026-06-11 13:22:20,816  INFO              Rejected (structural): https://www.instagram.com/p/DY12SWjD-9V/
+2026-06-11 13:22:20,817  INFO              Rejected (structural): https://www.instagram.com/p/DSbXhKrDNUr/
+2026-06-11 13:22:20,818  INFO              Rejected (structural): https://www.instagram.com/reel/DW1b7r7DDDE/
+2026-06-11 13:22:20,818  INFO              Rejected (structural): https://www.instagram.com/reel/DEaDCNiPonC/
+2026-06-11 13:22:20,819  INFO              Rejected (structural): https://www.instagram.com/reel/DWGEpcdDYiX/
+2026-06-11 13:22:20,820  INFO              Rejected (structural): https://www.instagram.com/reel/DIQe5h5TOJ_/
+2026-06-11 13:22:20,821  INFO              Rejected (structural): https://www.instagram.com/p/DSZRnibkwVb/?img_index=6
+2026-06-11 13:22:20,822  INFO          [instagram] ✗ Not found
+2026-06-11 13:22:22,828  INFO          [tiktok] Searching: Yihson Auto Trading Used Car Dealer Ipoh tiktok profile
+2026-06-11 13:22:41,846  INFO              Jina returned 10 results
+2026-06-11 13:22:41,848  INFO              Rejected (structural): https://www.tiktok.com/@aahautosdnbhdipoh/video/7593254302613785874
+2026-06-11 13:22:41,850  INFO              Rejected (structural): https://www.tiktok.com/@ckyongautoworld/video/7482635877487856903
+2026-06-11 13:22:41,850  INFO              Rejected (structural): https://www.tiktok.com/@precisionmotors2/video/7649285535520804114
+2026-06-11 13:22:41,852  INFO          [tiktok] ✗ Not found
+2026-06-11 13:22:43,855  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:22:43,856  INFO      
+[4/17] ══════════════════════════════════════════
+2026-06-11 13:22:43,857  INFO        Business : Chee Keong Used Cars Dealer
+2026-06-11 13:22:43,857  INFO        City     : Ipoh
+2026-06-11 13:22:43,857  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 13:22:43,858  INFO          [website] Searching: Chee Keong Used Cars Dealer Ipoh Malaysia
+2026-06-11 13:23:04,663  INFO              Jina returned 10 results
+2026-06-11 13:23:04,664  INFO          [website] ✓ Found: https://www.caricarz.com/dealer/andylaw/about_us?srsltid=AfmBOopIdVj7q24N5ADUOJmDOOUmc6Ek-T2fOfQVYDQbCKUTm_MsqLVu
+2026-06-11 13:23:06,666  INFO          [mudah] Searching: Chee Keong Used Cars Dealer Ipoh mudah
+2026-06-11 13:23:16,769  INFO              Jina returned 10 results
+2026-06-11 13:23:16,771  INFO          [mudah] ✓ Found: https://www.mudah.my/chee-keong-used-car-dealer-car-dealer
+2026-06-11 13:23:18,772  INFO          [carlist] Searching: Chee Keong Used Cars Dealer Ipoh carlist
+2026-06-11 13:23:36,436  INFO              Jina returned 10 results
+2026-06-11 13:23:36,442  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/cheekeong
+2026-06-11 13:23:38,446  INFO          [autocari] Searching: Chee Keong Used Cars Dealer Ipoh autocari
+2026-06-11 13:23:48,077  INFO              Jina returned 10 results
+2026-06-11 13:23:48,079  INFO          [autocari] ✓ Found: https://www.autocari.com/index.php?r=dealer/new
+2026-06-11 13:23:50,080  INFO          [facebook] Searching: Chee Keong Used Cars Dealer Ipoh facebook profile
+2026-06-11 13:24:15,117  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:24:15,119  INFO          [facebook] ✗ Not found
+2026-06-11 13:24:17,122  INFO          [instagram] Searching: Chee Keong Used Cars Dealer Ipoh instagram profile
+2026-06-11 13:24:35,997  INFO              Jina returned 10 results
+2026-06-11 13:24:36,000  INFO              Rejected (structural): https://www.instagram.com/p/Cr95GVfLsTI/
+2026-06-11 13:24:36,002  INFO              Rejected (structural): https://www.instagram.com/p/CuDnOYqPtA2/
+2026-06-11 13:24:36,003  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fchee_keong_used_cars_ipoh%2F&is_from_rle
+2026-06-11 13:24:36,005  INFO              Rejected (structural): https://www.instagram.com/reel/DZOoQ2xpIAa/
+2026-06-11 13:24:36,007  INFO          [instagram] ✗ Not found
+2026-06-11 13:24:38,008  INFO          [tiktok] Searching: Chee Keong Used Cars Dealer Ipoh tiktok profile
+2026-06-11 13:24:49,303  INFO              Jina returned 10 results
+2026-06-11 13:24:49,306  INFO              Rejected (structural): https://www.tiktok.com/@celebrity_car_dealer_01/video/7647557536446844178
+2026-06-11 13:24:49,307  INFO              Rejected (structural): https://www.tiktok.com/@bro_wong/video/7362875219536629008
+2026-06-11 13:24:49,308  INFO          [tiktok] ✗ Not found
+2026-06-11 13:24:51,315  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:24:51,317  INFO      
+[5/17] ══════════════════════════════════════════
+2026-06-11 13:24:51,319  INFO        Business : PRIMA AUTOWORLD SDN BHD
+2026-06-11 13:24:51,320  INFO        City     : Ipoh
+2026-06-11 13:24:51,321  INFO          [website] Checking existing: https://www.primaautoworld.com.my/
+2026-06-11 13:24:53,090  INFO          [website] ✓ Verified existing
+2026-06-11 13:24:55,092  INFO          [mudah] Searching: PRIMA AUTOWORLD SDN BHD Ipoh mudah
+2026-06-11 13:25:13,197  INFO              Jina returned 10 results
+2026-06-11 13:25:13,212  INFO          [mudah] ✓ Found: https://www.mudah.my/primaautoworld
+2026-06-11 13:25:15,218  INFO          [carlist] Searching: PRIMA AUTOWORLD SDN BHD Ipoh carlist
+2026-06-11 13:25:36,831  INFO              Jina returned 10 results
+2026-06-11 13:25:36,833  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/primamotorent
+2026-06-11 13:25:38,834  INFO          [autocari] Searching: PRIMA AUTOWORLD SDN BHD Ipoh autocari
+2026-06-11 13:25:49,828  INFO              Jina returned 10 results
+2026-06-11 13:25:49,831  INFO          [autocari] ✗ Not found
+2026-06-11 13:25:51,833  INFO          [facebook] Searching: PRIMA AUTOWORLD SDN BHD Ipoh facebook profile
+2026-06-11 13:26:11,183  INFO              Jina returned 10 results
+2026-06-11 13:26:11,190  INFO              Slug match: 'primamotor88' vs 'prima autoworld' → 0.59
+2026-06-11 13:26:11,192  INFO              Word matches: ['prima']
+2026-06-11 13:26:11,195  INFO          [facebook] ✓ Found: https://www.facebook.com/primamotor88/photos/ [mid confidence]
+2026-06-11 13:26:13,197  INFO          [instagram] Searching: PRIMA AUTOWORLD SDN BHD Ipoh instagram profile
+2026-06-11 13:26:23,573  INFO              Jina returned 10 results
+2026-06-11 13:26:23,576  INFO              Rejected (structural): https://www.instagram.com/reel/DQ6X6LADcyf/
+2026-06-11 13:26:23,577  INFO              Slug match: 'prima autoworld' vs 'prima autoworld' → 1.00
+2026-06-11 13:26:23,578  INFO              Word matches: ['prima', 'autoworld']
+2026-06-11 13:26:23,579  INFO          [instagram] ✓ Found: https://www.instagram.com/prima_autoworld/ [high confidence]
+2026-06-11 13:26:25,582  INFO          [tiktok] Searching: PRIMA AUTOWORLD SDN BHD Ipoh tiktok profile
+2026-06-11 13:26:45,548  INFO              Jina returned 10 results
+2026-06-11 13:26:45,552  INFO              Slug match: 'publicautoworldsdnbhd' vs 'prima autoworld' → 0.61
+2026-06-11 13:26:45,553  INFO              Word matches: ['autoworld']
+2026-06-11 13:26:45,554  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@publicautoworldsdnbhd [high confidence]
+2026-06-11 13:26:47,566  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:26:47,567  INFO      
+[6/17] ══════════════════════════════════════════
+2026-06-11 13:26:47,569  INFO        Business : Cars Palace Sdn Bhd | Used Car Sales & Service
+2026-06-11 13:26:47,570  INFO        City     : Ipoh
+2026-06-11 13:26:47,571  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 13:26:47,572  INFO          [website] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh Malaysia
+2026-06-11 13:27:05,991  INFO              Jina returned 10 results
+2026-06-11 13:27:05,993  INFO          [website] ✓ Found: https://www.cmautohaus.com.my/
+2026-06-11 13:27:07,994  INFO          [mudah] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh mudah
+2026-06-11 13:27:33,076  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:27:33,077  INFO          [mudah] ✗ Not found
+2026-06-11 13:27:35,079  INFO          [carlist] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh carlist
+2026-06-11 13:27:48,714  INFO              Jina returned 10 results
+2026-06-11 13:27:48,715  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/carspalace
+2026-06-11 13:27:50,717  INFO          [autocari] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh autocari
+2026-06-11 13:28:06,162  INFO              Jina returned 10 results
+2026-06-11 13:28:06,164  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 13:28:08,166  INFO          [facebook] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh facebook profile
+2026-06-11 13:28:16,158  INFO              Jina returned 10 results
+2026-06-11 13:28:16,160  INFO              Slug match: 'carspalaceipoh' vs 'cars palace  | used car sales & service' → 0.42
+2026-06-11 13:28:16,161  INFO              Word matches: ['cars', 'palace']
+2026-06-11 13:28:16,162  INFO          [facebook] ✓ Found: https://www.facebook.com/carspalaceipoh/ [high confidence]
+2026-06-11 13:28:18,163  INFO          [instagram] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh instagram profile
+2026-06-11 13:28:43,212  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:28:43,213  INFO          [instagram] ✗ Not found
+2026-06-11 13:28:45,215  INFO          [tiktok] Searching: Cars Palace Sdn Bhd | Used Car Sales & Service Ipoh tiktok profile
+2026-06-11 13:28:53,316  INFO              Jina returned 10 results
+2026-06-11 13:28:53,318  INFO              Slug match: 'carspalace team' vs 'cars palace  | used car sales & service' → 0.48
+2026-06-11 13:28:53,319  INFO              Word matches: ['cars', 'palace']
+2026-06-11 13:28:53,319  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@carspalace_team [high confidence]
+2026-06-11 13:28:55,324  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:28:55,325  INFO      
+[7/17] ══════════════════════════════════════════
+2026-06-11 13:28:55,326  INFO        Business : TNT used car Ipoh 怡保二手车
+2026-06-11 13:28:55,327  INFO        City     : Ipoh
+2026-06-11 13:28:55,327  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 13:28:55,328  INFO          [website] Searching: TNT used car Ipoh 怡保二手车 Ipoh Malaysia
+2026-06-11 13:29:16,106  INFO              Jina returned 10 results
+2026-06-11 13:29:16,109  INFO          [website] ✓ Found: https://by.maptons.com/p/9870302169
+2026-06-11 13:29:18,111  INFO          [mudah] Searching: TNT used car Ipoh 怡保二手车 Ipoh mudah
+2026-06-11 13:29:43,158  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:29:43,159  INFO          [mudah] ✗ Not found
+2026-06-11 13:29:45,161  INFO          [carlist] Searching: TNT used car Ipoh 怡保二手车 Ipoh carlist
+2026-06-11 13:30:10,223  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:30:10,225  INFO          [carlist] ✗ Not found
+2026-06-11 13:30:12,226  INFO          [autocari] Searching: TNT used car Ipoh 怡保二手车 Ipoh autocari
+2026-06-11 13:30:26,582  INFO              Jina returned 10 results
+2026-06-11 13:30:26,584  INFO          [autocari] ✗ Not found
+2026-06-11 13:30:28,586  INFO          [facebook] Searching: TNT used car Ipoh 怡保二手车 Ipoh facebook profile
+2026-06-11 13:30:53,635  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:30:53,642  INFO          [facebook] ✗ Not found
+2026-06-11 13:30:55,644  INFO          [instagram] Searching: TNT used car Ipoh 怡保二手车 Ipoh instagram profile
+2026-06-11 13:31:03,641  INFO              Jina returned 10 results
+2026-06-11 13:31:03,643  INFO              Rejected (structural): https://www.instagram.com/reel/DHCl4rUTAgf/
+2026-06-11 13:31:03,645  INFO              Rejected (structural): https://www.instagram.com/reel/DMzP07xT8UV/
+2026-06-11 13:31:03,646  INFO              Rejected (structural): https://www.instagram.com/p/DYjjBV_D2uA/?img_index=12
+2026-06-11 13:31:03,648  INFO              Rejected (structural): https://www.instagram.com/reel/DSMIACViT3k/
+2026-06-11 13:31:03,649  INFO              Rejected (structural): https://www.instagram.com/reel/DTwz6eggCmm/
+2026-06-11 13:31:03,650  INFO              Rejected (structural): https://www.instagram.com/reel/DV728N7ktYe/
+2026-06-11 13:31:03,652  INFO          [instagram] ✗ Not found
+2026-06-11 13:31:05,654  INFO          [tiktok] Searching: TNT used car Ipoh 怡保二手车 Ipoh tiktok profile
+2026-06-11 13:31:23,644  INFO              Jina returned 10 results
+2026-06-11 13:31:23,646  INFO              Rejected (structural): https://www.tiktok.com/@robertlee_asastimur/video/7573911119501298951
+2026-06-11 13:31:23,647  INFO          [tiktok] ✗ Not found
+2026-06-11 13:31:25,655  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:31:25,656  INFO      
+[8/17] ══════════════════════════════════════════
+2026-06-11 13:31:25,657  INFO        Business : Asas Timur Enterprise - Ipoh Used Car Dealer
+2026-06-11 13:31:25,657  INFO        City     : Ipoh
+2026-06-11 13:31:25,658  INFO          [website] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh Malaysia
+2026-06-11 13:31:44,634  INFO              Jina returned 10 results
+2026-06-11 13:31:44,638  INFO          [website] ✓ Found: https://www.caricarz.com/dealer/asastimur/cars-for-sale?srsltid=AfmBOopK4psWY8vMHDeyPmOebu0KCVmwMg-Z3nPBj_K5aCX-yuseLJ6r
+2026-06-11 13:31:46,640  INFO          [mudah] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh mudah
+2026-06-11 13:32:04,579  INFO              Jina returned 10 results
+2026-06-11 13:32:04,583  INFO          [mudah] ✓ Found: https://www.mudah.my/robert-lee-asas-timur-enterprise-non
+2026-06-11 13:32:06,585  INFO          [carlist] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh carlist
+2026-06-11 13:32:20,835  INFO              Jina returned 10 results
+2026-06-11 13:32:20,838  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/asastimurent
+2026-06-11 13:32:22,840  INFO          [autocari] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh autocari
+2026-06-11 13:32:29,699  INFO              Jina returned 10 results
+2026-06-11 13:32:29,701  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 13:32:31,703  INFO          [facebook] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh facebook profile
+2026-06-11 13:32:46,692  INFO              Jina returned 10 results
+2026-06-11 13:32:46,697  INFO              Slug match: '100064112886638' vs 'asas timur  - ipoh used car dealer' → 0.00
+2026-06-11 13:32:46,699  INFO              Word matches: []
+2026-06-11 13:32:46,701  INFO          [facebook] ✓ Found: https://www.facebook.com/100064112886638/videos/test-drive-hilux-double-cab-25/137765708178321/ [low confidence]
+2026-06-11 13:32:48,709  INFO          [instagram] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh instagram profile
+2026-06-11 13:32:55,897  INFO              Jina returned 10 results
+2026-06-11 13:32:55,900  INFO              Rejected (structural): https://www.instagram.com/reel/DY4a19kzWne/
+2026-06-11 13:32:55,901  INFO              Rejected (structural): https://www.instagram.com/p/DY4NIavEsdM/?img_index=2
+2026-06-11 13:32:55,903  INFO              Rejected (structural): https://www.instagram.com/p/DNQACbyhaeS/?img_index=2
+2026-06-11 13:32:55,907  INFO              Rejected (structural): https://www.instagram.com/reel/DKFxWdkzoQY/?hl=en
+2026-06-11 13:32:55,921  INFO          [instagram] ✗ Not found
+2026-06-11 13:32:57,924  INFO          [tiktok] Searching: Asas Timur Enterprise - Ipoh Used Car Dealer Ipoh tiktok profile
+2026-06-11 13:33:23,001  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:33:23,003  INFO          [tiktok] ✗ Not found
+2026-06-11 13:33:25,013  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:33:25,016  INFO      
+[9/17] ══════════════════════════════════════════
+2026-06-11 13:33:25,018  INFO        Business : Onn Fatt 4x4 Ipoh
+2026-06-11 13:33:25,020  INFO        City     : Ipoh
+2026-06-11 13:33:25,022  INFO          [website] Checking existing: https://www.onnfatt.com.my/
+2026-06-11 13:33:29,415  INFO          [website] ✓ Verified existing
+2026-06-11 13:33:31,417  INFO          [mudah] Searching: Onn Fatt 4x4 Ipoh Ipoh mudah
+2026-06-11 13:33:53,774  INFO              Jina returned 10 results
+2026-06-11 13:33:53,777  INFO          [mudah] ✓ Found: https://www.mudah.my/onnfatt
+2026-06-11 13:33:55,778  INFO          [carlist] Searching: Onn Fatt 4x4 Ipoh Ipoh carlist
+2026-06-11 13:34:08,604  INFO              Jina returned 10 results
+2026-06-11 13:34:08,607  INFO          [carlist] ✓ Found: https://www.carlist.my/cars-for-sale/body-Pickup/malaysia_perak_ipoh?keyword=4x4&transmission=automatic&page_size=25
+2026-06-11 13:34:10,610  INFO          [autocari] Searching: Onn Fatt 4x4 Ipoh Ipoh autocari
+2026-06-11 13:34:35,660  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:34:35,661  INFO          [autocari] ✗ Not found
+2026-06-11 13:34:37,664  INFO          [facebook] Searching: Onn Fatt 4x4 Ipoh Ipoh facebook profile
+2026-06-11 13:34:49,035  INFO              Jina returned 10 results
+2026-06-11 13:34:49,039  INFO              Slug match: 'onnfattcredit' vs 'onn fatt 4x4 ipoh' → 0.53
+2026-06-11 13:34:49,041  INFO              Word matches: ['fatt']
+2026-06-11 13:34:49,043  INFO          [facebook] ✓ Found: https://www.facebook.com/onnfattcredit/ [mid confidence]
+2026-06-11 13:34:51,045  INFO          [instagram] Searching: Onn Fatt 4x4 Ipoh Ipoh instagram profile
+2026-06-11 13:35:10,632  INFO              Jina returned 10 results
+2026-06-11 13:35:10,636  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDY4NIavEsdM%2F%3Fimg_index%3D2&is_from_rle
+2026-06-11 13:35:10,638  INFO              Rejected (structural): https://www.instagram.com/reel/DXOasSlEVww/?hl=en
+2026-06-11 13:35:10,639  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDNLEpS2B3dr%2F&is_from_rle
+2026-06-11 13:35:10,641  INFO              Rejected (structural): https://www.instagram.com/p/DZL3Dftn8uG/
+2026-06-11 13:35:10,642  INFO              Rejected (structural): https://www.instagram.com/reel/DZRa3IsAeIu/
+2026-06-11 13:35:10,645  INFO          [instagram] ✗ Not found
+2026-06-11 13:35:12,647  INFO          [tiktok] Searching: Onn Fatt 4x4 Ipoh Ipoh tiktok profile
+2026-06-11 13:35:37,694  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:35:37,700  INFO          [tiktok] ✗ Not found
+2026-06-11 13:35:39,709  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:35:39,711  INFO      
+[10/17] ══════════════════════════════════════════
+2026-06-11 13:35:39,712  INFO        Business : MK Car Auto Enterprise ( Used Car Dealer )
+2026-06-11 13:35:39,713  INFO        City     : Ipoh
+2026-06-11 13:35:39,715  INFO          [website] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh Malaysia
+2026-06-11 13:36:03,364  INFO              Jina returned 10 results
+2026-06-11 13:36:03,368  INFO          [website] ✓ Found: https://www.cars.com/dealers/6061071/mk-motors/inventory/
+2026-06-11 13:36:05,369  INFO          [mudah] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh mudah
+2026-06-11 13:36:22,240  INFO              Jina returned 10 results
+2026-06-11 13:36:22,243  INFO          [mudah] ✓ Found: https://www.mudah.my/nelson-lau-mk-car-auto-enterprise-ipoh
+2026-06-11 13:36:24,246  INFO          [carlist] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh carlist
+2026-06-11 13:36:45,841  INFO              Jina returned 10 results
+2026-06-11 13:36:45,843  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/senhen19792
+2026-06-11 13:36:47,846  INFO          [autocari] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh autocari
+2026-06-11 13:37:00,301  INFO              Jina returned 10 results
+2026-06-11 13:37:00,304  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 13:37:02,305  INFO          [facebook] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh facebook profile
+2026-06-11 13:37:27,363  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:37:27,364  INFO          [facebook] ✗ Not found
+2026-06-11 13:37:29,365  INFO          [instagram] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh instagram profile
+2026-06-11 13:37:38,548  INFO              Jina returned 10 results
+2026-06-11 13:37:38,549  INFO              Rejected (structural): https://www.instagram.com/reel/DIkx7O3zWFV/
+2026-06-11 13:37:38,551  INFO              Slug match: 'explore' vs 'mk car auto  ( used car dealer )' → 0.10
+2026-06-11 13:37:38,552  INFO              Word matches: []
+2026-06-11 13:37:38,552  INFO          [instagram] ✓ Found: https://www.instagram.com/explore/locations/102956064469598/mk-car-auto-enterprise/ [low confidence]
+2026-06-11 13:37:40,554  INFO          [tiktok] Searching: MK Car Auto Enterprise ( Used Car Dealer ) Ipoh tiktok profile
+2026-06-11 13:38:00,315  INFO              Jina returned 10 results
+2026-06-11 13:38:00,318  INFO              Rejected (structural): https://www.tiktok.com/@mkcarautoenterprise/video/7533549099375774984
+2026-06-11 13:38:00,320  INFO              Slug match: 'aizatcardealer' vs 'mk car auto  ( used car dealer )' → 0.39
+2026-06-11 13:38:00,322  INFO              Word matches: ['dealer']
+2026-06-11 13:38:00,323  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@aizatcardealer [mid confidence]
+2026-06-11 13:38:02,331  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:38:02,333  INFO      
+[11/17] ══════════════════════════════════════════
+2026-06-11 13:38:02,334  INFO        Business : LT Auto Haus • De Garden
+2026-06-11 13:38:02,335  INFO        City     : Ipoh
+2026-06-11 13:38:02,336  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 13:38:02,338  INFO          [website] Searching: LT Auto Haus • De Garden Ipoh Malaysia
+2026-06-11 13:38:27,389  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:38:27,391  INFO          [website] ✗ Not found
+2026-06-11 13:38:29,393  INFO          [mudah] Searching: LT Auto Haus • De Garden Ipoh mudah
+2026-06-11 13:38:49,259  INFO              Jina returned 10 results
+2026-06-11 13:38:49,262  INFO          [mudah] ✓ Found: https://www.mudah.my/ket-loh-lt-auto-house-ipoh
+2026-06-11 13:38:51,264  INFO          [carlist] Searching: LT Auto Haus • De Garden Ipoh carlist
+2026-06-11 13:38:57,958  INFO              Jina returned 10 results
+2026-06-11 13:38:57,961  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/64fc29cc-5ff7-464c-935c-c0e4f8076767
+2026-06-11 13:38:59,964  INFO          [autocari] Searching: LT Auto Haus • De Garden Ipoh autocari
+2026-06-11 13:39:25,010  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:39:25,011  INFO          [autocari] ✗ Not found
+2026-06-11 13:39:27,013  INFO          [facebook] Searching: LT Auto Haus • De Garden Ipoh facebook profile
+2026-06-11 13:39:36,934  INFO              Jina returned 10 results
+2026-06-11 13:39:36,937  INFO              Rejected (structural): https://www.facebook.com/groups/1074810725918086/posts/26560901456882329/
+2026-06-11 13:39:36,939  INFO              Rejected (structural): https://www.facebook.com/photo.php?fbid=1577574356865243&set=a.778243320131688&id=100038380813394
+2026-06-11 13:39:36,947  INFO              Slug match: 'ltautohausipoh' vs 'lt auto haus • de garden' → 0.53
+2026-06-11 13:39:36,948  INFO              Word matches: ['auto', 'haus']
+2026-06-11 13:39:36,949  INFO          [facebook] ✓ Found: https://www.facebook.com/LTAutoHausIpoh/mentions/ [high confidence]
+2026-06-11 13:39:38,951  INFO          [instagram] Searching: LT Auto Haus • De Garden Ipoh instagram profile
+2026-06-11 13:39:53,902  INFO              Jina returned 10 results
+2026-06-11 13:39:53,904  INFO              Rejected (structural): https://www.instagram.com/reel/C68iMiToWQy/
+2026-06-11 13:39:53,905  INFO              Rejected (structural): https://www.instagram.com/p/C2ESaHSuq89/
+2026-06-11 13:39:53,906  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDNLEpS2B3dr%2F&is_from_rle
+2026-06-11 13:39:53,906  INFO              Rejected (structural): https://www.instagram.com/reel/DYw2y_VDqMz/
+2026-06-11 13:39:53,907  INFO              Rejected (structural): https://www.instagram.com/p/DZSKeR-EQgm/?img_index=5&hl=am-et
+2026-06-11 13:39:53,908  INFO          [instagram] ✗ Not found
+2026-06-11 13:39:55,909  INFO          [tiktok] Searching: LT Auto Haus • De Garden Ipoh tiktok profile
+2026-06-11 13:40:18,159  INFO              Jina returned 10 results
+2026-06-11 13:40:18,161  INFO              Rejected (structural): https://www.tiktok.com/@ltautohaus/video/7313161234885414152
+2026-06-11 13:40:18,163  INFO              Slug match: 'ltautohaus' vs 'lt auto haus • de garden' → 0.59
+2026-06-11 13:40:18,163  INFO              Word matches: ['auto', 'haus']
+2026-06-11 13:40:18,164  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@ltautohaus [high confidence]
+2026-06-11 13:40:20,171  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:40:20,172  INFO      
+[12/17] ══════════════════════════════════════════
+2026-06-11 13:40:20,172  INFO        Business : WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer
+2026-06-11 13:40:20,173  INFO        City     : Ipoh
+2026-06-11 13:40:20,174  INFO          [website] Checking existing: http://www.worldclassmotor.com.my/
+2026-06-11 13:40:21,068  INFO          [website] ✓ Verified existing
+2026-06-11 13:40:23,069  INFO          [mudah] Searching: WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer Ipoh mudah
+2026-06-11 13:40:48,105  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:40:48,107  INFO          [mudah] ✗ Not found
+2026-06-11 13:40:50,109  INFO          [carlist] Searching: WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer Ipoh carlist
+2026-06-11 13:41:01,472  INFO              Jina returned 10 results
+2026-06-11 13:41:01,476  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/worldclassmoto
+2026-06-11 13:41:03,478  INFO          [autocari] Searching: WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer Ipoh autocari
+2026-06-11 13:41:28,528  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:41:28,529  INFO          [autocari] ✗ Not found
+2026-06-11 13:41:30,531  INFO          [facebook] Searching: WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer Ipoh facebook profile
+2026-06-11 13:41:39,950  INFO              Jina returned 10 results
+2026-06-11 13:41:39,955  INFO              Slug match: 'totalworldclass' vs 'world class motor | ipoh recon&used car dealer' → 0.33
+2026-06-11 13:41:39,960  INFO              Word matches: ['world', 'class']
+2026-06-11 13:41:39,962  INFO          [facebook] ✓ Found: https://www.facebook.com/totalworldclass/ [high confidence]
+2026-06-11 13:41:41,965  INFO          [instagram] Searching: WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer Ipoh instagram profile
+2026-06-11 13:41:57,362  INFO              Jina returned 10 results
+2026-06-11 13:41:57,365  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fworldclassmoto%2F%3Fhl%3Den&is_from_rle
+2026-06-11 13:41:57,366  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDY4NIavEsdM%2F%3Fimg_index%3D2&is_from_rle
+2026-06-11 13:41:57,366  INFO              Rejected (structural): https://www.instagram.com/p/B-G-3LOA0-U/
+2026-06-11 13:41:57,367  INFO              Rejected (structural): https://www.instagram.com/p/DR6CNzDguCc/
+2026-06-11 13:41:57,368  INFO          [instagram] ✗ Not found
+2026-06-11 13:41:59,369  INFO          [tiktok] Searching: WORLD CLASS MOTOR | Ipoh Recon&Used Car Dealer Ipoh tiktok profile
+2026-06-11 13:42:17,382  INFO              Jina returned 10 results
+2026-06-11 13:42:17,384  INFO              Rejected (structural): https://www.tiktok.com/@mohkeipoh/video/7515409286156029202
+2026-06-11 13:42:17,385  INFO              Rejected (structural): https://www.tiktok.com/@ckyongautoworld/video/7482635877487856903
+2026-06-11 13:42:17,386  INFO          [tiktok] ✗ Not found
+2026-06-11 13:42:19,391  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:42:19,392  INFO      
+[13/17] ══════════════════════════════════════════
+2026-06-11 13:42:19,393  INFO        Business : iMotor Auto Sdn. Bhd
+2026-06-11 13:42:19,393  INFO        City     : Ipoh
+2026-06-11 13:42:19,394  INFO          [website] Searching: iMotor Auto Sdn. Bhd Ipoh Malaysia
+2026-06-11 13:42:38,596  INFO              Jina returned 10 results
+2026-06-11 13:42:38,599  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-company/1476176M/IMOTOR-AUTO-SDN-BHD-
+2026-06-11 13:42:40,601  INFO          [mudah] Searching: iMotor Auto Sdn. Bhd Ipoh mudah
+2026-06-11 13:43:00,334  INFO              Jina returned 10 results
+2026-06-11 13:43:00,336  INFO          [mudah] ✓ Found: https://www.mudah.my/imotor-auto-sdn-bhd-1476176-m
+2026-06-11 13:43:02,338  INFO          [carlist] Searching: iMotor Auto Sdn. Bhd Ipoh carlist
+2026-06-11 13:43:09,843  INFO              Jina returned 10 results
+2026-06-11 13:43:09,846  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/bd571266-2fd3-430c-8afb-a9f9be3129e9
+2026-06-11 13:43:11,848  INFO          [autocari] Searching: iMotor Auto Sdn. Bhd Ipoh autocari
+2026-06-11 13:43:36,917  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:43:36,919  INFO          [autocari] ✗ Not found
+2026-06-11 13:43:38,921  INFO          [facebook] Searching: iMotor Auto Sdn. Bhd Ipoh facebook profile
+2026-06-11 13:44:03,977  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:44:03,978  INFO          [facebook] ✗ Not found
+2026-06-11 13:44:05,981  INFO          [instagram] Searching: iMotor Auto Sdn. Bhd Ipoh instagram profile
+2026-06-11 13:44:19,595  INFO              Jina returned 10 results
+2026-06-11 13:44:19,597  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Freel%2FDS79VSkgSux%2F&is_from_rle
+2026-06-11 13:44:19,599  INFO              Rejected (structural): https://www.instagram.com/p/DPiX2xOE_ze/
+2026-06-11 13:44:19,600  INFO              Rejected (structural): https://www.instagram.com/reel/DBzx8vGBD41/
+2026-06-11 13:44:19,602  INFO              Rejected (structural): https://www.instagram.com/p/DXkPBXIDcJH/?img_index=4
+2026-06-11 13:44:19,603  INFO              Rejected (structural): https://www.instagram.com/reel/DQwV9PbEyfu/
+2026-06-11 13:44:19,605  INFO              Rejected (structural): https://www.instagram.com/p/CzInv6PBrAO/
+2026-06-11 13:44:19,607  INFO              Rejected (structural): https://www.instagram.com/reel/DYOR4euuEop/
+2026-06-11 13:44:19,608  INFO              Rejected (structural): https://www.instagram.com/p/DTNFUGYgWsf/
+2026-06-11 13:44:19,609  INFO          [instagram] ✗ Not found
+2026-06-11 13:44:21,610  INFO          [tiktok] Searching: iMotor Auto Sdn. Bhd Ipoh tiktok profile
+2026-06-11 13:44:46,656  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:44:46,657  INFO          [tiktok] ✗ Not found
+2026-06-11 13:44:48,665  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:44:48,667  INFO      
+[14/17] ══════════════════════════════════════════
+2026-06-11 13:44:48,668  INFO        Business : P&D AutoWorld Sdn Bhd
+2026-06-11 13:44:48,668  INFO        City     : Ipoh
+2026-06-11 13:44:48,669  INFO          [website] Checking existing: http://pdautoworld.com/
+2026-06-11 13:44:51,198  INFO          [website] ✗ Dead or blank — searching for replacement
+2026-06-11 13:44:51,199  INFO          [website] Searching: P&D AutoWorld Sdn Bhd Ipoh Malaysia
+2026-06-11 13:45:11,811  INFO              Jina returned 10 results
+2026-06-11 13:45:11,814  INFO          [website] ✓ Found: https://www.primaautoworld.com.my/ourproducts/
+2026-06-11 13:45:13,816  INFO          [mudah] Searching: P&D AutoWorld Sdn Bhd Ipoh mudah
+2026-06-11 13:45:31,783  INFO              Jina returned 10 results
+2026-06-11 13:45:31,786  INFO          [mudah] ✓ Found: https://www.mudah.my/pdautoworld
+2026-06-11 13:45:33,787  INFO          [carlist] Searching: P&D AutoWorld Sdn Bhd Ipoh carlist
+2026-06-11 13:45:46,507  INFO              Jina returned 10 results
+2026-06-11 13:45:46,509  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/e641b22e-0050-4fd5-9907-7b2115e01757
+2026-06-11 13:45:48,512  INFO          [autocari] Searching: P&D AutoWorld Sdn Bhd Ipoh autocari
+2026-06-11 13:46:01,582  INFO              Jina returned 10 results
+2026-06-11 13:46:01,584  INFO          [autocari] ✗ Not found
+2026-06-11 13:46:03,586  INFO          [facebook] Searching: P&D AutoWorld Sdn Bhd Ipoh facebook profile
+2026-06-11 13:46:28,650  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:46:28,652  INFO          [facebook] ✗ Not found
+2026-06-11 13:46:30,654  INFO          [instagram] Searching: P&D AutoWorld Sdn Bhd Ipoh instagram profile
+2026-06-11 13:46:42,435  INFO              Jina returned 10 results
+2026-06-11 13:46:42,438  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDY9_6SoDbTc%2F%3Fhl%3Den&is_from_rle
+2026-06-11 13:46:42,440  INFO              Rejected (structural): https://www.instagram.com/p/DW0UOTqkb4C/
+2026-06-11 13:46:42,441  INFO              Rejected (structural): https://www.instagram.com/p/DUDRJS2jWEM/
+2026-06-11 13:46:42,442  INFO              Rejected (structural): https://www.instagram.com/reel/DY_pliBCWXh/
+2026-06-11 13:46:42,444  INFO              Rejected (structural): https://www.instagram.com/p/DS7wkZriHlp/
+2026-06-11 13:46:42,446  INFO              Rejected (structural): https://www.instagram.com/reel/DUpSnWWD3FB/
+2026-06-11 13:46:42,448  INFO              Rejected (structural): https://www.instagram.com/p/DU4NbBAEl97/
+2026-06-11 13:46:42,450  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDYhPunqAX97%2F&is_from_rle
+2026-06-11 13:46:42,452  INFO          [instagram] ✗ Not found
+2026-06-11 13:46:44,456  INFO          [tiktok] Searching: P&D AutoWorld Sdn Bhd Ipoh tiktok profile
+2026-06-11 13:47:03,153  INFO              Jina returned 10 results
+2026-06-11 13:47:03,156  INFO              Rejected (structural): https://www.tiktok.com/@davistan93/video/7629348979322391828
+2026-06-11 13:47:03,159  INFO              Slug match: 'pdautoworldsdnbhd' vs 'p&d autoworld' → 0.73
+2026-06-11 13:47:03,160  INFO              Word matches: ['autoworld']
+2026-06-11 13:47:03,161  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@pdautoworldsdnbhd [high confidence]
+2026-06-11 13:47:05,167  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:47:05,167  INFO      
+[15/17] ══════════════════════════════════════════
+2026-06-11 13:47:05,168  INFO        Business : Tai Tung Used Car
+2026-06-11 13:47:05,169  INFO        City     : Ipoh
+2026-06-11 13:47:05,169  INFO          [website] Searching: Tai Tung Used Car Ipoh Malaysia
+2026-06-11 13:47:24,915  INFO              Jina returned 10 results
+2026-06-11 13:47:24,918  INFO          [website] ✓ Found: https://www.caricarz.com/dealer/taitung9663/about_us?srsltid=AfmBOorUIjlZl57UgJE9PbtdxHSFJ0xo4QK-jLbGgvZwBBSfVqqA_gIr
+2026-06-11 13:47:26,920  INFO          [mudah] Searching: Tai Tung Used Car Ipoh mudah
+2026-06-11 13:47:47,273  INFO              Jina returned 10 results
+2026-06-11 13:47:47,276  INFO          [mudah] ✓ Found: https://www.mudah.my/perak/cars-for-sale
+2026-06-11 13:47:49,278  INFO          [carlist] Searching: Tai Tung Used Car Ipoh carlist
+2026-06-11 13:48:09,827  INFO              Jina returned 10 results
+2026-06-11 13:48:09,830  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/worldclassmoto
+2026-06-11 13:48:11,832  INFO          [autocari] Searching: Tai Tung Used Car Ipoh autocari
+2026-06-11 13:48:20,204  INFO              Jina returned 10 results
+2026-06-11 13:48:20,208  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-11 13:48:22,211  INFO          [facebook] Searching: Tai Tung Used Car Ipoh facebook profile
+2026-06-11 13:48:29,041  INFO              Jina returned 10 results
+2026-06-11 13:48:29,045  INFO              Slug match: 'tntauto78' vs 'tai tung used car' → 0.23
+2026-06-11 13:48:29,046  INFO              Word matches: []
+2026-06-11 13:48:29,048  INFO          [facebook] ✓ Found: https://www.facebook.com/tntauto78/videos/our-current-in-stock-unit/1238171757752838/ [low confidence]
+2026-06-11 13:48:31,050  INFO          [instagram] Searching: Tai Tung Used Car Ipoh instagram profile
+2026-06-11 13:48:36,895  INFO              Jina returned 10 results
+2026-06-11 13:48:36,898  INFO              Rejected (structural): https://www.instagram.com/reel/DVOBLtGDzHw/
+2026-06-11 13:48:36,899  INFO              Rejected (structural): https://www.instagram.com/p/DZSKeR-EQgm/?img_index=5&hl=am-et
+2026-06-11 13:48:36,901  INFO              Rejected (structural): https://www.instagram.com/reel/DIbKqlBRp7o/
+2026-06-11 13:48:36,903  INFO              Slug match: 'taunisgarage' vs 'tai tung used car' → 0.48
+2026-06-11 13:48:36,909  INFO              Word matches: []
+2026-06-11 13:48:36,912  INFO          [instagram] ✓ Found: https://www.instagram.com/taunisgarage/ [mid confidence]
+2026-06-11 13:48:38,919  INFO          [tiktok] Searching: Tai Tung Used Car Ipoh tiktok profile
+2026-06-11 13:49:03,971  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:49:03,972  INFO          [tiktok] ✗ Not found
+2026-06-11 13:49:05,981  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:49:05,984  INFO      
+[16/17] ══════════════════════════════════════════
+2026-06-11 13:49:05,988  INFO        Business : RS AUTO & SP AUTO ENTERPRISE
+2026-06-11 13:49:05,997  INFO        City     : Ipoh
+2026-06-11 13:49:06,006  INFO          [website] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh Malaysia
+2026-06-11 13:49:24,061  INFO              Jina returned 10 results
+2026-06-11 13:49:24,063  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-business/IP0443727P/RS-AUTO-ENTERPRISE
+2026-06-11 13:49:26,065  INFO          [mudah] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh mudah
+2026-06-11 13:49:44,998  INFO              Jina returned 10 results
+2026-06-11 13:49:45,009  INFO          [mudah] ✓ Found: https://www.mudah.my/rs-auto-enterprise
+2026-06-11 13:49:47,011  INFO          [carlist] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh carlist
+2026-06-11 13:50:12,073  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-11 13:50:12,073  INFO          [carlist] ✗ Not found
+2026-06-11 13:50:14,075  INFO          [autocari] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh autocari
+2026-06-11 13:50:14,974  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/RS%20AUTO%20%26%20SP%20AUTO%20ENTERPRISE%20Ipoh%20autocari
+2026-06-11 13:50:14,976  INFO          [autocari] ✗ Not found
+2026-06-11 13:50:16,978  INFO          [facebook] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh facebook profile
+2026-06-11 13:50:17,269  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/RS%20AUTO%20%26%20SP%20AUTO%20ENTERPRISE%20Ipoh%20facebook%20profile
+2026-06-11 13:50:17,271  INFO          [facebook] ✗ Not found
+2026-06-11 13:50:19,272  INFO          [instagram] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh instagram profile
+2026-06-11 13:50:19,581  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/RS%20AUTO%20%26%20SP%20AUTO%20ENTERPRISE%20Ipoh%20instagram%20profile
+2026-06-11 13:50:19,582  INFO          [instagram] ✗ Not found
+2026-06-11 13:50:21,583  INFO          [tiktok] Searching: RS AUTO & SP AUTO ENTERPRISE Ipoh tiktok profile
+2026-06-11 13:50:22,243  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/RS%20AUTO%20%26%20SP%20AUTO%20ENTERPRISE%20Ipoh%20tiktok%20profile
+2026-06-11 13:50:22,245  INFO          [tiktok] ✗ Not found
+2026-06-11 13:50:24,253  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:50:24,254  INFO      
+[17/17] ══════════════════════════════════════════
+2026-06-11 13:50:24,254  INFO        Business : NKH Used Cars
+2026-06-11 13:50:24,255  INFO        City     : Ipoh
+2026-06-11 13:50:24,256  INFO          [website] Searching: NKH Used Cars Ipoh Malaysia
+2026-06-11 13:50:24,534  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20Malaysia
+2026-06-11 13:50:24,537  INFO          [website] ✗ Not found
+2026-06-11 13:50:26,539  INFO          [mudah] Searching: NKH Used Cars Ipoh mudah
+2026-06-11 13:50:27,260  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20mudah
+2026-06-11 13:50:27,261  INFO          [mudah] ✗ Not found
+2026-06-11 13:50:29,263  INFO          [carlist] Searching: NKH Used Cars Ipoh carlist
+2026-06-11 13:50:30,254  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20carlist
+2026-06-11 13:50:30,256  INFO          [carlist] ✗ Not found
+2026-06-11 13:50:32,259  INFO          [autocari] Searching: NKH Used Cars Ipoh autocari
+2026-06-11 13:50:32,539  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20autocari
+2026-06-11 13:50:32,541  INFO          [autocari] ✗ Not found
+2026-06-11 13:50:34,542  INFO          [facebook] Searching: NKH Used Cars Ipoh facebook profile
+2026-06-11 13:50:34,941  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20facebook%20profile
+2026-06-11 13:50:34,943  INFO          [facebook] ✗ Not found
+2026-06-11 13:50:36,945  INFO          [instagram] Searching: NKH Used Cars Ipoh instagram profile
+2026-06-11 13:50:49,909  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20instagram%20profile
+2026-06-11 13:50:49,910  INFO          [instagram] ✗ Not found
+2026-06-11 13:50:51,911  INFO          [tiktok] Searching: NKH Used Cars Ipoh tiktok profile
+2026-06-11 13:50:52,348  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/NKH%20Used%20Cars%20Ipoh%20tiktok%20profile
+2026-06-11 13:50:52,349  INFO          [tiktok] ✗ Not found
+2026-06-11 13:50:54,356  INFO        Saved progress → dealers_enriched_ipoh_30000.json
+2026-06-11 13:50:54,357  INFO      
+✓ Done. 17 businesses written to C:\Users\jainp\OneDrive\Desktop\Findit\Phase_two\dealers_enriched_ipoh_30000.json
+2026-06-11 14:48:26,706  INFO      Input  : C:\Users\jainp\OneDrive\Desktop\Findit\Phase_One\dealers_Kuching_93000.json
+2026-06-11 14:48:26,716  INFO      Output : C:\Users\jainp\OneDrive\Desktop\Findit\Phase_two\dealers_enriched_Kuching_93000.json
+2026-06-11 14:48:26,725  INFO      Loaded 18 businesses from dealers_Kuching_93000.json
+2026-06-11 14:48:26,732  INFO      
+[1/18] ══════════════════════════════════════════
+2026-06-11 14:48:26,754  INFO        Business : Tiger Motors Sdn Bhd
+2026-06-11 14:48:26,760  INFO        City     : Kuching
+2026-06-11 14:48:26,769  INFO          [website] Checking existing: http://www.tigermotors.com.my/
+2026-06-11 14:48:33,780  INFO          [website] ✓ Verified existing
+2026-06-11 14:48:35,830  INFO          [mudah] Searching: Tiger Motors Sdn Bhd Kuching mudah
+2026-06-11 14:48:38,525  INFO          [mudah] ✗ Not found
+2026-06-11 14:48:40,556  INFO          [carlist] Searching: Tiger Motors Sdn Bhd Kuching carlist
+2026-06-11 14:48:41,348  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Tiger%20Motors%20Sdn%20Bhd%20Kuching%20carlist
+2026-06-11 14:48:41,358  INFO          [carlist] ✗ Not found
+2026-06-11 14:48:43,362  INFO          [autocari] Searching: Tiger Motors Sdn Bhd Kuching autocari
+2026-06-11 14:48:45,241  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Tiger%20Motors%20Sdn%20Bhd%20Kuching%20autocari
+2026-06-11 14:48:45,244  INFO          [autocari] ✗ Not found
+2026-06-11 14:48:47,247  INFO          [facebook] Searching: Tiger Motors Sdn Bhd Kuching facebook profile
+2026-06-11 14:48:48,022  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Tiger%20Motors%20Sdn%20Bhd%20Kuching%20facebook%20profile
+2026-06-11 14:48:48,028  INFO          [facebook] ✗ Not found
+2026-06-11 14:48:50,034  INFO          [instagram] Searching: Tiger Motors Sdn Bhd Kuching instagram profile
+2026-06-11 14:48:51,636  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Tiger%20Motors%20Sdn%20Bhd%20Kuching%20instagram%20profile
+2026-06-11 14:48:51,639  INFO          [instagram] ✗ Not found
+2026-06-11 14:48:53,643  INFO          [tiktok] Searching: Tiger Motors Sdn Bhd Kuching tiktok profile
+2026-06-11 14:48:54,393  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Tiger%20Motors%20Sdn%20Bhd%20Kuching%20tiktok%20profile
+2026-06-11 14:48:54,395  INFO          [tiktok] ✗ Not found
+2026-06-11 14:48:56,404  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:48:56,410  INFO      
+[2/18] ══════════════════════════════════════════
+2026-06-11 14:48:56,413  INFO        Business : Used car - Ben Lee automobile 1
+2026-06-11 14:48:56,417  INFO        City     : Kuching
+2026-06-11 14:48:56,419  INFO          [website] Checking existing: https://api.whatsapp.com/send?phone=60137594748
+2026-06-11 14:48:57,513  INFO          [website] ✓ Verified existing
+2026-06-11 14:48:59,515  INFO          [mudah] Searching: Used car - Ben Lee automobile 1 Kuching mudah
+2026-06-11 14:49:00,280  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Used%20car%20-%20Ben%20Lee%20automobile%201%20Kuching%20mudah
+2026-06-11 14:49:00,346  INFO          [mudah] ✗ Not found
+2026-06-11 14:49:02,404  INFO          [carlist] Searching: Used car - Ben Lee automobile 1 Kuching carlist
+2026-06-11 14:49:03,712  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Used%20car%20-%20Ben%20Lee%20automobile%201%20Kuching%20carlist
+2026-06-11 14:49:03,790  INFO          [carlist] ✗ Not found
+2026-06-11 14:49:05,834  INFO          [autocari] Searching: Used car - Ben Lee automobile 1 Kuching autocari
+2026-06-11 14:49:06,636  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Used%20car%20-%20Ben%20Lee%20automobile%201%20Kuching%20autocari
+2026-06-11 14:49:06,639  INFO          [autocari] ✗ Not found
+2026-06-11 14:49:08,640  INFO          [facebook] Searching: Used car - Ben Lee automobile 1 Kuching facebook profile
+2026-06-11 14:49:09,543  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Used%20car%20-%20Ben%20Lee%20automobile%201%20Kuching%20facebook%20profile
+2026-06-11 14:49:09,545  INFO          [facebook] ✗ Not found
+2026-06-11 14:49:11,547  INFO          [instagram] Searching: Used car - Ben Lee automobile 1 Kuching instagram profile
+2026-06-11 14:49:12,338  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Used%20car%20-%20Ben%20Lee%20automobile%201%20Kuching%20instagram%20profile
+2026-06-11 14:49:12,345  INFO          [instagram] ✗ Not found
+2026-06-11 14:49:14,348  INFO          [tiktok] Searching: Used car - Ben Lee automobile 1 Kuching tiktok profile
+2026-06-11 14:49:15,642  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Used%20car%20-%20Ben%20Lee%20automobile%201%20Kuching%20tiktok%20profile
+2026-06-11 14:49:15,644  INFO          [tiktok] ✗ Not found
+2026-06-11 14:49:17,651  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:49:17,654  INFO      
+[3/18] ══════════════════════════════════════════
+2026-06-11 14:49:17,654  INFO        Business : VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT
+2026-06-11 14:49:17,656  INFO        City     : Kuching
+2026-06-11 14:49:17,656  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 14:49:17,656  INFO          [website] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching Malaysia
+2026-06-11 14:49:18,400  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20Malaysia
+2026-06-11 14:49:18,402  INFO          [website] ✗ Not found
+2026-06-11 14:49:20,404  INFO          [mudah] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching mudah
+2026-06-11 14:49:21,311  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20mudah
+2026-06-11 14:49:21,313  INFO          [mudah] ✗ Not found
+2026-06-11 14:49:23,316  INFO          [carlist] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching carlist
+2026-06-11 14:49:24,056  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20carlist
+2026-06-11 14:49:24,057  INFO          [carlist] ✗ Not found
+2026-06-11 14:49:26,059  INFO          [autocari] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching autocari
+2026-06-11 14:49:27,200  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20autocari
+2026-06-11 14:49:27,203  INFO          [autocari] ✗ Not found
+2026-06-11 14:49:29,205  INFO          [facebook] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching facebook profile
+2026-06-11 14:49:29,968  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20facebook%20profile
+2026-06-11 14:49:29,969  INFO          [facebook] ✗ Not found
+2026-06-11 14:49:31,970  INFO          [instagram] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching instagram profile
+2026-06-11 14:49:32,689  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20instagram%20profile
+2026-06-11 14:49:32,690  INFO          [instagram] ✗ Not found
+2026-06-11 14:49:34,691  INFO          [tiktok] Searching: VB MOTOR KCH (Buy & Sell Quality Used Car) by VB CONCEPT Kuching tiktok profile
+2026-06-11 14:49:35,424  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/VB%20MOTOR%20KCH%20%28Buy%20%26%20Sell%20Quality%20Used%20Car%29%20by%20VB%20CONCEPT%20Kuching%20tiktok%20profile
+2026-06-11 14:49:35,428  INFO          [tiktok] ✗ Not found
+2026-06-11 14:49:37,430  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:49:37,430  INFO      
+[4/18] ══════════════════════════════════════════
+2026-06-11 14:49:37,431  INFO        Business : City Drive Auto Company
+2026-06-11 14:49:37,431  INFO        City     : Kuching
+2026-06-11 14:49:37,431  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 14:49:37,431  INFO          [website] Searching: City Drive Auto Company Kuching Malaysia
+2026-06-11 14:49:38,940  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20Malaysia
+2026-06-11 14:49:38,943  INFO          [website] ✗ Not found
+2026-06-11 14:49:40,945  INFO          [mudah] Searching: City Drive Auto Company Kuching mudah
+2026-06-11 14:49:42,380  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20mudah
+2026-06-11 14:49:42,382  INFO          [mudah] ✗ Not found
+2026-06-11 14:49:44,383  INFO          [carlist] Searching: City Drive Auto Company Kuching carlist
+2026-06-11 14:49:45,122  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20carlist
+2026-06-11 14:49:45,126  INFO          [carlist] ✗ Not found
+2026-06-11 14:49:47,128  INFO          [autocari] Searching: City Drive Auto Company Kuching autocari
+2026-06-11 14:49:48,448  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20autocari
+2026-06-11 14:49:48,451  INFO          [autocari] ✗ Not found
+2026-06-11 14:49:50,452  INFO          [facebook] Searching: City Drive Auto Company Kuching facebook profile
+2026-06-11 14:49:51,571  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20facebook%20profile
+2026-06-11 14:49:51,572  INFO          [facebook] ✗ Not found
+2026-06-11 14:49:53,574  INFO          [instagram] Searching: City Drive Auto Company Kuching instagram profile
+2026-06-11 14:49:54,333  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20instagram%20profile
+2026-06-11 14:49:54,335  INFO          [instagram] ✗ Not found
+2026-06-11 14:49:56,341  INFO          [tiktok] Searching: City Drive Auto Company Kuching tiktok profile
+2026-06-11 14:49:57,143  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/City%20Drive%20Auto%20Company%20Kuching%20tiktok%20profile
+2026-06-11 14:49:57,145  INFO          [tiktok] ✗ Not found
+2026-06-11 14:49:59,154  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:49:59,159  INFO      
+[5/18] ══════════════════════════════════════════
+2026-06-11 14:49:59,168  INFO        Business : JL68 MOTOR SDN BHD
+2026-06-11 14:49:59,186  INFO        City     : Kuching
+2026-06-11 14:49:59,194  INFO          [website] Checking existing: https://jl68motor.com/
+2026-06-11 14:50:00,433  INFO          [website] ✓ Verified existing
+2026-06-11 14:50:02,436  INFO          [mudah] Searching: JL68 MOTOR SDN BHD Kuching mudah
+2026-06-11 14:50:04,267  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JL68%20MOTOR%20SDN%20BHD%20Kuching%20mudah
+2026-06-11 14:50:04,270  INFO          [mudah] ✗ Not found
+2026-06-11 14:50:06,271  INFO          [carlist] Searching: JL68 MOTOR SDN BHD Kuching carlist
+2026-06-11 14:50:07,045  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JL68%20MOTOR%20SDN%20BHD%20Kuching%20carlist
+2026-06-11 14:50:07,058  INFO          [carlist] ✗ Not found
+2026-06-11 14:50:09,063  INFO          [autocari] Searching: JL68 MOTOR SDN BHD Kuching autocari
+2026-06-11 14:50:09,812  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JL68%20MOTOR%20SDN%20BHD%20Kuching%20autocari
+2026-06-11 14:50:09,817  INFO          [autocari] ✗ Not found
+2026-06-11 14:50:11,819  INFO          [facebook] Searching: JL68 MOTOR SDN BHD Kuching facebook profile
+2026-06-11 14:50:12,569  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JL68%20MOTOR%20SDN%20BHD%20Kuching%20facebook%20profile
+2026-06-11 14:50:12,575  INFO          [facebook] ✗ Not found
+2026-06-11 14:50:14,579  INFO          [instagram] Searching: JL68 MOTOR SDN BHD Kuching instagram profile
+2026-06-11 14:50:16,244  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JL68%20MOTOR%20SDN%20BHD%20Kuching%20instagram%20profile
+2026-06-11 14:50:16,245  INFO          [instagram] ✗ Not found
+2026-06-11 14:50:18,246  INFO          [tiktok] Searching: JL68 MOTOR SDN BHD Kuching tiktok profile
+2026-06-11 14:50:18,987  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JL68%20MOTOR%20SDN%20BHD%20Kuching%20tiktok%20profile
+2026-06-11 14:50:18,989  INFO          [tiktok] ✗ Not found
+2026-06-11 14:50:20,995  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:50:21,004  INFO      
+[6/18] ══════════════════════════════════════════
+2026-06-11 14:50:21,012  INFO        Business : LKM Motors Sdn Bhd • Branch
+2026-06-11 14:50:21,016  INFO        City     : Kuching
+2026-06-11 14:50:21,022  INFO          [website] Searching: LKM Motors Sdn Bhd • Branch Kuching Malaysia
+2026-06-11 14:50:22,211  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20Malaysia
+2026-06-11 14:50:22,225  INFO          [website] ✗ Not found
+2026-06-11 14:50:24,239  INFO          [mudah] Searching: LKM Motors Sdn Bhd • Branch Kuching mudah
+2026-06-11 14:50:25,158  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20mudah
+2026-06-11 14:50:25,158  INFO          [mudah] ✗ Not found
+2026-06-11 14:50:27,160  INFO          [carlist] Searching: LKM Motors Sdn Bhd • Branch Kuching carlist
+2026-06-11 14:50:28,738  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20carlist
+2026-06-11 14:50:28,740  INFO          [carlist] ✗ Not found
+2026-06-11 14:50:30,742  INFO          [autocari] Searching: LKM Motors Sdn Bhd • Branch Kuching autocari
+2026-06-11 14:50:31,487  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20autocari
+2026-06-11 14:50:31,489  INFO          [autocari] ✗ Not found
+2026-06-11 14:50:33,492  INFO          [facebook] Searching: LKM Motors Sdn Bhd • Branch Kuching facebook profile
+2026-06-11 14:50:34,232  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20facebook%20profile
+2026-06-11 14:50:34,234  INFO          [facebook] ✗ Not found
+2026-06-11 14:50:36,235  INFO          [instagram] Searching: LKM Motors Sdn Bhd • Branch Kuching instagram profile
+2026-06-11 14:50:36,969  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20instagram%20profile
+2026-06-11 14:50:36,970  INFO          [instagram] ✗ Not found
+2026-06-11 14:50:38,972  INFO          [tiktok] Searching: LKM Motors Sdn Bhd • Branch Kuching tiktok profile
+2026-06-11 14:50:57,672  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LKM%20Motors%20Sdn%20Bhd%20%E2%80%A2%20Branch%20Kuching%20tiktok%20profile
+2026-06-11 14:50:57,675  INFO          [tiktok] ✗ Not found
+2026-06-11 14:50:59,687  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:50:59,688  INFO      
+[7/18] ══════════════════════════════════════════
+2026-06-11 14:50:59,692  INFO        Business : Car One Automotive Company
+2026-06-11 14:50:59,700  INFO        City     : Kuching
+2026-06-11 14:50:59,704  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 14:50:59,708  INFO          [website] Searching: Car One Automotive Company Kuching Malaysia
+2026-06-11 14:51:00,453  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20Malaysia
+2026-06-11 14:51:00,457  INFO          [website] ✗ Not found
+2026-06-11 14:51:02,461  INFO          [mudah] Searching: Car One Automotive Company Kuching mudah
+2026-06-11 14:51:03,204  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20mudah
+2026-06-11 14:51:03,207  INFO          [mudah] ✗ Not found
+2026-06-11 14:51:05,209  INFO          [carlist] Searching: Car One Automotive Company Kuching carlist
+2026-06-11 14:51:05,918  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20carlist
+2026-06-11 14:51:05,920  INFO          [carlist] ✗ Not found
+2026-06-11 14:51:07,922  INFO          [autocari] Searching: Car One Automotive Company Kuching autocari
+2026-06-11 14:51:09,045  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20autocari
+2026-06-11 14:51:09,047  INFO          [autocari] ✗ Not found
+2026-06-11 14:51:11,050  INFO          [facebook] Searching: Car One Automotive Company Kuching facebook profile
+2026-06-11 14:51:11,900  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20facebook%20profile
+2026-06-11 14:51:11,904  INFO          [facebook] ✗ Not found
+2026-06-11 14:51:13,905  INFO          [instagram] Searching: Car One Automotive Company Kuching instagram profile
+2026-06-11 14:51:15,038  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20instagram%20profile
+2026-06-11 14:51:15,041  INFO          [instagram] ✗ Not found
+2026-06-11 14:51:17,042  INFO          [tiktok] Searching: Car One Automotive Company Kuching tiktok profile
+2026-06-11 14:51:17,776  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Car%20One%20Automotive%20Company%20Kuching%20tiktok%20profile
+2026-06-11 14:51:17,779  INFO          [tiktok] ✗ Not found
+2026-06-11 14:51:19,788  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:51:19,789  INFO      
+[8/18] ══════════════════════════════════════════
+2026-06-11 14:51:19,789  INFO        Business : 72 Motors Sdn Bhd
+2026-06-11 14:51:19,789  INFO        City     : Kuching
+2026-06-11 14:51:19,790  INFO          [website] Searching: 72 Motors Sdn Bhd Kuching Malaysia
+2026-06-11 14:51:21,221  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20Malaysia
+2026-06-11 14:51:21,222  INFO          [website] ✗ Not found
+2026-06-11 14:51:23,224  INFO          [mudah] Searching: 72 Motors Sdn Bhd Kuching mudah
+2026-06-11 14:51:24,101  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20mudah
+2026-06-11 14:51:24,104  INFO          [mudah] ✗ Not found
+2026-06-11 14:51:26,107  INFO          [carlist] Searching: 72 Motors Sdn Bhd Kuching carlist
+2026-06-11 14:51:26,800  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20carlist
+2026-06-11 14:51:26,803  INFO          [carlist] ✗ Not found
+2026-06-11 14:51:28,805  INFO          [autocari] Searching: 72 Motors Sdn Bhd Kuching autocari
+2026-06-11 14:51:29,743  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20autocari
+2026-06-11 14:51:29,746  INFO          [autocari] ✗ Not found
+2026-06-11 14:51:31,748  INFO          [facebook] Searching: 72 Motors Sdn Bhd Kuching facebook profile
+2026-06-11 14:51:33,331  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20facebook%20profile
+2026-06-11 14:51:33,333  INFO          [facebook] ✗ Not found
+2026-06-11 14:51:35,334  INFO          [instagram] Searching: 72 Motors Sdn Bhd Kuching instagram profile
+2026-06-11 14:51:36,572  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20instagram%20profile
+2026-06-11 14:51:36,574  INFO          [instagram] ✗ Not found
+2026-06-11 14:51:38,575  INFO          [tiktok] Searching: 72 Motors Sdn Bhd Kuching tiktok profile
+2026-06-11 14:51:39,708  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/72%20Motors%20Sdn%20Bhd%20Kuching%20tiktok%20profile
+2026-06-11 14:51:39,710  INFO          [tiktok] ✗ Not found
+2026-06-11 14:51:41,721  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:51:41,722  INFO      
+[9/18] ══════════════════════════════════════════
+2026-06-11 14:51:41,724  INFO        Business : OHS MOTORS SDN BHD
+2026-06-11 14:51:41,728  INFO        City     : Kuching
+2026-06-11 14:51:41,728  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 14:51:41,730  INFO          [website] Searching: OHS MOTORS SDN BHD Kuching Malaysia
+2026-06-11 14:51:42,932  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20Malaysia
+2026-06-11 14:51:42,934  INFO          [website] ✗ Not found
+2026-06-11 14:51:44,936  INFO          [mudah] Searching: OHS MOTORS SDN BHD Kuching mudah
+2026-06-11 14:51:47,087  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20mudah
+2026-06-11 14:51:47,087  INFO          [mudah] ✗ Not found
+2026-06-11 14:51:49,089  INFO          [carlist] Searching: OHS MOTORS SDN BHD Kuching carlist
+2026-06-11 14:51:50,038  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20carlist
+2026-06-11 14:51:50,043  INFO          [carlist] ✗ Not found
+2026-06-11 14:51:52,044  INFO          [autocari] Searching: OHS MOTORS SDN BHD Kuching autocari
+2026-06-11 14:51:52,778  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20autocari
+2026-06-11 14:51:52,781  INFO          [autocari] ✗ Not found
+2026-06-11 14:51:54,783  INFO          [facebook] Searching: OHS MOTORS SDN BHD Kuching facebook profile
+2026-06-11 14:51:55,683  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20facebook%20profile
+2026-06-11 14:51:55,684  INFO          [facebook] ✗ Not found
+2026-06-11 14:51:57,685  INFO          [instagram] Searching: OHS MOTORS SDN BHD Kuching instagram profile
+2026-06-11 14:51:59,020  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20instagram%20profile
+2026-06-11 14:51:59,022  INFO          [instagram] ✗ Not found
+2026-06-11 14:52:01,024  INFO          [tiktok] Searching: OHS MOTORS SDN BHD Kuching tiktok profile
+2026-06-11 14:52:01,766  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/OHS%20MOTORS%20SDN%20BHD%20Kuching%20tiktok%20profile
+2026-06-11 14:52:01,767  INFO          [tiktok] ✗ Not found
+2026-06-11 14:52:03,775  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:52:03,782  INFO      
+[10/18] ══════════════════════════════════════════
+2026-06-11 14:52:03,786  INFO        Business : Ngui Used Car Dealer
+2026-06-11 14:52:03,786  INFO        City     : Kuching
+2026-06-11 14:52:03,792  INFO          [website] Searching: Ngui Used Car Dealer Kuching Malaysia
+2026-06-11 14:52:04,961  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20Malaysia
+2026-06-11 14:52:04,963  INFO          [website] ✗ Not found
+2026-06-11 14:52:06,965  INFO          [mudah] Searching: Ngui Used Car Dealer Kuching mudah
+2026-06-11 14:52:07,713  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20mudah
+2026-06-11 14:52:07,714  INFO          [mudah] ✗ Not found
+2026-06-11 14:52:09,715  INFO          [carlist] Searching: Ngui Used Car Dealer Kuching carlist
+2026-06-11 14:52:10,960  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20carlist
+2026-06-11 14:52:10,960  INFO          [carlist] ✗ Not found
+2026-06-11 14:52:12,962  INFO          [autocari] Searching: Ngui Used Car Dealer Kuching autocari
+2026-06-11 14:52:13,700  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20autocari
+2026-06-11 14:52:13,701  INFO          [autocari] ✗ Not found
+2026-06-11 14:52:15,703  INFO          [facebook] Searching: Ngui Used Car Dealer Kuching facebook profile
+2026-06-11 14:52:16,436  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20facebook%20profile
+2026-06-11 14:52:16,438  INFO          [facebook] ✗ Not found
+2026-06-11 14:52:18,439  INFO          [instagram] Searching: Ngui Used Car Dealer Kuching instagram profile
+2026-06-11 14:52:19,632  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20instagram%20profile
+2026-06-11 14:52:19,634  INFO          [instagram] ✗ Not found
+2026-06-11 14:52:21,636  INFO          [tiktok] Searching: Ngui Used Car Dealer Kuching tiktok profile
+2026-06-11 14:52:22,870  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Ngui%20Used%20Car%20Dealer%20Kuching%20tiktok%20profile
+2026-06-11 14:52:22,873  INFO          [tiktok] ✗ Not found
+2026-06-11 14:52:24,888  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:52:24,894  INFO      
+[11/18] ══════════════════════════════════════════
+2026-06-11 14:52:24,895  INFO        Business : Y.S.H Motors Trading Sdn Bhd
+2026-06-11 14:52:24,898  INFO        City     : Kuching
+2026-06-11 14:52:24,899  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 14:52:24,901  INFO          [website] Searching: Y.S.H Motors Trading Sdn Bhd Kuching Malaysia
+2026-06-11 14:52:25,664  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20Malaysia
+2026-06-11 14:52:25,668  INFO          [website] ✗ Not found
+2026-06-11 14:52:27,670  INFO          [mudah] Searching: Y.S.H Motors Trading Sdn Bhd Kuching mudah
+2026-06-11 14:52:28,603  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20mudah
+2026-06-11 14:52:28,605  INFO          [mudah] ✗ Not found
+2026-06-11 14:52:30,608  INFO          [carlist] Searching: Y.S.H Motors Trading Sdn Bhd Kuching carlist
+2026-06-11 14:52:31,680  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20carlist
+2026-06-11 14:52:31,684  INFO          [carlist] ✗ Not found
+2026-06-11 14:52:33,688  INFO          [autocari] Searching: Y.S.H Motors Trading Sdn Bhd Kuching autocari
+2026-06-11 14:52:34,981  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20autocari
+2026-06-11 14:52:34,987  INFO          [autocari] ✗ Not found
+2026-06-11 14:52:36,992  INFO          [facebook] Searching: Y.S.H Motors Trading Sdn Bhd Kuching facebook profile
+2026-06-11 14:52:37,823  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20facebook%20profile
+2026-06-11 14:52:37,827  INFO          [facebook] ✗ Not found
+2026-06-11 14:52:39,830  INFO          [instagram] Searching: Y.S.H Motors Trading Sdn Bhd Kuching instagram profile
+2026-06-11 14:52:41,094  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20instagram%20profile
+2026-06-11 14:52:41,099  INFO          [instagram] ✗ Not found
+2026-06-11 14:52:43,103  INFO          [tiktok] Searching: Y.S.H Motors Trading Sdn Bhd Kuching tiktok profile
+2026-06-11 14:52:43,852  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Y.S.H%20Motors%20Trading%20Sdn%20Bhd%20Kuching%20tiktok%20profile
+2026-06-11 14:52:43,856  INFO          [tiktok] ✗ Not found
+2026-06-11 14:52:45,865  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:52:45,866  INFO      
+[12/18] ══════════════════════════════════════════
+2026-06-11 14:52:45,866  INFO        Business : Recond Car Dealer - RAYA KHAS AUTO
+2026-06-11 14:52:45,868  INFO        City     : Kuching
+2026-06-11 14:52:45,868  INFO          [website] Checking existing: http://www.rayakhas.com.my/
+2026-06-11 14:52:48,867  INFO          [website] ✓ Verified existing
+2026-06-11 14:52:50,869  INFO          [mudah] Searching: Recond Car Dealer - RAYA KHAS AUTO Kuching mudah
+2026-06-11 14:52:52,454  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Recond%20Car%20Dealer%20-%20RAYA%20KHAS%20AUTO%20Kuching%20mudah
+2026-06-11 14:52:52,458  INFO          [mudah] ✗ Not found
+2026-06-11 14:52:54,465  INFO          [carlist] Searching: Recond Car Dealer - RAYA KHAS AUTO Kuching carlist
+2026-06-11 14:52:55,221  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Recond%20Car%20Dealer%20-%20RAYA%20KHAS%20AUTO%20Kuching%20carlist
+2026-06-11 14:52:55,223  INFO          [carlist] ✗ Not found
+2026-06-11 14:52:57,224  INFO          [autocari] Searching: Recond Car Dealer - RAYA KHAS AUTO Kuching autocari
+2026-06-11 14:52:58,426  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Recond%20Car%20Dealer%20-%20RAYA%20KHAS%20AUTO%20Kuching%20autocari
+2026-06-11 14:52:58,430  INFO          [autocari] ✗ Not found
+2026-06-11 14:53:00,432  INFO          [facebook] Searching: Recond Car Dealer - RAYA KHAS AUTO Kuching facebook profile
+2026-06-11 14:53:01,183  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Recond%20Car%20Dealer%20-%20RAYA%20KHAS%20AUTO%20Kuching%20facebook%20profile
+2026-06-11 14:53:01,186  INFO          [facebook] ✗ Not found
+2026-06-11 14:53:03,194  INFO          [instagram] Searching: Recond Car Dealer - RAYA KHAS AUTO Kuching instagram profile
+2026-06-11 14:53:04,297  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Recond%20Car%20Dealer%20-%20RAYA%20KHAS%20AUTO%20Kuching%20instagram%20profile
+2026-06-11 14:53:04,297  INFO          [instagram] ✗ Not found
+2026-06-11 14:53:06,299  INFO          [tiktok] Searching: Recond Car Dealer - RAYA KHAS AUTO Kuching tiktok profile
+2026-06-11 14:53:07,045  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Recond%20Car%20Dealer%20-%20RAYA%20KHAS%20AUTO%20Kuching%20tiktok%20profile
+2026-06-11 14:53:07,050  INFO          [tiktok] ✗ Not found
+2026-06-11 14:53:09,059  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:53:09,069  INFO      
+[13/18] ══════════════════════════════════════════
+2026-06-11 14:53:09,084  INFO        Business : Soon Teck Motor
+2026-06-11 14:53:09,092  INFO        City     : Kuching
+2026-06-11 14:53:09,093  INFO          [website] Searching: Soon Teck Motor Kuching Malaysia
+2026-06-11 14:53:09,852  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20Malaysia
+2026-06-11 14:53:09,877  INFO          [website] ✗ Not found
+2026-06-11 14:53:11,883  INFO          [mudah] Searching: Soon Teck Motor Kuching mudah
+2026-06-11 14:53:12,634  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20mudah
+2026-06-11 14:53:12,669  INFO          [mudah] ✗ Not found
+2026-06-11 14:53:14,680  INFO          [carlist] Searching: Soon Teck Motor Kuching carlist
+2026-06-11 14:53:15,987  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20carlist
+2026-06-11 14:53:15,993  INFO          [carlist] ✗ Not found
+2026-06-11 14:53:17,998  INFO          [autocari] Searching: Soon Teck Motor Kuching autocari
+2026-06-11 14:53:19,745  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20autocari
+2026-06-11 14:53:19,749  INFO          [autocari] ✗ Not found
+2026-06-11 14:53:21,761  INFO          [facebook] Searching: Soon Teck Motor Kuching facebook profile
+2026-06-11 14:53:22,947  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20facebook%20profile
+2026-06-11 14:53:22,950  INFO          [facebook] ✗ Not found
+2026-06-11 14:53:24,952  INFO          [instagram] Searching: Soon Teck Motor Kuching instagram profile
+2026-06-11 14:53:25,700  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20instagram%20profile
+2026-06-11 14:53:25,703  INFO          [instagram] ✗ Not found
+2026-06-11 14:53:27,711  INFO          [tiktok] Searching: Soon Teck Motor Kuching tiktok profile
+2026-06-11 14:53:30,039  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Soon%20Teck%20Motor%20Kuching%20tiktok%20profile
+2026-06-11 14:53:30,042  INFO          [tiktok] ✗ Not found
+2026-06-11 14:53:32,049  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:53:32,055  INFO      
+[14/18] ══════════════════════════════════════════
+2026-06-11 14:53:32,065  INFO        Business : YSH Motors Tabuan
+2026-06-11 14:53:32,097  INFO        City     : Kuching
+2026-06-11 14:53:32,118  INFO          [website] Checking existing: http://yshmotors.com/
+2026-06-11 14:53:33,875  INFO          [website] ✓ Verified existing
+2026-06-11 14:53:35,904  INFO          [mudah] Searching: YSH Motors Tabuan Kuching mudah
+2026-06-11 14:53:36,666  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/YSH%20Motors%20Tabuan%20Kuching%20mudah
+2026-06-11 14:53:36,671  INFO          [mudah] ✗ Not found
+2026-06-11 14:53:38,683  INFO          [carlist] Searching: YSH Motors Tabuan Kuching carlist
+2026-06-11 14:53:40,033  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/YSH%20Motors%20Tabuan%20Kuching%20carlist
+2026-06-11 14:53:40,034  INFO          [carlist] ✗ Not found
+2026-06-11 14:53:42,036  INFO          [autocari] Searching: YSH Motors Tabuan Kuching autocari
+2026-06-11 14:53:43,451  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/YSH%20Motors%20Tabuan%20Kuching%20autocari
+2026-06-11 14:53:43,454  INFO          [autocari] ✗ Not found
+2026-06-11 14:53:45,457  INFO          [facebook] Searching: YSH Motors Tabuan Kuching facebook profile
+2026-06-11 14:53:46,228  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/YSH%20Motors%20Tabuan%20Kuching%20facebook%20profile
+2026-06-11 14:53:46,230  INFO          [facebook] ✗ Not found
+2026-06-11 14:53:48,232  INFO          [instagram] Searching: YSH Motors Tabuan Kuching instagram profile
+2026-06-11 14:53:48,971  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/YSH%20Motors%20Tabuan%20Kuching%20instagram%20profile
+2026-06-11 14:53:48,973  INFO          [instagram] ✗ Not found
+2026-06-11 14:53:50,975  INFO          [tiktok] Searching: YSH Motors Tabuan Kuching tiktok profile
+2026-06-11 14:53:52,205  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/YSH%20Motors%20Tabuan%20Kuching%20tiktok%20profile
+2026-06-11 14:53:52,207  INFO          [tiktok] ✗ Not found
+2026-06-11 14:53:54,219  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:53:54,227  INFO      
+[15/18] ══════════════════════════════════════════
+2026-06-11 14:53:54,232  INFO        Business : F.T AUTO KUCHING (PREMIUM)
+2026-06-11 14:53:54,236  INFO        City     : Kuching
+2026-06-11 14:53:54,237  INFO          [website] Searching: F.T AUTO KUCHING (PREMIUM) Kuching Malaysia
+2026-06-11 14:53:56,037  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20Malaysia
+2026-06-11 14:53:56,042  INFO          [website] ✗ Not found
+2026-06-11 14:53:58,049  INFO          [mudah] Searching: F.T AUTO KUCHING (PREMIUM) Kuching mudah
+2026-06-11 14:53:59,768  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20mudah
+2026-06-11 14:53:59,778  INFO          [mudah] ✗ Not found
+2026-06-11 14:54:01,785  INFO          [carlist] Searching: F.T AUTO KUCHING (PREMIUM) Kuching carlist
+2026-06-11 14:54:03,204  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20carlist
+2026-06-11 14:54:03,213  INFO          [carlist] ✗ Not found
+2026-06-11 14:54:05,221  INFO          [autocari] Searching: F.T AUTO KUCHING (PREMIUM) Kuching autocari
+2026-06-11 14:54:06,213  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20autocari
+2026-06-11 14:54:06,419  INFO          [autocari] ✗ Not found
+2026-06-11 14:54:08,531  INFO          [facebook] Searching: F.T AUTO KUCHING (PREMIUM) Kuching facebook profile
+2026-06-11 14:54:09,341  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20facebook%20profile
+2026-06-11 14:54:09,346  INFO          [facebook] ✗ Not found
+2026-06-11 14:54:11,357  INFO          [instagram] Searching: F.T AUTO KUCHING (PREMIUM) Kuching instagram profile
+2026-06-11 14:54:12,135  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20instagram%20profile
+2026-06-11 14:54:12,143  INFO          [instagram] ✗ Not found
+2026-06-11 14:54:14,150  INFO          [tiktok] Searching: F.T AUTO KUCHING (PREMIUM) Kuching tiktok profile
+2026-06-11 14:54:15,411  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/F.T%20AUTO%20KUCHING%20%28PREMIUM%29%20Kuching%20tiktok%20profile
+2026-06-11 14:54:15,415  INFO          [tiktok] ✗ Not found
+2026-06-11 14:54:17,633  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:54:17,651  INFO      
+[16/18] ══════════════════════════════════════════
+2026-06-11 14:54:17,755  INFO        Business : JS CAR DEALERSHIP SDN BHD
+2026-06-11 14:54:17,834  INFO        City     : Kuching
+2026-06-11 14:54:17,887  INFO          [website] Existing is a social URL — skipping as website
+2026-06-11 14:54:17,908  INFO          [website] Searching: JS CAR DEALERSHIP SDN BHD Kuching Malaysia
+2026-06-11 14:54:18,811  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20Malaysia
+2026-06-11 14:54:18,826  INFO          [website] ✗ Not found
+2026-06-11 14:54:20,845  INFO          [mudah] Searching: JS CAR DEALERSHIP SDN BHD Kuching mudah
+2026-06-11 14:54:22,013  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20mudah
+2026-06-11 14:54:22,019  INFO          [mudah] ✗ Not found
+2026-06-11 14:54:24,022  INFO          [carlist] Searching: JS CAR DEALERSHIP SDN BHD Kuching carlist
+2026-06-11 14:54:26,258  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20carlist
+2026-06-11 14:54:26,261  INFO          [carlist] ✗ Not found
+2026-06-11 14:54:28,273  INFO          [autocari] Searching: JS CAR DEALERSHIP SDN BHD Kuching autocari
+2026-06-11 14:54:29,202  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20autocari
+2026-06-11 14:54:29,206  INFO          [autocari] ✗ Not found
+2026-06-11 14:54:31,229  INFO          [facebook] Searching: JS CAR DEALERSHIP SDN BHD Kuching facebook profile
+2026-06-11 14:54:32,619  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20facebook%20profile
+2026-06-11 14:54:32,660  INFO          [facebook] ✗ Not found
+2026-06-11 14:54:34,733  INFO          [instagram] Searching: JS CAR DEALERSHIP SDN BHD Kuching instagram profile
+2026-06-11 14:54:35,645  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20instagram%20profile
+2026-06-11 14:54:35,651  INFO          [instagram] ✗ Not found
+2026-06-11 14:54:37,703  INFO          [tiktok] Searching: JS CAR DEALERSHIP SDN BHD Kuching tiktok profile
+2026-06-11 14:54:39,420  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/JS%20CAR%20DEALERSHIP%20SDN%20BHD%20Kuching%20tiktok%20profile
+2026-06-11 14:54:39,428  INFO          [tiktok] ✗ Not found
+2026-06-11 14:54:41,438  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:54:41,445  INFO      
+[17/18] ══════════════════════════════════════════
+2026-06-11 14:54:41,449  INFO        Business : K. L. K SERVICES COMPANY
+2026-06-11 14:54:41,455  INFO        City     : Kuching
+2026-06-11 14:54:41,478  INFO          [website] Checking existing: https://klkmarketrade.mystrikingly.com/
+2026-06-11 14:54:42,125  INFO          [website] ✗ Dead or blank — searching for replacement
+2026-06-11 14:54:42,132  INFO          [website] Searching: K. L. K SERVICES COMPANY Kuching Malaysia
+2026-06-11 14:54:42,962  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20Malaysia
+2026-06-11 14:54:42,964  INFO          [website] ✗ Not found
+2026-06-11 14:54:44,966  INFO          [mudah] Searching: K. L. K SERVICES COMPANY Kuching mudah
+2026-06-11 14:54:45,716  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20mudah
+2026-06-11 14:54:45,723  INFO          [mudah] ✗ Not found
+2026-06-11 14:54:47,726  INFO          [carlist] Searching: K. L. K SERVICES COMPANY Kuching carlist
+2026-06-11 14:54:48,451  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20carlist
+2026-06-11 14:54:48,454  INFO          [carlist] ✗ Not found
+2026-06-11 14:54:50,456  INFO          [autocari] Searching: K. L. K SERVICES COMPANY Kuching autocari
+2026-06-11 14:54:51,723  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20autocari
+2026-06-11 14:54:51,726  INFO          [autocari] ✗ Not found
+2026-06-11 14:54:53,727  INFO          [facebook] Searching: K. L. K SERVICES COMPANY Kuching facebook profile
+2026-06-11 14:54:55,007  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20facebook%20profile
+2026-06-11 14:54:55,008  INFO          [facebook] ✗ Not found
+2026-06-11 14:54:57,011  INFO          [instagram] Searching: K. L. K SERVICES COMPANY Kuching instagram profile
+2026-06-11 14:54:57,905  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20instagram%20profile
+2026-06-11 14:54:57,915  INFO          [instagram] ✗ Not found
+2026-06-11 14:54:59,921  INFO          [tiktok] Searching: K. L. K SERVICES COMPANY Kuching tiktok profile
+2026-06-11 14:55:00,714  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/K.%20L.%20K%20SERVICES%20COMPANY%20Kuching%20tiktok%20profile
+2026-06-11 14:55:00,718  INFO          [tiktok] ✗ Not found
+2026-06-11 14:55:02,772  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:55:02,791  INFO      
+[18/18] ══════════════════════════════════════════
+2026-06-11 14:55:02,795  INFO        Business : Lim Motor Trading Co.
+2026-06-11 14:55:02,799  INFO        City     : Kuching
+2026-06-11 14:55:02,810  INFO          [website] Searching: Lim Motor Trading Co. Kuching Malaysia
+2026-06-11 14:55:04,604  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20Malaysia
+2026-06-11 14:55:04,630  INFO          [website] ✗ Not found
+2026-06-11 14:55:06,631  INFO          [mudah] Searching: Lim Motor Trading Co. Kuching mudah
+2026-06-11 14:55:07,857  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20mudah
+2026-06-11 14:55:07,881  INFO          [mudah] ✗ Not found
+2026-06-11 14:55:09,885  INFO          [carlist] Searching: Lim Motor Trading Co. Kuching carlist
+2026-06-11 14:55:10,831  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20carlist
+2026-06-11 14:55:10,837  INFO          [carlist] ✗ Not found
+2026-06-11 14:55:12,863  INFO          [autocari] Searching: Lim Motor Trading Co. Kuching autocari
+2026-06-11 14:55:14,676  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20autocari
+2026-06-11 14:55:14,684  INFO          [autocari] ✗ Not found
+2026-06-11 14:55:16,696  INFO          [facebook] Searching: Lim Motor Trading Co. Kuching facebook profile
+2026-06-11 14:55:18,224  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20facebook%20profile
+2026-06-11 14:55:18,229  INFO          [facebook] ✗ Not found
+2026-06-11 14:55:20,249  INFO          [instagram] Searching: Lim Motor Trading Co. Kuching instagram profile
+2026-06-11 14:55:21,058  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20instagram%20profile
+2026-06-11 14:55:21,063  INFO          [instagram] ✗ Not found
+2026-06-11 14:55:23,066  INFO          [tiktok] Searching: Lim Motor Trading Co. Kuching tiktok profile
+2026-06-11 14:55:23,959  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Lim%20Motor%20Trading%20Co.%20Kuching%20tiktok%20profile
+2026-06-11 14:55:24,064  INFO          [tiktok] ✗ Not found
+2026-06-11 14:55:26,181  INFO        Saved progress → dealers_enriched_Kuching_93000.json
+2026-06-11 14:55:26,188  INFO      
+✓ Done. 18 businesses written to C:\Users\jainp\OneDrive\Desktop\Findit\Phase_two\dealers_enriched_Kuching_93000.json
