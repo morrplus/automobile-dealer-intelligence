@@ -337,6 +337,8 @@ def save_json(data: list, path: Path) -> None:
 # ─── CORE LOGIC ────────────────────────────────────────────────────────────────
 
 def main(input_json: Path, output_json: Path):
+    from EmailLinkedin import enrich_email_linkedin
+
     if not input_json.exists():
         log.error(f"Input file not found: {input_json}")
         return
@@ -351,7 +353,12 @@ def main(input_json: Path, output_json: Path):
     if output_json.exists():
         with open(output_json, "r", encoding="utf-8") as f:
             done_list = json.load(f)
-        already_done = {b["place_id"]: b for b in done_list if "links" in b}
+        # Done only if BOTH links AND emails are present
+        already_done = {
+            b["place_id"]: b
+            for b in done_list
+            if "links" in b and "emails" in b
+        }
         log.info(f"Resuming — {len(already_done)} already done, skipping them")
 
     results = list(already_done.values())
@@ -364,9 +371,14 @@ def main(input_json: Path, output_json: Path):
             continue
 
         log.info(f"\n[{i}/{total}] ══════════════════════════════════════════")
-        enriched = enrich_business(business)
-        results.append(enriched)
 
+        # Step A — JinaWeb: links + score
+        enriched = enrich_business(business)
+
+        # Step B — EmailLinkedin: emails + phones_extra + linkedin
+        enriched = enrich_email_linkedin(enriched)
+
+        results.append(enriched)
         save_json(results, output_json)
         log.info(f"  Saved progress → {output_json.name}")
 
@@ -375,14 +387,42 @@ def main(input_json: Path, output_json: Path):
 
 # ─── ENTRY POINTS ──────────────────────────────────────────────────────────────
 
-def run(input_path: Path):
-    """Called automatically by SearchMap.py after Phase 1 completes."""
+def run(input_path: Path, requested: int = None, small_target: bool = False):
+    """
+    Called automatically by SearchMap.py after Phase 1 completes.
+
+    requested    : how many profiles the user originally asked for
+    small_target : if True, pool is larger than requested —
+                   after enrichment sort by score and keep top requested
+    """
     input_json  = Path(input_path)
     output_name = "dealers_enriched_" + input_json.stem.replace("dealers_", "") + ".json"
     output_json = Path(__file__).parent / output_name
     log.info(f"Input  : {input_json}")
     log.info(f"Output : {output_json}")
+
     main(input_json, output_json)
+
+    # Small target — sort by score and trim to requested count
+    if small_target and requested and output_json.exists():
+        with open(output_json, "r", encoding="utf-8") as f:
+            enriched = json.load(f)
+
+        enriched.sort(
+            key=lambda d: d.get("scoring", {}).get("score", 0),
+            reverse=True
+        )
+
+        top = enriched[:requested]
+        log.info(f"Ranking complete — keeping top {requested} of {len(enriched)} by score")
+
+        ranked_name = output_json.stem + f"_top{requested}.json"
+        ranked_path = output_json.parent / ranked_name
+        with open(ranked_path, "w", encoding="utf-8") as f:
+            json.dump(top, f, indent=2, ensure_ascii=False)
+
+        log.info(f"Top {requested} saved → {ranked_path.name}")
+        print(f"\n  ✓ Top {requested} dealers by profile score saved to {ranked_path.name}")
 
 
 if __name__ == "__main__":
