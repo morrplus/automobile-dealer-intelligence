@@ -1628,3 +1628,623 @@ Done. 16 businesses written to C:\Users\jainp\OneDrive\Desktop\Findit\Phase_Two\
 2026-06-11 14:55:26,181  INFO        Saved progress → dealers_enriched_Kuching_93000.json
 2026-06-11 14:55:26,188  INFO      
 ✓ Done. 18 businesses written to C:\Users\jainp\OneDrive\Desktop\Findit\Phase_two\dealers_enriched_Kuching_93000.json
+2026-06-14 00:28:16,282  INFO      Input  : C:\Users\jainp\OneDrive\Desktop\FindIt\Phase_One\dealers_Johor_bahru_80000.json
+2026-06-14 00:28:16,287  INFO      Output : C:\Users\jainp\OneDrive\Desktop\FindIt\Phase_two\dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:28:16,290  INFO      Loaded 19 businesses from dealers_Johor_bahru_80000.json
+2026-06-14 00:28:16,291  INFO      
+[1/19] ══════════════════════════════════════════
+2026-06-14 00:28:16,292  INFO        Business : Meng Sieng Enterprise
+2026-06-14 00:28:16,292  INFO        City     : Johor
+2026-06-14 00:28:16,293  INFO          [website] Searching: Meng Sieng Enterprise Johor Malaysia
+2026-06-14 00:28:41,378  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:28:41,381  INFO          [website] ✗ Not found
+2026-06-14 00:28:43,383  INFO          [mudah] Searching: Meng Sieng Enterprise Johor mudah
+2026-06-14 00:29:01,403  INFO              Jina returned 10 results
+2026-06-14 00:29:01,410  INFO          [mudah] ✓ Found: https://www.mudah.my/corporationtechnologyservicessdddffd
+2026-06-14 00:29:03,425  INFO          [carlist] Searching: Meng Sieng Enterprise Johor carlist
+2026-06-14 00:29:28,504  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:29:28,505  INFO          [carlist] ✗ Not found
+2026-06-14 00:29:30,508  INFO          [autocari] Searching: Meng Sieng Enterprise Johor autocari
+2026-06-14 00:29:47,726  INFO              Jina returned 10 results
+2026-06-14 00:29:47,729  INFO          [autocari] ✗ Not found
+2026-06-14 00:29:49,731  INFO          [facebook] Searching: Meng Sieng Enterprise Johor facebook profile
+2026-06-14 00:30:01,617  INFO              Jina returned 10 results
+2026-06-14 00:30:01,620  INFO              Slug match: '61566120534954' vs 'meng sieng' → 0.00
+2026-06-14 00:30:01,621  INFO              Word matches: []
+2026-06-14 00:30:01,621  INFO          [facebook] ✓ Found: https://www.facebook.com/61566120534954/mentions/ [low confidence]
+2026-06-14 00:30:03,623  INFO          [instagram] Searching: Meng Sieng Enterprise Johor instagram profile
+2026-06-14 00:30:10,566  INFO              Jina returned 10 results
+2026-06-14 00:30:10,568  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDGcQVOJScow%2F&is_from_rle
+2026-06-14 00:30:10,569  INFO              Rejected (structural): https://www.instagram.com/p/DDOp-wayt2l/
+2026-06-14 00:30:10,570  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fmengsiengusedcar53%2F&is_from_rle
+2026-06-14 00:30:10,571  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDDvtqmqSjNe%2F&is_from_rle
+2026-06-14 00:30:10,572  INFO              Slug match: 'mhengjmxr' vs 'meng sieng' → 0.42
+2026-06-14 00:30:10,574  INFO              Word matches: []
+2026-06-14 00:30:10,576  INFO          [instagram] ✓ Found: https://www.instagram.com/mhengjmxr/ [mid confidence]
+2026-06-14 00:30:12,578  INFO          [tiktok] Searching: Meng Sieng Enterprise Johor tiktok profile
+2026-06-14 00:30:37,637  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:30:37,639  INFO          [tiktok] ✗ Not found
+2026-06-14 00:30:39,643  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:30:39,645  INFO      
+[2/19] ══════════════════════════════════════════
+2026-06-14 00:30:39,645  INFO        Business : Harbour Cars Sdn Bhd
+2026-06-14 00:30:39,648  INFO        City     : Johor
+2026-06-14 00:30:39,649  INFO          [website] Searching: Harbour Cars Sdn Bhd Johor Malaysia
+2026-06-14 00:30:59,304  INFO              Jina returned 10 results
+2026-06-14 00:30:59,307  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-company/1355782X/HARBOUR-CARS-SDN-BHD-
+2026-06-14 00:31:01,309  INFO          [mudah] Searching: Harbour Cars Sdn Bhd Johor mudah
+2026-06-14 00:31:24,099  INFO              Jina returned 10 results
+2026-06-14 00:31:24,102  INFO          [mudah] ✓ Found: https://www.mudah.my/harbourcarsphgmailcom-shawn-ng-johor-bahru
+2026-06-14 00:31:26,105  INFO          [carlist] Searching: Harbour Cars Sdn Bhd Johor carlist
+2026-06-14 00:31:36,061  INFO              Jina returned 10 results
+2026-06-14 00:31:36,064  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/2cad09d8-9749-499a-8e66-36b71158c6d0
+2026-06-14 00:31:38,067  INFO          [autocari] Searching: Harbour Cars Sdn Bhd Johor autocari
+2026-06-14 00:31:44,774  INFO              Jina returned 10 results
+2026-06-14 00:31:44,777  INFO          [autocari] ✓ Found: https://www.autocari.com/index.php?r=dealer/used&Dealer_page=5
+2026-06-14 00:31:46,779  INFO          [facebook] Searching: Harbour Cars Sdn Bhd Johor facebook profile
+2026-06-14 00:32:11,886  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:32:11,887  INFO          [facebook] ✗ Not found
+2026-06-14 00:32:13,889  INFO          [instagram] Searching: Harbour Cars Sdn Bhd Johor instagram profile
+2026-06-14 00:32:23,470  INFO              Jina returned 10 results
+2026-06-14 00:32:23,472  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDNHZv-IPd2x%2F&is_from_rle
+2026-06-14 00:32:23,473  INFO              Rejected (structural): https://www.instagram.com/reel/DWOcIETSMOw/
+2026-06-14 00:32:23,473  INFO              Rejected (structural): https://www.instagram.com/p/DK_ngIrPsQ4/
+2026-06-14 00:32:23,474  INFO              Rejected (structural): https://www.instagram.com/reel/DZbT0twPHX3/
+2026-06-14 00:32:23,475  INFO              Slug match: 'harbor motorcars' vs 'harbour cars' → 0.79
+2026-06-14 00:32:23,476  INFO              Word matches: ['cars']
+2026-06-14 00:32:23,478  INFO          [instagram] ✓ Found: https://www.instagram.com/harbor_motorcars/ [high confidence]
+2026-06-14 00:32:25,481  INFO          [tiktok] Searching: Harbour Cars Sdn Bhd Johor tiktok profile
+2026-06-14 00:32:45,700  INFO              Jina returned 10 results
+2026-06-14 00:32:45,702  INFO              Rejected (structural): https://www.tiktok.com/discover/our-car-auto-sdn-bhd
+2026-06-14 00:32:45,703  INFO              Rejected (structural): https://www.tiktok.com/discover/singaporean-buy-car-in-johor-bahru
+2026-06-14 00:32:45,703  INFO              Rejected (structural): https://www.tiktok.com/@placesmalaysia/video/7627690851115765010
+2026-06-14 00:32:45,704  INFO              Rejected (structural): https://www.tiktok.com/discover/car-bureau
+2026-06-14 00:32:45,705  INFO              Rejected (structural): https://www.tiktok.com/@thelousygtidriver/video/7617682782269132053
+2026-06-14 00:32:45,706  INFO              Rejected (structural): https://www.tiktok.com/@vcar_sdn_bhd/video/7367290944934219024
+2026-06-14 00:32:45,707  INFO              Rejected (structural): https://www.tiktok.com/@vcar_sdn_bhd/video/7416282355159108882
+2026-06-14 00:32:45,708  INFO          [tiktok] ✗ Not found
+2026-06-14 00:32:47,713  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:32:47,715  INFO      
+[3/19] ══════════════════════════════════════════
+2026-06-14 00:32:47,716  INFO        Business : VPRO AUTOWORLD SDN BHD
+2026-06-14 00:32:47,718  INFO        City     : Johor
+2026-06-14 00:32:47,719  INFO          [website] Searching: VPRO AUTOWORLD SDN BHD Johor Malaysia
+2026-06-14 00:33:06,993  INFO              Jina returned 10 results
+2026-06-14 00:33:06,996  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-company/1407590X/VPRO-AUTOWORLD-SDN-BHD-
+2026-06-14 00:33:08,999  INFO          [mudah] Searching: VPRO AUTOWORLD SDN BHD Johor mudah
+2026-06-14 00:33:30,199  INFO              Jina returned 10 results
+2026-06-14 00:33:30,201  INFO          [mudah] ✓ Found: https://www.mudah.my/fc-autoworld
+2026-06-14 00:33:32,203  INFO          [carlist] Searching: VPRO AUTOWORLD SDN BHD Johor carlist
+2026-06-14 00:33:52,145  INFO              Jina returned 10 results
+2026-06-14 00:33:52,149  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/dc72af93-e853-4195-86b1-df8d4aca8c66
+2026-06-14 00:33:54,152  INFO          [autocari] Searching: VPRO AUTOWORLD SDN BHD Johor autocari
+2026-06-14 00:34:05,761  INFO              Jina returned 10 results
+2026-06-14 00:34:05,764  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used&Dealer_page=2
+2026-06-14 00:34:07,766  INFO          [facebook] Searching: VPRO AUTOWORLD SDN BHD Johor facebook profile
+2026-06-14 00:34:32,845  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:34:32,846  INFO          [facebook] ✗ Not found
+2026-06-14 00:34:34,849  INFO          [instagram] Searching: VPRO AUTOWORLD SDN BHD Johor instagram profile
+2026-06-14 00:34:44,476  INFO              Jina returned 10 results
+2026-06-14 00:34:44,479  INFO              Rejected (structural): https://www.instagram.com/reel/DXtdnAukW0D/
+2026-06-14 00:34:44,481  INFO              Rejected (structural): https://www.instagram.com/p/DXofZMIEb1-/
+2026-06-14 00:34:44,482  INFO              Rejected (structural): https://www.instagram.com/p/DZPRcGPl2NG/?img_index=2
+2026-06-14 00:34:44,483  INFO              Rejected (structural): https://www.instagram.com/p/DZW_VlFE2zd/
+2026-06-14 00:34:44,485  INFO              Rejected (structural): https://www.instagram.com/p/DZH4UIyGhut/
+2026-06-14 00:34:44,487  INFO              Rejected (structural): https://www.instagram.com/reel/DT0PI_LDxUh/
+2026-06-14 00:34:44,489  INFO              Slug match: 'vpr auto' vs 'vpro autoworld' → 0.73
+2026-06-14 00:34:44,492  INFO              Word matches: []
+2026-06-14 00:34:44,495  INFO          [instagram] ✓ Found: https://www.instagram.com/vpr_auto/?hl=en [high confidence]
+2026-06-14 00:34:46,498  INFO          [tiktok] Searching: VPRO AUTOWORLD SDN BHD Johor tiktok profile
+2026-06-14 00:35:10,481  INFO              Jina returned 10 results
+2026-06-14 00:35:10,485  INFO              Slug match: 'vproautoworld' vs 'vpro autoworld' → 0.96
+2026-06-14 00:35:10,486  INFO              Word matches: ['vpro', 'autoworld']
+2026-06-14 00:35:10,488  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@vproautoworld [high confidence]
+2026-06-14 00:35:12,492  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:35:12,492  INFO      
+[4/19] ══════════════════════════════════════════
+2026-06-14 00:35:12,492  INFO        Business : Auto Selection Johor Bahru - Skudai Branch
+2026-06-14 00:35:12,492  INFO        City     : Johor Bahru
+2026-06-14 00:35:12,492  INFO          [website] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru Malaysia
+2026-06-14 00:35:37,572  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:35:37,576  INFO          [website] ✗ Not found
+2026-06-14 00:35:39,578  INFO          [mudah] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru mudah
+2026-06-14 00:35:58,053  INFO              Jina returned 10 results
+2026-06-14 00:35:58,055  INFO          [mudah] ✓ Found: https://www.mudah.my/auto-selection-tebrau-johor-bahru
+2026-06-14 00:36:00,056  INFO          [carlist] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru carlist
+2026-06-14 00:36:25,100  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:36:25,102  INFO          [carlist] ✗ Not found
+2026-06-14 00:36:27,103  INFO          [autocari] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru autocari
+2026-06-14 00:36:37,415  INFO              Jina returned 10 results
+2026-06-14 00:36:37,417  INFO          [autocari] ✗ Not found
+2026-06-14 00:36:39,420  INFO          [facebook] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru facebook profile
+2026-06-14 00:36:57,998  INFO              Jina returned 10 results
+2026-06-14 00:36:58,002  INFO              Slug match: 'autoselectionmy' vs 'auto selection johor bahru - skudai branch' → 0.46
+2026-06-14 00:36:58,004  INFO              Word matches: ['auto', 'selection']
+2026-06-14 00:36:58,008  INFO          [facebook] ✓ Found: https://www.facebook.com/autoselectionmy/videos/find-your-next-ride-at-%F0%9D%90%80%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A8-%F0%9D%90%92%F0%9D%90%9E%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%9C%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-%F0%9D%90%89%F0%9D%90%A8%F0%9D%90%A1%F0%9D%90%A8%F0%9D%90%AB-%F0%9D%90%81%F0%9D%90%9A%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%AEwe-offer-carefully-selected-pre/699678259839470/ [high confidence]
+2026-06-14 00:37:00,018  INFO          [instagram] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru instagram profile
+2026-06-14 00:37:07,732  INFO              Jina returned 10 results
+2026-06-14 00:37:07,737  INFO              Rejected (structural): https://www.instagram.com/reel/DV3JtahE6Lj/
+2026-06-14 00:37:07,738  INFO              Rejected (structural): https://www.instagram.com/p/DGW4kFMps0n/
+2026-06-14 00:37:07,739  INFO              Rejected (structural): https://www.instagram.com/p/DUE8TZBE5KS/
+2026-06-14 00:37:07,741  INFO              Rejected (structural): https://www.instagram.com/p/DUACElRE5SO/
+2026-06-14 00:37:07,745  INFO              Rejected (structural): https://www.instagram.com/reel/DYtq-aKNQeH/
+2026-06-14 00:37:07,749  INFO              Rejected (structural): https://www.instagram.com/p/DTvCXRQE3dB/?img_index=10
+2026-06-14 00:37:07,751  INFO              Rejected (structural): https://www.instagram.com/p/DXdyFgCE73A/
+2026-06-14 00:37:07,755  INFO              Rejected (structural): https://www.instagram.com/reel/DBsMWAuJBve/
+2026-06-14 00:37:07,760  INFO              Rejected (structural): https://www.instagram.com/p/DAA6B3hO1RQ/
+2026-06-14 00:37:07,762  INFO          [instagram] ✗ Not found
+2026-06-14 00:37:09,764  INFO          [tiktok] Searching: Auto Selection Johor Bahru - Skudai Branch Johor Bahru tiktok profile
+2026-06-14 00:37:27,390  INFO              Jina returned 10 results
+2026-06-14 00:37:27,395  INFO              Rejected (structural): https://www.tiktok.com/@autoselectionmalaysia/video/7617055104243404053
+2026-06-14 00:37:27,397  INFO              Rejected (structural): https://www.tiktok.com/@johorfoodie/video/7445239979548101909?lang=en
+2026-06-14 00:37:27,399  INFO              Slug match: 'autoselectionmalaysia' vs 'auto selection johor bahru - skudai branch' → 0.51
+2026-06-14 00:37:27,400  INFO              Word matches: ['auto', 'selection']
+2026-06-14 00:37:27,401  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@autoselectionmalaysia [high confidence]
+2026-06-14 00:37:29,412  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:37:29,414  INFO      
+[5/19] ══════════════════════════════════════════
+2026-06-14 00:37:29,415  INFO        Business : Sime Darby Auto Selection Johor Bahru
+2026-06-14 00:37:29,416  INFO        City     : Johor Bahru
+2026-06-14 00:37:29,417  INFO          [website] Checking existing: https://simedarbyautoselection.com.my/
+2026-06-14 00:37:29,696  INFO          [website] ✗ Dead or blank — searching for replacement
+2026-06-14 00:37:29,697  INFO          [website] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru Malaysia
+2026-06-14 00:37:50,803  INFO              Jina returned 9 results
+2026-06-14 00:37:50,805  INFO          [website] ✓ Found: https://autoselection.simemotors.com.my/
+2026-06-14 00:37:52,806  INFO          [mudah] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru mudah
+2026-06-14 00:38:12,131  INFO              Jina returned 10 results
+2026-06-14 00:38:12,133  INFO          [mudah] ✓ Found: https://www.mudah.my/auto-selection-tebrau-johor-bahru
+2026-06-14 00:38:14,136  INFO          [carlist] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru carlist
+2026-06-14 00:38:32,505  INFO              Jina returned 10 results
+2026-06-14 00:38:32,507  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/69920189-b618-4f2a-a370-a7a249318705
+2026-06-14 00:38:34,509  INFO          [autocari] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru autocari
+2026-06-14 00:38:45,611  INFO              Jina returned 10 results
+2026-06-14 00:38:45,618  INFO          [autocari] ✗ Not found
+2026-06-14 00:38:47,620  INFO          [facebook] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru facebook profile
+2026-06-14 00:38:55,647  INFO              Jina returned 10 results
+2026-06-14 00:38:55,657  INFO              Slug match: 'autoselectionjbremy' vs 'sime darby auto selection johor bahru' → 0.54
+2026-06-14 00:38:55,658  INFO              Word matches: ['auto', 'selection']
+2026-06-14 00:38:55,659  INFO          [facebook] ✓ Found: https://www.facebook.com/autoselectionJBRemy/ [high confidence]
+2026-06-14 00:38:57,662  INFO          [instagram] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru instagram profile
+2026-06-14 00:39:06,875  INFO              Jina returned 10 results
+2026-06-14 00:39:06,878  INFO              Rejected (structural): https://www.instagram.com/reel/C7Oir4Duqdk/
+2026-06-14 00:39:06,880  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FDBJHNrAygm0%2F&is_from_rle
+2026-06-14 00:39:06,882  INFO              Rejected (structural): https://www.instagram.com/p/C60QpJxJXQ-/
+2026-06-14 00:39:06,884  INFO              Rejected (structural): https://www.instagram.com/reel/DV3JtahE6Lj/
+2026-06-14 00:39:06,886  INFO              Rejected (structural): https://www.instagram.com/p/DAA6B3hO1RQ/
+2026-06-14 00:39:06,888  INFO              Rejected (structural): https://www.instagram.com/p/DYtM7qjzvYJ/
+2026-06-14 00:39:06,890  INFO              Rejected (structural): https://www.instagram.com/p/C73PKwWp7Ub/
+2026-06-14 00:39:06,892  INFO          [instagram] ✗ Not found
+2026-06-14 00:39:08,895  INFO          [tiktok] Searching: Sime Darby Auto Selection Johor Bahru Johor Bahru tiktok profile
+2026-06-14 00:39:25,566  INFO              Jina returned 10 results
+2026-06-14 00:39:25,568  INFO              Rejected (structural): https://www.tiktok.com/@autoselectionmalaysia/video/7617055104243404053
+2026-06-14 00:39:25,570  INFO              Rejected (structural): https://www.tiktok.com/@autoselectionmalaysia/video/7424759088971582727
+2026-06-14 00:39:25,571  INFO          [tiktok] ✗ Not found
+2026-06-14 00:39:27,573  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:39:27,575  INFO      
+[6/19] ══════════════════════════════════════════
+2026-06-14 00:39:27,576  INFO        Business : TOYOTA MEDINI AZRI
+2026-06-14 00:39:27,577  INFO        City     : Johor Darul Ta'zim
+2026-06-14 00:39:27,578  INFO          [website] Checking existing: https://www.tiktok.com/@azritoyota
+2026-06-14 00:39:28,007  INFO          [website] ✓ Verified existing
+2026-06-14 00:39:30,009  INFO          [mudah] Searching: TOYOTA MEDINI AZRI Johor Darul Ta'zim mudah
+2026-06-14 00:39:55,067  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:39:55,068  INFO          [mudah] ✗ Not found
+2026-06-14 00:39:57,070  INFO          [carlist] Searching: TOYOTA MEDINI AZRI Johor Darul Ta'zim carlist
+2026-06-14 00:40:22,130  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:40:22,131  INFO          [carlist] ✗ Not found
+2026-06-14 00:40:24,133  INFO          [autocari] Searching: TOYOTA MEDINI AZRI Johor Darul Ta'zim autocari
+2026-06-14 00:40:46,648  INFO              Jina returned 10 results
+2026-06-14 00:40:46,651  INFO          [autocari] ✗ Not found
+2026-06-14 00:40:48,654  INFO          [facebook] Searching: TOYOTA MEDINI AZRI Johor Darul Ta'zim facebook profile
+2026-06-14 00:40:57,559  INFO              Jina returned 10 results
+2026-06-14 00:40:57,562  INFO              Slug match: 'toyotamedinimm' vs 'toyota medini azri' → 0.75
+2026-06-14 00:40:57,564  INFO              Word matches: ['toyota', 'medini']
+2026-06-14 00:40:57,565  INFO          [facebook] ✓ Found: https://www.facebook.com/toyotamedinimm/ [high confidence]
+2026-06-14 00:40:59,566  INFO          [instagram] Searching: TOYOTA MEDINI AZRI Johor Darul Ta'zim instagram profile
+2026-06-14 00:41:09,995  INFO              Jina returned 10 results
+2026-06-14 00:41:09,999  INFO              Rejected (structural): https://www.instagram.com/reel/DZPtCW0glYK/
+2026-06-14 00:41:10,000  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Ftoyotamy%2F&is_from_rle
+2026-06-14 00:41:10,002  INFO              Rejected (structural): https://www.instagram.com/reel/DZcn3LERLv5/
+2026-06-14 00:41:10,003  INFO              Rejected (structural): https://www.instagram.com/p/DYj7aZ4Eb5u/?img_index=6
+2026-06-14 00:41:10,005  INFO              Rejected (structural): https://www.instagram.com/p/DHGUssXsVdl/
+2026-06-14 00:41:10,006  INFO              Rejected (structural): https://www.instagram.com/p/DThmM2Hka9f/
+2026-06-14 00:41:10,008  INFO              Rejected (structural): https://www.instagram.com/reel/DOYHd2_kpdY/
+2026-06-14 00:41:10,010  INFO              Rejected (structural): https://www.instagram.com/p/CErhyYzDxjG/?hl=en
+2026-06-14 00:41:10,013  INFO              Rejected (structural): https://www.instagram.com/p/CGfKm97Ax1p/
+2026-06-14 00:41:10,015  INFO              Rejected (structural): https://www.instagram.com/p/DW793jqE1GT/
+2026-06-14 00:41:10,018  INFO          [instagram] ✗ Not found
+2026-06-14 00:41:12,020  INFO          [tiktok] Searching: TOYOTA MEDINI AZRI Johor Darul Ta'zim tiktok profile
+2026-06-14 00:41:37,087  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:41:37,088  INFO          [tiktok] ✗ Not found
+2026-06-14 00:41:39,095  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:41:39,096  INFO      
+[7/19] ══════════════════════════════════════════
+2026-06-14 00:41:39,099  INFO        Business : GS AUTO WORLD
+2026-06-14 00:41:39,101  INFO        City     : Johor Bahru
+2026-06-14 00:41:39,103  INFO          [website] Existing is a social URL — skipping as website
+2026-06-14 00:41:39,106  INFO          [website] Searching: GS AUTO WORLD Johor Bahru Malaysia
+2026-06-14 00:41:56,577  INFO              Jina returned 10 results
+2026-06-14 00:41:56,580  INFO          [website] ✓ Found: https://businessreport.ctoscredit.com.my/oneoffreport_api/single-report/malaysia-business/JM0870101K/GS-AUTO-WORLD
+2026-06-14 00:41:58,581  INFO          [mudah] Searching: GS AUTO WORLD Johor Bahru mudah
+2026-06-14 00:42:19,516  INFO              Jina returned 10 results
+2026-06-14 00:42:19,519  INFO          [mudah] ✓ Found: https://www.mudah.my/fc-autoworld
+2026-06-14 00:42:21,520  INFO          [carlist] Searching: GS AUTO WORLD Johor Bahru carlist
+2026-06-14 00:42:30,789  INFO              Jina returned 10 results
+2026-06-14 00:42:30,792  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/40ad74cc-0e6b-4729-ad73-ca8ce73abeab
+2026-06-14 00:42:32,793  INFO          [autocari] Searching: GS AUTO WORLD Johor Bahru autocari
+2026-06-14 00:42:54,184  INFO              Jina returned 10 results
+2026-06-14 00:42:54,192  INFO          [autocari] ✗ Not found
+2026-06-14 00:42:56,193  INFO          [facebook] Searching: GS AUTO WORLD Johor Bahru facebook profile
+2026-06-14 00:43:07,234  INFO              Jina returned 10 results
+2026-06-14 00:43:07,236  INFO          [facebook] ✓ Found: https://www.facebook.com/p/GS-Auto-World-100042978018473/ [low confidence]
+2026-06-14 00:43:09,237  INFO          [instagram] Searching: GS AUTO WORLD Johor Bahru instagram profile
+2026-06-14 00:43:31,197  INFO              Jina returned 10 results
+2026-06-14 00:43:31,199  INFO              Rejected (structural): https://www.instagram.com/p/DS1ts6HElzp/
+2026-06-14 00:43:31,200  INFO              Rejected (structural): https://www.instagram.com/reel/DFPAHGssVY_/
+2026-06-14 00:43:31,200  INFO              Rejected (structural): https://www.instagram.com/p/DYrKQAZoEUl/?img_index=3&hl=om-et
+2026-06-14 00:43:31,200  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Freel%2FDXtdnAukW0D%2F&is_from_rle
+2026-06-14 00:43:31,200  INFO              Rejected (structural): https://www.instagram.com/p/DYWrVsjDX3G/
+2026-06-14 00:43:31,201  INFO              Slug match: 'gentlemancarworld' vs 'gs auto world' → 0.47
+2026-06-14 00:43:31,201  INFO              Word matches: ['world']
+2026-06-14 00:43:31,201  INFO          [instagram] ✓ Found: https://www.instagram.com/gentlemancarworld/?hl=en [mid confidence]
+2026-06-14 00:43:33,202  INFO          [tiktok] Searching: GS AUTO WORLD Johor Bahru tiktok profile
+2026-06-14 00:43:44,413  INFO              Jina returned 10 results
+2026-06-14 00:43:44,415  INFO              Rejected (structural): https://www.tiktok.com/@jbautoworld/video/7618480164019899668
+2026-06-14 00:43:44,416  INFO              Rejected (structural): https://www.tiktok.com/@jbautoworld/video/7626598048650628372
+2026-06-14 00:43:44,416  INFO              Rejected (structural): https://www.tiktok.com/@jbautoworld/video/7632539792823078165
+2026-06-14 00:43:44,417  INFO              Slug match: 'jbautoworld' vs 'gs auto world' → 0.75
+2026-06-14 00:43:44,417  INFO              Word matches: ['auto', 'world']
+2026-06-14 00:43:44,418  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@jbautoworld [high confidence]
+2026-06-14 00:43:46,427  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:43:46,428  INFO      
+[8/19] ══════════════════════════════════════════
+2026-06-14 00:43:46,429  INFO        Business : AJ Motorss
+2026-06-14 00:43:46,429  INFO        City     : Johor Bahru
+2026-06-14 00:43:46,430  INFO          [website] Checking existing: https://www.ajmotorss.com/
+2026-06-14 00:43:47,036  INFO          [website] ✓ Verified existing
+2026-06-14 00:43:49,038  INFO          [mudah] Searching: AJ Motorss Johor Bahru mudah
+2026-06-14 00:44:13,830  INFO              Jina returned 10 results
+2026-06-14 00:44:13,831  INFO          [mudah] ✓ Found: https://www.mudah.my/ah-seng-aj-motorss-tampoi
+2026-06-14 00:44:15,833  INFO          [carlist] Searching: AJ Motorss Johor Bahru carlist
+2026-06-14 00:44:25,872  INFO              Jina returned 10 results
+2026-06-14 00:44:25,874  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/a390c847-d4f5-e311-94af-0261ba99cd9c
+2026-06-14 00:44:27,875  INFO          [autocari] Searching: AJ Motorss Johor Bahru autocari
+2026-06-14 00:44:45,225  INFO              Jina returned 10 results
+2026-06-14 00:44:45,227  INFO          [autocari] ✗ Not found
+2026-06-14 00:44:47,230  INFO          [facebook] Searching: AJ Motorss Johor Bahru facebook profile
+2026-06-14 00:45:12,283  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:45:12,284  INFO          [facebook] ✗ Not found
+2026-06-14 00:45:14,285  INFO          [instagram] Searching: AJ Motorss Johor Bahru instagram profile
+2026-06-14 00:45:32,744  INFO              Jina returned 10 results
+2026-06-14 00:45:32,746  INFO              Rejected (structural): https://www.instagram.com/p/DY0qg7dDU7R/?img_index=8
+2026-06-14 00:45:32,747  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Faj_motorss%2F%3Fhl%3Den&is_from_rle
+2026-06-14 00:45:32,747  INFO              Rejected (structural): https://www.instagram.com/reel/DF4sOZSxX4E/
+2026-06-14 00:45:32,748  INFO              Rejected (structural): https://www.instagram.com/p/DO9z2IaAS8-/
+2026-06-14 00:45:32,748  INFO              Rejected (structural): https://www.instagram.com/p/DZbSf-eDFWL/
+2026-06-14 00:45:32,749  INFO              Rejected (structural): https://www.instagram.com/reel/DJ8KNBcM-pt/
+2026-06-14 00:45:32,749  INFO              Rejected (structural): https://www.instagram.com/p/DN63HtPDM40/
+2026-06-14 00:45:32,750  INFO              Rejected (structural): https://www.instagram.com/p/DVZy_X1DX2V/
+2026-06-14 00:45:32,751  INFO              Rejected (structural): https://www.instagram.com/reel/DWk8zengBqY/
+2026-06-14 00:45:32,751  INFO              Rejected (structural): https://www.instagram.com/p/DTB4ExzDcrN/
+2026-06-14 00:45:32,754  INFO          [instagram] ✗ Not found
+2026-06-14 00:45:34,756  INFO          [tiktok] Searching: AJ Motorss Johor Bahru tiktok profile
+2026-06-14 00:45:52,083  INFO              Jina returned 10 results
+2026-06-14 00:45:52,086  INFO              Slug match: 'ajmotorss' vs 'aj motorss' → 0.95
+2026-06-14 00:45:52,087  INFO              Word matches: ['motorss']
+2026-06-14 00:45:52,087  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@ajmotorss [high confidence]
+2026-06-14 00:45:54,093  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:45:54,097  INFO      
+[9/19] ══════════════════════════════════════════
+2026-06-14 00:45:54,100  INFO        Business : C&C Motorline
+2026-06-14 00:45:54,101  INFO        City     : Singapore 737869
+2026-06-14 00:45:54,102  INFO          [website] Checking existing: https://www.sgcarmart.com/used_cars/listing.php?AVL=0&DL=3718&RPG=20
+2026-06-14 00:45:55,386  INFO          [website] ✓ Verified existing
+2026-06-14 00:45:57,387  INFO          [mudah] Searching: C&C Motorline Singapore 737869 mudah
+2026-06-14 00:46:18,447  INFO              Jina returned 10 results
+2026-06-14 00:46:18,454  INFO          [mudah] ✗ Not found
+2026-06-14 00:46:20,456  INFO          [carlist] Searching: C&C Motorline Singapore 737869 carlist
+2026-06-14 00:46:45,589  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:46:45,590  INFO          [carlist] ✗ Not found
+2026-06-14 00:46:47,592  INFO          [autocari] Searching: C&C Motorline Singapore 737869 autocari
+2026-06-14 00:46:56,309  INFO              Jina returned 10 results
+2026-06-14 00:46:56,311  INFO          [autocari] ✗ Not found
+2026-06-14 00:46:58,312  INFO          [facebook] Searching: C&C Motorline Singapore 737869 facebook profile
+2026-06-14 00:47:13,349  INFO              Jina returned 10 results
+2026-06-14 00:47:13,351  INFO              Slug match: 'ccmotorline' vs 'c&c motorline' → 0.92
+2026-06-14 00:47:13,352  INFO              Word matches: ['motorline']
+2026-06-14 00:47:13,353  INFO          [facebook] ✓ Found: https://www.facebook.com/ccmotorline/ [high confidence]
+2026-06-14 00:47:15,354  INFO          [instagram] Searching: C&C Motorline Singapore 737869 instagram profile
+2026-06-14 00:47:23,942  INFO              Jina returned 10 results
+2026-06-14 00:47:23,944  INFO              Rejected (structural): https://www.instagram.com/p/DScN9yqj5YJ/
+2026-06-14 00:47:23,945  INFO              Slug match: 'popular' vs 'c&c motorline' → 0.20
+2026-06-14 00:47:23,946  INFO              Word matches: []
+2026-06-14 00:47:23,946  INFO          [instagram] ✓ Found: https://www.instagram.com/popular/cc-motorline/ [low confidence]
+2026-06-14 00:47:25,947  INFO          [tiktok] Searching: C&C Motorline Singapore 737869 tiktok profile
+2026-06-14 00:47:45,856  INFO              Jina returned 10 results
+2026-06-14 00:47:45,861  INFO              Slug match: 'ccmotorline sg' vs 'c&c motorline' → 0.81
+2026-06-14 00:47:45,862  INFO              Word matches: ['motorline']
+2026-06-14 00:47:45,862  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@ccmotorline.sg [high confidence]
+2026-06-14 00:47:47,873  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:47:47,875  INFO      
+[10/19] ══════════════════════════════════════════
+2026-06-14 00:47:47,876  INFO        Business : Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai )
+2026-06-14 00:47:47,878  INFO        City     : Johor Bahru
+2026-06-14 00:47:47,879  INFO          [website] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru Malaysia
+2026-06-14 00:48:09,718  INFO              Jina returned 10 results
+2026-06-14 00:48:09,720  INFO          [website] ✓ Found: https://www.zigwheels.my/used-cars-dealer/johor-bahru/ming-yi-motorsports-sdn-bhd-77
+2026-06-14 00:48:11,721  INFO          [mudah] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru mudah
+2026-06-14 00:48:30,090  INFO              Jina returned 10 results
+2026-06-14 00:48:30,093  INFO          [mudah] ✓ Found: https://www.mudah.my/tj-elite-motor-enterprise
+2026-06-14 00:48:32,095  INFO          [carlist] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru carlist
+2026-06-14 00:48:51,329  INFO              Jina returned 10 results
+2026-06-14 00:48:51,331  INFO          [carlist] ✓ Found: https://www.carlist.my/dealer/mingyimotorsport
+2026-06-14 00:48:53,332  INFO          [autocari] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru autocari
+2026-06-14 00:49:03,207  INFO              Jina returned 10 results
+2026-06-14 00:49:03,210  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-14 00:49:05,212  INFO          [facebook] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru facebook profile
+2026-06-14 00:49:19,239  INFO              Jina returned 10 results
+2026-06-14 00:49:19,242  INFO              Slug match: '100054373337250' vs 'ming yi motorsports   (used car dealer johor / kereta terpakai )' → 0.00
+2026-06-14 00:49:19,244  INFO              Word matches: []
+2026-06-14 00:49:19,246  INFO          [facebook] ✓ Found: https://www.facebook.com/100054373337250/videos/ming-yi-motorsports-/2563861090658973/ [low confidence]
+2026-06-14 00:49:21,249  INFO          [instagram] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru instagram profile
+2026-06-14 00:49:31,490  INFO              Jina returned 10 results
+2026-06-14 00:49:31,493  INFO              Rejected (structural): https://www.instagram.com/reel/DV3JtahE6Lj/
+2026-06-14 00:49:31,495  INFO              Slug match: 'explore' vs 'ming yi motorsports   (used car dealer johor / kereta terpakai )' → 0.08
+2026-06-14 00:49:31,496  INFO              Word matches: []
+2026-06-14 00:49:31,497  INFO          [instagram] ✓ Found: https://www.instagram.com/explore/locations/1013285168863699/ming-yi-motorsport-used-car-dealer-johor-kereta-terpakai/ [low confidence]
+2026-06-14 00:49:33,499  INFO          [tiktok] Searching: Ming YI Motorsports (M) SDN BHD (used car dealer johor / kereta terpakai ) Johor Bahru tiktok profile
+2026-06-14 00:49:58,552  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:49:58,553  INFO          [tiktok] ✗ Not found
+2026-06-14 00:50:00,561  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:50:00,562  INFO      
+[11/19] ══════════════════════════════════════════
+2026-06-14 00:50:00,563  INFO        Business : VCAR Sdn Bhd (Professional Used Car Dealer)
+2026-06-14 00:50:00,564  INFO        City     : Johor
+2026-06-14 00:50:00,565  INFO          [website] Checking existing: https://linktr.ee/vcarsdnbhd
+2026-06-14 00:50:02,683  INFO          [website] ✗ Dead or blank — searching for replacement
+2026-06-14 00:50:02,683  INFO          [website] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor Malaysia
+2026-06-14 00:50:27,744  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:50:27,745  INFO          [website] ✗ Not found
+2026-06-14 00:50:29,746  INFO          [mudah] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor mudah
+2026-06-14 00:50:54,800  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:50:54,801  INFO          [mudah] ✗ Not found
+2026-06-14 00:50:56,802  INFO          [carlist] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor carlist
+2026-06-14 00:51:06,551  INFO              Jina returned 10 results
+2026-06-14 00:51:06,553  INFO          [carlist] ✗ Not found
+2026-06-14 00:51:08,554  INFO          [autocari] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor autocari
+2026-06-14 00:51:10,338  INFO              Jina returned 10 results
+2026-06-14 00:51:10,340  INFO          [autocari] ✓ Found: https://autocari.com/index.php?r=dealer/used
+2026-06-14 00:51:12,341  INFO          [facebook] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor facebook profile
+2026-06-14 00:51:37,423  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:51:37,424  INFO          [facebook] ✗ Not found
+2026-06-14 00:51:39,425  INFO          [instagram] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor instagram profile
+2026-06-14 00:51:53,448  INFO              Jina returned 10 results
+2026-06-14 00:51:53,450  INFO              Rejected (structural): https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fvcar_sdn_bhd%2F&is_from_rle
+2026-06-14 00:51:53,451  INFO              Rejected (structural): https://www.instagram.com/reel/DWbQXGSj53_/
+2026-06-14 00:51:53,452  INFO              Rejected (structural): https://www.instagram.com/p/DTRtMZqE5JO/
+2026-06-14 00:51:53,453  INFO              Rejected (structural): https://www.instagram.com/p/DZH3w49vgyB/
+2026-06-14 00:51:53,453  INFO              Slug match: 'vcar sdn bhd' vs 'vcar  (professional used car dealer)' → 0.29
+2026-06-14 00:51:53,454  INFO              Word matches: ['vcar']
+2026-06-14 00:51:53,455  INFO          [instagram] ✓ Found: https://www.instagram.com/vcar_sdn_bhd/reels/ [mid confidence]
+2026-06-14 00:51:55,455  INFO          [tiktok] Searching: VCAR Sdn Bhd (Professional Used Car Dealer) Johor tiktok profile
+2026-06-14 00:52:11,574  INFO              Jina returned 10 results
+2026-06-14 00:52:11,577  INFO              Rejected (structural): https://www.tiktok.com/@vcar_sdn_bhd/video/7283780802377239810
+2026-06-14 00:52:11,578  INFO              Rejected (structural): https://www.tiktok.com/@vcar_sdn_bhd/video/7301970331244236033
+2026-06-14 00:52:11,578  INFO              Rejected (structural): https://www.tiktok.com/@vcar_sdn_bhd/video/7436336583369870600
+2026-06-14 00:52:11,579  INFO              Rejected (structural): https://www.tiktok.com/@vcar_sdn_bhd/video/7379221286444125457
+2026-06-14 00:52:11,580  INFO              Slug match: 'vcar sdn bhd' vs 'vcar  (professional used car dealer)' → 0.29
+2026-06-14 00:52:11,581  INFO              Word matches: ['vcar']
+2026-06-14 00:52:11,581  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@vcar_sdn_bhd [mid confidence]
+2026-06-14 00:52:13,589  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:52:13,591  INFO      
+[12/19] ══════════════════════════════════════════
+2026-06-14 00:52:13,592  INFO        Business : Jet E Motor Trading
+2026-06-14 00:52:13,592  INFO        City     : Singapore 737869
+2026-06-14 00:52:13,593  INFO          [website] Checking existing: https://www.jetemotor.com/
+2026-06-14 00:52:13,838  INFO          [website] ✓ Verified existing
+2026-06-14 00:52:15,840  INFO          [mudah] Searching: Jet E Motor Trading Singapore 737869 mudah
+2026-06-14 00:52:34,197  INFO              Jina returned 10 results
+2026-06-14 00:52:34,199  INFO          [mudah] ✓ Found: https://www.mudah.my/roy-jet-speed-motor-trading
+2026-06-14 00:52:36,200  INFO          [carlist] Searching: Jet E Motor Trading Singapore 737869 carlist
+2026-06-14 00:52:46,688  INFO              Jina returned 10 results
+2026-06-14 00:52:46,690  INFO          [carlist] ✗ Not found
+2026-06-14 00:52:48,691  INFO          [autocari] Searching: Jet E Motor Trading Singapore 737869 autocari
+2026-06-14 00:53:13,772  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:53:13,773  INFO          [autocari] ✗ Not found
+2026-06-14 00:53:15,775  INFO          [facebook] Searching: Jet E Motor Trading Singapore 737869 facebook profile
+2026-06-14 00:53:40,839  WARNING           Jina search failed: HTTPSConnectionPool(host='s.jina.ai', port=443): Read timed out. (read timeout=25)
+2026-06-14 00:53:40,840  INFO          [facebook] ✗ Not found
+2026-06-14 00:53:42,841  INFO          [instagram] Searching: Jet E Motor Trading Singapore 737869 instagram profile
+2026-06-14 00:53:49,971  INFO              Jina returned 10 results
+2026-06-14 00:53:49,973  INFO              Rejected (structural): https://www.instagram.com/reel/DOIs5NSj98V/
+2026-06-14 00:53:49,973  INFO              Rejected (structural): https://www.instagram.com/p/DTubqDLEliR/
+2026-06-14 00:53:49,974  INFO              Rejected (structural): https://www.instagram.com/reel/DWOGDpIk_zY/
+2026-06-14 00:53:49,975  INFO              Slug match: 'pangsmotortradingpteltd' vs 'jet e motor trading' → 0.57
+2026-06-14 00:53:49,976  INFO              Word matches: ['motor', 'trading']
+2026-06-14 00:53:49,976  INFO          [instagram] ✓ Found: https://www.instagram.com/pangsmotortradingpteltd/ [high confidence]
+2026-06-14 00:53:51,978  INFO          [tiktok] Searching: Jet E Motor Trading Singapore 737869 tiktok profile
+2026-06-14 00:54:04,921  INFO              Jina returned 10 results
+2026-06-14 00:54:04,924  INFO              Rejected (structural): https://www.tiktok.com/@platinummotoring/video/7594706542268665109
+2026-06-14 00:54:04,928  INFO              Slug match: 'jetemotor' vs 'jet e motor trading' → 0.64
+2026-06-14 00:54:04,929  INFO              Word matches: ['motor']
+2026-06-14 00:54:04,929  INFO          [tiktok] ✓ Found: https://www.tiktok.com/@jetemotor [high confidence]
+2026-06-14 00:54:06,937  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:54:06,938  INFO      
+[13/19] ══════════════════════════════════════════
+2026-06-14 00:54:06,938  INFO        Business : Leong Motor Enterprise Since 1995
+2026-06-14 00:54:06,939  INFO        City     : Johor Bahru
+2026-06-14 00:54:06,940  INFO          [website] Existing is a social URL — skipping as website
+2026-06-14 00:54:06,941  INFO          [website] Searching: Leong Motor Enterprise Since 1995 Johor Bahru Malaysia
+2026-06-14 00:54:27,552  INFO              Jina returned 10 results
+2026-06-14 00:54:27,556  INFO          [website] ✓ Found: https://www.caricarz.com/dealer/leongmotor/cars-for-sale?srsltid=AfmBOoogTHNXx9FZ-YNXQiExFitiyESkkLisLCuce_rH10aquPZwzsaM
+2026-06-14 00:54:29,557  INFO          [mudah] Searching: Leong Motor Enterprise Since 1995 Johor Bahru mudah
+2026-06-14 00:54:50,591  INFO              Jina returned 10 results
+2026-06-14 00:54:50,593  INFO          [mudah] ✓ Found: https://www.mudah.my/mrjj-auto-garage---used-car-tampoi-016-7901101
+2026-06-14 00:54:52,595  INFO          [carlist] Searching: Leong Motor Enterprise Since 1995 Johor Bahru carlist
+2026-06-14 00:54:52,943  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Leong%20Motor%20Enterprise%20Since%201995%20Johor%20Bahru%20carlist
+2026-06-14 00:54:52,944  INFO          [carlist] ✗ Not found
+2026-06-14 00:54:54,946  INFO          [autocari] Searching: Leong Motor Enterprise Since 1995 Johor Bahru autocari
+2026-06-14 00:54:55,263  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Leong%20Motor%20Enterprise%20Since%201995%20Johor%20Bahru%20autocari
+2026-06-14 00:54:55,264  INFO          [autocari] ✗ Not found
+2026-06-14 00:54:57,265  INFO          [facebook] Searching: Leong Motor Enterprise Since 1995 Johor Bahru facebook profile
+2026-06-14 00:54:57,558  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Leong%20Motor%20Enterprise%20Since%201995%20Johor%20Bahru%20facebook%20profile
+2026-06-14 00:54:57,560  INFO          [facebook] ✗ Not found
+2026-06-14 00:54:59,562  INFO          [instagram] Searching: Leong Motor Enterprise Since 1995 Johor Bahru instagram profile
+2026-06-14 00:54:59,900  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Leong%20Motor%20Enterprise%20Since%201995%20Johor%20Bahru%20instagram%20profile
+2026-06-14 00:54:59,901  INFO          [instagram] ✗ Not found
+2026-06-14 00:55:01,903  INFO          [tiktok] Searching: Leong Motor Enterprise Since 1995 Johor Bahru tiktok profile
+2026-06-14 00:55:02,359  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Leong%20Motor%20Enterprise%20Since%201995%20Johor%20Bahru%20tiktok%20profile
+2026-06-14 00:55:02,361  INFO          [tiktok] ✗ Not found
+2026-06-14 00:55:04,368  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:55:04,369  INFO      
+[14/19] ══════════════════════════════════════════
+2026-06-14 00:55:04,372  INFO        Business : Auto Alley Pte Ltd
+2026-06-14 00:55:04,374  INFO        City     : Singapore 737869
+2026-06-14 00:55:04,375  INFO          [website] Checking existing: https://www.sgcarmart.com/used_cars/listing.php?DL=4419&AVL=2
+2026-06-14 00:55:05,544  INFO          [website] ✓ Verified existing
+2026-06-14 00:55:07,555  INFO          [mudah] Searching: Auto Alley Pte Ltd Singapore 737869 mudah
+2026-06-14 00:55:07,894  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Auto%20Alley%20Pte%20Ltd%20Singapore%20737869%20mudah
+2026-06-14 00:55:07,896  INFO          [mudah] ✗ Not found
+2026-06-14 00:55:09,897  INFO          [carlist] Searching: Auto Alley Pte Ltd Singapore 737869 carlist
+2026-06-14 00:55:10,242  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Auto%20Alley%20Pte%20Ltd%20Singapore%20737869%20carlist
+2026-06-14 00:55:10,245  INFO          [carlist] ✗ Not found
+2026-06-14 00:55:12,247  INFO          [autocari] Searching: Auto Alley Pte Ltd Singapore 737869 autocari
+2026-06-14 00:55:13,008  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Auto%20Alley%20Pte%20Ltd%20Singapore%20737869%20autocari
+2026-06-14 00:55:13,010  INFO          [autocari] ✗ Not found
+2026-06-14 00:55:15,011  INFO          [facebook] Searching: Auto Alley Pte Ltd Singapore 737869 facebook profile
+2026-06-14 00:55:15,362  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Auto%20Alley%20Pte%20Ltd%20Singapore%20737869%20facebook%20profile
+2026-06-14 00:55:15,371  INFO          [facebook] ✗ Not found
+2026-06-14 00:55:17,372  INFO          [instagram] Searching: Auto Alley Pte Ltd Singapore 737869 instagram profile
+2026-06-14 00:55:17,678  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Auto%20Alley%20Pte%20Ltd%20Singapore%20737869%20instagram%20profile
+2026-06-14 00:55:17,680  INFO          [instagram] ✗ Not found
+2026-06-14 00:55:19,681  INFO          [tiktok] Searching: Auto Alley Pte Ltd Singapore 737869 tiktok profile
+2026-06-14 00:55:20,073  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Auto%20Alley%20Pte%20Ltd%20Singapore%20737869%20tiktok%20profile
+2026-06-14 00:55:20,074  INFO          [tiktok] ✗ Not found
+2026-06-14 00:55:22,082  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:55:22,083  INFO      
+[15/19] ══════════════════════════════════════════
+2026-06-14 00:55:22,084  INFO        Business : Jie Heng Motoring
+2026-06-14 00:55:22,084  INFO        City     : Singapore 658064
+2026-06-14 00:55:22,085  INFO          [website] Checking existing: http://jiehengmotoring.sg/
+2026-06-14 00:55:22,959  INFO          [website] ✓ Verified existing
+2026-06-14 00:55:24,961  INFO          [mudah] Searching: Jie Heng Motoring Singapore 658064 mudah
+2026-06-14 00:55:25,296  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Jie%20Heng%20Motoring%20Singapore%20658064%20mudah
+2026-06-14 00:55:25,299  INFO          [mudah] ✗ Not found
+2026-06-14 00:55:27,301  INFO          [carlist] Searching: Jie Heng Motoring Singapore 658064 carlist
+2026-06-14 00:55:27,598  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Jie%20Heng%20Motoring%20Singapore%20658064%20carlist
+2026-06-14 00:55:27,600  INFO          [carlist] ✗ Not found
+2026-06-14 00:55:29,602  INFO          [autocari] Searching: Jie Heng Motoring Singapore 658064 autocari
+2026-06-14 00:55:29,967  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Jie%20Heng%20Motoring%20Singapore%20658064%20autocari
+2026-06-14 00:55:29,969  INFO          [autocari] ✗ Not found
+2026-06-14 00:55:31,970  INFO          [facebook] Searching: Jie Heng Motoring Singapore 658064 facebook profile
+2026-06-14 00:55:32,361  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Jie%20Heng%20Motoring%20Singapore%20658064%20facebook%20profile
+2026-06-14 00:55:32,363  INFO          [facebook] ✗ Not found
+2026-06-14 00:55:34,363  INFO          [instagram] Searching: Jie Heng Motoring Singapore 658064 instagram profile
+2026-06-14 00:55:34,715  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Jie%20Heng%20Motoring%20Singapore%20658064%20instagram%20profile
+2026-06-14 00:55:34,716  INFO          [instagram] ✗ Not found
+2026-06-14 00:55:36,718  INFO          [tiktok] Searching: Jie Heng Motoring Singapore 658064 tiktok profile
+2026-06-14 00:55:37,480  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Jie%20Heng%20Motoring%20Singapore%20658064%20tiktok%20profile
+2026-06-14 00:55:37,481  INFO          [tiktok] ✗ Not found
+2026-06-14 00:55:39,489  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:55:39,490  INFO      
+[16/19] ══════════════════════════════════════════
+2026-06-14 00:55:39,491  INFO        Business : Peak Performance Auto Pte Ltd
+2026-06-14 00:55:39,492  INFO        City     : Singapore 737869
+2026-06-14 00:55:39,492  INFO          [website] Checking existing: https://www.sgcarmart.com/used_cars/listing.php?DL=4370
+2026-06-14 00:55:39,996  INFO          [website] ✓ Verified existing
+2026-06-14 00:55:41,997  INFO          [mudah] Searching: Peak Performance Auto Pte Ltd Singapore 737869 mudah
+2026-06-14 00:55:42,394  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Peak%20Performance%20Auto%20Pte%20Ltd%20Singapore%20737869%20mudah
+2026-06-14 00:55:42,396  INFO          [mudah] ✗ Not found
+2026-06-14 00:55:44,398  INFO          [carlist] Searching: Peak Performance Auto Pte Ltd Singapore 737869 carlist
+2026-06-14 00:55:44,749  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Peak%20Performance%20Auto%20Pte%20Ltd%20Singapore%20737869%20carlist
+2026-06-14 00:55:44,750  INFO          [carlist] ✗ Not found
+2026-06-14 00:55:46,751  INFO          [autocari] Searching: Peak Performance Auto Pte Ltd Singapore 737869 autocari
+2026-06-14 00:55:47,105  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Peak%20Performance%20Auto%20Pte%20Ltd%20Singapore%20737869%20autocari
+2026-06-14 00:55:47,108  INFO          [autocari] ✗ Not found
+2026-06-14 00:55:49,109  INFO          [facebook] Searching: Peak Performance Auto Pte Ltd Singapore 737869 facebook profile
+2026-06-14 00:55:49,870  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Peak%20Performance%20Auto%20Pte%20Ltd%20Singapore%20737869%20facebook%20profile
+2026-06-14 00:55:49,871  INFO          [facebook] ✗ Not found
+2026-06-14 00:55:51,873  INFO          [instagram] Searching: Peak Performance Auto Pte Ltd Singapore 737869 instagram profile
+2026-06-14 00:55:52,228  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Peak%20Performance%20Auto%20Pte%20Ltd%20Singapore%20737869%20instagram%20profile
+2026-06-14 00:55:52,230  INFO          [instagram] ✗ Not found
+2026-06-14 00:55:54,230  INFO          [tiktok] Searching: Peak Performance Auto Pte Ltd Singapore 737869 tiktok profile
+2026-06-14 00:55:54,526  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Peak%20Performance%20Auto%20Pte%20Ltd%20Singapore%20737869%20tiktok%20profile
+2026-06-14 00:55:54,527  INFO          [tiktok] ✗ Not found
+2026-06-14 00:55:56,538  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:55:56,540  INFO      
+[17/19] ══════════════════════════════════════════
+2026-06-14 00:55:56,541  INFO        Business : LHG Auto Complex
+2026-06-14 00:55:56,541  INFO        City     : Johor
+2026-06-14 00:55:56,542  INFO          [website] Checking existing: https://www.lhgroup.com.my/
+2026-06-14 00:55:57,193  INFO          [website] ✓ Verified existing
+2026-06-14 00:55:59,194  INFO          [mudah] Searching: LHG Auto Complex Johor mudah
+2026-06-14 00:55:59,495  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LHG%20Auto%20Complex%20Johor%20mudah
+2026-06-14 00:55:59,496  INFO          [mudah] ✗ Not found
+2026-06-14 00:56:01,498  INFO          [carlist] Searching: LHG Auto Complex Johor carlist
+2026-06-14 00:56:01,910  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LHG%20Auto%20Complex%20Johor%20carlist
+2026-06-14 00:56:01,911  INFO          [carlist] ✗ Not found
+2026-06-14 00:56:03,912  INFO          [autocari] Searching: LHG Auto Complex Johor autocari
+2026-06-14 00:56:04,307  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LHG%20Auto%20Complex%20Johor%20autocari
+2026-06-14 00:56:04,310  INFO          [autocari] ✗ Not found
+2026-06-14 00:56:06,315  INFO          [facebook] Searching: LHG Auto Complex Johor facebook profile
+2026-06-14 00:56:06,623  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LHG%20Auto%20Complex%20Johor%20facebook%20profile
+2026-06-14 00:56:06,624  INFO          [facebook] ✗ Not found
+2026-06-14 00:56:08,626  INFO          [instagram] Searching: LHG Auto Complex Johor instagram profile
+2026-06-14 00:56:09,019  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LHG%20Auto%20Complex%20Johor%20instagram%20profile
+2026-06-14 00:56:09,025  INFO          [instagram] ✗ Not found
+2026-06-14 00:56:11,026  INFO          [tiktok] Searching: LHG Auto Complex Johor tiktok profile
+2026-06-14 00:56:11,372  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/LHG%20Auto%20Complex%20Johor%20tiktok%20profile
+2026-06-14 00:56:11,373  INFO          [tiktok] ✗ Not found
+2026-06-14 00:56:13,382  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:56:13,383  INFO      
+[18/19] ══════════════════════════════════════════
+2026-06-14 00:56:13,387  INFO        Business : Dream Drive Pte Ltd
+2026-06-14 00:56:13,388  INFO        City     : Singapore 737869
+2026-06-14 00:56:13,389  INFO          [website] Checking existing: https://www.sgcarmart.com/used_cars/listing.php?DL=2725
+2026-06-14 00:56:14,451  INFO          [website] ✓ Verified existing
+2026-06-14 00:56:16,453  INFO          [mudah] Searching: Dream Drive Pte Ltd Singapore 737869 mudah
+2026-06-14 00:56:17,209  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Dream%20Drive%20Pte%20Ltd%20Singapore%20737869%20mudah
+2026-06-14 00:56:17,212  INFO          [mudah] ✗ Not found
+2026-06-14 00:56:19,214  INFO          [carlist] Searching: Dream Drive Pte Ltd Singapore 737869 carlist
+2026-06-14 00:56:19,566  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Dream%20Drive%20Pte%20Ltd%20Singapore%20737869%20carlist
+2026-06-14 00:56:19,568  INFO          [carlist] ✗ Not found
+2026-06-14 00:56:21,569  INFO          [autocari] Searching: Dream Drive Pte Ltd Singapore 737869 autocari
+2026-06-14 00:56:21,883  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Dream%20Drive%20Pte%20Ltd%20Singapore%20737869%20autocari
+2026-06-14 00:56:21,885  INFO          [autocari] ✗ Not found
+2026-06-14 00:56:23,887  INFO          [facebook] Searching: Dream Drive Pte Ltd Singapore 737869 facebook profile
+2026-06-14 00:56:24,275  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Dream%20Drive%20Pte%20Ltd%20Singapore%20737869%20facebook%20profile
+2026-06-14 00:56:24,276  INFO          [facebook] ✗ Not found
+2026-06-14 00:56:26,278  INFO          [instagram] Searching: Dream Drive Pte Ltd Singapore 737869 instagram profile
+2026-06-14 00:56:26,628  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Dream%20Drive%20Pte%20Ltd%20Singapore%20737869%20instagram%20profile
+2026-06-14 00:56:26,630  INFO          [instagram] ✗ Not found
+2026-06-14 00:56:28,631  INFO          [tiktok] Searching: Dream Drive Pte Ltd Singapore 737869 tiktok profile
+2026-06-14 00:56:29,395  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Dream%20Drive%20Pte%20Ltd%20Singapore%20737869%20tiktok%20profile
+2026-06-14 00:56:29,397  INFO          [tiktok] ✗ Not found
+2026-06-14 00:56:31,405  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:56:31,408  INFO      
+[19/19] ══════════════════════════════════════════
+2026-06-14 00:56:31,409  INFO        Business : Trillions Auto
+2026-06-14 00:56:31,410  INFO        City     : Singapore 608586
+2026-06-14 00:56:31,412  INFO          [website] Checking existing: https://www.sgcarmart.com/used_cars/listing.php?DL=3590
+2026-06-14 00:56:31,961  INFO          [website] ✓ Verified existing
+2026-06-14 00:56:33,963  INFO          [mudah] Searching: Trillions Auto Singapore 608586 mudah
+2026-06-14 00:56:34,309  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Trillions%20Auto%20Singapore%20608586%20mudah
+2026-06-14 00:56:34,311  INFO          [mudah] ✗ Not found
+2026-06-14 00:56:36,313  INFO          [carlist] Searching: Trillions Auto Singapore 608586 carlist
+2026-06-14 00:56:36,664  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Trillions%20Auto%20Singapore%20608586%20carlist
+2026-06-14 00:56:36,665  INFO          [carlist] ✗ Not found
+2026-06-14 00:56:38,666  INFO          [autocari] Searching: Trillions Auto Singapore 608586 autocari
+2026-06-14 00:56:39,020  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Trillions%20Auto%20Singapore%20608586%20autocari
+2026-06-14 00:56:39,021  INFO          [autocari] ✗ Not found
+2026-06-14 00:56:41,022  INFO          [facebook] Searching: Trillions Auto Singapore 608586 facebook profile
+2026-06-14 00:56:41,844  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Trillions%20Auto%20Singapore%20608586%20facebook%20profile
+2026-06-14 00:56:41,845  INFO          [facebook] ✗ Not found
+2026-06-14 00:56:43,846  INFO          [instagram] Searching: Trillions Auto Singapore 608586 instagram profile
+2026-06-14 00:56:44,241  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Trillions%20Auto%20Singapore%20608586%20instagram%20profile
+2026-06-14 00:56:44,243  INFO          [instagram] ✗ Not found
+2026-06-14 00:56:46,244  INFO          [tiktok] Searching: Trillions Auto Singapore 608586 tiktok profile
+2026-06-14 00:56:46,699  WARNING           Jina search failed: 402 Client Error: Payment Required for url: https://s.jina.ai/Trillions%20Auto%20Singapore%20608586%20tiktok%20profile
+2026-06-14 00:56:46,700  INFO          [tiktok] ✗ Not found
+2026-06-14 00:56:48,707  INFO        Saved progress → dealers_enriched_Johor_bahru_80000.json
+2026-06-14 00:56:48,708  INFO      
+✓ Done. 19 businesses written to C:\Users\jainp\OneDrive\Desktop\FindIt\Phase_two\dealers_enriched_Johor_bahru_80000.json

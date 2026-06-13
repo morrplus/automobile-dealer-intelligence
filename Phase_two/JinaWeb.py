@@ -36,6 +36,18 @@ PLATFORMS = [
     {"key": "tiktok",    "keyword": "tiktok profile",    "domain": "tiktok.com"},
 ]
 
+# ─── SCORING — points awarded per platform when a URL is found ─────────────────
+PLATFORM_SCORES = {
+    "website":   20,
+    "mudah":     15,
+    "carlist":   15,
+    "autocari":  10,
+    "facebook":  10,
+    "instagram": 10,
+    "tiktok":     5,
+}
+MAX_SCORE = sum(PLATFORM_SCORES.values())  # 85
+
 WEBSITE_BLACKLIST = [
     "google.com", "maps.google", "wikipedia.org", "youtube.com",
     "facebook.com", "instagram.com", "tiktok.com", "mudah.my",
@@ -172,18 +184,28 @@ def slug_confidence(business_name: str, slug: str) -> str:
 
 
 def is_valid_structure(url: str) -> bool:
+    """
+    Rejects structurally bad URLs for all platforms.
+    Instagram is now treated identically to Facebook — posts and reels rejected.
+    """
     url_lower = url.lower()
     bad_patterns = [
+        # Instagram — strict (same as Facebook)
         r"instagram\.com/p/",
         r"instagram\.com/reel/",
+        r"instagram\.com/reels/",
         r"instagram\.com/accounts/",
+        r"instagram\.com/explore/",
+        # Facebook
         r"facebook\.com/groups/",
         r"facebook\.com/events/",
         r"facebook\.com/photo",
         r"facebook\.com/watch",
         r"facebook\.com/posts/",
+        # TikTok
         r"tiktok\.com/.+/video/",
         r"tiktok\.com/discover/",
+        # Marketplace generic pages
         r"mudah\.my/$",
         r"carlist\.my/$",
         r"autocari\.com/index\.php\?r=dealer/(used|recond)&state",
@@ -195,12 +217,36 @@ def is_valid_structure(url: str) -> bool:
     return True
 
 
+def calculate_score(links: dict) -> dict:
+    """
+    Calculates a completeness score for a business based on which links were found.
+    Returns {"score": int, "max_score": int, "breakdown": {platform: points}}
+    """
+    score     = 0
+    breakdown = {}
+
+    for platform, points in PLATFORM_SCORES.items():
+        entry = links.get(platform, {})
+        if entry and entry.get("url"):
+            breakdown[platform] = points
+            score += points
+        else:
+            breakdown[platform] = 0
+
+    return {
+        "score":     score,
+        "max_score": MAX_SCORE,
+        "breakdown": breakdown,
+    }
+
+
 def find_platform_url(name: str, city: str, platform: dict,
                       existing_url: str = None) -> dict:
     key     = platform["key"]
     domain  = platform["domain"]
     keyword = platform["keyword"]
 
+    # ── Own website ──────────────────────────────────────────────────────────
     if key == "website":
         if existing_url:
             if any(s in existing_url.lower() for s in ["facebook.com", "instagram.com"]):
@@ -223,6 +269,7 @@ def find_platform_url(name: str, city: str, platform: dict,
         log.info(f"    [website] ✗ Not found")
         return {"url": None, "confidence": None}
 
+    # ── Marketplace (mudah, carlist, autocari) ───────────────────────────────
     if key in ("mudah", "carlist", "autocari"):
         query = f"{name} {city} {keyword}"
         log.info(f"    [{key}] Searching: {query}")
@@ -237,6 +284,8 @@ def find_platform_url(name: str, city: str, platform: dict,
         log.info(f"    [{key}] ✗ Not found")
         return {"url": None, "confidence": None}
 
+    # ── Social platforms (facebook, instagram, tiktok) ───────────────────────
+    # Instagram is now fully strict — same rules as Facebook, no exceptions
     query = f"{name} {city} {keyword}"
     log.info(f"    [{key}] Searching: {query}")
     for url in jina_search(query):
@@ -270,8 +319,13 @@ def enrich_business(business: dict) -> dict:
         links[key] = result
         time.sleep(SLEEP_BETWEEN)
 
+    # Calculate score based on what was found
+    scoring = calculate_score(links)
+    log.info(f"  Score: {scoring['score']}/{scoring['max_score']} — {scoring['breakdown']}")
+
     enriched = business.copy()
-    enriched["links"] = links
+    enriched["links"]   = links
+    enriched["scoring"] = scoring
     return enriched
 
 
@@ -332,7 +386,6 @@ def run(input_path: Path):
 
 
 if __name__ == "__main__":
-    # Standalone mode — asks for filename, looks in Phase_One folder
     print("=" * 60)
     print("JINAWEB — Phase 2 Enrichment (Standalone)")
     print("=" * 60)
