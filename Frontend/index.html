@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FindIt — Car Dealer Finder</title>
+<style>
+  :root {
+    --green: #1d9e75;
+    --green-dark: #0f6e56;
+    --green-light: #e1f5ee;
+    --amber: #ba7517;
+    --amber-light: #faeeda;
+    --bg: #fafaf8;
+    --card-bg: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+    --text-primary: #1f1f1d;
+    --text-secondary: #6b6b66;
+    --text-tertiary: #9c9c97;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .container { max-width: 640px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+  .app-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .app-header .icon {
+    width: 40px; height: 40px; border-radius: var(--radius-md);
+    background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .app-header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+  .app-header p { font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; }
+
+  .panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1rem; }
+
+  .form-row { display: flex; gap: 12px; margin-bottom: 1rem; }
+  .form-row .form-group { flex: 1; margin-bottom: 0; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group:last-child { margin-bottom: 0; }
+  label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; font-weight: 500; }
+  input[type="text"], input[type="number"] {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md); font-size: 14px; background: var(--bg);
+    color: var(--text-primary); outline: none; transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, input[type="number"]:focus {
+    border-color: var(--green); box-shadow: 0 0 0 3px var(--green-light);
+  }
+  .hint { font-size: 12px; color: var(--text-tertiary); margin: 6px 0 0; }
+
+  .radio-list { display: flex; flex-direction: row; gap: 8px; }
+  .radio-option {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 13px; border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 10px 12px; cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  }
+  .radio-option:hover { border-color: var(--border-strong); }
+  .radio-option input[type="radio"] { width: 14px; height: 14px; accent-color: var(--green); margin: 0; }
+  .radio-option.selected { border-color: var(--green); background: var(--green-light); }
+
+  button { font-family: inherit; font-size: 14px; border-radius: var(--radius-md); cursor: pointer; transition: opacity 0.15s, background 0.15s; }
+  .btn-primary {
+    width: 100%; background: var(--green); color: white; border: none;
+    font-weight: 600; padding: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .btn-primary:hover { background: var(--green-dark); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+  .btn-secondary {
+    background: transparent; border: 1px solid var(--border-strong);
+    color: var(--text-primary); padding: 8px 14px;
+  }
+  .btn-secondary:hover { background: var(--green-light); border-color: var(--green); }
+  .btn-pill { background: var(--green); color: white; border: none; padding: 6px 16px; font-weight: 500; }
+  .btn-pill.no { background: transparent; border: 1px solid var(--border-strong); color: var(--text-primary); }
+
+  .summary-bar {
+    display: none; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--green-light); border: 1px solid #c5e8da; border-radius: var(--radius-lg);
+    padding: 0.9rem 1.1rem; margin-bottom: 1rem; font-size: 13px;
+  }
+  .summary-bar .info { color: var(--green-dark); }
+  .summary-bar .info b { font-weight: 600; }
+  .summary-bar button { font-size: 12px; padding: 5px 12px; }
+
+  .status-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .spinner {
+    width: 16px; height: 16px; border: 2px solid var(--border);
+    border-top-color: var(--green); border-radius: 50%;
+    animation: spin 0.8s linear infinite; flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .progress-track { background: var(--bg); border-radius: 999px; height: 8px; overflow: hidden; margin-bottom: 0.5rem; }
+  .progress-fill { background: var(--green); height: 8px; border-radius: 999px; width: 0%; transition: width 0.4s ease; }
+
+  .expand-card {
+    background: var(--amber-light); border: 1px solid #f3dcb8; border-radius: var(--radius-lg);
+    padding: 1rem 1.1rem; display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin-bottom: 1rem;
+  }
+  .expand-card .text p:first-child { font-weight: 600; font-size: 14px; margin: 0; color: var(--amber); }
+  .expand-card .text p:last-child { font-size: 13px; margin: 4px 0 0; color: var(--text-secondary); }
+  .expand-card .actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+  .log-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; user-select: none;
+  }
+  .log-toggle .label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+  .log-toggle .chev { font-size: 12px; color: var(--text-tertiary); transition: transform 0.2s; }
+  .log-toggle.open .chev { transform: rotate(180deg); }
+  .log-box {
+    display: none; background: #f4f4f1; border-radius: var(--radius-md);
+    padding: 10px 12px; font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px; line-height: 1.8; color: var(--text-secondary);
+    max-height: 220px; overflow-y: auto; margin-top: 10px; white-space: pre-wrap; word-break: break-word;
+  }
+  .log-box.open { display: block; }
+  .log-line.ok { color: var(--green-dark); }
+  .log-line.dim { color: var(--text-tertiary); }
+
+  .section-title { font-size: 14px; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--text-primary); }
+  .section-sub { font-size: 13px; color: var(--text-secondary); margin: 0 0 0.75rem; }
+
+  .dealer-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1rem 1.1rem; margin-bottom: 0.75rem;
+    transition: border-color 0.2s;
+  }
+  .dealer-card.recommended { border-color: var(--green); }
+  .dealer-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 4px; }
+  .dealer-name { font-size: 15px; font-weight: 600; margin: 0; }
+  .dealer-addr { font-size: 12px; color: var(--text-secondary); margin: 3px 0 8px; }
+  .status-pill { font-size: 11px; padding: 3px 9px; border-radius: 999px; flex-shrink: 0; white-space: nowrap; font-weight: 500; }
+  .status-pill.queued { background: #f0efe9; color: var(--text-secondary); }
+  .status-pill.enriching { background: #e6f1fb; color: #185fa5; }
+  .status-pill.done { background: var(--green-light); color: var(--green-dark); }
+  .status-pill.recommended { background: var(--green); color: white; }
+
+  .dealer-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
+  .dealer-meta span { display: inline-flex; align-items: center; gap: 4px; }
+
+  .link-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .link-pill {
+    font-size: 12px; padding: 4px 10px; border-radius: 999px;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border: none;
+  }
+  .link-pill.verified { background: var(--green-light); color: var(--green-dark); }
+  .link-pill.mid { background: var(--amber-light); color: var(--amber); }
+  .link-pill.low { background: #f0efe9; color: var(--text-tertiary); }
+  .link-pill.none { background: #f0efe9; color: var(--text-tertiary); opacity: 0.55; }
+
+  .detail-toggle { background: none; border: none; padding: 0; font-size: 12px; color: #185fa5; cursor: pointer; }
+  .detail-box { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-secondary); }
+  .detail-box.open { display: block; }
+  .detail-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+
+  .placeholder-card { text-align: center; color: var(--text-tertiary); font-size: 13px; padding: 1rem; }
+
+  .view-toggle { display: flex; gap: 8px; margin-bottom: 0.75rem; }
+  .view-toggle button { flex: 1; padding: 8px 12px; border: 1px solid var(--border-strong); background: var(--card-bg); font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+  .view-toggle button.active { background: var(--green-light); border-color: var(--green); color: var(--green-dark); }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="app-header">
+    <div class="icon">🚗</div>
+    <div>
+      <h1>FindIt</h1>
+      <p>Discover and enrich car dealer profiles in Malaysia</p>
+    </div>
+  </div>
+
+  <!-- Summary bar -->
+  <div class="summary-bar" id="summaryBar">
+    <div class="info">
+      Searching <b id="sumCity"></b>, <b id="sumPincode"></b> &middot;
+      <span id="sumType"></span> &middot; <b id="sumTarget"></b> profile(s)
+    </div>
+    <button class="btn-secondary" id="newSearchBtn">New search</button>
+  </div>
+
+  <!-- Search form -->
+  <div class="panel" id="searchPanel">
+    <form id="searchForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="e.g. Kuala Lumpur" required />
+        </div>
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input type="text" id="pincode" placeholder="e.g. 50400" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Dealer type</label>
+        <div class="radio-list" id="dealerTypeList">
+          <label class="radio-option selected">
+            <input type="radio" name="dealerType" value="used" checked />
+            Used car dealers
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="dealerType" value="new" />
+            New car dealers
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="dealerType" value="both" />
+            Both
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="target">How many profiles do you need?</label>
+        <input type="number" id="target" min="1" value="5" required />
+        <p class="hint">For small numbers (≤7) we collect extra dealers and keep the best matches after enrichment.</p>
+      </div>
+
+      <button type="submit" class="btn-primary" id="searchBtn">
+        <span>🔍</span> Start search
+      </button>
+    </form>
+  </div>
+
+  <!-- Status / log panel -->
+  <div class="panel hidden" id="statusPanel">
+    <div class="status-row" id="statusRow">
+      <div class="spinner" id="spinner"></div>
+      <p style="margin:0; font-size:14px; font-weight:500;" id="statusText">Geocoding location...</p>
+    </div>
+
+    <div id="progressWrap" class="hidden" style="margin-bottom:10px;">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <p class="hint" id="progressLabel" style="margin-top:0;"></p>
+    </div>
+
+    <div class="log-toggle" id="logToggle">
+      <div class="label"><span>🖥️</span> Live log</div>
+      <span class="chev">▼</span>
+    </div>
+    <div class="log-box" id="logBox"></div>
+  </div>
+
+  <!-- Expand-radius card -->
+  <div class="expand-card hidden" id="expandCard">
+    <div class="text">
+      <p id="expandTitle">Only a few dealers found so far</p>
+      <p id="expandSubtitle">Would you like to expand the search to a wider area?</p>
+    </div>
+    <div class="actions">
+      <button class="btn-pill no" id="expandNo">No, stop here</button>
+      <button class="btn-pill" id="expandYes">Yes, expand</button>
+    </div>
+  </div>
+
+  <!-- Results section -->
+  <div id="resultsSection" class="hidden">
+    <div class="section-title" id="resultsTitle">Dealers found</div>
+    <div class="section-sub" id="resultsSub">
+      Here are the dealers we found. We're enriching each profile with websites, social links, emails and LinkedIn in the background — this takes a few minutes.
+    </div>
+
+    <div class="view-toggle hidden" id="viewToggle">
+      <button class="active" id="viewTop">⭐ Recommended</button>
+      <button id="viewAll">View all</button>
+    </div>
+
+    <div id="dealerList"></div>
+  </div>
+
+</div>
+
+<script>
+/* ─── CONFIG ─────────────────────────────────────────────── */
+const API_BASE = "http://localhost:8000";
+
+/* ─── STATE ──────────────────────────────────────────────── */
+let currentJobId   = null;
+let pollInterval   = null;
+let allDealers     = [];
+let recommendedIds = new Set();
+let currentView    = "top";
+let lastLogCount   = 0;
+
+/* ─── DOM ────────────────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const searchForm    = $('searchForm');
+const searchPanel   = $('searchPanel');
+const searchBtn     = $('searchBtn');
+const summaryBar    = $('summaryBar');
+const newSearchBtn  = $('newSearchBtn');
+const statusPanel   = $('statusPanel');
+const statusText    = $('statusText');
+const spinner       = $('spinner');
+const progressWrap  = $('progressWrap');
+const progressFill  = $('progressFill');
+const progressLabel = $('progressLabel');
+const logToggle     = $('logToggle');
+const logBox        = $('logBox');
+const expandCard    = $('expandCard');
+const expandTitle   = $('expandTitle');
+const expandSub     = $('expandSubtitle');
+const expandYes     = $('expandYes');
+const expandNo      = $('expandNo');
+const resultsSection= $('resultsSection');
+const resultsTitle  = $('resultsTitle');
+const resultsSub    = $('resultsSub');
+const viewToggle    = $('viewToggle');
+const viewTop       = $('viewTop');
+const viewAll       = $('viewAll');
+const dealerList    = $('dealerList');
+
+/* ─── RADIO STYLING ──────────────────────────────────────── */
+document.querySelectorAll('#dealerTypeList .radio-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('#dealerTypeList .radio-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    opt.querySelector('input').checked = true;
+  });
+});
+
+/* ─── LOG PANEL ──────────────────────────────────────────── */
+logToggle.addEventListener('click', () => {
+  logToggle.classList.toggle('open');
+  logBox.classList.toggle('open');
+});
+
+function appendLogs(lines) {
+  lines.forEach(line => {
+    const div = document.createElement('div');
+    div.className = 'log-line' + (line.includes('✓') ? ' ok' : (line.includes('...') ? ' dim' : ''));
+    div.textContent = line;
+    logBox.appendChild(div);
+  });
+  logBox.scrollTop = logBox.scrollHeight;
+}
+
+/* ─── FORM SUBMIT ────────────────────────────────────────── */
+searchForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const city       = $('city').value.trim();
+  const pincode    = $('pincode').value.trim();
+  const target     = parseInt($('target').value, 10) || 1;
+  const dealerType = document.querySelector('input[name="dealerType"]:checked').value;
+
+  searchBtn.disabled = true;
+  searchBtn.innerHTML = '<span>⏳</span> Starting...';
+
+  $('sumCity').textContent    = city;
+  $('sumPincode').textContent = pincode;
+  $('sumType').textContent    = dealerType === 'used' ? 'Used car dealers' : dealerType === 'new' ? 'New car dealers' : 'Both';
+  $('sumTarget').textContent  = target;
+  summaryBar.style.display    = 'flex';
+  searchPanel.classList.add('hidden');
+  statusPanel.classList.remove('hidden');
+  statusText.textContent = 'Starting search...';
+  logBox.innerHTML = '';
+  lastLogCount = 0;
+
+  try {
+    const res  = await fetch(`${API_BASE}/search/start`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ city, pincode, dealer_type: dealerType, target })
+    });
+    const data = await res.json();
+    if (!data.job_id) throw new Error('No job_id returned');
+    currentJobId = data.job_id;
+    startPolling();
+  } catch (err) {
+    statusText.textContent = 'Could not connect to backend. Is it running?';
+    appendLogs([`Error: ${err.message}`]);
+  }
+});
+
+newSearchBtn.addEventListener('click', () => {
+  if (pollInterval) clearInterval(pollInterval);
+  currentJobId = null; allDealers = []; recommendedIds = new Set(); lastLogCount = 0;
+  dealerList.innerHTML = '';
+  resultsSection.classList.add('hidden');
+  expandCard.classList.add('hidden');
+  statusPanel.classList.add('hidden');
+  progressWrap.classList.add('hidden');
+  viewToggle.classList.add('hidden');
+  summaryBar.style.display = 'none';
+  searchPanel.classList.remove('hidden');
+  searchBtn.disabled = false;
+  searchBtn.innerHTML = '<span>🔍</span> Start search';
+});
+
+/* ─── POLLING ────────────────────────────────────────────── */
+function startPolling() {
+  if (pollInterval) clearInterval(pollInterval);
+  pollInterval = setInterval(pollStatus, 2000);
+  pollStatus();
+}
+
+async function pollStatus() {
+  if (!currentJobId) return;
+  try {
+    const res  = await fetch(`${API_BASE}/search/status?job_id=${currentJobId}`);
+    const data = await res.json();
+    handleStatus(data);
+  } catch (err) {
+    // Silently retry
+  }
+}
+
+function handleStatus(data) {
+  // New log lines only
+  const allLog = data.log || [];
+  if (allLog.length > lastLogCount) {
+    appendLogs(allLog.slice(lastLogCount));
+    lastLogCount = allLog.length;
+  }
+
+  // Expand prompt
+  if (data.expand_prompt) {
+    const found = data.expand_prompt.found;
+    const area  = data.expand_prompt.next_area;
+    expandTitle.textContent = `Only ${found} dealer${found === 1 ? '' : 's'} found so far`;
+    expandSub.textContent   = `Expand search to ${area}?`;
+    expandCard.classList.remove('hidden');
+  } else {
+    expandCard.classList.add('hidden');
+  }
+
+  // Status text
+  const phaseText = {
+    starting:         'Starting search...',
+    searching:        'Searching for dealers on Google Maps...',
+    awaiting_expand:  'Waiting for your input...',
+    enriching:        'Enriching dealer profiles...',
+    done:             'All profiles enriched ✓',
+    error:            data.error || 'Something went wrong.',
+  };
+  statusText.textContent = phaseText[data.phase] || data.phase;
+
+  if (data.phase === 'done' || data.phase === 'error') {
+    spinner.style.display = 'none';
+    if (pollInterval) clearInterval(pollInterval);
+  }
+
+  // Dealers (shown as soon as phase1 data arrives)
+  if (data.dealers && data.dealers.length) {
+    // Merge enriched data: backend sends updated dealers in place
+    const byId = {};
+    allDealers.forEach(d => { if (d.place_id) byId[d.place_id] = d; });
+    data.dealers.forEach(d => {
+      if (d.place_id) byId[d.place_id] = d;
+      else allDealers.push(d);
+    });
+    // Preserve order from server
+    if (data.dealers.length !== allDealers.length || allDealers.length === 0) {
+      allDealers = data.dealers;
+    } else {
+      allDealers = allDealers.map(d => d.place_id && byId[d.place_id] ? byId[d.place_id] : d);
+    }
+
+    resultsSection.classList.remove('hidden');
+    resultsTitle.textContent = `${allDealers.length} dealer${allDealers.length === 1 ? '' : 's'} found`;
+  }
+
+  // Recommended IDs
+  if (data.recommended_ids && data.recommended_ids.length) {
+    recommendedIds = new Set(data.recommended_ids);
+    if (recommendedIds.size && recommendedIds.size < allDealers.length) {
+      viewToggle.classList.remove('hidden');
+    }
+  }
+
+  // Enrichment progress
+  if (data.enrich_done != null && data.enrich_total) {
+    progressWrap.classList.remove('hidden');
+    const pct = Math.round((data.enrich_done / data.enrich_total) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = data.enrich_current
+      ? `${data.enrich_done} of ${data.enrich_total} — checking "${data.enrich_current}"`
+      : `${data.enrich_done} of ${data.enrich_total} profiles enriched`;
+  }
+
+  if (data.phase === 'done') {
+    progressWrap.classList.add('hidden');
+    resultsSub.textContent = recommendedIds.size && recommendedIds.size < allDealers.length
+      ? `Enrichment complete! Showing your top ${recommendedIds.size} picks. Use the toggle to see all ${allDealers.length} dealers.`
+      : `Enrichment complete! Here are all ${allDealers.length} profiles.`;
+  }
+
+  renderDealers();
+}
+
+/* ─── EXPAND CONFIRM ─────────────────────────────────────── */
+expandYes.addEventListener('click', () => sendExpand(true));
+expandNo.addEventListener('click',  () => sendExpand(false));
+
+async function sendExpand(expand) {
+  expandCard.classList.add('hidden');
+  try {
+    await fetch(`${API_BASE}/search/respond`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ job_id: currentJobId, expand })
+    });
+  } catch (err) {
+    appendLogs([`Error responding: ${err.message}`]);
+  }
+}
+
+/* ─── VIEW TOGGLE ────────────────────────────────────────── */
+viewTop.addEventListener('click', () => { currentView = 'top'; viewTop.classList.add('active'); viewAll.classList.remove('active'); renderDealers(); });
+viewAll.addEventListener('click', () => { currentView = 'all'; viewAll.classList.add('active'); viewTop.classList.remove('active'); renderDealers(); });
+
+/* ─── RENDER DEALERS ─────────────────────────────────────── */
+function renderDealers() {
+  if (!allDealers.length) return;
+  let list = (currentView === 'top' && recommendedIds.size) ? allDealers.filter(d => recommendedIds.has(d.place_id)) : allDealers;
+  dealerList.innerHTML = '';
+  if (!list.length) { dealerList.innerHTML = '<div class="placeholder-card">No dealers to show yet.</div>'; return; }
+  list.forEach(d => dealerList.appendChild(buildCard(d)));
+}
+
+function buildCard(d) {
+  const card = document.createElement('div');
+  const isRec = recommendedIds.has(d.place_id);
+  card.className = 'dealer-card' + (isRec ? ' recommended' : '');
+
+  // Determine status
+  const hasLinks  = !!d.links;
+  const hasEmails = d.emails !== undefined;
+  const isDone    = hasLinks && hasEmails;
+  const isEnriching = !isDone && d.place_id; // crude heuristic: has place_id but not yet done
+
+  let pillHtml = '';
+  if (isRec && isDone)   pillHtml = '<span class="status-pill recommended">⭐ Top pick</span>';
+  else if (isDone)       pillHtml = '<span class="status-pill done">✓ Done</span>';
+  else if (isEnriching)  pillHtml = '<span class="status-pill enriching">Enriching...</span>';
+  else                   pillHtml = '<span class="status-pill queued">Queued</span>';
+
+  // Meta
+  let meta = '';
+  if (d.phone)  meta += `<span>📞 ${esc(d.phone)}</span>`;
+  if (d.rating) meta += `<span>⭐ ${d.rating}</span>`;
+  if (d.emails && d.emails.length)  meta += `<span>✉️ ${esc(d.emails[0])}</span>`;
+  else if (isDone)                   meta += `<span style="color:var(--text-tertiary)">✉️ No email found</span>`;
+
+  // Link pills
+  const platforms = [
+    { key: 'website',   icon: '🌐', label: 'Website' },
+    { key: 'mudah',     icon: '🛍️', label: 'Mudah' },
+    { key: 'carlist',   icon: '🚘', label: 'Carlist' },
+    { key: 'autocari',  icon: '🚗', label: 'Autocari' },
+    { key: 'facebook',  icon: '📘', label: 'Facebook' },
+    { key: 'instagram', icon: '📷', label: 'Instagram' },
+    { key: 'tiktok',    icon: '🎵', label: 'TikTok' },
+  ];
+
+  let links = '';
+  if (d.links) {
+    platforms.forEach(p => {
+      const entry = d.links[p.key];
+      if (!entry || !entry.url) {
+        links += `<span class="link-pill none">${p.icon} ${p.label}</span>`;
+        return;
+      }
+      const conf = entry.confidence;
+      const cls  = conf === 'mid' ? 'mid' : conf === 'low' ? 'low' : 'verified';
+      const suffix = conf === 'mid' ? ' ⚠️' : conf === 'low' ? ' (unverified)' : '';
+      links += `<a href="${escA(entry.url)}" target="_blank" class="link-pill ${cls}">${p.icon} ${p.label}${suffix}</a>`;
+    });
+    if (d.linkedin) {
+      links += `<a href="${escA(d.linkedin)}" target="_blank" class="link-pill verified">💼 LinkedIn</a>`;
+    } else if (isDone) {
+      links += `<span class="link-pill none">💼 LinkedIn</span>`;
+    }
+  }
+
+  // Detail section (visible only when done)
+  let detail = '';
+  if (isDone) {
+    const extras = [
+      d.phones_extra && d.phones_extra.length ? `Extra phone: ${esc(d.phones_extra[0])}` : null,
+      d.emails && d.emails.length > 1         ? `More emails: ${esc(d.emails.slice(1).join(', '))}` : null,
+      d.place_id                              ? `Place ID: ${esc(d.place_id)}` : null,
+      d.type                                  ? `Type: ${esc(d.type)}` : null,
+    ].filter(Boolean);
+    if (extras.length) {
+      detail = `
+        <button class="detail-toggle">▼ Show more details</button>
+        <div class="detail-box">
+          <div class="detail-row">${extras.map(x => `<span>${x}</span>`).join('')}</div>
+        </div>`;
+    }
+  }
+
+  card.innerHTML = `
+    <div class="dealer-header">
+      <p class="dealer-name">${esc(d.name)}</p>
+      ${pillHtml}
+    </div>
+    <p class="dealer-addr">${esc(d.address || '')}</p>
+    ${meta ? `<div class="dealer-meta">${meta}</div>` : ''}
+    ${links ? `<div class="link-pills">${links}</div>` : ''}
+    ${detail}
+  `;
+
+  const dtBtn = card.querySelector('.detail-toggle');
+  if (dtBtn) {
+    dtBtn.addEventListener('click', () => {
+      const box  = card.querySelector('.detail-box');
+      const open = box.classList.toggle('open');
+      dtBtn.textContent = (open ? '▲ Hide' : '▼ Show') + ' more details';
+    });
+  }
+
+  return card;
+}
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escA(s) { return esc(s).replace(/"/g,'&quot;'); }
+</script>
+</body>
+</html>

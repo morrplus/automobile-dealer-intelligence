@@ -16,11 +16,18 @@ A data scraping tool targeting businesses in Malaysia. The user inputs a "city",
 
 ## Phases
 The project is divided into 3 phases.
-**Phase 1:** Build a system using SerpAPI to retrieve a list of businesses in the given city and pincode via Google Maps. Hands off results to Phase 2.
-**Phase 2 (Current):** Enrich dealer profiles using Jina AI API to search for the dealer's website, marketplace profiles (Mudah, Carlist, Autocari) and social media (Facebook, Instagram, Tiktok) and calculate completeness scores.
+**Phase 1:** Build a system using SerpAPI to retrieve a list of businesses in the given city and pincode via Google Maps. (Now integrated into the FastAPI backend via `search_logic.py`)
+**Phase 2 (Current):** Enrich dealer profiles. 
+   - Uses Jina AI API to search for the dealer's website, marketplace profiles (Mudah, Carlist, Autocari), and social media (Facebook, Instagram, Tiktok), calculating completeness scores.
+   - Uses `EmailLinkedin.py` to extract emails and additional phone numbers from websites (with Firecrawl and Hunter.io fallbacks) and searches for LinkedIn company profiles via DuckDuckGo.
 **Phase 3:** (To be defined) - Will add layers on top of Phase 1 & 2.
+
+## Architecture
+- **Backend:** A FastAPI server (`main.py`) that manages search/enrichment jobs asynchronously using threading and a job manager.
+- **Frontend:** A web-based UI (`index.html`) that polls the backend for live status updates, logs, and displays the enriched dealer profiles, replacing the original CLI.
 
 ## Log
 - 2026-06-10: Initialized project. Created `summary.txt` to track context. Started Phase 1 (SerpAPI Google Maps scraper).
 - 2026-06-10: User created `converting.py` to handle geocoding (City/Pincode -> Lat/Lng) using Nominatim, for more precise SerpAPI queries.
 - 2026-06-14: User implemented Phase 2 in `JinaWeb.py` to enrich dealer profiles using Jina AI search. Updated Phase 1 `SearchMap.py` to prompt user and trigger Phase 2 enrichment directly.
+- 2026-06-14: User created `EmailLinkedin.py` for advanced email/phone extraction and LinkedIn discovery, integrating it into Phase 2. Transitioned the application from CLI to a Web App by introducing a FastAPI backend (`main.py`, `search_logic.py`) and an HTML/JS frontend (`index.html`) with polling and live logs.
