@@ -11,10 +11,11 @@ from pathlib import Path
 from urllib.parse import quote, urlparse
 from difflib import SequenceMatcher
 from dotenv import load_dotenv
+from rapidfuzz import fuzz
 
 import job_context
 from job_manager import Job
-from emaillinkedin_logic import enrich_email_linkedin
+from emaillinkedin_logic import enrich_email_linkedin, crawl_website_for_all
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 JINA_API_KEY = os.getenv("JINA_API_KEY")
@@ -77,9 +78,27 @@ def jina_search(query: str) -> list:
         results = data.get("data", [])
         urls    = [item["url"] for item in results if "url" in item]
         job_context.log_info(f"        Jina returned {len(urls)} results")
-        return urls
+        if urls:
+            return urls
+        else:
+            job_context.log_warning("        Jina returned 0 results, trying DuckDuckGo fallback")
     except Exception as e:
-        job_context.log_warning(f"Jina search failed: {e}")
+        job_context.log_warning(f"        Jina search failed ({e}), trying DuckDuckGo fallback")
+
+    # Fallback to DuckDuckGo search
+    try:
+        try:
+            from ddgs import DDGS
+        except ImportError:
+            from duckduckgo_search import DDGS
+            
+        with DDGS() as ddgs:
+            results = list(ddgs.text(query, max_results=5))
+            urls = [r.get("href") for r in results if r.get("href")]
+            job_context.log_info(f"        DuckDuckGo fallback returned {len(urls)} results")
+            return urls
+    except Exception as dde:
+        job_context.log_warning(f"        DuckDuckGo fallback search also failed: {dde}")
         return []
 
 
@@ -148,14 +167,13 @@ def slug_confidence(business_name: str, slug: str) -> str:
         return "low"
     cleaned    = clean_business_name(business_name)
     slug_clean = slug.replace("-", " ").replace("_", " ").replace(".", " ")
-    ratio      = SequenceMatcher(None, cleaned, slug_clean).ratio()
-    job_context.log_info(f"        Slug match: '{slug_clean}' vs '{cleaned}' → {ratio:.2f}")
-    name_words    = [w for w in cleaned.split() if len(w) >= 4]
-    matched_words = [w for w in name_words if w in slug_clean]
-    job_context.log_info(f"        Word matches: {matched_words}")
-    if ratio >= 0.6 or len(matched_words) >= 2:
+    
+    ratio = fuzz.token_set_ratio(cleaned, slug_clean) / 100.0
+    job_context.log_info(f"        Slug match (token_set_ratio): '{slug_clean}' vs '{cleaned}' -> {ratio:.2f}")
+    
+    if ratio >= 0.85:
         return "high"
-    if ratio >= 0.35 or len(matched_words) >= 1:
+    if ratio >= 0.60:
         return "mid"
     return "low"
 
@@ -256,13 +274,43 @@ def enrich_business(business: dict) -> dict:
     job_context.log_info(f"  Business: {name}")
     job_context.log_info(f"  City:     {city}")
 
+    # First, find/verify website (the first item in PLATFORMS)
     links = {}
-    for platform in PLATFORMS:
-        key    = platform["key"]
-        eu     = existing_url if key == "website" else None
-        result = find_platform_url(name, city, platform, existing_url=eu)
-        links[key] = result
-        time.sleep(SLEEP_BETWEEN)
+    website_platform = PLATFORMS[0]
+    website_res = find_platform_url(name, city, website_platform, existing_url=existing_url)
+    links["website"] = website_res
+    
+    website_url = website_res.get("url")
+    crawled_emails = None
+    crawled_phones = None
+    crawled_linkedin = None
+    crawled_socials = {}
+    
+    if website_url:
+        crawl_res = crawl_website_for_all(website_url)
+        crawled_emails = crawl_res.get("emails", [])
+        crawled_phones = crawl_res.get("phones", [])
+        crawled_socials = crawl_res.get("socials", {})
+        crawled_linkedin = crawled_socials.get("linkedin")
+        
+        if crawled_emails:
+            job_context.log_info(f"    [crawl] Extracted emails from website: {crawled_emails}")
+        if crawled_phones:
+            job_context.log_info(f"    [crawl] Extracted alternate phones from website: {crawled_phones}")
+        if crawled_socials:
+            job_context.log_info(f"    [crawl] Extracted social links from website: {crawled_socials}")
+
+    # Process the remaining platforms
+    for platform in PLATFORMS[1:]:
+        key = platform["key"]
+        if crawled_socials.get(key):
+            found_url = crawled_socials[key]
+            job_context.log_info(f"    [{key}] Skipping search — found on website: {found_url}")
+            links[key] = {"url": found_url, "confidence": "high"}
+        else:
+            result = find_platform_url(name, city, platform, existing_url=None)
+            links[key] = result
+            time.sleep(SLEEP_BETWEEN)
 
     scoring = calculate_score(links)
     job_context.log_info(f"  Score: {scoring['score']}/{scoring['max_score']}")
@@ -270,6 +318,14 @@ def enrich_business(business: dict) -> dict:
     enriched          = business.copy()
     enriched["links"] = links
     enriched["scoring"] = scoring
+    
+    if crawled_emails is not None:
+        enriched["emails"] = crawled_emails
+    if crawled_phones is not None:
+        enriched["phones_extra"] = crawled_phones
+    if crawled_linkedin is not None:
+        enriched["linkedin"] = crawled_linkedin
+        
     return enriched
 
 

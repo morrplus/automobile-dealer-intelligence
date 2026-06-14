@@ -66,7 +66,7 @@ def geocode(city: str, pincode: str, country: str) -> dict:
                 lng = float(top["lon"])
                 display_name = top.get("display_name", "")
 
-                print(f"  ✓ Found: {display_name[:80]}...")
+                print(f"  [OK] Found: {display_name[:80]}...")
                 return {
                     "success": True,
                     "lat": lat,
@@ -75,15 +75,15 @@ def geocode(city: str, pincode: str, country: str) -> dict:
                     "query_used": query
                 }
             else:
-                print(f"  ✗ No results for this query, trying next...")
+                print(f"  [FAIL] No results for this query, trying next...")
 
             # Nominatim rate limit: max 1 request/second — be respectful
             time.sleep(1)
 
         except requests.exceptions.Timeout:
-            print(f"  ✗ Request timed out for query: {query}")
+            print(f"  [FAIL] Request timed out for query: {query}")
         except requests.exceptions.RequestException as e:
-            print(f"  ✗ Request error: {e}")
+            print(f"  [FAIL] Request error: {e}")
 
     # All queries failed
     return {
@@ -108,10 +108,10 @@ if __name__ == "__main__":
     result = geocode(city, pincode, country)
 
     if result["success"]:
-        print(f"\n✓ Result:")
+        print(f"\n[Result]:")
         print(f"  Lat         : {result['lat']}")
         print(f"  Lng         : {result['lng']}")
         print(f"  Full name   : {result['display_name']}")
         print(f"  Query used  : {result['query_used']}")
     else:
-        print(f"\n✗ Failed: {result['error']}")
+        print(f"\n[Failed]: {result['error']}")
