@@ -356,8 +356,10 @@ def run_phase2(job: Job, dealers: list, data_dir: Path) -> list:
 
     results = list(already_done.values())
     total   = len(dealers)
-    job.enrich_total = total
-    job.enrich_done  = len(already_done)
+    # If small_target, show progress against the user's requested number (not the bigger pool)
+    display_total     = job.target if (job.small_target and job.target) else total
+    job.enrich_total  = display_total
+    job.enrich_done   = min(len(already_done), display_total)
 
     for i, business in enumerate(dealers, 1):
         pid = business.get("place_id", "")
@@ -372,7 +374,8 @@ def run_phase2(job: Job, dealers: list, data_dir: Path) -> list:
         enriched = enrich_email_linkedin(enriched)
 
         results.append(enriched)
-        job.enrich_done = len(results)
+        # Cap display progress at the user's requested target
+        job.enrich_done = min(len(results), display_total)
 
         # Update live dealers list in job
         with job.dealers_lock:
