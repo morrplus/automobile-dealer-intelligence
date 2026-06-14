@@ -59,8 +59,8 @@ Top dealers returned to frontend
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/Priyanshu1jain/FindIt.git
-cd FindIt
+git clone https://github.com/morrplus/automobile-dealer-intelligence.git
+cd automobile-dealer-intelligence
 ```
 
 ### 2. Install dependencies
