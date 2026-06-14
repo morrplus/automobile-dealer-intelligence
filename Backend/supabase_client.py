@@ -83,8 +83,18 @@ def upsert_dealers(dealers: list[dict], city: str, pincode: str, dealer_type: st
     for dealer in dealers:
         try:
             scoring = dealer.get("scoring") or {}
-            contacts = dealer.get("contacts") or {}
-            socials  = dealer.get("social_media") or {}
+            links   = dealer.get("links") or {}
+
+            # Extract URLs from the nested links structure
+            website_url   = (links.get("website") or {}).get("url") or dealer.get("website", "")
+            facebook_url  = (links.get("facebook") or {}).get("url") or ""
+            instagram_url = (links.get("instagram") or {}).get("url") or ""
+
+            # emails is a list — take first one for the flat column
+            emails_list   = dealer.get("emails") or []
+            email_str     = emails_list[0] if emails_list else ""
+
+            linkedin_url  = dealer.get("linkedin") or ""
 
             row = {
                 "place_id":        dealer.get("place_id") or dealer.get("name", ""),
@@ -93,13 +103,13 @@ def upsert_dealers(dealers: list[dict], city: str, pincode: str, dealer_type: st
                 "pincode":         pincode,
                 "dealer_type":     dealer_type,
                 "address":         dealer.get("address", ""),
-                "phone":           dealer.get("phone", ""),
-                "website":         dealer.get("website", ""),
+                "phone":           dealer.get("phone") or "",
+                "website":         website_url,
                 "google_maps_url": dealer.get("google_maps_url", ""),
-                "email":           contacts.get("email", ""),
-                "linkedin_url":    contacts.get("linkedin", ""),
-                "facebook_url":    socials.get("facebook", ""),
-                "instagram_url":   socials.get("instagram", ""),
+                "email":           email_str,
+                "linkedin_url":    linkedin_url,
+                "facebook_url":    facebook_url,
+                "instagram_url":   instagram_url,
                 "score":           scoring.get("score", 0),
                 "raw_data":        dealer,   # full JSON stored for reference
             }
