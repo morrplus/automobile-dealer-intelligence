@@ -394,6 +394,19 @@ def run_phase2(job: Job, dealers: list, data_dir: Path) -> list:
         except Exception as e:
             job.log(f"  ⚠ Save failed: {e}")
 
+        # Save to Supabase immediately in real-time
+        try:
+            import supabase_client
+            if supabase_client.is_configured():
+                db_res = supabase_client.upsert_dealers([enriched], job.city, job.pincode, job.dealer_type)
+                if db_res.get("inserted", 0) > 0:
+                    job.log(f"  ✓ Saved to Supabase")
+                if db_res.get("errors"):
+                    for err in db_res["errors"]:
+                        job.log(f"  ⚠ Supabase error: {err['error']}")
+        except Exception as se:
+            job.log(f"  ⚠ Supabase real-time save failed: {se}")
+
     job.log(f"\n✓ Enrichment complete — {len(results)} dealers processed")
 
     # Small target ranking
