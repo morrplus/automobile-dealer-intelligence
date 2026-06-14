@@ -155,8 +155,4 @@ FindIt/
 
 ---
 
-## Environment Notes
 
-- `.env` is **gitignored** — never committed
-- Use `.env.example` as the template for new environments
-- Output JSON files in `Phase_two/` are gitignored (large data)
