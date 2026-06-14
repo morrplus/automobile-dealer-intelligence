@@ -150,6 +150,8 @@ def run_phase1(job: Job) -> list:
         new   = _parse_dealers(raw)
         added = 0
         for d in new:
+            if len(all_dealers) >= collect_target:
+                break                       # enough for ranking — stop mid-batch
             pid = d.get("place_id")
             if pid and pid in seen_ids:
                 continue
