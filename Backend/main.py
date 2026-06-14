@@ -113,8 +113,10 @@ def _run_job(job: job_manager.Job):
             with job.dealers_lock:
                 job.dealers = list(cached)
 
-            job.enrich_total = len(cached)
-            job.enrich_done = len(cached)
+            # Show progress against what user asked for, not the raw cache size
+            display_total        = job.target if (job.small_target and job.target) else len(cached)
+            job.enrich_total     = display_total
+            job.enrich_done      = display_total
 
             if job.small_target and job.target:
                 cached.sort(key=lambda d: d.get("scoring", {}).get("score", 0), reverse=True)
