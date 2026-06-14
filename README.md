@@ -14,10 +14,8 @@ Automated pipeline that finds car dealers by city/pincode, enriches their profil
 | Search | SerpAPI (Google Maps) |
 | Web Discovery | Jina AI / DuckDuckGo fallback |
 | Website Crawling | Firecrawl, Requests + BeautifulSoup |
-| Email Discovery | Hunter.io |
-| LinkedIn | Proxycurl, Piloterr |
-| Social Scraping | Apify |
-| LLM | Gemini (Google AI Studio), Groq, OpenRouter |
+| Email Discovery | Hunter.io (fallback) |
+| LinkedIn | Piloterr, Jina AI & DuckDuckGo search |
 
 ---
 
@@ -40,7 +38,7 @@ Phase 2 — Enrichment (per dealer)
   ├─ Instagram profile       ← Jina AI search
   ├─ TikTok profile          ← Jina AI search
   ├─ Email                   ← Hunter.io + website crawl
-  └─ LinkedIn                ← Proxycurl / Piloterr
+  └─ LinkedIn                ← Piloterr / Jina AI + DuckDuckGo search
         │
         ▼
 Scoring (max 85 pts)
@@ -80,13 +78,10 @@ Open `.env` and fill in the following keys:
 | Key | Where to get it |
 |-----|----------------|
 | `SERPAPI_KEY` | [serpapi.com](https://serpapi.com) — 100 free searches/month |
-| `JINA_API_KEY` | [jina.ai](https://jina.ai) — needed for web discovery |
-| `FIRECRAWL_API_KEY` | [firecrawl.dev](https://firecrawl.dev) — website crawling |
-| `HUNTER_API_KEY` | [hunter.io](https://hunter.io) — email discovery |
-| `PROXYCURL_API_KEY` | [proxycurl.com](https://nubela.co/proxycurl) — LinkedIn |
-| `APIFY_API_TOKEN` | [apify.com](https://apify.com) — social media scraping |
-| `PILOTERR_API_KEY` | [piloterr.com](https://piloterr.com) — LinkedIn alternative |
-| `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com) — LLM |
+| `JINA_API_KEY` | [jina.ai](https://jina.ai) — web discovery and fallback scrape |
+| `FIRECRAWL_API_KEY` | [firecrawl.dev](https://firecrawl.dev) — JS shell website crawling |
+| `HUNTER_API_KEY` | [hunter.io](https://hunter.io) — email discovery fallback |
+| `PILOTERR_API_KEY` | [piloterr.com](https://piloterr.com) — LinkedIn company search |
 | `SUPABASE_URL` | Supabase project → Settings → API |
 | `SUPABASE_KEY` | Supabase project → Settings → API → anon public |
 
@@ -149,6 +144,7 @@ FindIt/
 │   ├── emaillinkedin_logic.py   # Email + LinkedIn extraction
 │   ├── supabase_client.py       # Supabase read/write
 │   ├── job_manager.py           # Background job tracking
+│   ├── job_context.py           # Thread-local logging context
 │   └── requirements.txt
 ├── Frontend/
 │   └── index.html               # Single-page UI

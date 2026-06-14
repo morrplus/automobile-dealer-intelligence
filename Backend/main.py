@@ -35,7 +35,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_DIR = Path(__file__).parent.parent / "Phase_Two"
+DATA_DIR = Path(__file__).parent.parent / "Phase_two"
 
 # ─── SCHEMAS ───────────────────────────────────────────────────────────────────
 
@@ -208,6 +208,6 @@ def respond_expand(req: RespondRequest):
 
 # ─── SERVE FRONTEND ────────────────────────────────────────────────────────────
 
-FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
+FRONTEND_DIR = Path(__file__).parent.parent / "Frontend"
 if FRONTEND_DIR.exists():
     app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
