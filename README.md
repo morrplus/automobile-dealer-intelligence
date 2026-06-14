@@ -1,4 +1,4 @@
-# FindIt — Car Dealer Intelligence
+# Automobile Dealer Intelligence
 
 Automated pipeline that finds car dealers by city/pincode, enriches their profiles across multiple platforms, and scores them by digital presence.
 
