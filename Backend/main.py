@@ -53,8 +53,8 @@ class RespondRequest(BaseModel):
 
 # ─── BACKGROUND JOB ────────────────────────────────────────────────────────────
 
-def _load_from_cache(job: job_manager.Job) -> list | None:
-    """Try Supabase first, then local JSON file. Returns list of dealers or None."""
+def _load_from_cache(job: job_manager.Job) -> tuple[list | None, str | None]:
+    """Try Supabase first, then local JSON file. Returns (dealers_list, source)."""
 
     # ── 1. Supabase (primary database) ─────────────────────────────────────────
     if supabase_client.is_configured():
@@ -63,7 +63,7 @@ def _load_from_cache(job: job_manager.Job) -> list | None:
             sb_dealers = supabase_client.fetch_dealers(job.city, job.pincode, job.dealer_type)
             if sb_dealers:
                 job.log(f"✓ Retrieved {len(sb_dealers)} enriched dealers from Supabase.")
-                return sb_dealers
+                return sb_dealers, "supabase"
             else:
                 job.log("No records in Supabase for this search. Running fresh scan...")
         except Exception as e:
@@ -95,20 +95,20 @@ def _load_from_cache(job: job_manager.Job) -> list | None:
 
             if filtered:
                 job.log(f"✓ Retrieved {len(filtered)} enriched dealers from local cache.")
-                return filtered
+                return filtered, "local_json"
             else:
                 job.log("⚠ Cache found, but no dealers matched the requested dealer type. Starting fresh scan...")
         except Exception as e:
             job.log(f"⚠ Local cache load failed: {e}. Starting fresh scan...")
 
-    return None
+    return None, None
 
 
 def _run_job(job: job_manager.Job):
     """Full pipeline in a background thread: Phase 1 → Phase 2."""
     try:
         # ── Check Supabase / local cache first ──────────────────────────────────
-        cached = _load_from_cache(job)
+        cached, source = _load_from_cache(job)
         if cached:
             with job.dealers_lock:
                 job.dealers = list(cached)
@@ -122,6 +122,20 @@ def _run_job(job: job_manager.Job):
                 job.recommended_ids = [d.get("place_id") for d in top if d.get("place_id")]
             else:
                 job.recommended_ids = [d.get("place_id") for d in cached if d.get("place_id")]
+
+            # Sync local JSON cache to Supabase if not already there
+            if source == "local_json" and supabase_client.is_configured():
+                try:
+                    job.log("Syncing local cache to Supabase...")
+                    result = supabase_client.upsert_dealers(
+                        cached, job.city, job.pincode, job.dealer_type
+                    )
+                    job.log(f"✓ Supabase sync: {result['inserted']} dealers saved.")
+                    if result["errors"]:
+                        for err in result["errors"][:3]:
+                            job.log(f"  ⚠ Sync error: {err['dealer']} — {err['error']}")
+                except Exception as e:
+                    job.log(f"⚠ Supabase sync failed: {e}")
 
             job.phase = "done"
             job.log("=== All done (Loaded from Cache) ✓ ===")
