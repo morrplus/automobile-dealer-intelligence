@@ -50,6 +50,17 @@ Results saved to Supabase + local JSON cache
 Top dealers returned to frontend
 ```
 
+## Key Fixes & Data Resiliency (V1.0)
+
+To resolve data quality issues and prevent blockages, the pipeline incorporates the following safeguards:
+*   **Facebook Scrape Recovery**: Employs proxy-rotation (`X-No-Cache` header), request retry loops (up to 5 times), and content sanitization (stripping Markdown/href links to prevent false keyword matches inside redirects) to bypass login redirect blocks.
+*   **Direct Search Email Fallback**: If website crawling is blocked, the engine searches search-engine snippets using Jina Search to pull emails directly from business listings.
+*   **Social Profile Match Validation**: Enforces string distance check (`fuzz.token_set_ratio`), city slug validation, and phone suffix validation on all searched social handles (Facebook, Instagram, TikTok) to filter out personal pages or unrelated companies sharing names.
+*   **Flexible Facebook URL Parsing**: Seamlessly resolves and parses complex profile structures, including standard custom names, `/p/` profile pages, `/people/` profile directories, and numeric ID links (`profile.php?id=...`).
+*   **Singapore Boundary Filtering**: Filters out Singapore listings (based on `+65` / `02` phone prefixes or address strings) to prevent Singapore spillover in border cities like Johor Bahru.
+*   **Supabase Data Syncing Guards**: Standardizes city values to title case, extracts actual 5-digit postcodes directly from addresses, and auto-generates Google Maps URLs from `place_id` if they are missing.
+*   **Super CI Pipeline**: Validates code syntax and style rules automatically using `flake8` and `py_compile`.
+
 ---
 
 ## Setup

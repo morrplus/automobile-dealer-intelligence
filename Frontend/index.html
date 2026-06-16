@@ -205,6 +205,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 250px; /* Bounding Box: 250px wide, 100px high */
   height: 100px;
   color: var(--primary);
+  animation: carIdle 2.2s ease-in-out infinite;
 }
 
 /* Speed lines trailing behind the car icon */
@@ -221,21 +222,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .speed-line {
   position: absolute;
-  height: 1.5px;
-  background: linear-gradient(90deg, rgba(226, 115, 58, 0) 0%, rgba(226, 115, 58, 0.35) 15%, rgba(226, 115, 58, 0.35) 85%, rgba(226, 115, 58, 0) 100%);
+  height: 2.5px;
+  background: linear-gradient(90deg, rgba(226, 115, 58, 0) 0%, rgba(226, 115, 58, 0.75) 15%, rgba(226, 115, 58, 0.75) 85%, rgba(226, 115, 58, 0) 100%);
   opacity: 0;
-  animation: speedLineRun 0.7s linear infinite;
+  animation: speedLineRun 0.55s linear infinite;
 }
-.line-1 { width: 70px; top: 20%; left: -50px; animation-duration: 0.65s; animation-delay: 0.1s; }
-.line-2 { width: 50px; top: 45%; left: -70px; animation-duration: 0.55s; animation-delay: 0.3s; }
-.line-3 { width: 90px; top: 60%; left: -60px; animation-duration: 0.75s; animation-delay: 0.0s; }
-.line-4 { width: 60px; top: 80%; left: -45px; animation-duration: 0.6s; animation-delay: 0.2s; }
+.line-1 { width: 75px; top: 20%; left: -55px; animation-duration: 0.5s; animation-delay: 0.08s; }
+.line-2 { width: 55px; top: 45%; left: -75px; animation-duration: 0.4s; animation-delay: 0.24s; }
+.line-3 { width: 95px; top: 60%; left: -65px; animation-duration: 0.6s; animation-delay: 0.0s; }
+.line-4 { width: 65px; top: 80%; left: -50px; animation-duration: 0.45s; animation-delay: 0.16s; }
 
 @keyframes speedLineRun {
   0% { transform: translateX(-80px); opacity: 0; }
-  15% { opacity: 0.35; }
-  85% { opacity: 0.35; }
+  15% { opacity: 0.75; }
+  85% { opacity: 0.75; }
   100% { transform: translateX(200px); opacity: 0; }
+}
+
+@keyframes carIdle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3.5px) rotate(-0.5deg); }
 }
 
 /* Floating Data Chips Orbiting Outside the 250px Car Bounding Box */
@@ -312,12 +318,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   to { opacity: 1; }
 }
 
-/* Tight vertical float drift (±4px) stays fully within corner zones */
-@keyframes floatY1 { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
-@keyframes floatY2 { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
-@keyframes floatY3 { 0% { transform: translateY(0); } 100% { transform: translateY(4px); } }
-@keyframes floatY4 { 0% { transform: translateY(0); } 100% { transform: translateY(5px); } }
-@keyframes floatY5 { 0% { transform: translateY(0); } 100% { transform: translateY(-3px); } }
+/* Dynamic float drift with horizontal/vertical sway and rotation */
+@keyframes floatY1 { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(-3px, -12px) rotate(1.5deg); } }
+@keyframes floatY2 { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(4px, -15px) rotate(-2deg); } }
+@keyframes floatY3 { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(-4px, 12px) rotate(-1.5deg); } }
+@keyframes floatY4 { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(3px, 15px) rotate(2deg); } }
+@keyframes floatY5 { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(2px, -10px) rotate(0.8deg); } }
 
 .hero-title {
   position: relative;
@@ -402,7 +408,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: scroll-marquee 25s linear infinite !important;
+  animation: scroll-marquee 45s linear infinite !important;
 }
 .ticker:hover {
   animation-play-state: paused;
@@ -1058,6 +1064,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--text-muted);
   margin-bottom: 10px;
 }
+.maps-link {
+  transition: var(--transition-fast);
+}
+.maps-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
 
 .dc-meta {
   display: flex;
@@ -1391,32 +1404,54 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <!-- Live Activity Marquee Ticker -->
     <div class="ticker-wrap">
       <div class="ticker">
-        <span class="ticker-item">✓ Found website for Tiger Motors Sdn Bhd</span>
+        <span class="ticker-item">✓ Resolving SerpAPI Place details</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ LinkedIn matched for AP Auto</span>
+        <span class="ticker-item">✓ Validating website status with Jina AI Reader</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ Email extracted for Carco Malaysia</span>
+        <span class="ticker-item">✓ Checking LinkedIn company profiles via Piloterr</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Syncing enriched dealership records to Supabase</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Extracting customer support emails from active web domains</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Verifying Facebook page profile structures</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Sanitizing Instagram handles & contact channels</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Parsing local 5-digit postal code formats</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Cross-referencing business keywords & listing directories</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Retrieving cached search jobs from local JSON store</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Cleaning URL query strings & referral parameters</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Standardizing international phone number prefixes</span>
         <span class="ticker-item">&middot;</span>
         
-        <span class="ticker-item">✓ Found website for Tiger Motors Sdn Bhd</span>
+        <span class="ticker-item">✓ Resolving SerpAPI Place details</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ LinkedIn matched for AP Auto</span>
+        <span class="ticker-item">✓ Validating website status with Jina AI Reader</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ Email extracted for Carco Malaysia</span>
+        <span class="ticker-item">✓ Checking LinkedIn company profiles via Piloterr</span>
         <span class="ticker-item">&middot;</span>
-        
-        <span class="ticker-item">✓ Found website for Tiger Motors Sdn Bhd</span>
+        <span class="ticker-item">✓ Syncing enriched dealership records to Supabase</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ LinkedIn matched for AP Auto</span>
+        <span class="ticker-item">✓ Extracting customer support emails from active web domains</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ Email extracted for Carco Malaysia</span>
+        <span class="ticker-item">✓ Verifying Facebook page profile structures</span>
         <span class="ticker-item">&middot;</span>
-        
-        <span class="ticker-item">✓ Found website for Tiger Motors Sdn Bhd</span>
+        <span class="ticker-item">✓ Sanitizing Instagram handles & contact channels</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ LinkedIn matched for AP Auto</span>
+        <span class="ticker-item">✓ Parsing local 5-digit postal code formats</span>
         <span class="ticker-item">&middot;</span>
-        <span class="ticker-item">✓ Email extracted for Carco Malaysia</span>
+        <span class="ticker-item">✓ Cross-referencing business keywords & listing directories</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Retrieving cached search jobs from local JSON store</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Cleaning URL query strings & referral parameters</span>
+        <span class="ticker-item">&middot;</span>
+        <span class="ticker-item">✓ Standardizing international phone number prefixes</span>
         <span class="ticker-item">&middot;</span>
       </div>
     </div>
@@ -1669,7 +1704,7 @@ function animateStats() {
     const progress = Math.min(elapsed / duration, 1);
     const easedProgress = easeOutQuad(progress);
 
-    const channelsVal = Math.round(easedProgress * 8);
+    const channelsVal = Math.round(easedProgress * 7);
     statChannels.textContent = channelsVal + ' channels';
 
     const mockVal = Math.round(100 - (easedProgress * 100));
@@ -2091,6 +2126,11 @@ function buildCardInner(d) {
   const isDone  = hasMeta && hasEmails;
   const isBusy  = !isDone && !!d.place_id;
 
+  let mapsUrl = d.google_maps_url;
+  if (!mapsUrl && d.place_id) {
+    mapsUrl = `https://www.google.com/maps/place/?q=place_id:${d.place_id}`;
+  }
+
   /* --- badges --- */
   let badges = '';
   if (isTop && isDone)   badges += '<span class="badge badge-top">⭐ Top pick</span>';
@@ -2146,6 +2186,12 @@ function buildCardInner(d) {
     } else if (isDone) {
       pills += `<span class="plat-pill missing">💼 LinkedIn</span>`;
     }
+    if (mapsUrl) {
+      pills += `<span class="plat-pill verified"><a href="${escA(mapsUrl)}" target="_blank" rel="noopener">📍 Google Maps</a></span>`;
+    } else if (isDone) {
+      pills += `<span class="plat-pill missing">📍 Google Maps</span>`;
+    }
+
   } else {
     // Skeleton platform pills for un-enriched states
     pills += `<span class="skeleton-shimmer" style="width: 72px; height: 24px; border-radius: 8px; display: inline-block;"></span>`;
@@ -2175,12 +2221,17 @@ function buildCardInner(d) {
     }
   }
 
+  let addrHtml = esc(d.address || '');
+  if (mapsUrl) {
+    addrHtml = `<a href="${escA(mapsUrl)}" target="_blank" rel="noopener" class="maps-link" title="Open in Google Maps">📍 ${addrHtml}</a>`;
+  }
+
   return `
     <div class="dc-top">
       <div class="dc-name">${esc(d.name)}</div>
       <div class="dc-badges">${badges}</div>
     </div>
-    <div class="dc-addr">${esc(d.address || '')}</div>
+    <div class="dc-addr">${addrHtml}</div>
     ${meta   ? `<div class="dc-meta">${meta}</div>` : ''}
     ${pills  ? `<div class="dc-platforms">${pills}</div>` : ''}
     ${detail}

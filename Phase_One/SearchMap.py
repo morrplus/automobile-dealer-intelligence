@@ -119,6 +119,15 @@ def parse_dealers(raw_results: list) -> list:
         # Deduplicate
         if place_id and place_id in seen_ids:
             continue
+
+        # Singapore filter: skip Singapore listings in Malaysian search
+        phone_str = str(phone) if phone else ""
+        if (phone_str.startswith("+65") or 
+            phone_str.startswith("02") or 
+            "singapore" in address.lower() or 
+            "s'pore" in address.lower()):
+            continue
+
         if place_id:
             seen_ids.add(place_id)
 
@@ -127,14 +136,20 @@ def parse_dealers(raw_results: list) -> list:
             print(f"  ⚠ Skipping aggregator: {name} ({website})")
             continue
 
+        # Extract google_maps_url from link, or fall back to constructing it via place_id
+        maps_url = item.get("link")
+        if not maps_url and place_id:
+            maps_url = f"https://www.google.com/maps/place/?q=place_id:{place_id}"
+
         cleaned.append({
-            "name":     name,
-            "address":  address,
-            "phone":    phone,
-            "website":  website,
-            "rating":   rating,
-            "place_id": place_id,
-            "type":     biz_type
+            "name":            name,
+            "address":         address,
+            "phone":           phone,
+            "website":         website,
+            "rating":          rating,
+            "place_id":        place_id,
+            "type":            biz_type,
+            "google_maps_url": maps_url or "",
         })
 
     return cleaned
