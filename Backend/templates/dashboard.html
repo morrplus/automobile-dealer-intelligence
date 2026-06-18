@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MORR AutoScrape — Dealer Portal</title>
+<meta name="description" content="MORR AutoScrape Intelligence Platform — Dealer Dashboard." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  --bg:            #FAF8F5;
+  --primary:       #E2733A;
+  --primary-dark:  #C65A25;
+  --primary-light: #FDF4EF;
+  --primary-glow:  rgba(226,115,58,0.14);
+  --teal:          #5DCAA5;
+  --teal-light:    #EBF9F4;
+  --text-dark:     #1F1E1B;
+  --text-gray:     #5A5854;
+  --text-muted:    #8A8884;
+  --surface:       #fff;
+  --border:        rgba(31,30,27,0.10);
+  --border-light:  rgba(31,30,27,0.06);
+  /* Sidebar */
+  --sb-bg:         #1F1E1B;
+  --sb-text:       rgba(255,255,255,0.72);
+  --sb-hover:      rgba(255,255,255,0.07);
+  --sb-active-bg:  rgba(226,115,58,0.20);
+  --sb-active:     #E2733A;
+  --sb-border:     rgba(255,255,255,0.08);
+  --sb-width:      236px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════════════ */
+.sidebar {
+  width: var(--sb-width);
+  min-height: 100vh;
+  background: var(--sb-bg);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 200;
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Brand */
+.sb-brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid var(--sb-border);
+}
+.sb-brand-icon {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sb-brand-icon svg { width: 18px; height: 8px; color: #fff; }
+.sb-brand-name {
+  font-family: 'Fraunces', serif;
+  font-size: 16px; font-weight: 800;
+  color: #fff; letter-spacing: -0.3px;
+  line-height: 1.1;
+}
+.sb-brand-name span { color: var(--primary); }
+.sb-brand-sub {
+  font-size: 9.5px; font-weight: 500; letter-spacing: 0.8px;
+  color: rgba(255,255,255,0.3); text-transform: uppercase;
+}
+
+/* Nav */
+.sb-nav { flex: 1; padding: 12px 10px; }
+
+.sb-section-label {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  padding: 10px 10px 4px;
+}
+
+.sb-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border-radius: 9px; cursor: pointer;
+  color: var(--sb-text); font-size: 13.5px; font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  margin-bottom: 2px;
+  border: none; background: none; width: 100%; text-align: left;
+}
+.sb-item:hover { background: var(--sb-hover); color: #fff; }
+.sb-item.active { background: var(--sb-active-bg); color: var(--sb-active); }
+.sb-item.active .sb-icon { opacity: 1; }
+.sb-icon {
+  width: 18px; height: 18px; flex-shrink: 0;
+  opacity: 0.6; transition: opacity 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.sb-item:hover .sb-icon, .sb-item.active .sb-icon { opacity: 1; }
+
+.sb-badge {
+  margin-left: auto;
+  background: rgba(226,115,58,0.25);
+  color: var(--primary);
+  font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 20px;
+}
+.sb-badge.soon {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.3);
+}
+
+.sb-divider {
+  height: 1px; background: var(--sb-border);
+  margin: 8px 10px;
+}
+
+/* User footer */
+.sb-footer {
+  padding: 12px 14px;
+  border-top: 1px solid var(--sb-border);
+}
+.sb-user {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.sb-avatar {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+.sb-email {
+  font-size: 12px; color: rgba(255,255,255,0.55);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  flex: 1;
+}
+.sb-online { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; flex-shrink: 0; }
+.sb-logout {
+  display: flex; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.35); font-size: 12.5px;
+  padding: 8px 10px; border-radius: 7px;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+}
+.sb-logout:hover { background: rgba(239,68,68,0.12); color: #f87171; }
+
+/* ═══════════════════════════════════════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════════════════════════════════════ */
+.main {
+  margin-left: var(--sb-width);
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.topbar {
+  height: 58px;
+  background: rgba(250,248,245,0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center;
+  padding: 0 28px;
+  gap: 16px;
+}
+.topbar-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 800;
+  color: var(--text-dark); letter-spacing: -0.4px;
+  flex: 1;
+}
+.topbar-pill {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(31,30,27,0.05);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 5px 12px;
+  font-size: 12.5px; color: var(--text-gray);
+}
+.topbar-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; }
+
+/* Content area */
+.content {
+  flex: 1;
+  padding: 32px 28px 60px;
+}
+
+/* Section switching */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ─── PAGE HEADER ─── */
+.page-hdr { margin-bottom: 28px; }
+.page-hdr h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px; font-weight: 800;
+  color: var(--text-dark); letter-spacing: -0.6px;
+  margin-bottom: 4px;
+}
+.page-hdr p { font-size: 14px; color: var(--text-muted); }
+.page-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--primary-light);
+  border: 1px solid rgba(226,115,58,0.25);
+  color: var(--primary); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+}
+
+/* ─── STAT CARDS ─── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px; margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 22px;
+  transition: box-shadow 0.2s;
+}
+.stat-card:hover { box-shadow: 0 4px 20px rgba(31,30,27,0.07); }
+.stat-label { font-size: 11.5px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.stat-value { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 800; color: var(--text-dark); letter-spacing: -0.8px; }
+.stat-value.orange { color: var(--primary); }
+.stat-value.teal   { color: var(--teal); }
+.stat-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ─── QUICK ACTIONS ─── */
+.quick-actions {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-bottom: 28px;
+}
+.qa-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 22px;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.qa-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 20px var(--primary-glow);
+  transform: translateY(-2px);
+}
+.qa-icon {
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.qa-icon.orange { background: var(--primary-light); }
+.qa-icon.teal   { background: var(--teal-light); }
+.qa-icon.gray   { background: rgba(31,30,27,0.05); }
+.qa-title { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
+.qa-sub   { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+
+/* ─── SECTION CARD ─── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 26px;
+  margin-bottom: 16px;
+}
+.card-hdr {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.card-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.ci-orange { background: var(--primary-light); }
+.ci-teal   { background: var(--teal-light); }
+.ci-amber  { background: rgba(245,158,11,0.10); }
+.ci-purple { background: rgba(139,92,246,0.10); }
+.card-title { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+.card-desc  { font-size: 12.5px; color: var(--text-muted); }
+
+/* ─── FORM ELEMENTS ─── */
+label {
+  display: block; font-size: 11.5px; font-weight: 700;
+  color: var(--text-gray); letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 7px;
+}
+input[type="text"], input[type="number"] {
+  width: 100%; background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 12px 14px;
+  font-size: 14px; color: var(--text-dark);
+  outline: none; font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+  background: #fff;
+}
+input::placeholder { color: var(--text-muted); }
+
+/* Budget control */
+.budget-wrap {
+  display: flex; align-items: center;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 10px; overflow: hidden; max-width: 220px;
+  transition: border-color 0.2s;
+}
+.budget-wrap:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+.budget-pfx {
+  padding: 0 12px; font-size: 13px; font-weight: 700;
+  color: var(--text-muted); border-right: 1.5px solid var(--border);
+  height: 44px; display: flex; align-items: center; flex-shrink: 0;
+}
+.budget-input {
+  flex: 1; background: none; border: none;
+  padding: 0 10px; font-size: 15px; font-weight: 700;
+  color: var(--text-dark); outline: none; font-family: inherit;
+}
+.steppers { display: flex; flex-direction: column; border-left: 1.5px solid var(--border); }
+.step-btn {
+  background: none; border: none; width: 32px; height: 22px;
+  color: var(--text-muted); font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.step-btn:hover { background: var(--primary-light); color: var(--primary); }
+.step-btn:first-child { border-bottom: 1.5px solid var(--border); }
+
+/* Duration grid */
+.dur-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.dur-ctrl {
+  display: flex; align-items: center;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.dur-ctrl:focus-within { border-color: var(--primary); }
+.dur-btn {
+  width: 36px; height: 42px; background: none; border: none;
+  color: var(--text-muted); font-size: 15px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+.dur-btn:hover { background: var(--primary-light); color: var(--primary); }
+.dur-input {
+  flex: 1; background: none; border: none;
+  font-size: 14px; font-weight: 700; color: var(--text-dark);
+  text-align: center; outline: none; font-family: inherit;
+}
+
+/* Upload zone */
+.upload-zone {
+  border: 2px dashed var(--border);
+  border-radius: 12px; padding: 32px 20px;
+  text-align: center; cursor: pointer; position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+.upload-zone:hover, .upload-zone.dragover {
+  border-color: var(--primary); background: var(--primary-light);
+}
+.upload-zone input[type="file"] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+}
+.upload-icon { font-size: 28px; margin-bottom: 8px; }
+.upload-text { font-size: 14px; color: var(--text-gray); margin-bottom: 3px; }
+.upload-text strong { color: var(--primary); }
+.upload-hint { font-size: 12px; color: var(--text-muted); }
+
+.file-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.file-item {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text-gray);
+}
+.file-item .fn { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-item .fs { color: var(--text-muted); font-size: 11.5px; }
+.file-rm { color: var(--text-muted); padding: 0 2px; transition: color 0.15s; }
+.file-rm:hover { color: #ef4444; }
+
+/* Submit row */
+.submit-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 22px; padding-top: 22px;
+  border-top: 1px solid var(--border-light);
+}
+.submit-note { font-size: 12px; color: var(--text-muted); }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none; border-radius: 10px; color: #fff;
+  font-size: 14.5px; font-weight: 600;
+  font-family: inherit; letter-spacing: -0.2px;
+  box-shadow: 0 4px 14px rgba(226,115,58,0.30);
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.btn-primary:hover { opacity: 0.90; box-shadow: 0 6px 18px rgba(226,115,58,0.38); }
+.btn-primary:active { transform: scale(0.99); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Past campaigns table */
+.camp-list { display: flex; flex-direction: column; gap: 10px; }
+.camp-item {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 11px; padding: 15px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.15s;
+}
+.camp-item:hover { box-shadow: 0 3px 12px rgba(31,30,27,0.06); }
+.camp-name { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
+.camp-meta { font-size: 12px; color: var(--text-muted); }
+.camp-budget { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 800; color: var(--primary); }
+.empty-state {
+  text-align: center; padding: 40px 20px;
+  color: var(--text-muted); font-size: 14px;
+}
+.empty-state .em-icon { font-size: 36px; margin-bottom: 10px; }
+
+/* Placeholder sections */
+.placeholder-wrap {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 300px; text-align: center;
+}
+.placeholder-wrap .ph-icon {
+  width: 64px; height: 64px;
+  background: var(--primary-light); border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; margin-bottom: 18px;
+}
+.placeholder-wrap h3 {
+  font-family: 'Fraunces', serif; font-size: 20px; font-weight: 800;
+  color: var(--text-dark); letter-spacing: -0.4px; margin-bottom: 6px;
+}
+.placeholder-wrap p { font-size: 14px; color: var(--text-muted); max-width: 320px; line-height: 1.5; }
+.coming-badge {
+  margin-top: 16px; display: inline-block;
+  background: rgba(31,30,27,0.06); color: var(--text-muted);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+}
+
+/* Intel iframe */
+.intel-frame {
+  width: 100%; height: calc(100vh - 190px); min-height: 520px;
+  border: none;
+  background: transparent;
+  overflow-y: auto;
+}
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 28px; right: 28px;
+  background: #fff; border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: 12px; padding: 14px 18px;
+  font-size: 13.5px; font-weight: 500; color: var(--text-dark);
+  display: none; align-items: center; gap: 10px;
+  z-index: 999; box-shadow: 0 8px 32px rgba(31,30,27,0.12);
+  min-width: 260px;
+}
+.toast.show { display: flex; animation: toastin 0.3s ease; }
+.toast.err  { border-left-color: #ef4444; }
+@keyframes toastin { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .quick-actions { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .sidebar { transform: translateX(-100%); }
+  .main { margin-left: 0; }
+  .dur-grid { grid-template-columns: 1fr; }
+  .submit-row { flex-direction: column; gap: 12px; }
+  .btn-primary { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════════════════════════ -->
+<aside class="sidebar">
+  <!-- Brand -->
+  <div class="sb-brand">
+    <div class="sb-brand-icon">
+      <svg viewBox="0 0 30 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <rect x="1" y="3.5" width="28" height="7" rx="3.5"/>
+        <circle cx="7.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <circle cx="22.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <path d="M5.5 3.5 L9 1 L21 1 L24.5 3.5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="sb-brand-name">MORR<span> AutoScrape</span></div>
+      <div class="sb-brand-sub">Intelligence Platform</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sb-nav">
+    <div class="sb-section-label">Main</div>
+
+    <button class="sb-item active" data-section="overview" onclick="switchSection('overview', this)">
+      <span class="sb-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </span>
+      Overview
+    </button>
+
+    <button class="sb-item" data-section="intel" onclick="switchSection('intel', this)">
+      <span class="sb-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </span>
+      Market Intelligence
+    </button>
+
+    <button class="sb-item" data-section="campaigns" onclick="switchSection('campaigns', this)">
+      <span class="sb-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </span>
+      Ad Campaigns
+      <span class="sb-badge" id="campBadge">0</span>
+    </button>
+
+    <div class="sb-divider"></div>
+    <div class="sb-section-label">Coming soon</div>
+
+    <button class="sb-item" data-section="leads" onclick="switchSection('leads', this)">
+      <span class="sb-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </span>
+      Leads &amp; CRM
+      <span class="sb-badge soon">Soon</span>
+    </button>
+
+    <button class="sb-item" data-section="analytics" onclick="switchSection('analytics', this)">
+      <span class="sb-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="20" x2="18" y2="10"/>
+          <line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+      </span>
+      Analytics
+      <span class="sb-badge soon">Soon</span>
+    </button>
+
+    <button class="sb-item" data-section="settings" onclick="switchSection('settings', this)">
+      <span class="sb-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </span>
+      Settings
+      <span class="sb-badge soon">Soon</span>
+    </button>
+  </nav>
+
+  <!-- User footer -->
+  <div class="sb-footer">
+    <div class="sb-user">
+      <div class="sb-avatar" id="userAvatar">D</div>
+      <div class="sb-email" id="userEmail">{{ email }}</div>
+      <div class="sb-online"></div>
+    </div>
+    <a href="/logout" class="sb-logout">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <polyline points="16 17 21 12 16 7"/>
+        <line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+      Log out
+    </a>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════════ -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar-title" id="topbarTitle">Overview</div>
+    <div class="topbar-pill">
+      <div class="topbar-dot"></div>
+      <span id="topbarEmail">{{ email }}</span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- ══ OVERVIEW ══════════════════════════════════════════ -->
+    <div class="section active" id="sec-overview">
+      <div class="page-hdr">
+        <div class="page-badge">👋 Welcome back</div>
+        <h1>Your Intelligence Hub</h1>
+        <p>Everything you need to find dealers, run campaigns, and manage leads — in one place.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Campaigns</div>
+          <div class="stat-value orange" id="ov-camps">{{ campaigns|length }}</div>
+          <div class="stat-sub">Ad campaigns created</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Budget (MYR)</div>
+          <div class="stat-value teal" id="ov-budget">
+            RM {{ "%.0f"|format(campaigns|sum(attribute='budget_myr') if campaigns else 0) }}
+          </div>
+          <div class="stat-sub">Across all campaigns</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Dealers in DB</div>
+          <div class="stat-value">82</div>
+          <div class="stat-sub">Enriched profiles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Channels Scraped</div>
+          <div class="stat-value">7</div>
+          <div class="stat-sub">Platforms monitored</div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="quick-actions">
+        <div class="qa-card" onclick="switchSection('intel', document.querySelector('[data-section=intel]'))">
+          <div class="qa-icon orange">🔍</div>
+          <div>
+            <div class="qa-title">Find Dealers</div>
+            <div class="qa-sub">Search and enrich car dealer profiles by city &amp; postcode.</div>
+          </div>
+        </div>
+        <div class="qa-card" onclick="switchSection('campaigns', document.querySelector('[data-section=campaigns]'))">
+          <div class="qa-icon teal">📣</div>
+          <div>
+            <div class="qa-title">New Campaign</div>
+            <div class="qa-sub">Set up a dealership ad campaign with budget and media.</div>
+          </div>
+        </div>
+        <div class="qa-card" onclick="switchSection('leads', document.querySelector('[data-section=leads]'))">
+          <div class="qa-icon gray">👥</div>
+          <div>
+            <div class="qa-title">Leads &amp; CRM</div>
+            <div class="qa-sub">Track captured leads from your campaigns. Coming soon.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent campaigns -->
+      <div class="card">
+        <div class="card-hdr">
+          <div class="card-icon ci-orange">📋</div>
+          <div>
+            <div class="card-title">Recent Campaigns</div>
+            <div class="card-desc">Your latest ad submissions.</div>
+          </div>
+        </div>
+        <div class="camp-list">
+          {% if campaigns %}
+            {% for c in campaigns[:3] %}
+            <div class="camp-item">
+              <div>
+                <div class="camp-name">{{ c.dealership_name }}</div>
+                <div class="camp-meta">
+                  {{ c.duration.days or 0 }}d {{ c.duration.weeks or 0 }}w {{ c.duration.months or 0 }}m
+                  &nbsp;·&nbsp; {{ (c.files or [])|length }} file(s)
+                  &nbsp;·&nbsp; {{ c.submitted_at[:10] if c.submitted_at else '—' }}
+                </div>
+              </div>
+              <div class="camp-budget">RM {{ "%.0f"|format(c.budget_myr or 0) }}</div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="empty-state">
+              <div class="em-icon">📭</div>
+              No campaigns yet. <a onclick="switchSection('campaigns', document.querySelector('[data-section=campaigns]'))" style="color:var(--primary);cursor:pointer;">Launch your first one →</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div><!-- /overview -->
+
+    <!-- ══ MARKET INTELLIGENCE ════════════════════════════ -->
+    <div class="section" id="sec-intel">
+      <div class="page-hdr">
+        <div class="page-badge">🔍 Live Scraper</div>
+        <h1>Market Intelligence</h1>
+        <p>Find, enrich and score car dealer profiles across Malaysia by city and postcode.</p>
+      </div>
+      <iframe
+        class="intel-frame"
+        id="scraperFrame"
+        src="about:blank"
+        title="Market Intelligence Scraper"
+        allow="same-origin">
+      </iframe>
+    </div>
+
+    <!-- ══ AD CAMPAIGNS ═══════════════════════════════════ -->
+    <div class="section" id="sec-campaigns">
+      <div class="page-hdr">
+        <div class="page-badge">📣 Campaigns</div>
+        <h1>Ad Campaigns</h1>
+        <p>Create and manage your dealership ad campaigns with budget, duration and media assets.</p>
+      </div>
+
+      <!-- New campaign form -->
+      <form id="campaignForm" enctype="multipart/form-data">
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-icon ci-orange">🏢</div>
+            <div>
+              <div class="card-title">Dealership Name</div>
+              <div class="card-desc">The business name that will appear on your ads.</div>
+            </div>
+          </div>
+          <label for="dealership_name">Business name</label>
+          <input type="text" id="dealership_name" name="dealership_name" placeholder="e.g. Sunway Auto Gallery" required/>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-icon ci-teal">💰</div>
+            <div>
+              <div class="card-title">Ad Budget</div>
+              <div class="card-desc">Total campaign spend in Malaysian Ringgit (MYR).</div>
+            </div>
+          </div>
+          <label>Budget (MYR)</label>
+          <div class="budget-wrap">
+            <div class="budget-pfx">RM</div>
+            <input type="number" class="budget-input" id="budget" name="budget" value="0" min="0" step="100" inputmode="numeric"/>
+            <div class="steppers">
+              <button type="button" class="step-btn" onclick="adjustBudget(100)">▲</button>
+              <button type="button" class="step-btn" onclick="adjustBudget(-100)">▼</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-icon ci-amber">📅</div>
+            <div>
+              <div class="card-title">Ad Duration</div>
+              <div class="card-desc">How long should this campaign run?</div>
+            </div>
+          </div>
+          <div class="dur-grid">
+            <div>
+              <label>Days</label>
+              <div class="dur-ctrl">
+                <button type="button" class="dur-btn" onclick="adjustDur('days',-1)">−</button>
+                <input type="number" class="dur-input" id="days" name="days" value="0" min="0"/>
+                <button type="button" class="dur-btn" onclick="adjustDur('days',1)">+</button>
+              </div>
+            </div>
+            <div>
+              <label>Weeks</label>
+              <div class="dur-ctrl">
+                <button type="button" class="dur-btn" onclick="adjustDur('weeks',-1)">−</button>
+                <input type="number" class="dur-input" id="weeks" name="weeks" value="0" min="0"/>
+                <button type="button" class="dur-btn" onclick="adjustDur('weeks',1)">+</button>
+              </div>
+            </div>
+            <div>
+              <label>Months</label>
+              <div class="dur-ctrl">
+                <button type="button" class="dur-btn" onclick="adjustDur('months',-1)">−</button>
+                <input type="number" class="dur-input" id="months" name="months" value="0" min="0"/>
+                <button type="button" class="dur-btn" onclick="adjustDur('months',1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-icon ci-purple">📁</div>
+            <div>
+              <div class="card-title">Car Images &amp; Videos</div>
+              <div class="card-desc">Upload photos and video clips to feature in your ads.</div>
+            </div>
+          </div>
+          <div class="upload-zone" id="dropZone">
+            <input type="file" name="media" id="mediaInput" multiple
+              accept=".jpg,.jpeg,.png,.gif,.mp4,.mpeg,.mpg,.mov,.webm"
+              onchange="handleFiles(this.files)"/>
+            <div class="upload-icon">📷</div>
+            <div class="upload-text"><strong>Click to browse</strong> or drag &amp; drop</div>
+            <div class="upload-hint">JPG, PNG, GIF, MP4, MOV, WEBM accepted</div>
+          </div>
+          <div class="file-list" id="fileList"></div>
+        </div>
+
+        <div class="submit-row">
+          <span class="submit-note">Campaign will be saved to your account in Supabase.</span>
+          <button type="submit" class="btn-primary" id="submitBtn">
+            🚀 Launch Campaign
+          </button>
+        </div>
+      </form>
+
+      <!-- Past campaigns -->
+      <div class="card" style="margin-top:24px;">
+        <div class="card-hdr">
+          <div class="card-icon ci-orange">📋</div>
+          <div>
+            <div class="card-title">All Campaigns</div>
+            <div class="card-desc">Your submitted ad campaigns.</div>
+          </div>
+        </div>
+        <div class="camp-list" id="campList">
+          {% if campaigns %}
+            {% for c in campaigns %}
+            <div class="camp-item">
+              <div>
+                <div class="camp-name">{{ c.dealership_name }}</div>
+                <div class="camp-meta">
+                  {{ c.duration.days or 0 }}d {{ c.duration.weeks or 0 }}w {{ c.duration.months or 0 }}m
+                  &nbsp;·&nbsp; {{ (c.files or [])|length }} file(s)
+                  &nbsp;·&nbsp; {{ c.submitted_at[:10] if c.submitted_at else '—' }}
+                </div>
+              </div>
+              <div class="camp-budget">RM {{ "%.0f"|format(c.budget_myr or 0) }}</div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="empty-state">
+              <div class="em-icon">📭</div>
+              No campaigns yet. Fill the form above to get started!
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div><!-- /campaigns -->
+
+    <!-- ══ LEADS & CRM ════════════════════════════════════ -->
+    <div class="section" id="sec-leads">
+      <div class="page-hdr">
+        <div class="page-badge">👥 CRM</div>
+        <h1>Leads &amp; CRM</h1>
+        <p>Track and manage buyers who respond to your campaigns.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-wrap">
+          <div class="ph-icon">👥</div>
+          <h3>Lead Management</h3>
+          <p>Capture and track buyers who express interest in your dealership ads. Set up webhooks and automate follow-ups.</p>
+          <span class="coming-badge">Coming in next sprint</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ANALYTICS ══════════════════════════════════════ -->
+    <div class="section" id="sec-analytics">
+      <div class="page-hdr">
+        <div class="page-badge">📊 Analytics</div>
+        <h1>Analytics</h1>
+        <p>Impressions, clicks, CTR and A/B test performance across your campaigns.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-wrap">
+          <div class="ph-icon">📊</div>
+          <h3>Campaign Analytics</h3>
+          <p>View impressions, clicks, CTR and compare Variant A vs Variant B performance with auto-pause on underperformers.</p>
+          <span class="coming-badge">Coming in next sprint</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SETTINGS ═══════════════════════════════════════ -->
+    <div class="section" id="sec-settings">
+      <div class="page-hdr">
+        <div class="page-badge">⚙️ Settings</div>
+        <h1>Settings</h1>
+        <p>Account preferences and platform configuration.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-wrap">
+          <div class="ph-icon">⚙️</div>
+          <h3>Account Settings</h3>
+          <p>Manage your dealership profile, connected accounts, notification preferences and API keys.</p>
+          <span class="coming-badge">Coming in next sprint</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<!-- Toast -->
+<div class="toast" id="toast">✅ Campaign saved!</div>
+
+<script>
+/* ─── SECTION SWITCHER ─── */
+const sectionTitles = {
+  overview:  'Overview',
+  intel:     'Market Intelligence',
+  campaigns: 'Ad Campaigns',
+  leads:     'Leads & CRM',
+  analytics: 'Analytics',
+  settings:  'Settings'
+};
+
+function switchSection(name, btn) {
+  // Hide all sections
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(b => b.classList.remove('active'));
+
+  // Show target
+  const sec = document.getElementById('sec-' + name);
+  if (sec) sec.classList.add('active');
+  if (btn) btn.classList.add('active');
+
+  // Update topbar title
+  document.getElementById('topbarTitle').textContent = sectionTitles[name] || name;
+
+  // Lazy-load the scraper iframe
+  if (name === 'intel') {
+    const frame = document.getElementById('scraperFrame');
+    if (frame.src === 'about:blank' || !frame.src.includes('/scraper')) {
+      frame.src = '/scraper/?_cb=' + Date.now();
+    }
+  }
+}
+
+/* ─── AVATAR initial ─── */
+const emailEl = document.getElementById('userEmail');
+const avatarEl = document.getElementById('userAvatar');
+if (emailEl && avatarEl) {
+  const letter = emailEl.textContent.trim()[0]?.toUpperCase() || 'D';
+  avatarEl.textContent = letter;
+}
+
+/* ─── CAMPAIGN BADGE ─── */
+const campCount = {{ campaigns|length }};
+const badge = document.getElementById('campBadge');
+if (badge) badge.textContent = campCount;
+
+/* ─── BUDGET / DURATION ─── */
+function adjustBudget(d) {
+  const el = document.getElementById('budget');
+  el.value = Math.max(0, (parseFloat(el.value)||0) + d);
+}
+function adjustDur(f, d) {
+  const el = document.getElementById(f);
+  el.value = Math.max(0, (parseInt(el.value)||0) + d);
+}
+document.querySelectorAll('input[type="number"]').forEach(el => {
+  el.addEventListener('input', () => { if (parseFloat(el.value) < 0) el.value = 0; });
+});
+
+/* ─── FILE UPLOAD ─── */
+let selectedFiles = [];
+function fileIcon(n) {
+  return ['mp4','mpeg','mpg','mov','webm'].includes(n.split('.').pop().toLowerCase()) ? '🎬' : '🖼️';
+}
+function fmtSize(b) {
+  if (b < 1024) return b + ' B';
+  if (b < 1048576) return (b/1024).toFixed(1) + ' KB';
+  return (b/1048576).toFixed(1) + ' MB';
+}
+function handleFiles(files) {
+  Array.from(files).forEach(f => {
+    if (!selectedFiles.find(x => x.name===f.name && x.size===f.size)) selectedFiles.push(f);
+  });
+  renderFiles();
+}
+function renderFiles() {
+  document.getElementById('fileList').innerHTML = selectedFiles.map((f,i) => `
+    <div class="file-item">
+      <span>${fileIcon(f.name)}</span>
+      <span class="fn">${f.name}</span>
+      <span class="fs">${fmtSize(f.size)}</span>
+      <button type="button" class="file-rm" onclick="rmFile(${i})">✕</button>
+    </div>`).join('');
+}
+function rmFile(i) { selectedFiles.splice(i,1); renderFiles(); }
+
+const dz = document.getElementById('dropZone');
+if (dz) {
+  dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+  dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+}
+
+/* ─── CAMPAIGN SUBMIT ─── */
+const campForm = document.getElementById('campaignForm');
+if (campForm) {
+  campForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Saving…';
+
+    const fd = new FormData(e.target);
+    selectedFiles.forEach(f => fd.append('media', f));
+
+    try {
+      const res  = await fetch('/submit', { method: 'POST', body: fd });
+      const data = await res.json();
+      if (data.success) {
+        showToast(`✅ Campaign saved! ${data.files} file(s) uploaded.`, false);
+        e.target.reset(); selectedFiles = []; renderFiles();
+        ['budget','days','weeks','months'].forEach(id => document.getElementById(id) && (document.getElementById(id).value = 0));
+        setTimeout(() => location.reload(), 1800);
+      } else {
+        showToast('❌ ' + (data.error || 'Failed to save.'), true);
+      }
+    } catch(err) {
+      showToast('❌ Connection error. Is the server running?', true);
+    }
+    btn.disabled = false; btn.innerHTML = '🚀 Launch Campaign';
+  });
+}
+
+/* ─── TOAST ─── */
+function showToast(msg, err) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.toggle('err', err);
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>

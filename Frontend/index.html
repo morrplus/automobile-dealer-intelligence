@@ -1282,6 +1282,48 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     border: 1px solid var(--glass-border);
   }
 }
+
+/* ─── IN-IFRAME OPTIMIZATION ──────────────────────────────── */
+body.in-iframe {
+  background-color: transparent !important;
+}
+body.in-iframe::before {
+  display: none !important;
+}
+body.in-iframe .aurora-container {
+  display: none !important;
+}
+body.in-iframe .page {
+  max-width: 100% !important;
+  padding: 0px 10px 40px !important;
+}
+body.in-iframe .header,
+body.in-iframe .hero-section {
+  display: none !important;
+}
+body.in-iframe .channel-bento-grid {
+  display: none !important;
+}
+body.in-iframe .card {
+  background: #fff !important;
+  border: 1px solid rgba(31, 30, 27, 0.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 4px 12px rgba(31, 30, 27, 0.02) !important;
+  max-width: 750px !important;
+  margin: 0 auto 20px !important;
+}
+body.in-iframe .card:hover {
+  box-shadow: 0 4px 12px rgba(31, 30, 27, 0.02) !important;
+}
+body.in-iframe #statusCard,
+body.in-iframe #resultsSection,
+body.in-iframe #expandCard,
+body.in-iframe #activeBar {
+  max-width: 750px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 </style>
 </head>
 <body>
@@ -1719,6 +1761,9 @@ function animateStats() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.self !== window.top) {
+    document.body.classList.add('in-iframe');
+  }
   animateStats();
   updateTypeSlider();
 });

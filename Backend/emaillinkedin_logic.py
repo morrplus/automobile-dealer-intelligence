@@ -236,6 +236,24 @@ def extract_social_links(html: str) -> dict:
         elif "linkedin.com/company/" in href_lower or "linkedin.com/in/" in href_lower:
             clean_li = href.split("?")[0].rstrip("/")
             socials["linkedin"] = clean_li
+        elif "carlist.my" in href_lower and "carlist" not in socials:
+            # Only keep dealer-specific carlist URLs, not generic listing pages
+            clean_cl = href.split("?")[0].rstrip("/")
+            cl_lower = clean_cl.lower()
+            if ("/used-cars-for-sale/" not in cl_lower
+                    and "/new-cars-for-sale/" not in cl_lower
+                    and cl_lower not in ("https://www.carlist.my", "http://www.carlist.my", "https://carlist.my")):
+                socials["carlist"] = clean_cl
+        elif "mudah.my" in href_lower and "mudah" not in socials:
+            clean_mu = href.split("?")[0].rstrip("/")
+            mu_lower = clean_mu.lower()
+            if ("/cars-for-sale" not in mu_lower
+                    and "/motorcycles" not in mu_lower
+                    and mu_lower not in ("https://www.mudah.my", "http://www.mudah.my", "https://mudah.my")):
+                socials["mudah"] = clean_mu
+        elif "autocari.com" in href_lower and "dealer/" in href_lower and "autocari" not in socials:
+            clean_ac = href.split("?")[0].rstrip("/")
+            socials["autocari"] = clean_ac
     return socials
 
 def crawl_website_for_all(website_url: str | None) -> dict:

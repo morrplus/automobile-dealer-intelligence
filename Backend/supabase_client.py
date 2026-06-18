@@ -201,3 +201,117 @@ def delete_dealers(city: str, pincode: str) -> int:
     client = get_client()
     result = client.table("dealers").delete().eq("city", city).eq("pincode", pincode).execute()
     return len(result.data or [])
+
+
+# ─── USER & CAMPAIGN DB HELPERS ────────────────────────────────────────────────
+
+def hash_password(password: str) -> str:
+    """Hash a password using SHA-256 for compatibility with the teammate's database schema."""
+    import hashlib
+    return hashlib.sha256(password.encode()).hexdigest()
+
+
+# Sentinel stored in password_hash for Google OAuth accounts.
+# It is not a valid SHA-256 hex string so it can never collide with a real hash.
+_GOOGLE_OAUTH_SENTINEL = "__GOOGLE_OAUTH__"
+
+
+def create_user(email: str, password_raw: str, role: str = "dealer",
+                oauth_provider: str | None = None) -> dict:
+    """
+    Create a new user in the 'users' table.
+    Pass oauth_provider='google' for Google OAuth sign-ups — the password
+    column is set to a sentinel value so email+password login is blocked
+    with a friendly message.
+    """
+    if not is_configured():
+        return {"success": False, "error": "Supabase not configured"}
+
+    client = get_client()
+    try:
+        # Google OAuth users: store sentinel instead of a real hash
+        if oauth_provider == "google":
+            pw_hash = _GOOGLE_OAUTH_SENTINEL
+        else:
+            pw_hash = hash_password(password_raw)
+
+        row = {
+            "email": email.strip().lower(),
+            "password_hash": pw_hash,
+            "role": role
+        }
+        res = client.table("users").insert(row).execute()
+        if res.data:
+            return {"success": True, "user": res.data[0]}
+        return {"success": False, "error": "Failed to create user record."}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+
+def verify_user(email: str, password_raw: str) -> dict:
+    """Verify user credentials and return user details if valid."""
+    if not is_configured():
+        return {"success": False, "error": "Supabase not configured"}
+
+    client = get_client()
+    try:
+        email_clean = email.strip().lower()
+        res = client.table("users").select("*").eq("email", email_clean).execute()
+        if not res.data:
+            return {"success": False, "error": "No account found. Please sign up."}
+
+        user = res.data[0]
+
+        # Detect Google OAuth accounts — block email+password login with a clear message
+        if user.get("password_hash") == _GOOGLE_OAUTH_SENTINEL:
+            return {
+                "success": False,
+                "error": "This account was created with Google Sign-In. "
+                          "Please use the \"Sign in with Google\" button below.",
+                "hint": "google_oauth"
+            }
+
+        if user.get("password_hash") != hash_password(password_raw):
+            return {"success": False, "error": "Incorrect password."}
+
+        return {"success": True, "user": user}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+
+def create_campaign(user_email: str, dealership_name: str, budget_myr: float, duration: dict, files: list) -> dict:
+    """Insert a new campaign record linked to the user's email."""
+    if not is_configured():
+        return {"success": False, "error": "Supabase not configured"}
+
+    client = get_client()
+    try:
+        row = {
+            "user_email": user_email.strip().lower(),
+            "dealership_name": dealership_name,
+            "budget_myr": budget_myr,
+            "duration": duration,
+            "files": files
+        }
+        res = client.table("campaigns").insert(row).execute()
+        if res.data:
+            return {"success": True, "campaign": res.data[0]}
+        return {"success": False, "error": "Failed to save campaign."}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+
+def get_campaigns(user_email: str) -> list:
+    """Retrieve all campaigns created by a user."""
+    if not is_configured():
+        return []
+
+    client = get_client()
+    try:
+        email_clean = user_email.strip().lower()
+        res = client.table("campaigns").select("*").eq("user_email", email_clean).order("submitted_at", desc=True).execute()
+        return res.data or []
+    except Exception as e:
+        print(f"Error fetching campaigns: {e}")
+        return []
+

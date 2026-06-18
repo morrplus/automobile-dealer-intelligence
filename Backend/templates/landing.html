@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MORR AutoScrape — AI-Powered Dealer Intelligence Platform</title>
+<meta name="description" content="Find, enrich and connect with every car dealership across Malaysia. MORR AutoScrape is the all-in-one intelligence platform for automotive businesses."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────────── */
+:root {
+  --bg:           #FAF8F5;
+  --primary:      #E2733A;
+  --primary-dark: #C65A25;
+  --primary-light:#FDF4EF;
+  --teal:         #5DCAA5;
+  --teal-light:   #EBF9F4;
+  --dark:         #1F1E1B;
+  --gray:         #5A5854;
+  --muted:        #8A8884;
+  --surface:      #fff;
+  --border:       rgba(31,30,27,0.10);
+  --glass:        rgba(255,255,255,0.65);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',-apple-system,sans-serif;
+  background:var(--bg);color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ─── NOISE TEXTURE ──────────────────────────────────────────── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+
+/* ─── AURORA BLOBS ───────────────────────────────────────────── */
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.12;}
+.blob-1{width:600px;height:600px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);top:-15%;left:-10%;animation:drift1 28s infinite alternate ease-in-out;}
+.blob-2{width:500px;height:500px;background:radial-gradient(circle,var(--teal) 0%,transparent 70%);bottom:-10%;right:-8%;animation:drift2 22s infinite alternate ease-in-out;}
+.blob-3{width:350px;height:350px;background:radial-gradient(circle,#F59E0B 0%,transparent 70%);top:40%;right:15%;animation:drift3 18s infinite alternate ease-in-out;opacity:0.07;}
+@keyframes drift1{0%{transform:translate(0,0) scale(1);}100%{transform:translate(80px,60px) scale(1.1);}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1);}100%{transform:translate(-70px,-50px) scale(1.12);}}
+@keyframes drift3{0%{transform:translate(0,0);}100%{transform:translate(40px,30px);}}
+
+/* ─── NAVBAR ─────────────────────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,248,245,0.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-logo{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px rgba(226,115,58,0.25);
+  flex-shrink:0;
+}
+.nav-logo svg{width:20px;height:9px;color:#fff;}
+.nav-name{
+  font-family:'Fraunces',serif;
+  font-size:19px;font-weight:800;
+  color:var(--dark);letter-spacing:-0.3px;
+}
+.nav-name span{color:var(--primary);}
+
+.nav-links{
+  display:flex;align-items:center;gap:4px;
+}
+.nav-link{
+  font-size:14px;font-weight:500;color:var(--gray);
+  padding:7px 14px;border-radius:8px;
+  transition:background 0.2s,color 0.2s;
+}
+.nav-link:hover{background:rgba(31,30,27,0.06);color:var(--dark);}
+
+.nav-actions{display:flex;align-items:center;gap:8px;}
+.btn-ghost{
+  font-size:14px;font-weight:500;color:var(--gray);
+  padding:8px 16px;border-radius:9px;
+  border:1.5px solid var(--border);
+  transition:all 0.2s;font-family:inherit;background:none;cursor:pointer;
+}
+.btn-ghost:hover{border-color:rgba(31,30,27,0.2);color:var(--dark);background:#fff;}
+.btn-cta{
+  font-size:14px;font-weight:600;color:#fff;
+  padding:9px 20px;border-radius:9px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border:none;cursor:pointer;font-family:inherit;
+  box-shadow:0 4px 14px rgba(226,115,58,0.28);
+  transition:opacity 0.2s,transform 0.15s,box-shadow 0.2s;
+}
+.btn-cta:hover{opacity:0.90;box-shadow:0 6px 20px rgba(226,115,58,0.36);}
+.btn-cta:active{transform:scale(0.98);}
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+.hero{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:100px 5% 80px;
+  max-width:900px;margin:0 auto;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--glass);border:1px solid rgba(226,115,58,0.22);
+  backdrop-filter:blur(10px);
+  color:var(--primary);font-size:13px;font-weight:600;
+  padding:7px 16px;border-radius:50px;margin-bottom:28px;
+  box-shadow:0 2px 12px rgba(226,115,58,0.12);
+}
+.hero-badge .dot{width:7px;height:7px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
+
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(42px,6vw,76px);
+  font-weight:900;
+  color:var(--dark);
+  letter-spacing:-2px;
+  line-height:1.02;
+  margin-bottom:22px;
+}
+.hero h1 .accent{color:var(--primary);font-style:italic;}
+.hero h1 .underline-wrap{position:relative;display:inline-block;}
+.hero h1 .underline-wrap::after{
+  content:'';
+  position:absolute;bottom:-4px;left:0;right:0;
+  height:4px;border-radius:4px;
+  background:linear-gradient(90deg,var(--primary),var(--teal));
+}
+
+.hero-sub{
+  font-size:18px;line-height:1.65;
+  color:var(--gray);max-width:580px;margin:0 auto 36px;
+}
+
+.hero-actions{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;flex-wrap:wrap;margin-bottom:60px;
+}
+.hero-btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter',sans-serif;
+  font-size:15.5px;font-weight:600;color:#fff;
+  padding:14px 32px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border:none;cursor:pointer;
+  box-shadow:0 6px 24px rgba(226,115,58,0.35);
+  transition:all 0.2s;letter-spacing:-0.2px;
+}
+.hero-btn-primary:hover{opacity:0.90;transform:translateY(-2px);box-shadow:0 10px 30px rgba(226,115,58,0.38);}
+.hero-btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter',sans-serif;
+  font-size:15.5px;font-weight:500;color:var(--dark);
+  padding:14px 28px;border-radius:12px;
+  background:#fff;border:1.5px solid var(--border);
+  cursor:pointer;transition:all 0.2s;
+}
+.hero-btn-secondary:hover{border-color:rgba(31,30,27,0.2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(31,30,27,0.07);}
+
+/* ─── STATS TICKER ───────────────────────────────────────────── */
+.stats-bar{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;flex-wrap:wrap;
+  background:#fff;border:1px solid var(--border);
+  border-radius:16px;padding:24px 32px;
+  box-shadow:0 4px 24px rgba(31,30,27,0.06);
+  max-width:750px;margin:0 auto;position:relative;z-index:1;
+}
+.stat-item{
+  text-align:center;flex:1;min-width:140px;
+  padding:0 24px;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{
+  font-family:'Fraunces',serif;
+  font-size:36px;font-weight:900;
+  color:var(--primary);letter-spacing:-1px;
+  margin-bottom:3px;
+}
+.stat-num.teal{color:var(--teal);}
+.stat-num.dark{color:var(--dark);}
+.stat-label{font-size:12px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.6px;}
+
+/* ─── MARQUEE ─────────────────────────────────────────────────── */
+.marquee-wrap{
+  overflow:hidden;padding:24px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  margin:80px 0;position:relative;z-index:1;
+}
+.marquee-track{
+  display:flex;gap:0;
+  animation:marquee 28s linear infinite;
+  white-space:nowrap;
+}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:0 36px;font-size:13px;font-weight:600;
+  color:var(--muted);letter-spacing:0.4px;text-transform:uppercase;
+  border-right:1px solid var(--border);
+}
+.marquee-item .mi-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--primary);flex-shrink:0;
+}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ─── SECTION WRAPPER ────────────────────────────────────────── */
+.section{position:relative;z-index:1;padding:80px 5%;}
+.section-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--primary);background:var(--primary-light);
+  border:1px solid rgba(226,115,58,0.2);
+  padding:4px 12px;border-radius:20px;margin-bottom:14px;
+}
+.section-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(30px,4vw,46px);font-weight:900;
+  color:var(--dark);letter-spacing:-1.5px;line-height:1.08;
+  margin-bottom:12px;
+}
+.section-sub{font-size:16px;color:var(--gray);max-width:520px;line-height:1.65;}
+
+/* ─── FEATURES GRID ──────────────────────────────────────────── */
+.features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:52px;
+}
+.feat-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:18px;padding:28px;
+  transition:all 0.25s;cursor:default;
+}
+.feat-card:hover{
+  border-color:var(--primary);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(226,115,58,0.10);
+}
+.feat-icon{
+  width:48px;height:48px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;
+}
+.fi-orange{background:var(--primary-light);}
+.fi-teal  {background:var(--teal-light);}
+.fi-amber {background:rgba(245,158,11,0.10);}
+.fi-purple{background:rgba(139,92,246,0.10);}
+.fi-blue  {background:rgba(59,130,246,0.10);}
+.fi-green {background:rgba(34,197,94,0.10);}
+.feat-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;letter-spacing:-0.3px;}
+.feat-desc{font-size:13.5px;color:var(--gray);line-height:1.6;}
+
+/* ─── HOW IT WORKS ───────────────────────────────────────────── */
+.steps-wrap{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;margin-top:52px;position:relative;
+}
+.steps-wrap::before{
+  content:'';position:absolute;
+  top:38px;left:20%;right:20%;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--teal));
+  border-radius:2px;opacity:0.3;
+  pointer-events:none;
+}
+.step{text-align:center;padding:0 24px;}
+.step-num{
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;font-family:'Fraunces',serif;
+  font-size:20px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+  box-shadow:0 6px 20px rgba(226,115,58,0.30);
+}
+.step-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;}
+.step-desc{font-size:13.5px;color:var(--gray);line-height:1.6;}
+
+/* ─── DASHBOARD PREVIEW ──────────────────────────────────────── */
+.preview-wrap{
+  position:relative;z-index:1;
+  padding:0 5% 80px;
+}
+.preview-inner{
+  background:#fff;border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 80px rgba(31,30,27,0.10);
+}
+.preview-bar{
+  background:var(--bg);border-bottom:1px solid var(--border);
+  padding:12px 18px;display:flex;align-items:center;gap:8px;
+}
+.preview-dot{width:11px;height:11px;border-radius:50%;}
+.pd-red{background:#ff5f57;}.pd-yellow{background:#febc2e;}.pd-green{background:#28c840;}
+.preview-url{
+  flex:1;background:#fff;border:1px solid var(--border);
+  border-radius:7px;padding:5px 12px;
+  font-size:12px;color:var(--muted);margin-left:8px;
+  font-family:monospace;
+}
+.preview-body{
+  display:grid;grid-template-columns:200px 1fr;
+  min-height:380px;
+}
+.preview-sidebar{
+  background:#1F1E1B;padding:18px 14px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.ps-brand{
+  display:flex;align-items:center;gap:8px;
+  padding-bottom:14px;margin-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.ps-dot{
+  width:28px;height:28px;border-radius:8px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  flex-shrink:0;
+}
+.ps-name{font-family:'Fraunces',serif;font-size:13px;font-weight:800;color:#fff;}
+.ps-name span{color:var(--primary);}
+.ps-item{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 10px;border-radius:7px;
+  font-size:12px;color:rgba(255,255,255,0.5);
+}
+.ps-item.active{background:rgba(226,115,58,0.18);color:var(--primary);}
+.ps-item-dot{width:14px;height:14px;border-radius:4px;background:rgba(255,255,255,0.1);flex-shrink:0;}
+.ps-item.active .ps-item-dot{background:rgba(226,115,58,0.4);}
+.preview-main{background:var(--bg);padding:20px;}
+.pm-title{font-family:'Fraunces',serif;font-size:16px;font-weight:900;color:var(--dark);margin-bottom:16px;}
+.pm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+.pm-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:10px;padding:14px;
+}
+.pm-card-val{font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:var(--primary);}
+.pm-card-val.t{color:var(--teal);}.pm-card-val.d{color:var(--dark);}
+.pm-card-label{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+.pm-table{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.pm-table-hdr{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  background:var(--bg);border-bottom:1px solid var(--border);
+  padding:8px 12px;font-size:10px;font-weight:700;
+  color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;
+}
+.pm-row{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  padding:9px 12px;border-bottom:1px solid var(--border-light,rgba(31,30,27,0.05));
+  font-size:11.5px;color:var(--gray);align-items:center;
+}
+.pm-row:last-child{border-bottom:none;}
+.pm-badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:20px;
+}
+.pm-badge.g{background:rgba(93,202,165,0.15);color:#059669;}
+.pm-badge.o{background:var(--primary-light);color:var(--primary);}
+
+/* ─── CTA SECTION ────────────────────────────────────────────── */
+.cta-section{
+  position:relative;z-index:1;
+  margin:0 5% 80px;
+  background:linear-gradient(135deg,var(--dark) 0%,#2D2C28 100%);
+  border-radius:24px;padding:72px 48px;
+  text-align:center;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;
+  top:-60px;right:-60px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(226,115,58,0.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-section::after{
+  content:'';position:absolute;
+  bottom:-40px;left:-40px;width:250px;height:250px;
+  background:radial-gradient(circle,rgba(93,202,165,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-tag{
+  display:inline-block;background:rgba(226,115,58,0.18);
+  border:1px solid rgba(226,115,58,0.3);color:var(--primary);
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;margin-bottom:20px;
+}
+.cta-section h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,4vw,46px);font-weight:900;
+  color:#fff;letter-spacing:-1.5px;margin-bottom:14px;
+}
+.cta-section p{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:12px;}
+.cta-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:600;color:#fff;
+  padding:13px 30px;border-radius:11px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border:none;cursor:pointer;font-family:inherit;
+  box-shadow:0 6px 24px rgba(226,115,58,0.35);
+  transition:all 0.2s;
+}
+.cta-primary:hover{opacity:0.9;transform:translateY(-2px);}
+.cta-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:500;color:rgba(255,255,255,0.7);
+  padding:13px 26px;border-radius:11px;
+  border:1.5px solid rgba(255,255,255,0.15);
+  background:none;cursor:pointer;font-family:inherit;
+  transition:all 0.2s;
+}
+.cta-secondary:hover{border-color:rgba(255,255,255,0.3);color:#fff;}
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer{
+  position:relative;z-index:1;
+  background:#fff;border-top:1px solid var(--border);
+  padding:40px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-brand{display:flex;align-items:center;gap:8px;}
+.footer-name{font-family:'Fraunces',serif;font-size:16px;font-weight:800;color:var(--dark);}
+.footer-name span{color:var(--primary);}
+.footer-copy{font-size:12.5px;color:var(--muted);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:13px;color:var(--muted);transition:color 0.2s;}
+.footer-links a:hover{color:var(--primary);}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:900px){
+  .features-grid{grid-template-columns:1fr 1fr;}
+  .stats-bar{gap:0;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);padding:14px 0;}
+  .stat-item:last-child{border-bottom:none;}
+  .stats-bar{flex-direction:column;max-width:300px;}
+  .steps-wrap::before{display:none;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .features-grid{grid-template-columns:1fr;}
+  .steps-wrap{grid-template-columns:1fr;gap:32px;}
+  .preview-body{grid-template-columns:1fr;}
+  .preview-sidebar{display:none;}
+  .cta-btns{flex-direction:column;}
+  .hero h1{font-size:36px;letter-spacing:-1px;}
+  footer{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- Aurora -->
+<div class="aurora">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- ═══ NAVBAR ════════════════════════════════════════════════ -->
+<nav>
+  <a href="/" class="nav-brand">
+    <div class="nav-logo">
+      <svg viewBox="0 0 30 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <rect x="1" y="3.5" width="28" height="7" rx="3.5"/>
+        <circle cx="7.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <circle cx="22.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <path d="M5.5 3.5 L9 1 L21 1 L24.5 3.5"/>
+      </svg>
+    </div>
+    <div class="nav-name">MORR<span> AutoScrape</span></div>
+  </a>
+
+  <div class="nav-links">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#how-it-works" class="nav-link">How it works</a>
+    <a href="#preview" class="nav-link">Platform</a>
+  </div>
+
+  <div class="nav-actions">
+    {% if logged_in %}
+      <a href="/dashboard"><button class="btn-cta">Go to Dashboard →</button></a>
+    {% else %}
+      <a href="/login"><button class="btn-ghost">Log in</button></a>
+      <a href="/login?tab=signup"><button class="btn-cta">Get started free →</button></a>
+    {% endif %}
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    AI-Powered · Live Engine · 0% Mock Data
+  </div>
+
+  <h1>
+    Dealer data.<br/>
+    <span class="accent">Fully enriched.</span>
+  </h1>
+
+  <p class="hero-sub">
+    The all-in-one platform to find, score, and connect with every car dealership across Malaysia — across 7 channels, in minutes.
+  </p>
+
+  <div class="hero-actions">
+    <a href="/login?tab=signup">
+      <button class="hero-btn-primary">
+        Start for free
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </a>
+    <a href="/login">
+      <button class="hero-btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        Log in
+      </button>
+    </a>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">82<span style="font-size:22px;color:var(--muted)">+</span></div>
+      <div class="stat-label">Dealers Enriched</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num teal">7</div>
+      <div class="stat-label">Channels Scraped</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num dark">Live</div>
+      <div class="stat-label">Enrichment Engine</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="font-size:22px;color:var(--dark)">0%</div>
+      <div class="stat-label">Mock Data Used</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MARQUEE ════════════════════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <!-- repeated twice for seamless loop -->
+    <span class="marquee-item"><span class="mi-dot"></span>Google Maps Scraping</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Mudah.my Listings</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Carlist.my Data</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Phone Extraction</span>
+    <span class="marquee-item"><span class="mi-dot"></span>LinkedIn Enrichment</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Email Discovery</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Website Detection</span>
+    <span class="marquee-item"><span class="mi-dot"></span>WhatsApp Routing</span>
+    <span class="marquee-item"><span class="mi-dot"></span>AI Scoring Engine</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Supabase Storage</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Google Maps Scraping</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Mudah.my Listings</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Carlist.my Data</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Phone Extraction</span>
+    <span class="marquee-item"><span class="mi-dot"></span>LinkedIn Enrichment</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Email Discovery</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Website Detection</span>
+    <span class="marquee-item"><span class="mi-dot"></span>WhatsApp Routing</span>
+    <span class="marquee-item"><span class="mi-dot"></span>AI Scoring Engine</span>
+    <span class="marquee-item"><span class="mi-dot"></span>Supabase Storage</span>
+  </div>
+</div>
+
+<!-- ═══ PLATFORM PREVIEW ═══════════════════════════════════════ -->
+<div class="preview-wrap" id="preview">
+  <div style="text-align:center;margin-bottom:36px;position:relative;z-index:1;">
+    <div class="section-tag">🖥️ Platform Preview</div>
+    <div class="section-title" style="max-width:500px;margin:0 auto;">Your intelligence<br/>command centre</div>
+  </div>
+
+  <div class="preview-inner">
+    <!-- Browser chrome -->
+    <div class="preview-bar">
+      <div class="preview-dot pd-red"></div>
+      <div class="preview-dot pd-yellow"></div>
+      <div class="preview-dot pd-green"></div>
+      <div class="preview-url">127.0.0.1:8000/dashboard</div>
+    </div>
+    <!-- Mock dashboard -->
+    <div class="preview-body">
+      <!-- Sidebar -->
+      <div class="preview-sidebar">
+        <div class="ps-brand">
+          <div class="ps-dot"></div>
+          <div class="ps-name">MORR<span> Auto</span></div>
+        </div>
+        <div class="ps-item active">
+          <div class="ps-item-dot"></div> Overview
+        </div>
+        <div class="ps-item">
+          <div class="ps-item-dot"></div> Market Intel
+        </div>
+        <div class="ps-item">
+          <div class="ps-item-dot"></div> Ad Campaigns
+        </div>
+        <div class="ps-item">
+          <div class="ps-item-dot"></div> Leads &amp; CRM
+        </div>
+        <div class="ps-item">
+          <div class="ps-item-dot"></div> Analytics
+        </div>
+      </div>
+      <!-- Main -->
+      <div class="preview-main">
+        <div class="pm-title">Dealer Intelligence Overview</div>
+        <div class="pm-cards">
+          <div class="pm-card">
+            <div class="pm-card-val">82</div>
+            <div class="pm-card-label">Dealers Found</div>
+          </div>
+          <div class="pm-card">
+            <div class="pm-card-val t">RM 14,500</div>
+            <div class="pm-card-label">Campaign Budget</div>
+          </div>
+          <div class="pm-card">
+            <div class="pm-card-val d">7</div>
+            <div class="pm-card-label">Channels Active</div>
+          </div>
+        </div>
+        <div class="pm-table">
+          <div class="pm-table-hdr">
+            <span>Dealership</span><span>City</span><span>Score</span><span>Status</span>
+          </div>
+          <div class="pm-row">
+            <span>Sunway Auto Gallery</span>
+            <span>Petaling Jaya</span>
+            <span>94</span>
+            <span><span class="pm-badge g">Verified</span></span>
+          </div>
+          <div class="pm-row">
+            <span>Cheras Motor Hub</span>
+            <span>Kuala Lumpur</span>
+            <span>87</span>
+            <span><span class="pm-badge g">Verified</span></span>
+          </div>
+          <div class="pm-row">
+            <span>Setia Alam Cars</span>
+            <span>Shah Alam</span>
+            <span>76</span>
+            <span><span class="pm-badge o">Enriching</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FEATURES ══════════════════════════════════════════════ -->
+<div class="section" id="features">
+  <div class="section-tag">⚡ Core Features</div>
+  <div class="section-title">Everything you need to<br/>dominate dealer intel</div>
+  <div class="section-sub">From raw scraping to enriched, scored profiles — the full pipeline in one platform.</div>
+
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon fi-orange">🔍</div>
+      <div class="feat-title">Multi-Channel Scraping</div>
+      <div class="feat-desc">Simultaneously pulls dealer data from Google Maps, Mudah.my, Carlist.my and more — covering 7 live channels with zero mock data.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon fi-teal">📧</div>
+      <div class="feat-title">Contact Enrichment</div>
+      <div class="feat-desc">Automatically discovers phone numbers, emails, websites and WhatsApp links for every dealership profile found.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon fi-purple">🤖</div>
+      <div class="feat-title">AI Scoring Engine</div>
+      <div class="feat-desc">Every dealer is ranked with an AI-driven score based on data completeness, channel presence and business signals.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon fi-amber">📣</div>
+      <div class="feat-title">Ad Campaign Manager</div>
+      <div class="feat-desc">Dealers can upload media, set budgets in MYR, and define campaign durations — all tracked in a dedicated dashboard.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon fi-blue">💼</div>
+      <div class="feat-title">LinkedIn Prospecting</div>
+      <div class="feat-desc">Cross-reference dealership names with LinkedIn to find key decision-makers and sales contacts automatically.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon fi-green">🗄️</div>
+      <div class="feat-title">Supabase Cloud Storage</div>
+      <div class="feat-desc">All enriched dealer data, campaigns and user accounts are stored in real-time in a managed Supabase Postgres database.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HOW IT WORKS ══════════════════════════════════════════ -->
+<div class="section" id="how-it-works" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:0;">
+      <div class="section-tag">🗺️ How it works</div>
+      <div class="section-title">From postcode to pipeline<br/>in minutes</div>
+      <div class="section-sub" style="margin:0 auto;">Three simple steps to go from nothing to a fully enriched dealer database.</div>
+    </div>
+    <div class="steps-wrap">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Enter city &amp; postcode</div>
+        <div class="step-desc">Tell the platform where to look. Select dealer type — used cars, new cars, or both — and set how many profiles you need.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Engine scrapes &amp; enriches</div>
+        <div class="step-desc">Our AI engine searches 7 channels simultaneously, deduplicates results, extracts contacts and scores every dealer automatically.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Export &amp; take action</div>
+        <div class="step-desc">Download as Excel, view in the dashboard, or launch ad campaigns directly from the enriched dealer profiles.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CTA SECTION ═══════════════════════════════════════════ -->
+<div class="cta-section">
+  <div class="cta-tag">Get started today</div>
+  <h2>Ready to find every<br/>dealer in Malaysia?</h2>
+  <p>Join the platform powering the next generation of automotive market intelligence.</p>
+  <div class="cta-btns">
+    <a href="/login?tab=signup">
+      <button class="cta-primary">
+        Create free account →
+      </button>
+    </a>
+    <a href="/login">
+      <button class="cta-secondary">
+        Already have an account? Log in
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo" style="width:30px;height:30px;border-radius:8px;">
+      <svg viewBox="0 0 30 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:7px;color:#fff;">
+        <rect x="1" y="3.5" width="28" height="7" rx="3.5"/>
+        <circle cx="7.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <circle cx="22.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+    <div class="footer-name">MORR<span> AutoScrape</span></div>
+  </div>
+  <div class="footer-copy">© 2026 MORR Intelligence Sdn Bhd · Built with FastAPI &amp; Supabase</div>
+  <div class="footer-links">
+    <a href="/login">Log in</a>
+    <a href="/login?tab=signup">Sign up</a>
+    <a href="#features">Features</a>
+  </div>
+</footer>
+
+</body>
+</html>

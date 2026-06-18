@@ -315,6 +315,14 @@ def is_valid_structure(url: str) -> bool:
         r"tiktok\.com/.+/video/", r"tiktok\.com/discover/",
         r"mudah\.my/$", r"carlist\.my/$",
         r"autocari\.com/index\.php\?r=dealer/(used|recond)&state",
+        # Generic carlist listing pages — not dealer profiles
+        r"carlist\.my/used-cars-for-sale/",
+        r"carlist\.my/new-cars-for-sale/",
+        r"carlist\.my/cars-for-sale/",
+        # Generic mudah listing pages — not dealer profiles
+        r"mudah\.my/[\w-]+/cars-for-sale",
+        r"mudah\.my/[\w-]+/motorcycles",
+        r"mudah\.my/[\w-]+/properties",
     ]
     for pattern in bad_patterns:
         if re.search(pattern, url_lower):
@@ -388,13 +396,32 @@ def find_platform_url(name: str, city: str, platform: dict, existing_url: str = 
     if key in ("mudah", "carlist", "autocari"):
         query = f"{name} {city} {keyword}"
         job_context.log_info(f"    [{key}] Searching: {query}")
-        for url in jina_search(query):
-            if domain not in url.lower():
-                continue
-            if not is_valid_structure(url):
-                continue
-            job_context.log_info(f"    [{key}] ✓ Found: {url}")
-            return {"url": url, "confidence": None}
+        urls = jina_search(query)
+
+        if key == "carlist":
+            # First pass: prefer dealer-profile URLs (/dealer/{slug})
+            for url in urls:
+                if domain not in url.lower() or not is_valid_structure(url):
+                    continue
+                if "/dealer/" in url.lower():
+                    slug = extract_slug(url, domain)
+                    conf = slug_confidence(name, slug)
+                    job_context.log_info(f"    [{key}] ✓ Dealer profile: {url} [{conf}]")
+                    return {"url": url, "confidence": conf}
+            # Second pass: any valid carlist URL
+            for url in urls:
+                if domain not in url.lower() or not is_valid_structure(url):
+                    continue
+                slug = extract_slug(url, domain)
+                conf = slug_confidence(name, slug)
+                job_context.log_info(f"    [{key}] ✓ Found: {url} [{conf}]")
+                return {"url": url, "confidence": conf}
+        else:
+            for url in urls:
+                if domain not in url.lower() or not is_valid_structure(url):
+                    continue
+                job_context.log_info(f"    [{key}] ✓ Found: {url}")
+                return {"url": url, "confidence": None}
 
         job_context.log_info(f"    [{key}] ✗ Not found")
         return {"url": None, "confidence": None}
@@ -470,6 +497,68 @@ def find_platform_url(name: str, city: str, platform: dict, existing_url: str = 
     return {"url": None, "confidence": None}
 
 
+def scrape_social_for_cross_links(url: str) -> dict:
+    """
+    Read a social media page via Jina Reader and extract links to other platforms.
+    Used for cross-platform discovery: e.g. find Instagram from a Facebook page.
+    Returns a dict with any of: instagram, facebook, tiktok keys.
+    """
+    if not url:
+        return {}
+    try:
+        jina_reader_url = f"https://r.jina.ai/{url}"
+        headers = {"Accept": "text/plain"}
+        if JINA_API_KEY:
+            headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+        resp = requests.get(jina_reader_url, headers=headers, timeout=JINA_TIMEOUT)
+        if resp.status_code != 200:
+            job_context.log_warning(f"    [cross-social] Jina returned {resp.status_code} for {url}")
+            return {}
+        content = resp.text
+        found = {}
+
+        # Extract Instagram profile links
+        ig_matches = re.findall(
+            r'https?://(?:www\.)?instagram\.com/([A-Za-z0-9_.]+)', content
+        )
+        _ig_skip = {"p", "reel", "reels", "explore", "accounts", "tv", "stories", "ar", "about"}
+        for slug in ig_matches:
+            slug = slug.strip("/").lower()
+            if slug and slug not in _ig_skip:
+                found["instagram"] = f"https://www.instagram.com/{slug}/"
+                break
+
+        # Extract Facebook page links (only when current page is NOT facebook)
+        if "facebook.com" not in url.lower():
+            fb_matches = re.findall(
+                r'https?://(?:www\.)?facebook\.com/([A-Za-z0-9_.\-]+)', content
+            )
+            _fb_skip = {"groups", "events", "photo.php", "permalink.php", "share",
+                        "watch", "reel", "sharer", "pages", "login", "marketplace"}
+            for slug in fb_matches:
+                slug = slug.strip("/").lower()
+                if slug and slug not in _fb_skip and not slug.startswith("?"):
+                    found["facebook"] = f"https://www.facebook.com/{slug}/"
+                    break
+
+        # Extract TikTok profile links
+        tt_matches = re.findall(
+            r'https?://(?:www\.)?tiktok\.com/@([A-Za-z0-9_.]+)', content
+        )
+        for slug in tt_matches:
+            slug = slug.strip("/").lower()
+            if slug:
+                found["tiktok"] = f"https://www.tiktok.com/@{slug}/"
+                break
+
+        if found:
+            job_context.log_info(f"    [cross-social] Extracted from {url}: {found}")
+        return found
+    except Exception as e:
+        job_context.log_warning(f"    [cross-social] Failed to scrape {url}: {e}")
+        return {}
+
+
 def enrich_business(business: dict) -> dict:
     name         = business.get("name", "")
     address      = business.get("address", "")
@@ -517,6 +606,36 @@ def enrich_business(business: dict) -> dict:
             links[key] = result
             time.sleep(SLEEP_BETWEEN)
 
+    # ── Cross-social discovery ───────────────────────────────────────────────
+    # After primary enrichment, read found social pages to discover missing ones.
+    # e.g. T&T Automobile's Instagram link is posted on their Facebook page.
+    fb_url = (links.get("facebook") or {}).get("url")
+    ig_url = (links.get("instagram") or {}).get("url")
+    tt_url = (links.get("tiktok") or {}).get("url")
+
+    if fb_url and (not ig_url or not tt_url):
+        job_context.log_info(f"    [cross-social] Reading Facebook page for cross-platform links...")
+        cross = scrape_social_for_cross_links(fb_url)
+        if not ig_url and cross.get("instagram"):
+            job_context.log_info(f"    [cross-social] ✓ Instagram found via Facebook: {cross['instagram']}")
+            links["instagram"] = {"url": cross["instagram"], "confidence": "high"}
+            ig_url = cross["instagram"]
+        if not tt_url and cross.get("tiktok"):
+            job_context.log_info(f"    [cross-social] ✓ TikTok found via Facebook: {cross['tiktok']}")
+            links["tiktok"] = {"url": cross["tiktok"], "confidence": "high"}
+            tt_url = cross["tiktok"]
+
+    if ig_url and not fb_url:
+        job_context.log_info(f"    [cross-social] Reading Instagram page for Facebook link...")
+        cross = scrape_social_for_cross_links(ig_url)
+        if cross.get("facebook"):
+            job_context.log_info(f"    [cross-social] ✓ Facebook found via Instagram: {cross['facebook']}")
+            links["facebook"] = {"url": cross["facebook"], "confidence": "high"}
+        if not tt_url and cross.get("tiktok"):
+            job_context.log_info(f"    [cross-social] ✓ TikTok found via Instagram: {cross['tiktok']}")
+            links["tiktok"] = {"url": cross["tiktok"], "confidence": "high"}
+
+    # Recalculate score after cross-social discovery
     scoring = calculate_score(links)
     job_context.log_info(f"  Score: {scoring['score']}/{scoring['max_score']}")
 
