@@ -22,6 +22,7 @@ import re
 import os
 import time
 import logging
+import threading
 from pathlib import Path
 from urllib.parse import urlparse
 from difflib import SequenceMatcher
@@ -46,6 +47,8 @@ except ImportError:
 load_dotenv(Path(__file__).parent.parent / ".env")
 FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY")
 HUNTER_API_KEY    = os.getenv("HUNTER_API_KEY")
+PILOTERR_API_KEY  = os.getenv("PILOTERR_API_KEY")
+JINA_API_KEY      = os.getenv("JINA_API_KEY")
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────────
 
@@ -55,9 +58,13 @@ JS_SHELL_THRESHOLD = 2000   # chars — below this = JS-only page, try Firecrawl
 MAX_PAGES_TO_CRAWL = 4      # homepage + up to 3 contact/about subpages
 DDG_MAX_RESULTS    = 8
 SLEEP_DDG          = 1.5    # seconds between DDG calls
+JINA_TIMEOUT      = 25
 
 FIRECRAWL_URL = "https://api.firecrawl.dev/v1/scrape"
 HUNTER_URL    = "https://api.hunter.io/v2/domain-search"
+
+_CRAWL_CACHE = {}
+_CRAWL_CACHE_LOCK = threading.Lock()
 
 # Subpages to try for contact info after homepage
 CONTACT_PATHS = [
@@ -246,32 +253,85 @@ def extract_emails_and_phones(html: str) -> tuple[list[str], list[str]]:
 # ─── EMAIL EXTRACTION ──────────────────────────────────────────────────────────
 
 def extract_emails(website_url: str | None) -> tuple[list[str], list[str]]:
-    """
-    Crawls dealer website homepage + contact subpages.
-    Returns (emails, extra_phones).
-    """
+    res = crawl_website_for_all(website_url)
+    return res["emails"], res["phones"]
+
+
+# ─── LINKEDIN DISCOVERY ────────────────────────────────────────────────────────
+
+def clean_facebook_url(url: str) -> str:
+    if not url:
+        return ""
+    if "profile.php" in url:
+        return url.rstrip("/")
+    url = url.split("?")[0].rstrip("/")
+    
+    match = re.search(r"https?://(?:[a-z0-9\-]+\.)?facebook\.com/([^/]+)", url, re.I)
+    if match:
+        username = match.group(1).lower()
+        if username in ("groups", "events", "photo.php", "permalink.php", "share", "watch", "reel", "sharer", "people", "p"):
+            if username == "people":
+                parts = urlparse(url).path.strip("/").split("/")
+                if len(parts) >= 3:
+                    return f"https://www.facebook.com/people/{parts[1]}/{parts[2]}/"
+            elif username == "p":
+                parts = urlparse(url).path.strip("/").split("/")
+                if len(parts) >= 2:
+                    return f"https://www.facebook.com/p/{parts[1]}/"
+            return url
+        return f"https://www.facebook.com/{username}/"
+    return url
+
+
+def extract_social_links(html: str) -> dict:
+    soup = BeautifulSoup(html, "lxml")
+    socials = {}
+    for a in soup.find_all("a", href=True):
+        href = a["href"].strip()
+        href_lower = href.lower()
+        if "facebook.com" in href_lower or "fb.com" in href_lower:
+            socials["facebook"] = clean_facebook_url(href)
+        elif "instagram.com" in href_lower or "instagr.am" in href_lower:
+            clean_insta = href.split("?")[0].rstrip("/")
+            if "/p/" not in clean_insta.lower() and "/reel/" not in clean_insta.lower():
+                socials["instagram"] = clean_insta
+        elif "tiktok.com" in href_lower:
+            clean_tiktok = href.split("?")[0].rstrip("/")
+            if "/video/" not in clean_tiktok.lower() and "/discover/" not in clean_tiktok.lower():
+                socials["tiktok"] = clean_tiktok
+        elif "linkedin.com/company/" in href_lower or "linkedin.com/in/" in href_lower:
+            clean_li = href.split("?")[0].rstrip("/")
+            socials["linkedin"] = clean_li
+    return socials
+
+
+def crawl_website_for_all(website_url: str | None) -> dict:
     if not website_url:
-        return [], []
-
-    # Skip social/marketplace URLs — no emails there
+        return {"emails": [], "phones": [], "socials": {}}
+    
+    with _CRAWL_CACHE_LOCK:
+        if website_url in _CRAWL_CACHE:
+            return _CRAWL_CACHE[website_url]
+            
     if any(s in website_url.lower() for s in SOCIAL_DOMAINS):
-        log.info("    [email] Website is social/marketplace — skipping crawl")
-        return [], []
-
-    log.info(f"\n  [email] Crawling: {website_url}")
-
-    all_emails: list[str] = []
-    all_phones: list[str] = []
-    visited:    set[str]  = set()
-
+        return {"emails": [], "phones": [], "socials": {}}
+        
+    log.info(f"    [crawl] Crawling website for socials + contacts: {website_url}")
+    
+    all_emails = []
+    all_phones = []
+    all_socials = {}
+    visited = set()
+    
     def crawl(url: str):
         if url in visited or len(visited) >= MAX_PAGES_TO_CRAWL:
             return
         visited.add(url)
-        log.info(f"    [email] Page: {url}")
+        log.info(f"    [crawl] Page: {url}")
         html = fetch_page(url)
         if not html:
             return
+            
         emails, phones = extract_emails_and_phones(html)
         for e in emails:
             if e not in all_emails:
@@ -279,11 +339,12 @@ def extract_emails(website_url: str | None) -> tuple[list[str], list[str]]:
         for p in phones:
             if p not in all_phones:
                 all_phones.append(p)
-        if emails:
-            log.info(f"    [email] Found emails: {emails}")
-        if phones:
-            log.info(f"    [email] Found phones: {phones}")
-
+                
+        socials = extract_social_links(html)
+        for k, v in socials.items():
+            if v and k not in all_socials:
+                all_socials[k] = v
+                
     crawl(website_url)
     base = website_url.rstrip("/")
     for path in CONTACT_PATHS:
@@ -291,8 +352,7 @@ def extract_emails(website_url: str | None) -> tuple[list[str], list[str]]:
             break
         crawl(base + path)
         time.sleep(0.5)
-
-    # Hunter.io fallback — only when website crawl found 0 emails
+        
     if not all_emails and HUNTER_API_KEY:
         try:
             domain = urlparse(website_url).netloc.lstrip("www.")
@@ -305,21 +365,177 @@ def extract_emails(website_url: str | None) -> tuple[list[str], list[str]]:
                 )
                 if resp.status_code == 200:
                     hunter_emails = [
-                        e["value"] for e in
-                        resp.json().get("data", {}).get("emails", [])
+                        e["value"] for e in resp.json().get("data", {}).get("emails", [])
                         if e.get("value") and is_clean_email(e["value"])
                     ]
                     if hunter_emails:
                         log.info(f"    [email] Hunter.io found: {hunter_emails}")
                         all_emails.extend(hunter_emails)
         except Exception as e:
-            log.warning(f"    [email] Hunter.io failed: {e}")
+            log.warning(f"Hunter.io failed: {e}")
+            
+    res = {
+        "emails": all_emails,
+        "phones": all_phones,
+        "socials": all_socials
+    }
+    
+    with _CRAWL_CACHE_LOCK:
+        _CRAWL_CACHE[website_url] = res
+        
+    return res
 
-    log.info(f"  [email] Final — emails: {all_emails} | phones: {all_phones}")
-    return all_emails, all_phones
+
+def extract_emails_from_facebook(fb_url: str, business_name: str = "") -> list[str]:
+    if not fb_url:
+        return []
+    
+    # Extract unique words to verify the page actually belongs to the business
+    name_clean = business_name.lower()
+    # Filter out generic words to find distinct words
+    words = re.findall(r"\b\w{3,}\b", name_clean)
+    generic = {"auto", "motor", "motors", "car", "cars", "dealer", "dealership", "trading", "enterprise", "group", "holdings", "sdn", "bhd", "malaysia"}
+    distinct_words = [w for w in words if w not in generic]
+    
+    max_retries = 5
+    for attempt in range(1, max_retries + 1):
+        try:
+            jina_url = f"https://r.jina.ai/{fb_url}"
+            headers = {"Accept": "application/json"}
+            if JINA_API_KEY:
+                headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+            
+            # Use X-No-Cache to force proxy rotation if we failed previously
+            if attempt > 1:
+                headers["X-No-Cache"] = "true"
+                
+            resp = requests.get(jina_url, headers=headers, timeout=JINA_TIMEOUT)
+            if resp.status_code == 200:
+                try:
+                    data = resp.json()
+                    content = data.get("data", {}).get("content", "") or data.get("content", "") or resp.text
+                except Exception:
+                    content = resp.text
+                
+                content_lower = content.lower()
+                # Check for Facebook login/redirect blocks
+                is_login_page = "log into facebook" in content_lower or "explore the things you love" in content_lower or "create new account" in content_lower
+                
+                # Clean content to strip Markdown links and absolute URLs to prevent matching key words in URL parameters
+                content_clean = re.sub(r'\[.*?\]\(.*?\)', '', content_lower)
+                content_clean = re.sub(r'https?://\S+', '', content_clean)
+                
+                # If it's a login page, and we have distinct words but none are present in content:
+                has_business = True
+                if distinct_words:
+                    has_business = any(w in content_clean for w in distinct_words)
+                
+                if is_login_page and not has_business:
+                    if attempt < max_retries:
+                        log.info(f"    [email] Facebook scrape returned login redirect on attempt {attempt}/{max_retries}. Retrying with fresh proxy...")
+                        time.sleep(2.0)
+                        continue
+                    else:
+                        log.info("    [email] Facebook scrape consistently blocked by login redirect after all attempts.")
+                
+                found = EMAIL_RE.findall(content)
+                clean_found = [e.lower().strip() for e in found if is_clean_email(e.strip())]
+                return list(dict.fromkeys(clean_found))
+                
+            elif resp.status_code == 429:
+                if attempt < max_retries:
+                    log.info(f"    [email] Jina rate limit (429) on attempt {attempt}/{max_retries}. Retrying...")
+                    time.sleep(2.5)
+                    continue
+            else:
+                log.info(f"    [email] Jina returned status {resp.status_code} for Facebook page.")
+                
+        except Exception as e:
+            if attempt < max_retries:
+                log.info(f"    [email] Facebook scrape error on attempt {attempt}/{max_retries}: {e}. Retrying...")
+                time.sleep(2.0)
+                continue
+            else:
+                log.warning(f"Facebook email extraction failed: {e}")
+                
+
+def search_email_via_jina(business_name: str) -> list[str]:
+    from urllib.parse import quote
+    query = f'"{business_name}" email OR contact'
+    encoded = quote(query)
+    url = f"https://s.jina.ai/{encoded}"
+    headers = {"Accept": "application/json"}
+    if JINA_API_KEY:
+        headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+    try:
+        resp = requests.get(url, headers=headers, timeout=25)
+        if resp.status_code == 200:
+            data = resp.json()
+            results = data.get("data", [])
+            found = []
+            for item in results:
+                snippet = item.get("description", "") or item.get("content", "") or ""
+                matches = EMAIL_RE.findall(snippet)
+                for m in matches:
+                    clean = m.lower().strip()
+                    if is_clean_email(clean) and clean not in found:
+                        found.append(clean)
+            return found
+    except Exception as e:
+        log.warning(f"Direct search email fallback failed: {e}")
+    return []
 
 
-# ─── LINKEDIN DISCOVERY ────────────────────────────────────────────────────────
+
+
+def lookup_linkedin_by_domain(domain: str) -> str | None:
+    if not PILOTERR_API_KEY or not domain:
+        return None
+    try:
+        resp = requests.get(
+            "https://api.piloterr.com/v2/linkedin/company/info",
+            params={"domain": domain},
+            headers={"x-api-key": PILOTERR_API_KEY},
+            timeout=10
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            url = data.get("company_url")
+            if url:
+                return url.split("?")[0].rstrip("/")
+    except Exception as e:
+        log.warning(f"Piloterr lookup failed: {e}")
+    return None
+
+
+def verify_linkedin_by_domain(linkedin_url: str, website_domain: str, business_name: str = "") -> bool:
+    if not linkedin_url or not website_domain:
+        return False
+    try:
+        jina_url = f"https://r.jina.ai/{linkedin_url}"
+        headers = {"Accept": "text/plain"}
+        if JINA_API_KEY:
+            headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+        resp = requests.get(jina_url, headers=headers, timeout=20)
+        if resp.status_code == 200:
+            content = resp.text.lower()
+            clean_domain = website_domain.lower().replace("www.", "")
+            if clean_domain in content:
+                log.info(f"    [linkedin] Jina validation SUCCESS: {clean_domain} found on LinkedIn page")
+                return True
+            else:
+                log.info(f"    [linkedin] Jina validation FAILED: {clean_domain} not found on LinkedIn page")
+                return False
+        else:
+            log.warning(f"    [linkedin] Jina validation got status code {resp.status_code} for {linkedin_url}. Falling back to name-slug verification.")
+            if business_name:
+                return validate_linkedin_slug(linkedin_url, business_name)
+    except Exception as e:
+        log.warning(f"    [linkedin] Jina validation failed: {e}. Falling back to name-slug verification.")
+        if business_name:
+            return validate_linkedin_slug(linkedin_url, business_name)
+    return False
+
 
 def clean_business_name_li(name: str) -> str:
     """Strip legal suffixes for cleaner LinkedIn slug matching."""
@@ -379,51 +595,126 @@ def validate_linkedin_slug(url: str, business_name: str) -> bool:
         return True
 
 
-def find_linkedin(name: str, city: str) -> str | None:
-    """
-    Searches DuckDuckGo for the LinkedIn company page.
-    Uses site:linkedin.com/company to get the URL from search index
-    without ever hitting LinkedIn directly.
-    Returns linkedin.com/company/... URL or None.
-    """
+def find_linkedin(name: str, city: str, website_url: str | None = None) -> str | None:
+    # Layer 1: Already handled by extracting from website crawl
+    if website_url:
+        cached = crawl_website_for_all(website_url)
+        li_from_web = cached.get("socials", {}).get("linkedin")
+        if li_from_web:
+            if validate_linkedin_slug(li_from_web, name):
+                log.info(f"    [linkedin] Layer 1: Found direct link on website: {li_from_web}")
+                return li_from_web
+            else:
+                log.info(f"    [linkedin] Layer 1: Rejected website LinkedIn link (failed slug validation): {li_from_web}")
+
+    # Resolve domain if website is available
+    domain = ""
+    if website_url:
+        try:
+            domain = urlparse(website_url).netloc.lower().replace("www.", "")
+        except Exception:
+            pass
+
+    # Layer 2: Piloterr domain-to-LinkedIn API
+    if domain:
+        log.info(f"    [linkedin] Layer 2: Querying Piloterr for domain: {domain}")
+        piloterr_li = lookup_linkedin_by_domain(domain)
+        if piloterr_li:
+            log.info(f"    [linkedin] Piloterr returned: {piloterr_li}")
+            if validate_linkedin_slug(piloterr_li, name):
+                if verify_linkedin_by_domain(piloterr_li, domain, name):
+                    log.info(f"    [linkedin] ✓ Verified Piloterr link via Jina: {piloterr_li}")
+                    return piloterr_li
+            else:
+                log.info(f"    [linkedin] Piloterr link rejected (failed slug validation): {piloterr_li}")
+
+    # Layer 3: Dual DuckDuckGo queries consensus
     if not DDG_AVAILABLE:
-        log.warning("    [linkedin] ddgs not installed — skipping LinkedIn search")
+        log.warning("ddgs not installed — skipping LinkedIn search")
         return None
 
-    # Skip truly generic single-word names — too many false positives
-    cleaned   = clean_business_name_li(name)
-    words     = [w for w in cleaned.split() if len(w) >= 3]
-    generic   = {"auto", "cars", "motor", "motors", "used", "trade", "sale", "dealer"}
+    cleaned = clean_business_name_li(name)
+    words = [w for w in cleaned.split() if len(w) >= 3]
+    generic = {"auto", "cars", "motor", "motors", "used", "trade", "sale", "dealer"}
     non_generic = [w for w in words if w not in generic]
     if len(non_generic) < 1:
         log.info(f"    [linkedin] Skipping — name too generic: {name}")
         return None
 
-    queries = [
-        f'site:linkedin.com/company "{name}" Malaysia',
-        f'site:linkedin.com/company "{name}" car dealer',
-    ]
+    q1 = f'site:linkedin.com/company "{name}" Malaysia'
+    q2 = f'site:linkedin.com/company "{domain}"' if domain else None
 
-    for query in queries:
-        log.info(f"    [linkedin] DDG: {query}")
+    urls1 = []
+    urls2 = []
+
+    # Query 1
+    log.info(f"    [linkedin] DDG Q1: {q1}")
+    try:
+        with DDGS() as ddgs:
+            results1 = list(ddgs.text(q1, max_results=DDG_MAX_RESULTS))
+        time.sleep(SLEEP_DDG)
+        for r in results1:
+            u = r.get("href") or r.get("url", "")
+            if u and "linkedin.com/company/" in u.lower():
+                urls1.append(u.split("?")[0].rstrip("/"))
+    except Exception as e:
+        log.warning(f"DDG Q1 failed: {e}")
+
+    # Query 2 (only if domain is available)
+    if q2:
+        log.info(f"    [linkedin] DDG Q2: {q2}")
         try:
             with DDGS() as ddgs:
-                results = list(ddgs.text(query, max_results=DDG_MAX_RESULTS))
+                results2 = list(ddgs.text(q2, max_results=DDG_MAX_RESULTS))
             time.sleep(SLEEP_DDG)
+            for r in results2:
+                u = r.get("href") or r.get("url", "")
+                if u and "linkedin.com/company/" in u.lower():
+                    urls2.append(u.split("?")[0].rstrip("/"))
         except Exception as e:
-            log.warning(f"    [linkedin] DDG failed: {e}")
-            continue
+            log.warning(f"DDG Q2 failed: {e}")
 
-        for r in results:
-            url = r.get("href") or r.get("url", "")
-            if not url or "linkedin.com/company/" not in url.lower():
-                continue
-            clean_url = url.split("?")[0].rstrip("/")
-            if validate_linkedin_slug(clean_url, name):
-                log.info(f"    [linkedin] ✓ Found: {clean_url}")
-                return clean_url
-            
-    log.info(f"    [linkedin] ✗ Not found")
+    # Consensus Check
+    candidates = []
+    if domain:
+        # Check intersection
+        intersect = [u for u in urls1 if u in urls2]
+        if intersect:
+            log.info(f"    [linkedin] Consensus found in both DDG queries: {intersect[0]}")
+            candidates.append(intersect[0])
+        else:
+            if urls2:
+                log.info(f"    [linkedin] Using domain search candidate: {urls2[0]}")
+                candidates.append(urls2[0])
+            if urls1:
+                candidates.extend(urls1[:2])
+    else:
+        if urls1:
+            candidates.extend(urls1[:2])
+
+    candidates = list(dict.fromkeys(candidates))
+
+    for url in candidates:
+        if validate_linkedin_slug(url, name):
+            if domain:
+                if verify_linkedin_by_domain(url, domain, name):
+                    return url
+            else:
+                try:
+                    from rapidfuzz import fuzz
+                    slug_match = LINKEDIN_COMPANY_RE.search(url)
+                    if slug_match:
+                        slug = slug_match.group(1).lower()
+                        clean_name = clean_business_name_li(name)
+                        clean_slug = slug.replace("-", " ").replace("_", " ").replace(".", " ")
+                        ratio = fuzz.token_set_ratio(clean_name, clean_slug) / 100.0
+                        if ratio >= 0.85:
+                            log.info(f"    [linkedin] ✓ Accepted link without domain via high fuzzy match ({ratio:.2f}): {url}")
+                            return url
+                except Exception as e:
+                    log.warning(f"Fuzzy matching failed: {e}")
+
+    log.info(f"    [linkedin] ✗ No verified LinkedIn profile found")
     return None
 
 
@@ -453,8 +744,23 @@ def enrich_email_linkedin(business: dict) -> dict:
     # Email + phone extraction
     emails, phones_extra = extract_emails(website)
 
+    fb_url = links.get("facebook", {}).get("url") if isinstance(links.get("facebook"), dict) else None
+    if not emails and fb_url:
+        log.info(f"    [email] Website crawl yielded no emails. Trying Facebook fallback: {fb_url}")
+        fb_emails = extract_emails_from_facebook(fb_url, name)
+        if fb_emails:
+            emails.extend(fb_emails)
+            log.info(f"    [email] Facebook fallback found emails: {fb_emails}")
+
+    if not emails:
+        log.info(f"    [email] Attempting direct search fallback for email...")
+        search_emails = search_email_via_jina(name)
+        if search_emails:
+            emails.extend(search_emails)
+            log.info(f"    [email] Direct search fallback found emails: {search_emails}")
+
     # LinkedIn discovery
-    linkedin = find_linkedin(name, city)
+    linkedin = find_linkedin(name, city, website)
 
     updated = business.copy()
     updated["emails"]       = emails

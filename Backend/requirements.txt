@@ -7,3 +7,7 @@ python-dotenv>=1.0.0
 ddgs>=6.3.0
 rapidfuzz>=3.8.0
 supabase>=2.4.0
+# Auth & template layer
+jinja2>=3.1.0
+python-multipart>=0.0.9
+itsdangerous>=2.2.0

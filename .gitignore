@@ -23,6 +23,25 @@ Phase_three/*.json
 output/*.json
 brain/
 
+# ── Log files ──────────────────────────────────────────────────────────────────
+*.log
+Phase_three/enrich.log
+Phase_two/jinaweb.log
+
+# ── Uploaded media ─────────────────────────────────────────────────────────────
+Backend/uploads/
+
+# ── Legacy / temp files at root ────────────────────────────────────────────────
+dealers_rows.csv
+summary.txt
+*.pdf
+*.xlsx
+*.xls
+*.csv
+
+# ── Old prototype (superseded by Backend/) ─────────────────────────────────────
+LOGIN/
+
 # ── OS ─────────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db

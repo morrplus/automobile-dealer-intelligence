@@ -1,97 +1,110 @@
-# Automobile Dealer Intelligence
+# MORR AutoScrape Intelligence — V1.0
 
-Automated pipeline that finds car dealers by city/pincode, enriches their profiles across multiple platforms, and scores them by digital presence.
+> **AI-powered dealer intelligence & ad campaign platform for the Malaysian used-car market.**
 
 ---
 
-## Tech Stack
+## 🚀 What This Project Does
+
+MORR AutoScrape is a full-stack intelligence platform that:
+
+1. **Discovers** automobile dealers across Malaysia via Google Maps (Phase 1)
+2. **Enriches** each dealer profile with social media links, marketplace profiles, emails, and a digital-presence score (Phase 2)
+3. **Serves** all this through a polished dealer portal with authentication, campaign management, and market intelligence views
+
+---
+
+## 🗂️ Project Structure
+
+```
+automobile-dealer-intelligence/
+│
+├── Backend/                        # FastAPI backend (main application)
+│   ├── main.py                     # All routes: auth, scraper API, campaigns, OAuth
+│   ├── search_logic.py             # Phase 1 — Google Maps dealer discovery
+│   ├── jinaweb_logic.py            # Phase 2 — Social + marketplace enrichment
+│   ├── emaillinkedin_logic.py      # Email, phone, LinkedIn extraction + cross-social
+│   ├── supabase_client.py          # Supabase DB helpers (users, dealers, campaigns)
+│   ├── job_manager.py              # Background job tracking
+│   ├── job_context.py              # Thread-local logging context
+│   ├── requirements.txt            # Python dependencies
+│   └── templates/
+│       ├── landing.html            # Public marketing landing page
+│       ├── login.html              # Auth page (email+password + Google OAuth)
+│       └── dashboard.html          # Dealer portal (overview, intel, campaigns)
+│
+├── Frontend/                       # Standalone scraper UI (embedded in dashboard)
+│   └── index.html
+│
+├── Phase_One/                      # Legacy standalone scraper scripts
+│   ├── SearchMap.py
+│   └── converting.py
+│
+├── Phase_two/                      # Legacy standalone enrichment scripts
+│   ├── JinaWeb.py
+│   └── EmailLinkedin.py
+│
+├── .env.example                    # Template for required API keys
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚙️ Tech Stack
 
 | Layer | Technology |
-|-------|-----------|
-| Backend | Python, FastAPI, Uvicorn |
-| Frontend | HTML, CSS, Vanilla JS |
+|---|---|
+| Backend | Python 3.12 · FastAPI · Uvicorn |
+| Auth | Session middleware · SHA-256 hashing · Google OAuth 2.0 |
 | Database | Supabase (PostgreSQL) |
-| Search | SerpAPI (Google Maps) |
-| Web Discovery | Jina AI / DuckDuckGo fallback |
-| Website Crawling | Firecrawl, Requests + BeautifulSoup |
-| Email Discovery | Hunter.io (fallback) |
-| LinkedIn | Piloterr, Jina AI & DuckDuckGo search |
+| Scraping | Jina AI Search · Jina Reader · DuckDuckGo fallback |
+| Enrichment | Firecrawl · Hunter.io · Piloterr · Apify · BeautifulSoup |
+| AI/LLM | Google Gemini · Groq · OpenRouter |
+| Frontend | Vanilla HTML/CSS/JS · Fraunces + Inter fonts |
 
 ---
 
-## How It Works
+## 🔑 Required Environment Variables
 
-```
-User Input (city + pincode + dealer type)
-        │
-        ▼
-Phase 1 — Google Maps Search (SerpAPI)
-  └─ Finds all car dealers in the area
-        │
-        ▼
-Phase 2 — Enrichment (per dealer)
-  ├─ Official Website        ← Jina AI search + crawl
-  ├─ Mudah listing           ← Jina AI search
-  ├─ Carlist listing         ← Jina AI search
-  ├─ Autocari listing        ← Jina AI search
-  ├─ Facebook page           ← Jina AI search
-  ├─ Instagram profile       ← Jina AI search
-  ├─ TikTok profile          ← Jina AI search
-  ├─ Email                   ← Hunter.io + website crawl
-  └─ LinkedIn                ← Piloterr / Jina AI + DuckDuckGo search
-        │
-        ▼
-Scoring (max 85 pts)
-  Website(20) + Mudah(15) + Carlist(15) +
-  Autocari(10) + Facebook(10) + Instagram(10) + TikTok(5)
-        │
-        ▼
-Results saved to Supabase + local JSON cache
-Top dealers returned to frontend
+Copy `.env.example` to `.env` and fill in your keys:
+
+```env
+# Search
+SERPAPI_KEY=
+JINA_API_KEY=
+TAVILY_API_KEY=
+
+# Enrichment
+FIRECRAWL_API_KEY=
+HUNTER_API_KEY=
+PROXYCURL_API_KEY=
+APIFY_API_TOKEN=
+PILOTERR_API_KEY=
+
+# AI
+GEMINI_API_KEY=
+GROQ_API_KEY=
+OPENROUTER_API_KEY=
+
+# Database
+SUPABASE_URL=
+SUPABASE_KEY=
+
+# Google OAuth
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+# GOOGLE_REDIRECT_URI=http://localhost:8000/auth/callback/google
 ```
 
 ---
 
-## Setup
+## 🗄️ Supabase Tables
 
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/morrplus/automobile-dealer-intelligence.git
-cd automobile-dealer-intelligence
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r backend/requirements.txt
-```
-
-### 3. Configure API keys
-
-```bash
-cp .env.example .env
-```
-
-Open `.env` and fill in the following keys:
-
-| Key | Where to get it |
-|-----|----------------|
-| `SERPAPI_KEY` | [serpapi.com](https://serpapi.com) — 100 free searches/month |
-| `JINA_API_KEY` | [jina.ai](https://jina.ai) — web discovery and fallback scrape |
-| `FIRECRAWL_API_KEY` | [firecrawl.dev](https://firecrawl.dev) — JS shell website crawling |
-| `HUNTER_API_KEY` | [hunter.io](https://hunter.io) — email discovery fallback |
-| `PILOTERR_API_KEY` | [piloterr.com](https://piloterr.com) — LinkedIn company search |
-| `SUPABASE_URL` | Supabase project → Settings → API |
-| `SUPABASE_KEY` | Supabase project → Settings → API → anon public |
-
-> **Note:** Jina AI and Firecrawl are credit-based. DuckDuckGo is used as a free fallback when Jina credits run out.
-
-### 4. Set up Supabase table
-
-Run this SQL in your Supabase project → SQL Editor:
+Run these once in your Supabase SQL editor:
 
 ```sql
+-- Dealer intelligence store
 CREATE TABLE IF NOT EXISTS dealers (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     place_id        TEXT UNIQUE,
@@ -112,47 +125,87 @@ CREATE TABLE IF NOT EXISTS dealers (
     created_at      TIMESTAMPTZ DEFAULT NOW(),
     updated_at      TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- User accounts (custom auth)
+CREATE TABLE IF NOT EXISTS users (
+    id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email         TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    role          TEXT DEFAULT 'dealer',
+    created_at    TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Ad campaigns
+CREATE TABLE IF NOT EXISTS campaigns (
+    id               UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_email       TEXT NOT NULL,
+    dealership_name  TEXT,
+    budget_myr       FLOAT,
+    duration         JSONB,
+    files            JSONB,
+    submitted_at     TIMESTAMPTZ DEFAULT NOW()
+);
 ```
 
-### 5. Run the server
+---
+
+## 🏃 Running Locally
 
 ```bash
-cd backend
-$env:PYTHONUTF8="1"; python -m uvicorn main:app --reload
+cd Backend
+pip install -r requirements.txt
+python -m uvicorn main:app --reload --port 8000
 ```
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Then open: [http://localhost:8000](http://localhost:8000)
 
 ---
 
-## Caching Logic
+## ✅ Features Implemented (as of V1.0)
 
-1. **Supabase** — checked first on every search (fastest)
-2. **Local JSON** — `Phase_two/dealers_enriched_<City>_<pincode>.json` — fallback
-3. **Fresh scan** — runs if no cache found, results saved to both
+### Authentication
+- Email + password signup/login with SHA-256 hashing
+- **Google OAuth 2.0** — click "Sign in with Google"
+- Google-account users blocked from email+password login with a guided error
+- Session-based auth — all dashboard data scoped to logged-in user
+
+### Market Intelligence (Phase 2 Enrichment)
+- Google Maps dealer discovery (city + postcode)
+- Social media enrichment: **Facebook · Instagram · TikTok**
+- Marketplace enrichment: **Mudah.my · Carlist.my · Autocari.com**
+- **Cross-social discovery** — reads Facebook page to find Instagram/TikTok links and vice versa
+- Website crawl for emails, phone numbers, and social links in footers/headers
+- Carlist.my dealer profile preference (`/dealer/` URLs prioritised over generic listings)
+- Digital presence **scoring system** (0–85 points across 7 platforms)
+- Supabase caching + local JSON fallback with resume support
+- Real-time job progress streaming
+
+### Dealer Portal (Dashboard)
+- Premium dark-sidebar layout with Fraunces + Inter typography
+- **Overview** — campaign count, budget, dealer stats
+- **Market Intelligence** — embedded live scraper UI
+- **Ad Campaigns** — set budget (MYR), duration (days/weeks/months), upload media
+- Campaign data persisted to Supabase per user
+
+### Landing Page
+- Animated aurora gradient background
+- Feature showcase with scroll animations
+- CTA buttons routing to login/dashboard
 
 ---
 
-## Project Structure
+## 🗺️ Roadmap
 
-```
-FindIt/
-├── backend/
-│   ├── main.py                  # FastAPI app + job orchestration
-│   ├── search_logic.py          # Phase 1 — Google Maps via SerpAPI
-│   ├── jinaweb_logic.py         # Phase 2 — Enrichment pipeline
-│   ├── emaillinkedin_logic.py   # Email + LinkedIn extraction
-│   ├── supabase_client.py       # Supabase read/write
-│   ├── job_manager.py           # Background job tracking
-│   ├── job_context.py           # Thread-local logging context
-│   └── requirements.txt
-├── Frontend/
-│   └── index.html               # Single-page UI
-├── Phase_two/                   # Local JSON cache (gitignored)
-├── .env.example                 # API key template
-└── README.md
-```
+| Date | Milestone |
+|---|---|
+| ✅ Jun 17 | Login · Budget · Media upload · Dashboard UI live |
+| 🔲 Jun 18 | Swarm agent — distribute ads to FB · IG · TikTok · Mudah · Carlist · iCar |
+| 🔲 Jun 19 | A/B variants per ad · CTR tracking · Auto-pause underperformer |
+| 🔲 Jun 20 | Lead capture · Webhook · Downstream agent triggering |
+| 🔲 Jun 21 | Full demo — Atul approval to proceed to agent layer |
 
 ---
 
+## 👥 Team
 
+Built by **Sriya** & **Priyanshu** for **MORR** — June 2026 internship sprint.

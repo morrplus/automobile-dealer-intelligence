@@ -67,22 +67,40 @@ def _parse_dealers(raw: list) -> list:
         name     = item.get("title", "").strip()
         website  = item.get("website")
         place_id = item.get("place_id")
+        address  = item.get("address", "").strip()
+        phone    = item.get("phone")
         if not name:
             continue
         if place_id and place_id in seen_ids:
             continue
+        
+        # Singapore filter: skip Singapore listings in Malaysian search
+        phone_str = str(phone) if phone else ""
+        if (phone_str.startswith("+65") or 
+            phone_str.startswith("02") or 
+            "singapore" in address.lower() or 
+            "s'pore" in address.lower()):
+            continue
+
         if place_id:
             seen_ids.add(place_id)
         if website and any(d in website for d in SKIP_DOMAINS):
             continue
+
+        # Extract google_maps_url from link, or fall back to constructing it via place_id
+        maps_url = item.get("link")
+        if not maps_url and place_id:
+            maps_url = f"https://www.google.com/maps/place/?q=place_id:{place_id}"
+
         cleaned.append({
-            "name":     name,
-            "address":  item.get("address", "").strip(),
-            "phone":    item.get("phone"),
-            "website":  website,
-            "rating":   item.get("rating"),
-            "place_id": place_id,
-            "type":     item.get("type", ""),
+            "name":            name,
+            "address":         address,
+            "phone":           phone,
+            "website":         website,
+            "rating":          item.get("rating"),
+            "place_id":        place_id,
+            "type":            item.get("type", ""),
+            "google_maps_url": maps_url or "",
         })
     return cleaned
 

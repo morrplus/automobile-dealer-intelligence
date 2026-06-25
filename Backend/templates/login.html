@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MORR AutoScrape — Sign in</title>
+<meta name="description" content="Sign in to MORR AutoScrape Intelligence Platform for dealers." />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #E2733A;
+    --primary-dark: #C65A25;
+    --primary-light: #FDF4EF;
+    --accent: #5DCAA5;
+    --bg: #FAF8F5;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --border: rgba(31, 30, 27, 0.08);
+    --text: #1F1E1B;
+    --muted: #8A8884;
+    --input-bg: #fff;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Noise pattern */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* Canvas background styling */
+  #canvas-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 420px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 50px rgba(31, 30, 27, 0.04), 
+                0 0 40px rgba(226, 115, 58, 0.02);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .brand-icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 10px rgba(226,115,58,0.22);
+  }
+  .brand-icon svg {
+    width: 18px; height: 7px; color: #fff;
+  }
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+  .brand-name span { color: var(--primary); }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    background: rgba(31, 30, 27, 0.04);
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 24px;
+  }
+  .tab {
+    flex: 1;
+    padding: 9px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+  .tab.active {
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 2px 6px rgba(31, 30, 27, 0.05);
+    border: 1px solid rgba(31, 30, 27, 0.02);
+  }
+
+  .form-panel { display: none; }
+  .form-panel.active { display: block; }
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 15px;
+    font-size: 14.5px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    margin-bottom: 16px;
+  }
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: rgba(226,115,58,0.5);
+    box-shadow: 0 0 0 3px rgba(226,115,58,0.10);
+  }
+  input::placeholder { color: rgba(31, 30, 27, 0.25); }
+
+  .btn-primary {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+    font-family: inherit;
+    letter-spacing: -0.2px;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(226, 115, 58, 0.15);
+  }
+  .btn-primary:hover {
+    opacity: 0.92;
+    box-shadow: 0 6px 16px rgba(226, 115, 58, 0.22);
+  }
+  .btn-primary:active { transform: scale(0.99); }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12.5px;
+    margin: 20px 0;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border);
+  }
+  .divider:not(:empty)::before {
+    margin-right: 12px;
+  }
+  .divider:not(:empty)::after {
+    margin-left: 12px;
+  }
+
+  .btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-family: inherit;
+    box-shadow: 0 2px 4px rgba(31, 30, 27, 0.02);
+  }
+  .btn-google:hover {
+    background: #fafafa;
+    border-color: rgba(31, 30, 27, 0.2);
+    box-shadow: 0 4px 8px rgba(31, 30, 27, 0.04);
+    transform: translateY(-1px);
+  }
+  .btn-google:active {
+    transform: scale(0.99);
+  }
+
+  .error-msg {
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.18);
+    color: #dc2626;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 24px;
+    line-height: 1.6;
+  }
+
+  /* Google button pulse — shown when user tried email login on a Google account */
+  @keyframes google-pulse {
+    0%   { box-shadow: 0 0 0 0   rgba(226,115,58,0.50); border-color: var(--primary); }
+    60%  { box-shadow: 0 0 0 8px rgba(226,115,58,0);    border-color: var(--primary); }
+    100% { box-shadow: 0 0 0 0   rgba(226,115,58,0);    border-color: var(--border); }
+  }
+  .btn-google.pulse {
+    animation: google-pulse 1.2s ease 3;
+    border-color: var(--primary);
+  }
+</style>
+</head>
+<body>
+
+<!-- Interactive Particle Background -->
+<canvas id="canvas-bg"></canvas>
+
+<div class="card">
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 30 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <rect x="1" y="3.5" width="28" height="7" rx="3.5"/>
+        <circle cx="7.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <circle cx="22.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+        <path d="M5.5 3.5 L9 1 L21 1 L24.5 3.5"/>
+      </svg>
+    </div>
+    <div class="brand-name">MORR<span> AutoScrape</span></div>
+  </div>
+
+  <h1>Welcome back</h1>
+  <p class="subtitle">Sign in to your dealer account to manage campaigns and market intelligence.</p>
+
+  {% if error %}
+  <div class="error-msg">{{ error }}</div>
+  {% endif %}
+
+  <div class="tabs">
+    <button id="tab-login" class="tab {% if tab != 'signup' %}active{% endif %}" onclick="switchTab('login')">Log in</button>
+    <button id="tab-signup" class="tab {% if tab == 'signup' %}active{% endif %}" onclick="switchTab('signup')">Sign up</button>
+  </div>
+
+  <!-- LOGIN FORM -->
+  <div class="form-panel {% if tab != 'signup' %}active{% endif %}" id="panel-login">
+    <form method="POST" action="/login">
+      <input type="hidden" name="action" value="login"/>
+      <label>Email address</label>
+      <input type="email" name="email" placeholder="you@dealership.com" required/>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="••••••••" required/>
+      <button type="submit" class="btn-primary">Continue →</button>
+    </form>
+  </div>
+
+  <!-- SIGNUP FORM -->
+  <div class="form-panel {% if tab == 'signup' %}active{% endif %}" id="panel-signup">
+    <form method="POST" action="/login">
+      <input type="hidden" name="action" value="signup"/>
+      <label>Email address</label>
+      <input type="email" name="email" placeholder="you@dealership.com" required/>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Create a password (min. 6 chars)" required/>
+      <button type="submit" class="btn-primary">Create account →</button>
+    </form>
+  </div>
+
+  <div class="divider">or</div>
+
+  <!-- GOOGLE OAUTH BUTTON -->
+  <a href="/auth/login/google" class="btn-google{% if google_hint %} pulse{% endif %}" id="btn-google">
+    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+    </svg>
+    Sign in with Google
+  </a>
+
+  <p class="footer-note">By continuing, you agree to MORR's Terms of Service<br/>and Privacy Policy.</p>
+</div>
+
+<script>
+  // Tab Switching Logic
+  function switchTab(tab) {
+    document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+    document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+    document.getElementById('panel-login').classList.toggle('active', tab === 'login');
+    document.getElementById('panel-signup').classList.toggle('active', tab === 'signup');
+    
+    // Smoothly update the title/subtitle text for the tab
+    const title = document.querySelector('h1');
+    const subtitle = document.querySelector('.subtitle');
+    if (tab === 'login') {
+      title.textContent = 'Welcome back';
+      subtitle.textContent = 'Sign in to your dealer account to manage campaigns and market intelligence.';
+    } else {
+      title.textContent = 'Get started free';
+      subtitle.textContent = 'Create your dealer account to access scraping tools and launch marketing campaigns.';
+    }
+  }
+
+  // Canvas Interactive Background Animation
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  const particles = [];
+  const particleCount = Math.min(75, Math.floor((width * height) / 20000));
+  const connectionDistance = 110;
+  const mouse = { x: null, y: null, radius: 160 };
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 2.5 + 1.2;
+      // Assign either primary (terracotta) or accent (teal) colors from the landing page
+      this.color = Math.random() > 0.45 ? '226, 115, 58' : '93, 202, 165';
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      // Wrap-around or bounce
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+
+      // Mouse reaction (gentle repulsion/attraction)
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          // Gentle push away
+          this.x -= (dx / dist) * force * 1.2;
+          this.y -= (dy / dist) * force * 1.2;
+        }
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, 0.35)`;
+      ctx.fill();
+    }
+  }
+
+  // Initialize particles
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Render particles
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
+    // Render lines between nearby particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < connectionDistance) {
+          const alpha = ((connectionDistance - dist) / connectionDistance) * 0.12;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(31, 30, 27, ${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+
+      // Render connection lines to mouse
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = particles[i].x - mouse.x;
+        const dy = particles[i].y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const alpha = ((mouse.radius - dist) / mouse.radius) * 0.18;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(${particles[i].color}, ${alpha})`;
+          ctx.lineWidth = 0.9;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+</body>
+</html>

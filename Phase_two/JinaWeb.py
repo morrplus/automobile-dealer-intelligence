@@ -75,16 +75,22 @@ log = logging.getLogger(__name__)
 def check_website(url: str) -> bool:
     if not url:
         return False
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        )
+    }
     try:
-        r = requests.get(url, timeout=REQUEST_TIMEOUT, allow_redirects=True)
-        if r.status_code >= 400:
-            return False
-        if len(r.text.strip()) < MIN_PAGE_LENGTH:
-            log.info(f"        Page is blank/near-empty — treating as dead")
+        r = requests.get(url, headers=headers, timeout=12, allow_redirects=True)
+        if r.status_code == 404:
             return False
         return True
-    except Exception:
+    except requests.exceptions.ConnectionError:
         return False
+    except Exception:
+        return True
 
 
 def jina_search(query: str) -> list:
@@ -104,6 +110,123 @@ def jina_search(query: str) -> list:
     except Exception as e:
         log.warning(f"        Jina search failed: {e}")
         return []
+
+
+
+def jina_search_detailed(query: str) -> list[dict]:
+    encoded = quote(query)
+    url     = f"{JINA_SEARCH_URL}{encoded}"
+    headers = {"Accept": "application/json"}
+    if JINA_API_KEY:
+        headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+    try:
+        r = requests.get(url, headers=headers, timeout=JINA_TIMEOUT)
+        r.raise_for_status()
+        data    = r.json()
+        results = data.get("data", [])
+        out = []
+        for item in results:
+            if "url" in item:
+                out.append({
+                    "url": item["url"],
+                    "title": item.get("title") or "",
+                    "snippet": item.get("description") or item.get("content") or ""
+                })
+        log.info(f"        Jina returned {len(out)} results")
+        if out:
+            return out
+        else:
+            log.warning("        Jina returned 0 results, trying DuckDuckGo fallback")
+    except Exception as e:
+        log.warning(f"        Jina search failed: {e}")
+
+    # Fallback to DuckDuckGo search
+    try:
+        try:
+            from ddgs import DDGS
+        except ImportError:
+            from duckduckgo_search import DDGS
+            
+        with DDGS() as ddgs:
+            results = list(ddgs.text(query, max_results=5))
+            out = []
+            for r in results:
+                url = r.get("href") or r.get("url")
+                if url:
+                    out.append({
+                        "url": url,
+                        "title": r.get("title") or "",
+                        "snippet": r.get("body") or r.get("snippet") or ""
+                    })
+            log.info(f"        DuckDuckGo fallback returned {len(out)} results")
+            return out
+    except Exception as dde:
+        log.warning(f"        DuckDuckGo fallback search also failed: {dde}")
+        return []
+
+
+def validate_social_profile(url: str, title: str, snippet: str, business_name: str, city: str, phone: str = None) -> bool:
+    # 1. If phone number is found in the search result title, snippet, or URL, it's a guaranteed match!
+    if phone:
+        clean_phone = "".join(filter(str.isdigit, phone))
+        # Keep last 7-9 digits of phone
+        if len(clean_phone) >= 7:
+            suffix = clean_phone[-7:]
+            if suffix in title or suffix in snippet or suffix in url:
+                return True
+
+    # 2. Extract unique and descriptor words from the business name
+    DESCRIPTOR_WORDS = {
+        "auto", "motor", "motors", "car", "cars", "dealer", "dealership", 
+        "trading", "enterprise", "group", "holdings", "credit", "sales", 
+        "service", "services", "motorsport", "garage", "world", "empire", 
+        "sdn", "bhd", "selection", "vehicles", "used", "new", "recond"
+    }
+    
+    name_lower = business_name.lower()
+    city_lower = city.lower() if city else ""
+    
+    # Check if slug or title/snippet mentions the city
+    has_city = city_lower and (city_lower in url.lower() or city_lower in title.lower() or city_lower in snippet.lower())
+    
+    # Find descriptor words present in this business name
+    descriptors_in_name = [w for w in DESCRIPTOR_WORDS if w in name_lower]
+    
+    # Extract slug/username from URL
+    domain = ""
+    for d in ("facebook.com", "instagram.com", "tiktok.com", "mudah.my", "carlist.my", "autocari.com"):
+        if d in url.lower():
+            domain = d
+            break
+            
+    slug = ""
+    if domain:
+        slug = extract_slug(url, domain)
+    
+    # If the business name has descriptor words
+    if descriptors_in_name:
+        # Check if the slug contains at least one of these descriptors or the city
+        has_descriptor_in_slug = any(d in slug.lower() for d in descriptors_in_name)
+        has_descriptor_in_text = any(d in title.lower() or d in snippet.lower() for d in descriptors_in_name)
+        
+        # If the slug has no descriptor and no city, and the text has no descriptor and no city:
+        # It's likely a personal profile or a mismatched company
+        if not (has_descriptor_in_slug or has_city) and not (has_descriptor_in_text or has_city):
+            return False
+
+    # 3. Ensure the core unique words are present
+    # Filter out generic/descriptor words to find distinct words
+    words = re.findall(r"\b\w{3,}\b", name_lower)
+    distinct_words = [w for w in words if w not in DESCRIPTOR_WORDS and w != city_lower]
+    
+    if distinct_words:
+        # Check if at least one distinct word is in the slug or title/snippet
+        slug_lower = slug.lower() if slug else url.lower()
+        has_distinct = any(w in slug_lower or w in title.lower() or w in snippet.lower() for w in distinct_words)
+        if not has_distinct:
+            return False
+            
+    return True
 
 
 def extract_city(address: str) -> str:
@@ -152,10 +275,13 @@ def extract_slug(url: str, domain: str) -> str:
             return match.group(1).lower() if match else ""
         if domain in ("facebook.com", "instagram.com"):
             parts = path.split("/")
-            if parts and parts[0] not in ("groups", "pages", "events",
-                                          "photo", "video", "watch",
-                                          "posts", "accounts", "p"):
-                return parts[0].lower().replace(".", " ")
+            if parts:
+                if parts[0] in ("p", "people") and len(parts) >= 2:
+                    return parts[1].lower().replace(".", " ")
+                if parts[0] not in ("groups", "pages", "events",
+                                              "photo", "video", "watch",
+                                              "posts", "accounts"):
+                    return parts[0].lower().replace(".", " ")
             return ""
         if domain == "mudah.my":
             parts = path.split("/")
@@ -217,6 +343,26 @@ def is_valid_structure(url: str) -> bool:
     return True
 
 
+def validate_website_domain(url: str, business_name: str) -> bool:
+    try:
+        domain = urlparse(url).netloc.lower().replace("www.", "")
+        cleaned = clean_business_name(business_name)
+        generic_words = {
+            "auto", "motors", "motor", "car", "cars", "dealer", "dealership",
+            "sdn", "bhd", "trading", "enterprise", "group", "holdings",
+            "selection", "credit", "sales", "service", "services", "malaysia"
+        }
+        words = [w for w in cleaned.split() if len(w) >= 3 and w not in generic_words]
+        if not words:
+            return True
+        for w in words:
+            if w in domain:
+                return True
+        return False
+    except Exception:
+        return True
+
+
 def calculate_score(links: dict) -> dict:
     """
     Calculates a completeness score for a business based on which links were found.
@@ -241,7 +387,7 @@ def calculate_score(links: dict) -> dict:
 
 
 def find_platform_url(name: str, city: str, platform: dict,
-                      existing_url: str = None) -> dict:
+                      existing_url: str = None, phone: str = None) -> dict:
     key     = platform["key"]
     domain  = platform["domain"]
     keyword = platform["keyword"]
@@ -262,6 +408,9 @@ def find_platform_url(name: str, city: str, platform: dict,
         log.info(f"    [website] Searching: {query}")
         for url in jina_search(query):
             if any(bad in url.lower() for bad in WEBSITE_BLACKLIST):
+                continue
+            if not validate_website_domain(url, name):
+                log.info(f"    [website] ✗ Rejected mismatched search domain: {url}")
                 continue
             log.info(f"    [website] ✓ Found: {url}")
             return {"url": url, "confidence": None}
@@ -288,15 +437,70 @@ def find_platform_url(name: str, city: str, platform: dict,
     # Instagram is now fully strict — same rules as Facebook, no exceptions
     query = f"{name} {city} {keyword}"
     log.info(f"    [{key}] Searching: {query}")
-    for url in jina_search(query):
-        if domain not in url.lower():
-            continue
-        if not is_valid_structure(url):
-            continue
-        slug       = extract_slug(url, domain)
-        confidence = slug_confidence(name, slug)
-        log.info(f"    [{key}] ✓ Found: {url} [{confidence} confidence]")
-        return {"url": url, "confidence": confidence}
+
+    is_social = key in ("facebook", "instagram", "tiktok")
+
+    if is_social:
+        for item in jina_search_detailed(query):
+            url = item["url"]
+            if domain not in url.lower():
+                continue
+            if not is_valid_structure(url):
+                continue
+            
+            # Perform profile mismatch validation
+            if not validate_social_profile(url, item["title"], item["snippet"], name, city, phone):
+                log.info(f"    [{key}] ✗ Rejected mismatched profile: {url}")
+                continue
+                
+            slug       = extract_slug(url, domain)
+            confidence = slug_confidence(name, slug)
+            
+            # Clean Jina search results to return direct profile links instead of subpages/videos/posts
+            if key == "facebook" and slug:
+                if "profile.php" in url:
+                    url_clean = url.rstrip("/")
+                    # Keep only the profile.php?id=... part if present
+                    if "id=" in url:
+                        from urllib.parse import urlparse, parse_qs
+                        try:
+                            parsed_url = urlparse(url)
+                            qs = parse_qs(parsed_url.query)
+                            pid = qs.get("id")
+                            if pid:
+                                url_clean = f"https://www.facebook.com/profile.php?id={pid[0]}"
+                        except Exception:
+                            pass
+                    url = url_clean
+                elif "/p/" in url.lower():
+                    parts = urlparse(url).path.strip("/").split("/")
+                    if len(parts) >= 2:
+                        url = f"https://www.facebook.com/p/{parts[1]}/"
+                elif "/people/" in url.lower():
+                    parts = urlparse(url).path.strip("/").split("/")
+                    if len(parts) >= 3:
+                        url = f"https://www.facebook.com/people/{parts[1]}/{parts[2]}/"
+                    elif len(parts) >= 2:
+                        url = f"https://www.facebook.com/people/{parts[1]}/"
+                else:
+                    url = f"https://www.facebook.com/{slug.replace(' ', '.')}/"
+            elif key == "instagram" and slug:
+                url = f"https://www.instagram.com/{slug.replace(' ', '.')}/"
+            elif key == "tiktok" and slug:
+                url = f"https://www.tiktok.com/@{slug.replace(' ', '.')}/"
+
+            log.info(f"    [{key}] ✓ Found: {url} [{confidence} confidence]")
+            return {"url": url, "confidence": confidence}
+    else:
+        for url in jina_search(query):
+            if domain not in url.lower():
+                continue
+            if not is_valid_structure(url):
+                continue
+            slug       = extract_slug(url, domain)
+            confidence = slug_confidence(name, slug)
+            log.info(f"    [{key}] ✓ Found: {url} [{confidence} confidence]")
+            return {"url": url, "confidence": confidence}
 
     log.info(f"    [{key}] ✗ Not found")
     return {"url": None, "confidence": None}
@@ -315,7 +519,7 @@ def enrich_business(business: dict) -> dict:
     for platform in PLATFORMS:
         key    = platform["key"]
         eu     = existing_url if key == "website" else None
-        result = find_platform_url(name, city, platform, existing_url=eu)
+        result = find_platform_url(name, city, platform, existing_url=eu, phone=business.get("phone"))
         links[key] = result
         time.sleep(SLEEP_BETWEEN)
 
